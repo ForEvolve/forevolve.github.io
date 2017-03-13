@@ -21,4 +21,4 @@ Conclusion, I use computers for a little less than 30 years, so I kind of know m
 
 My primary language is French, so if I butcher English a little, my apologies.
 
-I will update this page as soon I have find the time.
+I will update this page as soon as I find the time.
