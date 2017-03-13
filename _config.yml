@@ -1,0 +1,43 @@
+# Site settings
+title: ForEvolve
+subtitle: A piece of mind...
+header-img: img/blog-header.jpg
+#email: 
+copyright_name: Carl-Hugo Marcotte
+description: "A piece of mind"
+baseurl: ""
+url: "http://blog.forevolve.com"
+twitter_username: CarlHugoM
+github_username: ForEvolve
+facebook_username: carl.hugo.marcotte
+#email_username: 
+linkedin_username: carl-hugo-marcotte
+
+# Google Analytics
+google_tracking_id: UA-81489213-2
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-feed, jekyll-paginate] 
+
+excerpt_separator: <!--more-->
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Carl-Hugo Marcotte"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"

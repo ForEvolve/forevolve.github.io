@@ -1,0 +1,83 @@
+---
+layout: default
+---
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <main class="col-sm-12 post-content">
+                <!-- Post Header -->
+                <header class="intro-header">
+                    {% if page.post-img %}
+                    <img src="{{ site.baseurl }}/{{ page.post-img }}" alt="{{ page.title }}">
+                    {% endif %}
+                    <div class="post-heading">
+                        <h1>{{ page.title }}</h1>
+                        {% if page.subtitle %}
+                        <h2 class="subheading">{{ page.subtitle }}</h2>
+                        {% endif %}
+                        <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    </div>
+                </header>
+
+
+				<article>{{ content }}</article>
+
+                {% assign posts=site.posts | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
+                {% assign pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
+                {% assign postCount=posts | size %}
+                {% assign pageCount=pages | size %}
+                {% assign totalCount=postCount | plus:pageCount %}
+
+                {% if totalCount > 0 %}
+                <hr>
+                <nav>
+                    {% comment %}<ul class="nav navbar-nav">
+                        {% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+                        {% for post in posts %}
+                        <li>
+                            <a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a>
+                        </li>
+                        {% endfor %}
+
+                        {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
+                        {% for page in pages %}
+                        <li>
+                            <a href="{{ page.url }}" class="{{ page.lang }}">{{ page.lang }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>{% endcomment %}
+                    <div class="wrapper" style="text-align: right; line-height: 2em">
+                        {% for post in posts %} <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{{ post.lang }}</a> {% endfor %}
+                        {% for page in pages %} <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{{ page.lang }}</a> {% endfor %}
+                    </div>
+                </nav>
+                {% endif %}
+
+                <hr>
+
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
+                            &larr; Previous Post
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
+                            Next Post &rarr;
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </main>
+        </div>
+    </div>
+</article>
+
+<hr>
