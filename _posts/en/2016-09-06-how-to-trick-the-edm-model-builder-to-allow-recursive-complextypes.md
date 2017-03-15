@@ -4,6 +4,7 @@ date:  2016-09-06 -0500
 post-img: "img/2016-08-17-how-to-create-an-odata-reporting-service-in-asp-net-4-5.png"
 lang: en
 categories: en/articles
+redirect_from: "/articles/2016/09/06/how-to-trick-the-edm-model-builder-to-allow-recursive-complextypes/"
 ---
 
 Before starting, this article is built on top of [How to create an OData reporting service in ASP.NET 4.5]({{ site.baseurl }}/en/articles/2016/08/17/how-to-create-an-odata-reporting-service-in-asp-net-4-5/) but you can easily adapt it to any of your project. The code is in the same git repository as the previous article, in the `branch` [recursive-complex-type](https://github.com/Carl-Hugo/ODataService/tree/recursive-complex-type), on GitHub.

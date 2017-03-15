@@ -5,6 +5,7 @@ post-img: "img/2016-08-12-jQuery-intellisense-in-vs-code.png"
 lang: en
 ref: jquery_intellisense_vscode
 categories: en/articles
+redirect_from: "/articles/2016/08/12/how-to-add-jquery-intellisense-to-a-visual-studio-code-javascript-file/"
 ---
 
 ## Before starting

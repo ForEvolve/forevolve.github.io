@@ -5,6 +5,7 @@ post-img: "img/2016-08-04-php-with-visual-studio-code-and-xdebug.png"
 lang: fr
 ref: php_vscode_xdebug
 categories: fr/articles
+redirect_from: "/fr/articles/2016/08/04/php-with-visual-studio-code-and-xdebug/"
 ---
 
 ## Introduction

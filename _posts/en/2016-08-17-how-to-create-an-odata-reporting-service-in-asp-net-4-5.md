@@ -4,6 +4,7 @@ date:  2016-08-17 -0500
 post-img: "img/2016-08-17-how-to-create-an-odata-reporting-service-in-asp-net-4-5.png"
 lang: en
 categories: en/articles
+redirect_from: "/articles/2016/08/17/how-to-create-an-odata-reporting-service-in-asp-net-4-5/"
 ---
 
 Before starting, I will assume that:

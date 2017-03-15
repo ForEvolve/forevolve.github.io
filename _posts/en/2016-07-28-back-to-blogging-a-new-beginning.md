@@ -6,6 +6,7 @@ post-img: "img/2016-07-28-back-to-blogging-a-new-beginning.jpg"
 lang: en
 ref: beginning
 categories: en/articles
+redirect_from: "/articles/2016/07/28/back-to-blogging-a-new-beginning/"
 ---
 
 ## The past
