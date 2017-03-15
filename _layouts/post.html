@@ -2,6 +2,11 @@
 layout: default
 ---
 
+{% assign posts=site.posts | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
+{% assign pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
+{% assign postCount=posts | size %}
+{% assign pageCount=pages | size %}
+{% assign totalCount=postCount | plus:pageCount %}
 
 <!-- Post Content -->
 <article>
@@ -21,38 +26,26 @@ layout: default
                         <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
                         <a href="{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{ page.url }}"></a>
                     </div>
+
+                    {% if totalCount > 0 %}
+                    <nav>
+                        <div class="wrapper" style="text-align: right; line-height: 2em">
+                            {% for post in posts %} <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                            {% for page in pages %} <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                        </div>
+                    </nav>
+                    <hr>
+                    {% endif %}
                 </header>
 
-
 				<article>{{ content }}</article>
-
-                {% assign posts=site.posts | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
-                {% assign pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
-                {% assign postCount=posts | size %}
-                {% assign pageCount=pages | size %}
-                {% assign totalCount=postCount | plus:pageCount %}
 
                 {% if totalCount > 0 %}
                 <hr>
                 <nav>
-                    {% comment %}<ul class="nav navbar-nav">
-                        {% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
-                        {% for post in posts %}
-                        <li>
-                            <a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a>
-                        </li>
-                        {% endfor %}
-
-                        {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
-                        {% for page in pages %}
-                        <li>
-                            <a href="{{ page.url }}" class="{{ page.lang }}">{{ page.lang }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>{% endcomment %}
                     <div class="wrapper" style="text-align: right; line-height: 2em">
-                        {% for post in posts %} <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{{ post.lang }}</a> {% endfor %}
-                        {% for page in pages %} <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{{ page.lang }}</a> {% endfor %}
+                        {% for post in posts %} <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                        {% for page in pages %} <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
                     </div>
                 </nav>
                 {% endif %}
@@ -82,7 +75,7 @@ layout: default
                         <h2>Comments</h2>
                         <aside id="disqus_thread"></aside>
                         <script>
-                        var disqus_config = ForEvolve.disqus.full_config;
+                        var disqus_config = ForEvolve.disqus.config;
                         (function() { // DON'T EDIT BELOW THIS LINE
                             var d = document, s = d.createElement('script');
                             s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
