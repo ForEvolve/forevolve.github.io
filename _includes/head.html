@@ -47,9 +47,31 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<!-- 
-    { % feed_meta % }
 
--->
+    {% feed_meta %}
 
+    <script>
+    var ForEvolve = (function(window, undefined){
+        var f = {
+            isLocal: window.location.hostname === 'localhost',
+            disqus: {
+                full_config: {
+                    page: {
+                        url: "{{ page.url }}",  // Replace PAGE_URL with your page's canonical URL variable
+                        identifier: "{{ page.url }}", // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        title: "{{ page.title }}"
+                    },
+                    language: "{{ page.culture }}"
+                },
+                count_config: {
+                    language: "{{ page.culture }}"                    
+                }
+            }
+        };
+        if(f.isLocal) {
+            window.disqus_developer = 1;
+        }
+        return f;
+    }(window));
+    </script>
 </head>

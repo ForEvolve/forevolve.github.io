@@ -1,5 +1,10 @@
+{% assign page.culture=site.default_lang %}
+{% if page.categories == "fr/articles" %}
+    {% assign page.culture="fr" %}
+{% endif %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.culture }}">
 
 {% include head.html %}
 
@@ -28,6 +33,21 @@
 
     {% include ga.html %}
 
+
+    {% if site.comments %}
+        {% unless page.comments == false %}
+            <script type="text/javascript">
+            var disqus_config = ForEvolve.disqus.count_config;
+            (function () {
+                var s = document.createElement('script'); 
+                s.async = true;
+                s.type = 'text/javascript';
+                s.src = 'http://{{ site.disqus_shortname }}.disqus.com/count.js';
+                (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+            }());
+            </script>
+        {% endunless %}
+    {% endif %}
 </body>
 
 </html>
