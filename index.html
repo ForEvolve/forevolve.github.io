@@ -9,14 +9,17 @@ description: "A piece of mind..."
             {{ post.title }}
         </h2>
         {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
         {% endif %}
     </a>
-    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+    <p class="post-meta">
+        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        <a href="{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
+    </p>
     {% if post.post-img %}
-    <p><img src="{{ site.baseurl }}/{{ post.post-img }}" alt="{{ post.title }}"></p>
+        <p><img src="{{ site.baseurl }}/{{ post.post-img }}" alt="{{ post.title }}"></p>
     {% endif %}
     <p>{{ post.excerpt }}</p>
 </div>
