@@ -1,7 +1,7 @@
 ---
 title: "Opérations Git de base en utilisant le client de GitHub"
 date:  2016-08-18 -0500
-post-img: "img/2016-08-18-operations-git-de-base-en-utilisant-le-client-de-github.png"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-08-18-operations-git-de-base-en-utilisant-le-client-de-github.png"
 lang: fr
 categories: fr/articles
 ---

@@ -1,7 +1,7 @@
 ---
 title: "PHP avec Visual Studio Code et XDebug"
 date:  2016-08-04 00:00:00 -0500
-post-img: "img/2016-08-04-php-with-visual-studio-code-and-xdebug.png"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-08-04-php-with-visual-studio-code-and-xdebug.png"
 lang: fr
 ref: php_vscode_xdebug
 categories: fr/articles

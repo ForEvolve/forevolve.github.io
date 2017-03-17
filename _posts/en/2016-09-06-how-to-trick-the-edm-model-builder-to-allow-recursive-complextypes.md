@@ -1,7 +1,7 @@
 ---
 title: "How to trick the EDM model builder to allow recursive ComplexTypes"
 date:  2016-09-06 -0500
-post-img: "img/2016-08-17-how-to-create-an-odata-reporting-service-in-asp-net-4-5.png"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-08-17-how-to-create-an-odata-reporting-service-in-asp-net-4-5.png"
 lang: en
 categories: en/articles
 redirect_from: "/articles/2016/09/06/how-to-trick-the-edm-model-builder-to-allow-recursive-complextypes/"

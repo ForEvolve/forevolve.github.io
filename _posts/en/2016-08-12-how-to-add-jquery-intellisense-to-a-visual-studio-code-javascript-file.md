@@ -1,7 +1,7 @@
 ---
 title: "How to add jQuery Intellisense to a Visual Studio Code JavaScript file"
 date:  2016-08-12 -0500
-post-img: "img/2016-08-12-jQuery-intellisense-in-vs-code.png"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-08-12-jQuery-intellisense-in-vs-code.png"
 lang: en
 ref: jquery_intellisense_vscode
 categories: en/articles
