@@ -50,20 +50,20 @@ Its pretty straight forward, you download the installer, click next, next, next 
 
 ### Configuration
 Now that MAMP is installed, lets open it. It is a nice clean and minimalist window with a few options in it: Preference, Open start page and Start Servers.
-<img class="alignnone size-medium wp-image-85" src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_01-300x202.png" alt="WAMP" width="300" height="202" />
+<img src="//cdn.forevolve.com/blog/images/2016/MAMP_01.png" alt="WAMP" />
 
 If you see the following error message, don't worry you can easily change the port number by configuring MAMP.
-<img class="alignnone size-medium wp-image-86" src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_02-300x103.png" alt="WAMP port alert" width="300" height="103" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_02-300x103.png" alt="WAMP port alert" />
 
 As we are heading toward configuring our environment, lets click the **Preferences...** button.
 
 #### Start/Stop
 In this tab, there is some basic options, that are pretty self-explanatory.
-<img class="alignnone size-medium wp-image-83" src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_03-300x204.png" alt="WAMP Preferences" width="300" height="204" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_03-300x204.png" alt="WAMP Preferences" />
 
 #### Ports
 This is the tab to use to change port numbers.
-<img class="alignnone size-medium wp-image-84" src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_04-300x204.png" alt="WAMP Preferences ports" width="300" height="204" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_04-300x204.png" alt="WAMP Preferences ports" />
 
 Due to a conflict with IIS Express, I need to change my Apache port to 8080. Skype also cause conflict some times, so if you have Skype installed, that might be the cause of the problem. If MAMP did not alert you of a port conflict, you don't need to change anything so you can skip this part.
 
@@ -77,11 +77,11 @@ After updating MAMP Apache port number, I found out that I also needed to update
 
 #### PHP
 We wont use PHP 7, so I will change the version to 5.6.21.
-<img class="alignnone size-medium wp-image-92" src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_05-300x205.png" alt="WAMP Preferences PHP" width="300" height="205" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_05-300x205.png" alt="WAMP Preferences PHP" />
 
 #### Web Server
 We wont touch this.
-<img class="alignnone size-medium wp-image-93" src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_06-300x206.png" alt="MAMP Preferences Web Server" width="300" height="206" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_06-300x206.png" alt="MAMP Preferences Web Server" />
 
 ### Testing our installation
 Back on the main window, if we click "Open start page" it should open the start page. I love when software's are that self-explanatory!
@@ -90,13 +90,13 @@ Back on the main window, if we click "Open start page" it should open the start 
 
 From this Web page, we have access to phpMyAdmin and to the `phpinfo`.
 
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_07-300x211.png" alt="MAMP Start page" width="300" height="211" class="alignnone size-medium wp-image-115" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/MAMP_07-300x211.png" alt="MAMP Start page" />
 
 ## Setting up Visual Studio Code
 
 Now that we have MAMP up and running, lets install our code editor. First head to https://www.visualstudio.com/ and download "Code". Make sure you pick **Code**, not Visual Studio Community, that is a totally different product.
 
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-Download-284x300.png" alt="VSCode - Download" width="284" height="300" class="alignnone size-medium wp-image-117" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-Download-284x300.png" alt="VSCode - Download" />
 
 Run the installer, again its a pretty straight forward installation.
 
@@ -105,7 +105,7 @@ Now that we have installed our code editor, we will need to install the followin
 * PHP Debug (it will allow us connect Code with XDebug)
 
 Since June update there is a plugin "tab" with a search box.
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-Plugins-300x223.png" alt="VSCode - Plugins" width="300" height="223" class="alignnone size-medium wp-image-118" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-Plugins-300x223.png" alt="VSCode - Plugins" />
 *The small number (3 in the screenshot) is the number of plugins that have available updates.*
 
 1. Search for the plugin you want (in our case, just search for "php")
@@ -124,7 +124,7 @@ Lets create our PHP project.
 *See [The Basics of Visual Studio Code](https://code.visualstudio.com/docs/editor/codebasics) for more info about Visual Studio Code.*
 
 This is my project structure (i choose this directory structure to show you how to start the PHP server within a sub-directory):
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-project2.png" alt="VSCode - project2" width="280" height="184" class="alignnone size-full wp-image-128" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-project2.png" alt="VSCode - project2" />
 
 In my `index.php`, I've added basic Bootstrap 3 template code, but that doesn't really matter. Here is my code (from the `Bootstrap 3 Snippets` VS Code plugin):
 ```HTML
@@ -164,7 +164,7 @@ Now that we have an opened folder and a PHP page that we want to see in a browse
 We will first tell Code about our PHP installation. Code will use the default PHP linter `php.exe -l` to validate our code and to underline errors. By default, the validation happen on file save but you could configure it to happen when typing.
 
 To do that, we need to alter our configuration. I decided to go for "User settings", this way it will be done for all of my projects. It is also possible to have different settings per project, but lets just focus on **User settings** for now.
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-Settings2-263x300.png" alt="VSCode Settings" width="263" height="300" class="alignnone size-medium wp-image-129" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-Settings2-263x300.png" alt="VSCode Settings" />
 
 *Settings, in Code, use the JSON format which is flexible and easy to manage (and human readable).*
 
@@ -183,7 +183,7 @@ By default, the "PATH TO MAMP" is `c:\mamp`. The full path to `php.exe` should l
 
 ### Opening a console
 To start our server, we will need a console. To do that, go to **View > Integrated terminal**.
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-console-140x300.png" alt="VSCode - console" width="140" height="300" class="alignnone size-medium wp-image-120" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-console-140x300.png" alt="VSCode - console" />
 *You can even have multiple consoles open at the same time.*
 
 #### Copy/paste
@@ -196,7 +196,7 @@ In the console, we will tell PHP to start a development server in our `www` sub 
 ```
 PATH TO MAMP\bin\php\php5.6.21\php.exe -S localhost:8000 -t src/www
 ```
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-project2.png" alt="VSCode - project2" width="280" height="184" class="alignnone size-full wp-image-128" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-project2.png" alt="VSCode - project2" />
 
 If you visit `http://localhost:8000/` in a browser, you should see the content of your `index.php` file.
 
@@ -208,7 +208,7 @@ For a folder without sub-directories, where `index.php` is at the root (see scre
 ```
 PATH TO MAMP\bin\php\php5.6.21\php.exe -S localhost:8000
 ```
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-sinple-project.png" alt="VSCode - simple project" width="274" height="111" class="alignnone size-full wp-image-131" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-sinple-project.png" alt="VSCode - simple project" />
 
 
 ## Setting up XDebug
@@ -216,7 +216,7 @@ Now that we have everything setup, lets connect XDebug to Code.
 
 ### Lets write some PHP and create a breakpoint
 Lets add a bit of PHP in our `index.php` file (we need something to test our connection):
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-some-php.png" alt="VSCode - some php" width="261" height="150" class="alignnone size-full wp-image-135" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-some-php.png" alt="VSCode - some php" />
 
 * To create a **breakpoint**, click in the margin. 
 * To remove it, click the breakpoint again.
@@ -230,7 +230,7 @@ Lets go to our PHP installation directory: `PATH TO MAMP\\bin\\php\\php5.6.21\\`
 As you can see MAMP does not create the `php.ini` file but instead it created two templates: `php.ini-development` and `php.ini-production`. To create our `php.ini` file, lets duplicate the `php.ini-development` file and rename the copy `php.ini`.
 
 Your PHP directory should now look like this:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/PHP-ini.png" alt="PHP - ini" width="619" height="163" class="alignnone size-full wp-image-136" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/PHP-ini.png" alt="PHP - ini" />
 
 #### Inside the php.ini file
 In this file you can control how PHP does things. I wont go deep into it, but if you are interested, you can easily find tons of info by googling a bit.
@@ -252,7 +252,7 @@ To start debugging in Code, you will need to add some commands somewhere. That s
 1. In the command menu, choose PHP and it will create a `launch.json` file in a `.vscode` directory.
 1. Click the green "play" button again to "Listen for XDebug"
 
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-debug.png" alt="VSCode - debug" width="959" height="272" class="alignnone size-full wp-image-134" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-debug.png" alt="VSCode - debug" />
 
 Your `launch.json` file should look like this:
 ```JSON
@@ -284,7 +284,7 @@ Example: `http://localhost:8000/?XDEBUG_SESSION_START`
 
 If you try it, your code should break in Code at line 2 of your `index.php` file.
 
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-debug-breakopint.png" alt="VSCode - debug - breakopint" width="856" height="147" class="alignnone size-full wp-image-137" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/VSCode-debug-breakopint.png" alt="VSCode - debug - breakopint" />
 
 *For more info on XDebug, you can take a look at [their website](https://xdebug.org/) or at [Debugging and Profiling PHP with Xdebug](https://www.sitepoint.com/debugging-and-profiling-php-with-xdebug/).*
 
@@ -292,7 +292,7 @@ If you try it, your code should break in Code at line 2 of your `index.php` file
 If you are like me and don't like to remember those kind of things and that don't want to bother about navigation and all that stuff, you will find the following Chrome extension very handy: [xdebug-helper](https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc/related?hl=en).
 
 It add a little "bug" icon. When you click on it, it shows you a few options including "Debug" (which start a debugging session) and "Disable" (which end the debugging session).
-<img src="http://www.forevolve.com/wp-content/uploads/2016/07/Chrome-XDebug-extension.png" alt="Chrome XDebug extension" width="153" height="211" class="alignnone size-full wp-image-142" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/07/Chrome-XDebug-extension.png" alt="Chrome XDebug extension" />
 
 *There is multiple ways to start an XDebug session, the plugin use cookies instead of querystrings.*
 

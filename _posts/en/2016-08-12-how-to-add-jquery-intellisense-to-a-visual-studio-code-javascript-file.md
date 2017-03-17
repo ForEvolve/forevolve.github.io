@@ -29,10 +29,10 @@ After the installation, open a console (`cmd` for Windows users) and type `npm`.
 Now that Node.js and NPM are installed, lets create a Visual Studio Code `folder`. I created my project there at `F:\Repos\BlogPost\jquery-intellisense`.
 
 **Here is my project structure:**
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-project-structure.png" alt="vs-code-jquery-project-structure" width="270" height="104" class="alignnone size-full wp-image-253" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-project-structure.png" alt="vs-code-jquery-project-structure" />
 
 In my `index.html` file I used the **Bootstrap 3 Snippets** extension to create the basic layout (`bs3-template:html5` snippet). I changed the linked jQuery file to the version 3.1.0 and I also included the `integrity` and `crossorigin` attributes to my `script` tag. 
-<a href="https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets" target="_blank"><img src="http://www.forevolve.com/wp-content/uploads/2016/08/bs-3-snippets-vs-code-extension.png" alt="bs-3-snippets-vs-code-extension" width="637" height="169" class="alignnone size-full wp-image-254" /></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets" target="_blank"><img src="http://www.forevolve.com/wp-content/uploads/2016/08/bs-3-snippets-vs-code-extension.png" alt="bs-3-snippets-vs-code-extension" /></a>
 
 **Here is the full `index.html` file:**
 {% highlight html %}
@@ -83,7 +83,7 @@ npm install tsd -g
 
 #### Installing the jQuery TypeScript type definitions file
 Once this is done, open a new console (or use the same one), but this time, make sure that you are in your project `folder`.
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-terminal.png" alt="vs-code-jquery-terminal" width="443" height="137" class="alignnone size-full wp-image-255" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-terminal.png" alt="vs-code-jquery-terminal" />
 
 Type the following command:
 ```
@@ -92,13 +92,13 @@ tsd install jquery --save
 *This will install the TypeScript type definitions file we are looking for.*
 
 Your project structure should now look like this:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-project-structure-2.png" alt="vs-code-jquery-project-structure-2" width="269" height="208" class="alignnone size-full wp-image-256" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-project-structure-2.png" alt="vs-code-jquery-project-structure-2" />
 
 #### Use the definition file(s)
 Lets open our `app.js` file. If you type `$` there is still nothing. To enable jQuery IntelliSense, we need to add a `///` reference instruction to our JavaScript file.
 
 For some reasons, VS Code does not update after you type the `path`so if you are stuck with an error like the following, reopen the file and it should fix it.
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-error.png" alt="vs-code-jquery-intellisense-error" width="408" height="85" class="alignnone size-full wp-image-257" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-error.png" alt="vs-code-jquery-intellisense-error" />
 
 Here is the copyable snippet:
 ```JavaScript
@@ -109,8 +109,8 @@ Here is the copyable snippet:
 If you open the `tsd.d.ts` file you will see a reference to `jquery/jquery.d.ts` which is our jQuery type definitions file (the file we "installed" earlier). So, by linking the `tsd.d.ts` in our JavaScript files, it allows us to include all our loaded type definitions files at  once (we only have jQuery for now, but who knows the future ;) ).
 
 Back to our `app.js` file, we now have full jQuery IntelliSense:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-3.png" alt="vs-code-jquery-intellisense-3" width="522" height="347" class="alignnone size-full wp-image-267" />
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-2.png" alt="vs-code-jquery-intellisense-2" width="263" height="242" class="alignnone size-full wp-image-258" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-3.png" alt="vs-code-jquery-intellisense-3" />
+<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-2.png" alt="vs-code-jquery-intellisense-2" />
 
 ## What to do in your next project
 Now that we have everything setup and working, the only thing you need to do in your next project is to [Install the jQuery TypeScript type definitions file](#installing-the-jquery-typescript-type-definitions-file) and `reference` it in your JavaScript files, as explained in the [Use the definition file(s)](#use-the-definition-files) section.
