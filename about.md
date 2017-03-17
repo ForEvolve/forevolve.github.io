@@ -2,7 +2,7 @@
 layout: page
 title: "About"
 description: "A quick overview of what I do."
-header-img: "img/bg-drone.jpg"
+header-img: "//cdn.forevolve.com/blog/images/pages-header/about-header-drone.jpg"
 ---
 
 I am a Web developer; my preferred technologies are C#, ASP.NET and .NET Core. 
