@@ -15,42 +15,42 @@ categories: fr/articles
 
 ### Comment `clone` un repo git GitHub
 #### Choix du repo que vous voulez `clone`
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-6.png" alt="Git-GiHub-Branch-6" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-6.png" alt="Git-GiHub-Branch-6" />
 
 #### Choisir le dossier
 Choisir un dossier où sauvegarder les fichiers, exemple: `C:\Repositories\`.
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-14.png" alt="Git-GiHub-Branch-14" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-14.png" alt="Git-GiHub-Branch-14" />
 
 ### Comment changer de `branch`
 #### Sélectionner un repo existant
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-8.png" alt="Git-GiHub-Branch-8" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-8.png" alt="Git-GiHub-Branch-8" />
 
 #### Choisir une `branch`
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-1.png" alt="Git-GiHub-Branch-1" />
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-2.png" alt="Git-GiHub-Branch-2" />
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-3.png" alt="Git-GiHub-Branch-3" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-1.png" alt="Git-GiHub-Branch-1" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-2.png" alt="Git-GiHub-Branch-2" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-3.png" alt="Git-GiHub-Branch-3" />
 
 Le contenu du dossier contient maintenant le code de cette `branch`, vous pouvez donc ouvrir le projet dans l'éditeur de code de votre choix.
 
 ### Voir l'historique des modifications <small>liste des `commit`s</small>
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-15.png" alt="Git-GiHub-Branch-15" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-15.png" alt="Git-GiHub-Branch-15" />
 
 ### `commit` ses changements
 Assurez-vous de [sélectionner un repo existant](#selectionner-un-repo-existant), ensuite:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-9.png" alt="Git-GiHub-Branch-9" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-9.png" alt="Git-GiHub-Branch-9" />
 
 ### `push` et `pull`
 Le bouton *sync* fait le `push` et le `pull`:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-10.png" alt="Git-GiHub-Branch-10" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-10.png" alt="Git-GiHub-Branch-10" />
 
 ### L'état de la synchronisation
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-11.png" alt="Git-GiHub-Branch-11" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-11.png" alt="Git-GiHub-Branch-11" />
 * En vert: les `commit`s sur GitHub
 * En orange: les `commit`s locaux
 * En rouge: la copie de travail (l'état actuel des fichiers)
 
 **Exemple, après notre `sync`:**
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-12.png" alt="Git-GiHub-Branch-12" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-12.png" alt="Git-GiHub-Branch-12" />
 
 *Les `commit`s locaux ont été "publiés" en ligne (`push`). S'il y avait eu des `commit`s distants, ils auraient été "téléchargés" (`pull`).* 
 
@@ -58,16 +58,16 @@ Le bouton *sync* fait le `push` et le `pull`:
 Lors d'un `commit`, le client GitHub offre un identificateur visuel pour chaque fichier
 
 **Nouveau fichier:**
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Screenshot_15.png" alt="Screenshot_15" />
+<img src="//cdn.forevolve.com/blog/images/2016/Screenshot_15.png" alt="Screenshot_15" />
 
 **Fichier modifié:**
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Screenshot_16.png" alt="Screenshot_16" />
+<img src="//cdn.forevolve.com/blog/images/2016/Screenshot_16.png" alt="Screenshot_16" />
 
 **Fichier supprimé:**
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Screenshot_17.png" alt="Screenshot_17" />
+<img src="//cdn.forevolve.com/blog/images/2016/Screenshot_17.png" alt="Screenshot_17" />
 
 **Par exemple:**
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Git-GiHub-Branch-13.png" alt="Git-GiHub-Branch-13" />
+<img src="//cdn.forevolve.com/blog/images/2016/Git-GiHub-Branch-13.png" alt="Git-GiHub-Branch-13" />
 
 ## C'est la fin
 Si vous avez des idées ou des commentaires, n'hésitez pas.
