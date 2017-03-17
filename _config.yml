@@ -1,7 +1,7 @@
 # Site settings
 title: ForEvolve
 subtitle: A piece of mind...
-header-img: img/blog-header.jpg
+header-img: //cdn.forevolve.com/blog/images/pages-header/default-header.jpg
 #email: 
 copyright_name: Carl-Hugo Marcotte
 description: "A piece of mind"
@@ -30,7 +30,7 @@ permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-gems: [jekyll-feed, jekyll-paginate] 
+gems: [jekyll-feed, jekyll-paginate, jekyll-redirect-from] 
 
 excerpt_separator: <!--more-->
 

@@ -2,10 +2,11 @@
 title:  "Back to blogging a new beginning"
 # subtitle:   "A subtitle could be fun :)"
 date:   2016-07-28 00:00:00 -0500
-post-img: "img/2016-07-28-back-to-blogging-a-new-beginning.jpg"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-07-28-back-to-blogging-a-new-beginning.jpg"
 lang: en
 ref: beginning
 categories: en/articles
+redirect_from: "/articles/2016/07/28/back-to-blogging-a-new-beginning/"
 ---
 
 ## The past

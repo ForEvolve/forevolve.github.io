@@ -1,10 +1,11 @@
 ---
 title: "Comment ajouter l'IntelliSense pour jQuery dans un fichier JavaScript - Visual Studio Code"
 date:  2016-08-12 00:00:00 -0500
-post-img: "img/2016-08-12-jQuery-intellisense-in-vs-code.png"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-08-12-jQuery-intellisense-in-vs-code.png"
 lang: fr
 ref: jquery_intellisense_vscode
 categories: fr/articles
+redirect_from: "/fr/articles/2016/08/12/how-to-add-jquery-intellisense-to-a-visual-studio-code-javascript-file/"
 ---
 
 ## Avant propos
@@ -26,12 +27,12 @@ Maintenant que nous avons `node.js` et `npm` installé, créons un projet afin d
 Dans Visual Studio Code j'ai créé mon `folder` sous `F:\Repos\BlogPost\jquery-intellisense`.
 
 **Voici ma structure de projet:**
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-project-structure.png" alt="vs-code-jquery-project-structure" width="270" height="104" class="alignnone size-full wp-image-253" />
+<img src="//cdn.forevolve.com/blog/images/2016/vs-code-jquery-project-structure.png" alt="vs-code-jquery-project-structure" />
 
 Dans mon fichier `index.html`, j'ai utilisé l'extension **Bootstrap 3 Snippets** afin de créer mon "layout" de base (avec le snippet `bs3-template:html5`). 
 J'ai modifié le lien vers jQuery pour y inclure la version 3.1.0 et j'ai également ajouté les attributs `integrity` et `crossorigin` sur la balise `script`.
 
-<a href="https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets" target="_blank"><img src="http://www.forevolve.com/wp-content/uploads/2016/08/bs-3-snippets-vs-code-extension.png" alt="bs-3-snippets-vs-code-extension" width="637" height="169" class="alignnone size-full wp-image-254" /></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets" target="_blank"><img src="//cdn.forevolve.com/blog/images/2016/bs-3-snippets-vs-code-extension.png" alt="bs-3-snippets-vs-code-extension" /></a>
 
 **Voici le contenu de mon fichier `index.html`:**
 {% highlight html %}
@@ -82,7 +83,7 @@ npm install tsd -g
 
 #### Installation du fichier de définition de type de jQuery
 Dans votre console, assurez-vous d'être situé à la racine de votre `folder` (vous pouvez utiliser le terminal de VS Code).
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-terminal.png" alt="vs-code-jquery-terminal" width="443" height="137" class="alignnone size-full wp-image-255" />
+<img src="//cdn.forevolve.com/blog/images/2016/vs-code-jquery-terminal.png" alt="vs-code-jquery-terminal" />
 
 Entrez la commande suivante:
 ```
@@ -91,13 +92,13 @@ tsd install jquery --save
 *Cette commande installe le fichier de définition de type de jQuery que nous recherchons.*
 
 La structure de votre projet devrait maintenant ressembler à ça:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-project-structure-2.png" alt="vs-code-jquery-project-structure-2" width="269" height="208" class="alignnone size-full wp-image-256" />
+<img src="//cdn.forevolve.com/blog/images/2016/vs-code-jquery-project-structure-2.png" alt="vs-code-jquery-project-structure-2" />
 
 #### Utilisation du fichier de définition de type
 Ouvrez votre fichier `app.js`. Si vous tapez `$`, rien ne se passe. Pour activer l'IntelliSense de jQuery, nous devons ajouter une référence `///` à notre fichier JavaScript.
 
 VS Code ne se met pas toujours à jour après la configuration de l'attribut `path`, alors si vous voyez l'erreur suivante, rouvrez votre fichier et tout devrait être réglé.
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-error.png" alt="vs-code-jquery-intellisense-error" width="408" height="85" class="alignnone size-full wp-image-257" />
+<img src="//cdn.forevolve.com/blog/images/2016/vs-code-jquery-intellisense-error.png" alt="vs-code-jquery-intellisense-error" />
 
 Voici le snippet:
 ```JavaScript
@@ -108,8 +109,8 @@ Voici le snippet:
 Si vous ouvrez le fichier `tsd.d.ts` vous allez voir qu'à l'intérieur, il n'y a qu'une référence vers `jquery/jquery.d.ts` (notre fichier de définition de type de jQuery). Donc, en liant le fichier `tsd.d.ts` dans un fichier JavaScript, nous ajoutons l'IntelliSense de tous les fichiers de définition de type que nous avons chargés.
 
 De retour dans notre fichier `app.js` nous avons maintenant l'IntelliSense pour jQuery:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-3.png" alt="vs-code-jquery-intellisense-3" width="522" height="347" class="alignnone size-full wp-image-267" />
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/vs-code-jquery-intellisense-2.png" alt="vs-code-jquery-intellisense-2" width="263" height="242" class="alignnone size-full wp-image-258" />
+<img src="//cdn.forevolve.com/blog/images/2016/vs-code-jquery-intellisense-3.png" alt="vs-code-jquery-intellisense-3" />
+<img src="//cdn.forevolve.com/blog/images/2016/vs-code-jquery-intellisense-2.png" alt="vs-code-jquery-intellisense-2" />
 
 ## Que faire dans nos prochains projets
 Maintenant que nous avons tout installé et configuré, nous n'aurons qu'à exécuter les deux petites étapes suivantes le prochain coup:

@@ -1,9 +1,10 @@
 ---
 title: "How to create an OData reporting service in ASP.NET 4.5"
 date:  2016-08-17 -0500
-post-img: "img/2016-08-17-how-to-create-an-odata-reporting-service-in-asp-net-4-5.png"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-08-17-how-to-create-an-odata-reporting-service-in-asp-net-4-5.png"
 lang: en
 categories: en/articles
+redirect_from: "/articles/2016/08/17/how-to-create-an-odata-reporting-service-in-asp-net-4-5/"
 ---
 
 Before starting, I will assume that:
@@ -23,7 +24,7 @@ What we will do is:
 <!--more-->
 ## The project
 First, we need a project to work in. If you already have a project that you want to add OData support to, feel free to use it. For the sake of the current article, i will create a new ASP.NET WebApi project using .NET 4.5.2:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Visual-Studio-Create-WebApi-project.png" alt="Visual Studio Create WebApi project" width="785" height="611" class="alignnone size-full wp-image-283" />
+<img src="//cdn.forevolve.com/blog/images/2016/Visual-Studio-Create-WebApi-project.png" alt="Visual Studio Create WebApi project" />
 
 ## Installing dependencies
 Now that we have a project to work in, we need 2 packages, `Microsoft.AspNet.OData` and `Microsoft.AspNet.WebApi`. Since we based our project on the WebApi template we dont need `Microsoft.AspNet.WebApi` but, if you started with an existing ASP.NET MVC project you will need to install both packages.
@@ -237,17 +238,17 @@ namespace ODataService
 Before going further, lets try this up by starting our project (`ctrl+F5`, `F5`, `ctrl+shift+B` or click the little green play button).
 
 By navigating to `/odata`, you should see something like this:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/OData-1.png" alt="OData" width="479" height="229" class="alignnone size-full wp-image-285" />
+<img src="//cdn.forevolve.com/blog/images/2016/OData-1.png" alt="OData" />
 
 *I use the [JSON Formatter](https://github.com/callumlocke/json-formatter) Chrome plugin to format my JSON.*
 
 This is our "OData entry point", it describe what services are available as well as our Model (navigate to `/odata/$metadata`).
 
 By navigating to `/odata/MyODataModel`, you should see something similar to this:
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/OData-2.png" alt="OData" width="585" height="860" class="alignnone size-full wp-image-286" />
+<img src="//cdn.forevolve.com/blog/images/2016/OData-2.png" alt="OData" />
 
 By navigating to `/odata/MyODataModel(5)`, where 5 is the `key` parameter, you should see something similar to this:
-<img src="http://www.forevolve.comhttp://www.forevolve.com/wp-content/uploads/2016/08/OData-3.png" alt="OData-3" width="642" height="135" class="alignnone size-full wp-image-290" />
+<img src="//cdn.forevolve.com/blog/images/2016/OData-3.png" alt="OData-3" />
 
 ## Explanations
 ### Controller
@@ -331,20 +332,20 @@ We can now connect our queryable OData service to Excel or to another client. It
 In a new Excel 2016 document.
 
 #### 1. Create a datasource
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Excel-OData-new-datasource.png" alt="Excel-OData-new-datasource" width="462" height="449" class="alignnone size-full wp-image-293" />
+<img src="//cdn.forevolve.com/blog/images/2016/Excel-OData-new-datasource.png" alt="Excel-OData-new-datasource" />
 
 #### 2. Paste the OData service URL
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Excel-OData-new-datasource-2.png" alt="Excel-OData-new-datasource-2" width="750" height="291" class="alignnone size-full wp-image-294" />
+<img src="//cdn.forevolve.com/blog/images/2016/Excel-OData-new-datasource-2.png" alt="Excel-OData-new-datasource-2" />
 
 #### 3. Play with the Query Editor
 Play with the Query Editor...
 
 #### 4. Close & Load
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Excel-OData-new-datasource-3.png" alt="Excel-OData-new-datasource-3" width="282" height="425" class="alignnone size-full wp-image-295" />
+<img src="//cdn.forevolve.com/blog/images/2016/Excel-OData-new-datasource-3.png" alt="Excel-OData-new-datasource-3" />
 
 #### And voila!
 We now have a data table in our spreadsheet that we can refresh. We can even edit the query, remove columns, filter the set, change the data source, etc.
-<img src="http://www.forevolve.com/wp-content/uploads/2016/08/Excel-OData-new-datasource-4.png" alt="Excel-OData-new-datasource-4" width="549" height="359" class="alignnone size-full wp-image-296" />
+<img src="//cdn.forevolve.com/blog/images/2016/Excel-OData-new-datasource-4.png" alt="Excel-OData-new-datasource-4" />
 
 ## Next step
 Now that we are all set, you only have to replace your static code with a database.
