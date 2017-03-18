@@ -1,15 +1,15 @@
-{% assign page.culture=site.default_lang %}
-{% if page.categories == "fr/articles" %}
-    {% assign page.culture="fr" %}
+{% assign pageCulture=site.default_lang %}
+{% if page.categories %}
+    {% if page.categories[0] == "fr/articles" %}
+        {% assign pageCulture="fr" %}
+    {% endif %}
 {% endif %}
-
 <!DOCTYPE html>
-<html lang="{{ page.culture }}">
+<html lang="{{ pageCulture }}">
 
-{% include head.html %}
+{% include head.html culture=pageCulture %}
 
-<body>
-
+<body data-whatever="{% if page.categories == "fr/articles" %}true{% else %}false{% endif %}" data-categories="{{ page.categories }}">
     {% include nav.html %}
 
     <!-- Page Header -->
@@ -40,5 +40,4 @@
         {% endunless %}
     {% endif %}
 </body>
-
 </html>
