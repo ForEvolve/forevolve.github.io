@@ -16,8 +16,8 @@
     <meta name="twitter:site" content="@{{ site.twitter_username }}" />
     <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endif %}" />
 
-    <meta property="og:image" content="{% if page.post-img %}{{ page.post-img }}{% else %}{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}{% endif %}" />
-    <meta name="twitter:image" content="{% if page.post-img %}{{ page.post-img }}{% else %}{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}{% endif %}" />
+    <meta property="og:image" content="http:{% if page.post-img %}{{ page.post-img }}{% else %}{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}{% endif %}" />
+    <meta name="twitter:image" content="http:{% if page.post-img %}{{ page.post-img }}{% else %}{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}{% endif %}" />
 
     {% if page.layout == "post" %}
         <meta property="og:type" content="article" />
