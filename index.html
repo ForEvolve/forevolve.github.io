@@ -22,6 +22,9 @@ description: "A piece of mind..."
         <p><img src="{{ site.baseurl }}/{{ post.post-img }}" alt="{{ post.title }}"></p>
     {% endif %}
     <p>{{ post.excerpt }}</p>
+    <div class="post-readmore">
+        <a href="{{ post.url }}" title="" data-toggle="tooltip" data-placement="top" data-original-title="{{ post.title | replace: '"', '' }}">Continue reading...</a>
+    </div>
 </div>
 <hr>
 {% endfor %}

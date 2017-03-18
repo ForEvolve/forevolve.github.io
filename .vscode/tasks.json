@@ -4,6 +4,8 @@
     "version": "0.1.0",
     "command": "grunt",
     "isShellCommand": true,
-    "args": ["--no-color"],
+    "args": [
+        "--no-color"
+    ],
     "showOutput": "always"
 }
