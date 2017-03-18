@@ -400,7 +400,7 @@ body {
 }
 .intro-header .site-heading h1 {
   color: transparent;
-  background: url(http://www.forevolve.com/wp-content/uploads/2016/07/ForEvolve-logo-only-dark.png) no-repeat center center;
+  background: url(//cdn.forevolve.com/blog/images/ForEvolve-logo-only-dark.png) no-repeat center center;
   line-height: 77px;
   min-height: 77px;
   display: block;
@@ -436,6 +436,36 @@ body {
 .post-preview img {
   width: 100%;
 }
+.post-preview .post-readmore {
+  margin: 1em 0;
+  text-align: right;
+}
+.post-preview .post-readmore a {
+  display: inline-block;
+  color: #FFFFFF;
+  font-size: 1em;
+  padding: 0.5em 2em;
+  background: #007f00;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.post-preview .post-readmore a:hover {
+  background: #009900;
+}
 ol ol {
   list-style: lower-alpha;
+}
+.navbar-brand span:first-child {
+  color: #000;
+}
+.navbar-brand span:last-child {
+  color: #007f00;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+}
+.navbar-brand:hover span:first-child {
+  color: #262626;
+}
+.navbar-brand:hover span:last-child {
+  color: #008900;
 }

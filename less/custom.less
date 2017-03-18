@@ -5,7 +5,7 @@
 
     h1 {
         color: transparent;
-        background: url(//cdn.forevolve.com/blog/images/ForEvolve-logo-dark.png) no-repeat center center;
+        background: url(//cdn.forevolve.com/blog/images/ForEvolve-logo-only-dark.png) no-repeat center center;
         line-height: 77px;
         min-height: 77px;
         display: block;
@@ -55,9 +55,30 @@
     }
 }
 
+
 .post-preview {
     img {
         width: 100%;
+    }
+
+    .post-readmore {
+        margin: 1em 0;
+        text-align: right;
+
+        a {
+            display: inline-block;
+            color: #FFFFFF;
+            font-size: 1em;
+            padding: 0.5em 2em;
+            background: @brand-primary;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+            &:hover {
+                background: lighten(@brand-primary, 5%);
+            }
+        }
     }
 }
 
@@ -69,4 +90,24 @@ ol {
 
 #disqus_thread > iframe:first-child {
 
+}
+
+.navbar-brand {
+    span:first-child {
+        color: #000;
+        //text-shadow: 1px 1px @brand-primary;        
+    }
+    span:last-child {
+        color: @brand-primary;
+        text-shadow: 1px 1px rgba(0,0,0,0.75);        
+    }
+
+    &:hover {
+        span:first-child {
+            color: lighten(#000, 15%);
+        }
+        span:last-child {
+            color: lighten(@brand-primary, 2%);
+        }
+    }
 }
