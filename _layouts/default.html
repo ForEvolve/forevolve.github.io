@@ -4,10 +4,14 @@
         {% assign pageCulture="fr" %}
     {% endif %}
 {% endif %}
+{% assign ogCulture="en_CA" %}
+{% if pageCulture == "fr" %}
+    {% assign ogCulture="fr_CA" %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="{{ pageCulture }}">
 
-{% include head.html culture=pageCulture %}
+{% include head.html culture=pageCulture fbCulture=ogCulture %}
 
 <body>
     {% include nav.html %}
