@@ -23,9 +23,9 @@
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content="{{ page.date }}" />
         {% comment %}<!-- Here my author and publisher tags are the same (yay self-publishing) -->{% endcomment %}
-        <meta property="article:author" content="http://facebook.com/{{ facebook_username }}" />
+        <meta property="article:author" content="http://facebook.com/{{ site.facebook_username }}" />
         {% comment %}<!-- But if your site has its own page, this is where to put it. -->{% endcomment %}
-        <meta property="article:publisher" content="https://www.facebook.com/{{ facebook_username }}" />
+        <meta property="article:publisher" content="https://www.facebook.com/{{ site.facebook_username }}" />
         {% comment %}<!-- Article section isn't a required property, but it can be good to have -->{% endcomment %}
         <meta property="article:section" content="{{page.vertical}}" />   
 
