@@ -18,7 +18,7 @@ hide-page-header: true
     </a>
     <p class="post-meta">
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-        <a href="{{ site.baseurl }}/{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
+        {% comment %}<a href="{{ site.baseurl }}/{{ post.url }}" data-disqus-identifier="{{ post.url }}"></a>{% endcomment %}
     </p>
     {% if post.post-img %}
         <p><img src="{{ site.baseurl }}/{{ post.post-img }}" alt="{{ post.title }}"></p>
