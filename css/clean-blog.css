@@ -1,3 +1,9 @@
+/*!
+ * Clean Blog v1.0.0 (http://startbootstrap.com)
+ * Copyright 2017 Start Bootstrap
+ * Licensed under MIT (https://spdx.org/licenses/MIT)
+ */
+
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -417,7 +423,147 @@ body {
 .intro-header .site-heading hr.small {
   border-color: #007f00;
 }
-.post-content img {
+.proficiency-level,
+.tags,
+.languages {
+  margin-top: 0.5em;
+}
+.post-content img.emoji,
+.post-preview img.emoji {
+  display: inline;
+}
+.post-content blockquote p:first-child,
+.post-preview blockquote p:first-child {
+  margin-top: 0;
+}
+.post-content ul + figure,
+.post-preview ul + figure,
+.post-content ol + figure,
+.post-preview ol + figure {
+  margin-top: 30px;
+}
+.post-content code,
+.post-preview code {
+  white-space: nowrap;
+}
+.post-content pre > code,
+.post-preview pre > code {
+  max-height: 800px;
+  overflow: auto;
+  display: block;
+}
+.post-content article aside,
+.post-preview article aside {
+  border: 1px solid #EFEFEF;
+  margin: 0 0 25px;
+  padding: 15px;
+  border-radius: 15px;
+}
+.post-content article aside header,
+.post-preview article aside header {
+  padding: 15px 0 0;
+  font-weight: bold;
+  text-align: center;
+}
+.post-content article aside header + figure,
+.post-preview article aside header + figure {
+  margin-top: 30px;
+}
+.post-content article aside p + footer,
+.post-preview article aside p + footer,
+.post-content article aside section + footer,
+.post-preview article aside section + footer {
+  padding: 0;
+}
+.post-content article aside footer,
+.post-preview article aside footer {
+  padding: 30px 0 0;
+}
+.post-content article aside footer > figure,
+.post-preview article aside footer > figure {
+  margin-bottom: 0;
+}
+.post-content figure,
+.post-preview figure {
+  border: 1px solid #EFEFEF;
+  margin: 0 0 25px;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+}
+.post-content figure img:not(.emoji),
+.post-preview figure img:not(.emoji) {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin: 0 auto;
+}
+.post-content figure figcaption,
+.post-preview figure figcaption {
+  font-size: 0.75em;
+  font-style: italic;
+}
+.post-content figure figcaption ul,
+.post-preview figure figcaption ul {
+  list-style-type: none;
+  padding-left: 0;
+  border-top: 1px solid #efefef;
+  padding-top: 1em;
+  margin-top: 1em;
+}
+.post-content figure pre,
+.post-preview figure pre {
+  text-align: left;
+}
+.post-content figure table,
+.post-preview figure table {
+  text-align: left;
+}
+.post-content figure > header:first-child,
+.post-preview figure > header:first-child {
+  text-align: left;
+  margin-bottom: 15px;
+}
+.post-content figure > footer,
+.post-preview figure > footer {
+  margin: 15px 0 0 0;
+  text-align: left;
+  border-top: 1px solid #EFEFEF;
+  padding: 15px 0 0 0;
+  color: #808080;
+}
+.post-content .no-shadow,
+.post-preview .no-shadow {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.post-content h4,
+.post-preview h4,
+.post-content h5,
+.post-preview h5,
+.post-content h6,
+.post-preview h6 {
+  margin-top: 20px;
+  line-height: 30px;
+}
+.post-content h3,
+.post-preview h3 {
+  font-size: 26px;
+}
+.post-content h4,
+.post-preview h4 {
+  font-size: 24px;
+}
+.post-content h5,
+.post-preview h5 {
+  font-size: 22px;
+}
+.post-content h6,
+.post-preview h6 {
+  font-size: 20px;
+}
+.post-content img:not(.emoji) {
   -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
@@ -431,11 +577,11 @@ body {
   padding: 0;
   color: #404040;
 }
-.post-content .intro-header img {
+.post-content .intro-header img:not(.emoji) {
   width: 100%;
   box-shadow: 0 0 0;
 }
-.post-preview img {
+.post-preview img:not(.emoji) {
   width: 100%;
 }
 .post-preview .post-readmore {
@@ -470,4 +616,207 @@ ol ol {
 }
 .navbar-brand:hover span:last-child {
   color: #008900;
+}
+.post-list-container {
+  display: flex;
+}
+.post-list-container .post-list {
+  padding: 0 15px 0 0;
+}
+.post-list-container .side-bar {
+  flex: 1 100%;
+  padding: 0 0 0 15px;
+}
+.post-list-container .side-bar aside {
+  margin: 15px 0;
+}
+.post-list-container .side-bar aside:first-child {
+  margin: 30px 0 15px;
+}
+.post-list-container .side-bar aside:first-child h4 {
+  padding-top: 0;
+}
+.post-list-container .side-bar aside h4 {
+  margin-top: 0;
+  border-bottom: 1px solid #EFEFEF;
+  padding: 15px 0;
+}
+.post-list-container .side-bar aside ul {
+  margin-bottom: 15px;
+  list-style-type: none;
+  padding-left: 0;
+}
+.post-list-container .side-bar aside ul li {
+  padding: 0 0.5em;
+  line-height: 1.75em;
+}
+.post-list-container .side-bar aside.tags ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+ul.regroup-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+ul.regroup-list li a span.post-subtitle {
+  color: #666;
+  font-weight: bold;
+}
+ul.regroup-list li a span.post-subtitle:before {
+  content: "- ";
+}
+ul.regroup-list li a small {
+  color: #999;
+}
+.with-amazon-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.with-amazon-content .blog-content + .amazon-content,
+.with-amazon-content .amazon-content + .blog-content {
+  margin-left: 30px;
+}
+.with-amazon-content + footer {
+  color: #808080;
+  margin-bottom: 10px;
+}
+/**
+ * VS theme by Andrew Lock (https://andrewlock.net)
+ * Inspired by Visual Studio syntax coloring
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #393A34;
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  font-size: 0.95em;
+  line-height: 1.2em;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  background: #C1DEF1;
+}
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  background: #C1DEF1;
+}
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border: 1px solid #dddddd;
+  background-color: white;
+}
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .2em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background: #f8f8f8;
+  border: 1px solid #dddddd;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #008000;
+  font-style: italic;
+}
+.token.namespace {
+  opacity: .7;
+}
+.token.string {
+  color: #A31515;
+}
+.token.punctuation,
+.token.operator {
+  color: #393A34;
+  /* no highlight */
+}
+.token.url,
+.token.symbol,
+.token.number,
+.token.boolean,
+.token.variable,
+.token.constant,
+.token.inserted {
+  color: #36acaa;
+}
+.token.atrule,
+.token.keyword,
+.token.attr-value,
+.language-autohotkey .token.selector,
+.language-json .token.boolean,
+.language-json .token.number,
+code[class*="language-css"] {
+  color: #0000ff;
+}
+.token.function {
+  color: #393A34;
+}
+.token.deleted,
+.language-autohotkey .token.tag {
+  color: #9a050f;
+}
+.token.selector,
+.language-autohotkey .token.keyword {
+  color: #00009f;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.class-name,
+.language-json .token.property {
+  color: #2B91AF;
+}
+.token.tag,
+.token.selector {
+  color: #800000;
+}
+.token.attr-name,
+.token.property,
+.token.regex,
+.token.entity {
+  color: #ff0000;
+}
+.token.directive.tag .tag {
+  background: #ffff00;
+  color: #393A34;
+}
+/* overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+.line-numbers .line-numbers-rows {
+  border-right-color: #a5a5a5;
+}
+.line-numbers-rows > span:before {
+  color: #2B91AF;
+}
+/* overrides color-values for the Line Highlight plugin
+* http://prismjs.com/plugins/line-highlight/
+*/
+.line-highlight {
+  background: rgba(193, 222, 241, 0.2);
+  background: -webkit-linear-gradient(left, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
+  background: linear-gradient(to right, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
 }

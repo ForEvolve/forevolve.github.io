@@ -15,9 +15,6 @@ layout: default
             <main class="col-sm-12 post-content">
                 <!-- Post Header -->
                 <header class="intro-header">
-                    {% if page.post-img %}
-                    <img src="{{ site.baseurl }}/{{ page.post-img }}" alt="{{ page.title }}">
-                    {% endif %}
                     <div class="post-heading">
                         <h1>{{ page.title }}</h1>
                         {% if page.subtitle %}
@@ -26,50 +23,92 @@ layout: default
                         <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
                         {% comment %}<a href="{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{ page.url }}"></a>{% endcomment %}
                     </div>
+                    
+                    {% for lang in site.data.languages %}
+                        {% assign language = lang[1] %}
+                        {% if language.shortName == page.lang %}
+                            <aside class="languages">
+                                <strong>Language: </strong>
+                                <a href="/languages/#{{ language.categoryName | slugify }}">{{ language.displayName }}</a>
 
-                    {% if totalCount > 0 %}
-                    <nav>
-                        <div class="wrapper" style="text-align: right; line-height: 2em">
-                            {% for post in posts %} <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
-                            {% for page in pages %} <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
-                        </div>
-                    </nav>
-                    <hr>
+                                {% if totalCount > 0 %}
+                                    {% for post in posts %}| <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                                    {% for page in pages %}| <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                                    <hr>
+                                {% endif %}
+                            </aside>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if page.proficiency-level %}
+                        <aside class="proficiency-level">
+                            <strong>Target proficiency level:</strong>
+
+                            {% assign level = site.data.proficiency-levels[page.proficiency-level] %}
+                            <a href="/levels/#proficiency-level-{{ page.proficiency-level | slugify }}" title="{{ level.description }}">{{ level.name }}</a>
+                            <small>({{ level.short-description }})</small>
+                        </aside>
+                    {% endif %}
+
+                    {% if page.tags[0] %}
+                        <aside class="tags">
+                            <i class="glyphicon glyphicon-tags"></i>
+                            &nbsp;
+                            {% for tag in page.tags %} 
+                                <a href="/tags/#{{ tag | slugify }}" title="View posts tagged with &quot;{{ tag }}&quot;"><u>{{ tag }}</u></a>{% if forloop.last != true %}, {% endif %} 
+                            {% endfor %}
+                        </aside>
+                    {% endif %}
+
+                    {% if page.post-img %}
+                    <p><img src="{{ site.baseurl }}/{{ page.post-img }}" alt="{{ page.title }}"></p>
                     {% endif %}
                 </header>
 
 				<article>{{ content }}</article>
 
                 {% if totalCount > 0 %}
-                <hr>
-                <nav>
-                    <div class="wrapper" style="text-align: right; line-height: 2em">
-                        {% for post in posts %} <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
-                        {% for page in pages %} <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
-                    </div>
-                </nav>
+                    <hr>
+                    <nav>
+                        <div class="wrapper" style="text-align: right; line-height: 2em">
+                            {% for post in posts %} <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                            {% for page in pages %} <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                        </div>
+                    </nav>
                 {% endif %}
 
                 {% if page.previous.url or page.next.url %}
-                <hr>
-                <ul class="pager">
-                    {% if page.previous.url %}
-                    <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
-                            &larr; Previous Post
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% if page.next.url %}
-                    <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
-                            Next Post &rarr;
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <hr>
+                    <hr>
+                    <ul class="pager">
+                        {% if page.previous.url %}
+                        <li class="previous">
+                            <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}{% if page.previous.subtitle %} | {{page.previous.subtitle}}{% endif %}">
+                                &larr; Previous Post
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if page.next.url %}
+                        <li class="next">
+                            <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}{% if page.next.subtitle %} | {{page.next.subtitle}}{% endif %}">
+                                Next Post &rarr;
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <hr>
                 {% endif %}
+
+                {% if page.tags[0] %}
+                    <footer>
+                        <i class="glyphicon glyphicon-tags"></i>
+                        &nbsp;
+                        {% for tag in page.tags %} 
+                            <a href="/tags/#{{ tag | slugify }}" title="View posts tagged with &quot;{{ tag }}&quot;"><u>{{ tag }}</u></a>{% if forloop.last != true %}, {% endif %} 
+                        {% endfor %}
+                    </footer>
+                    <hr>
+                {% endif %}
+
                 {% if site.comments %}
                     {% unless page.comments == false %}
                         <h2>Comments</h2>
@@ -88,6 +127,5 @@ layout: default
             </main>
         </div>
     </div>
-
 </article>
 <hr>

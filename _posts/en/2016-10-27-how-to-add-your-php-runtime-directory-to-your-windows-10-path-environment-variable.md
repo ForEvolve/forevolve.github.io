@@ -5,6 +5,9 @@ post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-10-27-how-to-add
 lang: en
 categories: en/articles
 redirect_from: "/articles/2016/10/27/how-to-add-your-php-runtime-directory-to-your-windows-10-path-environment-variable/"
+proficiency-level: Novice
+tags: 
+- PHP
 ---
 
 Today I will explain how to add your PHP runtime directory to your Windows 10 `PATH` environment variable.

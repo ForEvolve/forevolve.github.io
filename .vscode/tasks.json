@@ -2,10 +2,63 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
-    "command": "grunt",
-    "isShellCommand": true,
-    "args": [
-        "--no-color"
-    ],
-    "showOutput": "always"
+    "showOutput": "always",
+    "tasks": [
+        {
+            "taskName": "grunt",
+            "command": "grunt",
+            "isShellCommand": true,
+            "args": [
+                "--no-color"
+            ]
+        },
+        {
+            "taskName": "jekyll-draft",
+            "command": "bundle",
+            "isShellCommand": true,
+            "args": [
+                "exec",
+                "jekyll",
+                "serve",
+                "--watch",
+                "--drafts"
+            ]
+        },
+        {
+            "taskName": "jekyll-draft-incremental",
+            "command": "bundle",
+            "isShellCommand": true,
+            "args": [
+                "exec",
+                "jekyll",
+                "serve",
+                "--watch",
+                "--drafts",
+                "--incremental"
+            ]
+        },
+        {
+            "taskName": "jekyll",
+            "command": "bundle",
+            "isShellCommand": true,
+            "args": [
+                "exec",
+                "jekyll",
+                "serve",
+                "--watch"
+            ]
+        },
+        {
+            "taskName": "jekyll-incremental",
+            "command": "bundle",
+            "isShellCommand": true,
+            "args": [
+                "exec",
+                "jekyll",
+                "serve",
+                "--watch",
+                "--incremental"
+            ]
+        }
+    ]
 }

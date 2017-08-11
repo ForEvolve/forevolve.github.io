@@ -1,4 +1,5 @@
 @import "variables.less";
+//@import (reference) "../css/bootstrap.css";
 
 .intro-header .site-heading {
     padding: 50px 0 283px;
@@ -24,8 +25,140 @@
     }
 }
 
+.proficiency-level, 
+.tags, 
+.languages {
+    margin-top: 0.5em;
+}
+
+.post-content, 
+.post-preview {
+    img.emoji {
+        display: inline;
+    }
+
+    blockquote {
+        p:first-child {
+            margin-top:0;
+        }
+    }
+
+    ul + figure,
+    ol + figure {
+        margin-top: 30px;
+    }
+
+    .round-bordered-box(){
+        border: 1px solid #EFEFEF;
+        margin: 0 0 25px;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    code {
+        white-space: nowrap;
+    }
+
+    pre > code {
+        max-height: 800px;
+        overflow: auto;
+        display: block;
+        //white-space: pre-wrap;
+    }
+
+    article aside {
+        .round-bordered-box();
+
+        header {
+            padding: 15px 0 0;
+            font-weight: bold;
+            text-align: center;
+        }
+        header+figure {
+            margin-top: 30px;
+        }
+        p + footer,
+        section + footer {
+            padding: 0;
+        }
+        footer {
+            padding: 30px 0 0;
+            & > figure {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    figure {
+        .round-bordered-box();
+        text-align: center;
+
+        img:not(.emoji) {
+            .no-shadow();
+            margin: 0 auto;
+        }
+        figcaption {
+            font-size: 0.75em;
+            font-style: italic;
+
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+                border-top: 1px solid #efefef;
+                padding-top: 1em;
+                margin-top: 1em;
+            }
+        }
+
+        pre {
+            text-align: left;
+        }
+
+        table {
+            text-align: left;
+        }
+
+        & > header:first-child {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        & > footer {
+            margin: 15px 0 0 0;
+            text-align: left;
+            border-top: 1px solid #EFEFEF;
+            padding: 15px 0 0 0;
+            color: #808080;
+        }
+    }
+
+    .no-shadow {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+
+    // Fix the default bootstrap h4-6 size that quickly become smaller than the default texte size of 20px
+    h4, h5, h6 {
+        margin-top: 20px;
+        line-height: 30px;
+    }
+    h3 {
+        font-size: 26px;
+    }
+    h4 {
+        font-size: 24px;
+    }
+    h5 {
+        font-size: 22px;
+    }
+    h6 {
+        font-size: 20px;
+    }
+}
+
 .post-content {
-    img {
+    img:not(.emoji) {
         -webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
         box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
@@ -48,16 +181,15 @@
             // }
         }
 
-        img {
+        img:not(.emoji) {
             width: 100%;
             box-shadow: 0 0 0;
         }
     }
 }
 
-
 .post-preview {
-    img {
+    img:not(.emoji) {
         width: 100%;
     }
 
@@ -111,3 +243,96 @@ ol {
         }
     }
 }
+
+.post-list-container {
+    display: flex;
+
+    .post-list {
+        padding: 0 15px 0 0;
+    }
+
+    .side-bar {
+        flex: 1 100%;
+        padding: 0 0 0 15px;
+
+        aside {
+            margin: 15px 0;
+
+            &:first-child {
+                margin: 30px 0 15px;
+
+                h4 {
+                    padding-top: 0;
+                }
+            }
+
+            h4 {
+                margin-top: 0;
+                border-bottom: 1px solid #EFEFEF;
+                padding: 15px 0;
+                //text-align: center;
+            } 
+            ul {
+                margin-bottom: 15px;
+                list-style-type: none;
+                //font-size: 0.75em;
+                padding-left: 0;
+
+                li {
+                    padding: 0 0.5em;
+                    line-height: 1.75em;
+                }
+            }
+        }
+
+        aside.tags {
+            ul {
+                display: flex;
+                flex-flow: row wrap;
+            }
+        }
+    }
+}
+
+ul.regroup-list
+{
+    list-style-type: none;
+    padding-left:0;
+
+    li
+    {
+        a
+        {
+            span.post-subtitle
+            {
+                color: #666;
+                font-weight: bold;
+
+                &:before {
+                    content: "- ";
+                }
+            }
+            small
+            {
+                color: #999;
+            }
+        }
+    }
+}
+
+.with-amazon-content {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .blog-content + .amazon-content,
+    .amazon-content + .blog-content {
+        margin-left: 30px;
+    }
+    & + footer {
+        color: #808080;
+        margin-bottom: 10px;
+    }
+
+}
+
+@import "prism-vs-theme.less";

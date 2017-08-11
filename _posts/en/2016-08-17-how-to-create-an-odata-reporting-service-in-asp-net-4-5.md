@@ -5,6 +5,11 @@ post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-08-17-how-to-cre
 lang: en
 categories: en/articles
 redirect_from: "/articles/2016/08/17/how-to-create-an-odata-reporting-service-in-asp-net-4-5/"
+proficiency-level: Intermediate
+tags: 
+- OData
+- Asp.Net
+- C#
 ---
 
 Before starting, I will assume that:
@@ -30,22 +35,26 @@ First, we need a project to work in. If you already have a project that you want
 Now that we have a project to work in, we need 2 packages, `Microsoft.AspNet.OData` and `Microsoft.AspNet.WebApi`. Since we based our project on the WebApi template we dont need `Microsoft.AspNet.WebApi` but, if you started with an existing ASP.NET MVC project you will need to install both packages.
 
 For **WebApi project**, in the Package Manager Console, run the following command:
-```
+
+``` powershell
 Install-Package Microsoft.AspNet.OData
 ```
 
 For **MVC project**, in the Package Manager Console, run the following commands:
-```
+
+``` powershell
 Install-Package Microsoft.AspNet.OData
 Install-Package Microsoft.AspNet.WebApi
 ```
 
 ### Ninject
 If you are like me and like to use Ninject, you will need to install these 2 packages to add Ninject DI support in your OData controllers:
-```
+
+``` powershell
 Install-Package Ninject.Web.WebApi
 Install-Package Ninject.Web.WebApi.WebHost
 ```
+
 *Using Ninject is beyond the scope of the current article. This is just a quick tip.*
 
 ## Write some code
@@ -58,7 +67,8 @@ In this part we will do the following:
 
 ### Model
 Lets first create our simple model, as follow:
-```CSharp
+
+``` csharp
 namespace ODataService.Models
 {
     public class MyODataModel
@@ -71,7 +81,7 @@ namespace ODataService.Models
 
 ### Controller
 Now that we have a Model, we will add the following simple controller:
-```CSharp
+``` csharp
 using ODataService.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -132,7 +142,7 @@ If you started from a **MVC project**, we will create a file named `ODataConfig.
 > If you only want OData, i'd go for `ODataConfig.cs` since it describe what it does pretty well.
 
 Your config file should look like this:
-```CSharp
+``` csharp
 using ODataService.Models;
 using System.Web.Http;
 using System.Web.OData.Builder;
@@ -163,12 +173,12 @@ namespace ODataService
 
 ##### The final rigging touch
 We also need to tell ASP.NET what to do with our `ODataConfig.cs` file. To do so, we will update the `global.asax.cs` file and add the following line to it:
-```CSharp
+``` csharp
 GlobalConfiguration.Configure(ODataConfig.Register);
 ```
 
 **The complete file look like this:**
-```CSharp
+``` csharp
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -192,7 +202,7 @@ namespace ODataService
 
 #### WebApi project
 If you started from a **WebApi project**, we will update the `WebApiConfig.cs` file to the following:
-```CSharp
+``` csharp
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.OData.Builder;
@@ -276,7 +286,7 @@ There is many ways to build the EDM model. We used the "by convention" method an
 Since i built my EDM model using conventions, my `Id` property was automatically configured as the `primary key`. 
 
 We could use the builder variable to add more entities to our model, complex types, etc.
-```CSharp
+``` csharp
 // OData configs
 var builder = new ODataConventionModelBuilder();
 builder.EntitySet<MyODataModel>("MyODataModel");
@@ -293,7 +303,7 @@ What I like to do in scenarios like this, that is more "refactoring-friendly", i
 *I don't like magic strings that much and i believe they create harder to maintain programs. On the other hand, I do love the new `nameof` operator (well that's a topic for another day).*
 
 **Helper method:**
-```CSharp
+``` csharp
 public static string GetControllerNameOf<TController>()
     where TController : ODataController
 {
@@ -302,18 +312,18 @@ public static string GetControllerNameOf<TController>()
 ```
 
 We can now update the line:
-```CSharp
+``` csharp
 builder.EntitySet<MyODataModel>("MyODataModel");
 ```
 
 To that more "refactor-friendly" line: 
-```CSharp
+``` csharp
 builder.EntitySet<MyODataModel>(GetControllerNameOf<MyODataModelController>());
 ```
 
 #### EDM route registration
 In the following code bloc, we create our OData route. 
-```CSharp
+``` csharp
 // Map OData routes
 config.MapODataServiceRoute(
     routeName: "ODataRoute",
