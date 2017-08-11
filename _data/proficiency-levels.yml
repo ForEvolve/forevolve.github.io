@@ -1,0 +1,25 @@
+Novice:
+  name: Novice
+  short-description: New to coding
+  description: You are new to coding and still learning the basics. You may be a student or a self-learner. This category covers introductions to programming languages, frameworks, etc.
+  competency-description: You have the level of experience gained in a classroom and/or experimental scenarios or as a trainee on-the-job. You are expected to need help when performing this skill.
+
+Intermediate:
+  name: Intermediate
+  short-description: Has some coding experience
+  description: Boolean logic, loops, and other language construct have no more secrets for you. You may have worked a little as a junior or as an intern. You may also have a degree or be a self-learner. The articles in this category should cover the necessary information to help beginners progress while assuming the audience know how to program.
+  competency-description: You are able to successfully complete tasks in this competency as requested. Help from an expert may be required from time to time, but you can usually perform the skill independently.
+
+Advanced: 
+  name: Advanced
+  short-description: Experienced developer
+  description: GoF design patterns were mastered a long time ago, and you probably work as a senior developer or engineer. There will be no beginner explanation in these articles.
+  competency-description: You can perform the actions associated with this skill without assistance. You are certainly recognized within your immediate organization as &quot;a person to ask&quot; when difficult questions arise regarding this skill.
+
+Expert:
+  name: Expert
+  short-description: Hardcore topics
+  description: This category is reserved for advanced topics, articles without basic explanation or topics requiring advanced knowledge in some specific fields. I don't know what I will put here yet, but I will leave the category here to create some high expectation (and especially to force me to figure out something to write that fits in)...
+  competency-description: You are known as an expert in this area. You can provide guidance, troubleshoot and answer questions related to this area of expertise and the field where the skill is used.
+
+# competency-description FROM: https://hr.od.nih.gov/workingatnih/competencies/proficiencyscale.htm (not used)

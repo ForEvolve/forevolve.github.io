@@ -5,6 +5,9 @@ post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-12-16-some-essen
 lang: en
 categories: en/articles
 redirect_from: "/articles/2016/12/16/some-essential-keyboard-shortcuts-and-mouse-tips-that-everyone-should-know-to-be-more-productive/"
+proficiency-level: Novice
+tags: 
+- Productivity
 ---
 
 Based on what I saw in the field, from beginners to senior professional developers, many people could be more productive when it comes to text selection.
@@ -64,7 +67,7 @@ Now, try the same thing again, but using `click+drag your mouse around` instead.
 
 Have you noticed the time and precision differences?
 
-```CSharp
+``` csharp
 [HttpPut("{id}")]
 public void Put(int id, [FromBody]string value)
 {

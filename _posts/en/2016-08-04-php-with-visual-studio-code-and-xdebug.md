@@ -6,6 +6,10 @@ lang: en
 ref: php_vscode_xdebug
 categories: en/articles
 redirect_from: "/articles/2016/08/04/php-with-visual-studio-code-and-xdebug/"
+proficiency-level: Novice
+tags: 
+- PHP
+- Visual Studio Code
 ---
 
 ## Introduction

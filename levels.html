@@ -1,0 +1,36 @@
+---
+layout: page
+title: Articles by proficiency levels
+lang: en
+permalink: /levels/
+hide-page-header: true
+---
+
+{% for lvl in site.data.proficiency-levels %}
+	{% assign level = lvl[1] %}
+	{% assign postCount = 0 %}
+	<h3 id="proficiency-level-{{ level.name | slugify }}">
+		{{ level.name }}
+		<small>{{ level.short-description }}</small>
+	</h3>
+	<p style="margin: 0 0 20px;"><small><em>{{ level.description }}</em></small></p>
+	<ul class="regroup-list">
+		{% for post in site.posts %}
+			{% if post.proficiency-level == level.name %}
+				{% assign postCount = postCount | plus: 1 %}
+				<li>
+					<a href="{{ post.url }}">
+						<span>{{ post.title }}</span>
+						{% if post.subtitle %}
+							<span class="post-subtitle">{{ post.subtitle }}</span>
+						{% endif %}
+						<small>({{ post.date | date_to_string }})</small>
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+		{% if postCount == 0 %}
+			<li>No article of this level... yet!</li>
+		{% endif %}	 
+	</ul>
+{% endfor %}

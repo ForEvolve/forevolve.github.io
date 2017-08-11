@@ -1,0 +1,46 @@
+---
+layout: page
+title: Articles by language
+lang: en
+permalink: /languages/
+hide-page-header: true
+---
+{% comment %}
+<div id="archives">
+{% for category in site.categories %}
+  <div class="archive-group">
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+    <div id="#{{ category_name | slugize }}"></div>
+    <p></p>
+    
+    <h3 class="category-head">{{ category_name }}</h3>
+    <a name="{{ category_name | slugize }}"></a>
+    {% for post in site.categories[category_name] %}
+    <article class="archive-item">
+      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
+    </article>
+    {% endfor %}
+  </div>
+{% endfor %}
+</div>{% endcomment %}
+
+
+{% for lang in site.data.languages %}
+	{% assign language = lang[1] %}
+	<h3 id="{{ language.categoryName | slugify }}">
+		{{ language.displayName }}
+	</h3>
+	<ul class="regroup-list">
+        {% for post in site.categories[language.categoryName] %}
+            <li>
+                <a href="{{ post.url }}">
+                    <span>{{ post.title }}</span>
+                    {% if post.subtitle %}
+                        <span class="post-subtitle">{{ post.subtitle }}</span>
+                    {% endif %}
+                    <small>({{ post.date | date_to_string }})</small>
+                </a>
+            </li>
+		{% endfor %}
+	</ul>
+{% endfor %}

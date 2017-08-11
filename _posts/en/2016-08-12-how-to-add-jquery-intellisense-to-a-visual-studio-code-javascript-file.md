@@ -6,6 +6,11 @@ lang: en
 ref: jquery_intellisense_vscode
 categories: en/articles
 redirect_from: "/articles/2016/08/12/how-to-add-jquery-intellisense-to-a-visual-studio-code-javascript-file/"
+proficiency-level: Novice
+tags: 
+- JavaScript
+- Visual Studio Code
+- jQuery
 ---
 
 ## Before starting

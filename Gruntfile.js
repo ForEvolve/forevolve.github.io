@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     // Project configuration.
     grunt.initConfig({
@@ -7,6 +7,10 @@ module.exports = function(grunt) {
             main: {
                 src: 'js/<%= pkg.name %>.js',
                 dest: 'js/<%= pkg.name %>.min.js'
+            },
+            forevolve: {
+                src: 'js/forevolve-blog.js',
+                dest: 'js/forevolve-blog.min.js'
             }
         },
         less: {
@@ -29,10 +33,10 @@ module.exports = function(grunt) {
             }
         },
         banner: '/*!\n' +
-            ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under <%= pkg.license %> (https://spdx.org/licenses/<%= pkg.license %>)\n' +
-            ' */\n',
+        ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+        ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+        ' * Licensed under <%= pkg.license %> (https://spdx.org/licenses/<%= pkg.license %>)\n' +
+        ' */\n',
         usebanner: {
             dist: {
                 options: {
@@ -46,7 +50,7 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ['js/<%= pkg.name %>.js'],
+                files: ['js/<%= pkg.name %>.js', 'js/forevolve-blog.js'],
                 tasks: ['uglify'],
                 options: {
                     spawn: false,
@@ -70,5 +74,4 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['uglify', 'less', 'usebanner']);
-
 };

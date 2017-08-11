@@ -1,0 +1,34 @@
+---
+layout: page
+title: Articles by tags
+lang: en
+permalink: /tags/
+hide-page-header: true
+---
+
+{% include gen-tags.html %}
+
+{% comment %}
+=======================
+The purpose of this snippet is to list all your posts posted with a certain tag.
+=======================
+{% endcomment %}
+{% for tag in tags %}
+	<h3 id="{{ tag | slugify }}">{{ tag }}</h3>
+	<ul class="regroup-list">
+	 {% for post in site.posts %}
+		 {% if post.tags contains tag %}
+			<li>
+				<a href="{{ post.url }}">
+					<span>{{ post.title }}</span>
+					{% if post.subtitle %}
+						<span class="post-subtitle">{{ post.subtitle }}</span>
+					{% endif %}
+					<small>({{ post.date | date_to_string }})</small>
+				</a>
+			</li>
+		 {% endif %}
+	 {% endfor %}
+	</ul>
+{% endfor %}
+

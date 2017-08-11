@@ -4,6 +4,10 @@ date:  2016-08-18 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2016-08-18-operations-git-de-base-en-utilisant-le-client-de-github.png"
 lang: fr
 categories: fr/articles
+proficiency-level: Novice
+tags: 
+- GitHub
+- GitHub Desktop
 ---
 
 ### Table des matières

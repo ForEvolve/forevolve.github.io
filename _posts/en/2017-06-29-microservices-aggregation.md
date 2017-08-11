@@ -4,7 +4,13 @@ date:   2017-06-29 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-06-29-microservices-aggregation.jpg"
 lang: en
 categories: en/articles
-tags: design pattern, software engineering, asp.net core
+tags: 
+- Design Patterns
+- Microservices
+- Asp.Net Core
+- Web API
+- C#
+proficiency-level: Advanced
 ---
 
 A few weeks ago I had to put together a one hour talk about something IT related. To make the introduction quick: I ended up talking about Microservices.
@@ -80,7 +86,7 @@ If you only need `services.AddMyService()`, only create this one and if you need
 
 In the `AddMyServices()` extension method we will register the DI graph of our microservice project, example:
 
-```CSharp
+``` csharp
 namespace Microsoft.Extensions.DependencyInjection
 {
     public static class MyServicesStartupExtensions
@@ -196,7 +202,7 @@ All the settings for all the microservices are there, as simple as that.
 ### Startup.cs
 Here is where the fun begins. Most of the code is bootstrapping the application, but the following:
 
-```CSharp
+``` csharp
 // AutoMapper
 services.AddSingleton(serviceProvider =>
 {
@@ -221,7 +227,7 @@ This could be reused for standalone start up of an individual service.
 
 **Example:**
 
-```
+``` csharp
 services.AddSingleton(serviceProvider =>
 {
     return new MapperConfiguration(cfg =>
