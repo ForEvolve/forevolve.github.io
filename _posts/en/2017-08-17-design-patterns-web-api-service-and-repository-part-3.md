@@ -16,12 +16,16 @@ tags:
 proficiency-level: Intermediate
 ---
 
-In the first part, we visited a few concepts that we will start applying in the current article.
+In the first article, we visited a few concepts that we will apply, starting in the current article.
 
-In part 3, we will:
-- Model our ninjas
-- Create the clan controller
+The second article was an overview of Dependency Injection.
+
+In this 3rd article, we will:
+- Model the ninja
+- Create the `ClansController` (ninja's don't fight alone!)
 - Write some tests
+
+All of this will get us ready for the next article's `ClanService`.
 
 <!--more-->
 
@@ -34,9 +38,20 @@ In the past, MVC and WebApi were two separate things.
 Now with Asp.Net Core, they are unified, woot!
 Even more, [Razor Pages](https://docs.microsoft.com/en-us/aspnet/core/mvc/razor-pages/) are also unified (comming with ASP.NET Core 2.0.0).
 
-MVC stands for Model-View-Controller. 
-A controller handles the request, use a model then render a view.
-It splits responsibilities
+---
+
+> **MVC pattern summary**
+>
+> MVC stands for Model-View-Controller. 
+> The pattern could be shortened to: 
+> 
+> 1. A controller handles an (HTTP) request
+> 1. Use a model
+> 1. Then render a view.
+> 
+> The use of MVC help split responsibilities.
+
+---
 
 Since we are building a Web API, we will not render views but serialize objects instead.
 I like to name those objects the "Web API Contracts."
@@ -92,6 +107,20 @@ namespace ForEvolve.Blog.NinjaApi.Models
 }
 ```
 
+As you may have noticed by looking at the `Clan` class, there is no "a clan can be composed of many ninjas" represented in code.
+The reason behind this is simple: I want to keep the model super lean.
+
+*Conceptually speaking, we could recreate that condition manually by requesting all ninja of a specific clan.*
+
+> That said, if I want to transfer more than those simple objects, I could create a Gateway (see below) exposing different endpoints.
+> 
+> For example:
+> 
+> - A `ClanSummary` class that could be composed of the clan's `Name` and the ninja's `Count`.
+> - A `ClanDetails` class that could be composed of the clan's `Name` and a collection of ninja. We could also include the `Count`.
+
+In the little Ninja App that we are building, the goal is to create **raw data endpoints** that read/write simple entities, that's it.
+
 ## The Controllers
 Now that we have our model, let's focus on the controllers.
 
@@ -114,7 +143,7 @@ Each controller will be responsible for its own model class.
 
 ### ClansController
 The `ClansController` only expose a read all clans endpoint. The clan's data will be static and hard coded but could be persisted in a database at a later time.
-*You could do this refactoring at the end of the series to practice your new skills or wait for me to do it in a future article.*
+*You could do this refactoring at the end of the series to practice your new skills.*
 
 ``` csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
@@ -142,21 +171,17 @@ This might be clearer and more obvious later, in the `NinjaControllerTest` class
 
 ---
 
-> Unit testing
+> **Unit testing**
 >
 > It is a good practice to create automated tests for your code.
 > This help reach a higher level of quality, and a greater degree of confidence when comes the time to deploy your application.
-
----
-
-> For the TDD purists, I have to announce you that I hate to see all red-wavy-underlined-code with errors saying 
+>
+> I also have to announce to the TDD purists that I hate to see all red-wavy-underlined-code with errors saying 
 > that my interfaces or classes does not exist. So I will start by defining my interfaces then I will write tests.
 >
-> Let's say that I am more an "interface-first"/"interface-driven-testing" kinda guy... ;)
+> Let's say that I am more an "interface-first"/"interface-driven-testing" kinda guy... :wink:
 
 ---
-
-We will write our tests using XUnit.
 
 > For more information about unit and integration testing see:
 >
@@ -166,10 +191,12 @@ We will write our tests using XUnit.
 
 ---
 
+We will write our tests using [XUnit](https://xunit.github.io/).
+
 <figure>
     <header>
-        I created a snippet that helps code empty failing AAA tests (Arrange, Act, Assert).
-        To use it, once installed, it is as easy as typing <code>a</code> + <code>tab</code> + <code>tab</code>.
+        I created a snippet that help code empty failing AAA tests faster (Arrange, Act, Assert).
+        To use it, once installed, it is as easy as <code>positioning your cursor in the body of a method</code>, then typing <code>a</code> + <code>tab</code> + <code>tab</code>.
     </header>
 <pre><code class="language-csharp">[Fact]
 public void SomeTestMethod()
@@ -243,15 +270,18 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
 At this point, if we hit the "Run All" button of the Visual Studio "Test Explorer" window, we should see 1 failing test.
 
 This may not sound that good, but this is our refactoring starting point.
-Now we only need to write enough code to have our clan test pass.
+Now we only need to write enough code to make that test pass.
 
 ### What have we covered in this article?
 We talked about the controller's role, about models and data contracts.
 We also coded unit tests to improve the quality of our Ninja App.
 
 ### What's next?
-In the next article, we will create the `IClanService` interface and its default implementation.
-We will also update our `ClanController` and its test.
-New class means new test, so we will write some tests for the `ClanService` class.
+In the next article, we will create the `IClanService` interface and its default implementation, the `ClanService` class.
+A new class means writing more unit tests; as well as updating the `ClansController` to use that new interface.
+
+Our focus will gravitate around the "service" role (the business logic; a.k.a. the domain) and how to connect those two units (the service and the controller).
+
+Until then, happy coding!
 
 {% include design-patterns-web-api-service-and-repository/footer.md %}
