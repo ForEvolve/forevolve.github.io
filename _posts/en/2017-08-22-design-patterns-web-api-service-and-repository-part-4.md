@@ -12,6 +12,7 @@ tags:
 - C#
 - Unit Test
 - XUnit
+- Service Layer Pattern
 proficiency-level: Intermediate
 ---
 
