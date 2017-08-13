@@ -21,8 +21,8 @@
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/3.%20NinjaApi%20-%20ClansControllers">3. NinjaApi - ClansControllers</a></td>
         </tr>
         <tr>
-            <td>Part 4: Services and the ClanService</td>
-            <td>4. NinjaApi - The ClanService</td>
+            <td><a href="/en/articles/2017/08/22/design-patterns-web-api-service-and-repository-part-4/">Part 4: Services and the ClanService</a></td>
+            <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/4.%20NinjaApi%20-%20The%20ClanService">4. NinjaApi - The ClanService</a></td>
         </tr>
         <tr>
             <td>Part 5: Repositories, the ClanRepository, and integration testing</td>
@@ -36,10 +36,6 @@
         <tr>
             <td>Part 7: Azure table storage, the ForEvolve Framework and the NinjaRepository</td>
             <td>7. NinjaApi - Ninjas completed</td>
-        </tr>
-        <tr>
-            <td><a href="/en/articles/2017/08/22/design-patterns-web-api-service-and-repository-part-4/">Part 4: Services and the ClanService</a></td>
-            <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/4.%20NinjaApi%20-%20The%20ClanService">4. NinjaApi - The ClanService</a></td>
         </tr>
         <tr>
             <td><a href="/en/articles/2017/08/25/design-patterns-web-api-service-and-repository-part-5/">Part 5: Repositories, the ClanRepository, and integration testing</a></td>
