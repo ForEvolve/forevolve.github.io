@@ -21,7 +21,8 @@
                 "jekyll",
                 "serve",
                 "--watch",
-                "--drafts"
+                "--drafts",
+                "--future"
             ]
         },
         {
@@ -34,7 +35,8 @@
                 "serve",
                 "--watch",
                 "--drafts",
-                "--incremental"
+                "--incremental",
+                "--future"
             ]
         },
         {
@@ -45,7 +47,8 @@
                 "exec",
                 "jekyll",
                 "serve",
-                "--watch"
+                "--watch",
+                "--future"
             ]
         },
         {
@@ -57,7 +60,8 @@
                 "jekyll",
                 "serve",
                 "--watch",
-                "--incremental"
+                "--incremental",
+                "--future"
             ]
         }
     ]
