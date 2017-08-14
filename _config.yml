@@ -9,7 +9,7 @@ baseurl: ""
 url: "http://www.forevolve.com"
 twitter_username: CarlHugoM
 github_username: ForEvolve
-facebook_username: carl.hugo.marcotte
+#facebook_username: carl.hugo.marcotte
 #email_username: 
 linkedin_username: carl-hugo-marcotte
 default_lang: en
