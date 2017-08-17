@@ -28,6 +28,7 @@
             <td>Part 5: Repositories, the ClanRepository, and integration testing</td>
             <td>5. NinjaApi - Clans completed</td>
         </tr>
+        <!--
         <tr>
             <td>Part 6: Implementating the ninjas</td>
             <td>6. NinjaApi - Ninjas</td>

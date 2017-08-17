@@ -30,11 +30,9 @@ Since design patterns are language-agnostic, you can use them in different appli
 
 This is one of the beauties of **design patterns; they are tools to be used, not feared!**
 
-### Prerelease
-At the time of the writing, Asp.Net Core 2.0 is still a prerelease version and require Visual Studio 2017 Preview to be run.
-I will update the code sample once Asp.Net Core 2 is released and remove this notice.
-Until then, most of the code should run without any change in Asp.Net Core 1.1 (beside program.cs and startup.cs that will need some adjustments).
+### Asp.Net Core 2.0
+At the time of the writing, Asp.Net Core 2.0 was still in prerelease, and I updated the code samples to use the release version.
 
-The ASP.NET Core CI dev build are taken from the following NuGet feed: [https://dotnet.myget.org/F/aspnetcore-ci-dev/api/v3/index.json](https://dotnet.myget.org/F/aspnetcore-ci-dev/api/v3/index.json).
+You will need the [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/download/core) and [Visual Studio 2017 update 3](https://www.visualstudio.com/) or the IDE/code editor of your choosing.
 
 ---

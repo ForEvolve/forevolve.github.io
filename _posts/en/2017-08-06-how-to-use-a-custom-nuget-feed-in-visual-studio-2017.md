@@ -5,7 +5,7 @@ post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-08-06-how-to-use
 lang: en
 categories: en/articles
 tags: 
-- Asp.Net Core
+- Visual Studio
 - ForEvolve Framework
 - NuGet
 proficiency-level: Novice
