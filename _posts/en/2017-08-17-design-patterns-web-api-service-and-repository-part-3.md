@@ -36,7 +36,7 @@ All of this will get us ready for the next article's `ClanService`.
 ## Asp.Net Core MVC
 In the past, MVC and WebApi were two separate things.
 Now with Asp.Net Core, they are unified, woot!
-Even more, [Razor Pages](https://docs.microsoft.com/en-us/aspnet/core/mvc/razor-pages/) are also unified (comming with ASP.NET Core 2.0.0).
+Even more, [Razor Pages](https://docs.microsoft.com/en-us/aspnet/core/mvc/razor-pages/) were also unified in ASP.NET Core 2.0.0.
 
 ---
 
@@ -58,7 +58,7 @@ I like to name those objects the "Web API Contracts."
 
 ## Web API Contracts
 In the MVC acronym, the API Contracts could be seen as the "MV" part: the model and the view.
-Since there is no View in a Web API, these objects can be seen as playing the View role.
+Since there is no View in a Web API, these objects can be seen as playing the View role (and they are models).
 
 More on that, the Web API Contracts are the public objects that are transferred over HTTP.
 We could also call them Data Transfer Object (DTO), but I prefer "Contracts" since they are not to be messed with once deployed.
@@ -70,12 +70,12 @@ The "data contracts" play a big role in the Web API interface so: they cannot ch
 
 > **Side note**
 >
-> It is possible to have multiple model layers in an application: presentation model, view model, domain model, data model, etc.
+> It is possible to have multiple models in an application: view models, domain models, data models, etc.
 > Most of the time, I would recommend the use of multiple models, its helps separate and isolate responsibilities.
 >
 > Even in our little Ninja App, we will have 2 model layers: the "presentation & domain model" and the "data model."
 >
-> A great tool to manage object copy from one layer to another is [AutoMapper](http://automapper.org/).
+> A great tool to manage copying models (objects) from one layer to another is [AutoMapper](http://automapper.org/).
 
 ---
 
@@ -117,9 +117,10 @@ The reason behind this is simple: I want to keep the model super lean.
 > For example:
 > 
 > - A `ClanSummary` class that could be composed of the clan's `Name` and the ninja's `Count`.
-> - A `ClanDetails` class that could be composed of the clan's `Name` and a collection of ninja. We could also include the `Count`.
+> - A `ClanDetails` class that could be composed of the clan's `Name` and a collection of ninja. Note that we could also include the `Count`.
 
 In the little Ninja App that we are building, the goal is to create **raw data endpoints** that read/write simple entities, that's it.
+So we will skip the more fancy models for now :wink:.
 
 ## The Controllers
 Now that we have our model, let's focus on the controllers.
@@ -128,18 +129,19 @@ The `Controller` responsibility is to handle the HTTP requests and responses.
 
 Our ultra simple Ninja Web API will simply read or write Clans and Ninja's information.
 To do so, we will create two controllers, the `ClansController` and the `NinjaController`.
-Each controller will be responsible for its own model class.
+Each controller will be responsible for its own model part: `Clan` for the `ClansController` and `Ninja` for the `NinjaController`.
 
 > **Side note**
 >
 > A good way to design a system is to start here, at the "user interface" level, which in the case of a Web API, is the `Controller`.
-> We first need to define the Web API interface and the data contracts that a client would need to efficiently (or easily) use our system.
+> We first need to define the data contracts (the Web API interface) that a client would need to efficiently (or easily) use our system.
+> Then map the supported operations to an HTTP verb (`GET` to read, `POST` to create, etc.).
 > 
-> If we are building one or more GUI, we should start there (that's the user interface level, right?).
-> Begining by the analysis of what data would be needed.
-> Then maybe create one or more [API Gateway](http://microservices.io/patterns/apigateway.html) or simply create some raw data endpoints.
+> If we were building one or more GUI, we should start there (that's the user interface level, right?).
+> Begining by the analysis of what data would be needed for each GUI.
+> Then maybe create one or more [API Gateway](http://microservices.io/patterns/apigateway.html).
 >
-> Raw data endpoints is pretty much what we will do for our **Ninja App** (for now at least).
+> Raw data endpoints are what we will create in our **Ninja App**.
 
 ### ClansController
 The `ClansController` only expose a read all clans endpoint. The clan's data will be static and hard coded but could be persisted in a database at a later time.
@@ -167,7 +169,7 @@ During the article series, instead of just throwing some code out, I will write 
 As for the code conventions, I like to follow the [ASP.NET Engineering guidelines - Unit tests and functional tests](https://github.com/aspnet/Home/wiki/Engineering-guidelines#unit-tests-and-functional-tests).
 I also like to create a class for the subject under test and then a sub-class for each method. 
 I like how easy it becomes to regroup all the tests for one method under its own sub-class as well as to create mocks only once per class. 
-This might be clearer and more obvious later, in the `NinjaControllerTest` class.
+This will be clearer and more obvious later, in the `NinjaControllerTest` class.
 
 ---
 
@@ -226,7 +228,7 @@ The only test of the clan is the `ReadAllAsync.Should_return_OkObjectResult_with
 In this test we are:
 
 1. Expecting the `ClansController.ReadAllAsync();` method to return an `OkObjectResult`.
-1. Expecting the result value to be the `expectedClans` array (this obviously cannot happen yet but you will see why it is there later).
+1. Expecting the result value to be the `expectedClans` array (this obviously cannot happen yet but will fix this later).
 
 
 ``` csharp
@@ -274,7 +276,7 @@ Now we only need to write enough code to make that test pass.
 
 ### What have we covered in this article?
 We talked about the controller's role, about models and data contracts.
-We also coded unit tests to improve the quality of our Ninja App.
+We also coded a unit test to improve the quality of our Ninja App.
 
 ### What's next?
 In the next article, we will create the `IClanService` interface and its default implementation, the `ClanService` class.
