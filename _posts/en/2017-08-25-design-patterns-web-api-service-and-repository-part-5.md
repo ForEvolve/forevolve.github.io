@@ -19,7 +19,7 @@ proficiency-level: Intermediate
 
 In the last article, we talked about the service's role, we completed the `ClansController` implementation, and we created more unit tests to keep improving the quality of our Ninja App.
 
-Now it's time to attack the [Repository Pattern](https://msdn.microsoft.com/en-us/library/ff649690.aspx), create the `IClanRepository` interface, complete the `ClanService` implementation and create the default `ClanRepository` class with, of course, more unit tests.<!--more-->
+Now it is time to attack the [Repository Pattern](https://msdn.microsoft.com/en-us/library/ff649690.aspx), create the `IClanRepository` interface, complete the `ClanService` implementation and create the default `ClanRepository` class with, of course, more unit tests.<!--more-->
 
 [Skip the shared part](#repository)
 
@@ -79,7 +79,7 @@ public ClanService(IClanRepository clanRepository)
 }
 ```
 
-As you are probably beginning to be familiar with the pattern, we are injecting an `IClanRepository` interface in the controller; we added a guard clause to ensure the repository is not null then we referenced the injected class in a private field for futur use.
+As you are probably beginning to be familiar with the pattern, we are injecting an `IClanRepository` interface in the controller; we added a guard clause to ensure the repository is not null then we referenced the injected class in a private field for future use.
 
 ### Completing the tests
 Now that the `ClanService` gets an `IClanRepository` implementation injected in its constructor, we need to go back to the `ClanServiceTest` class and update it a little.
@@ -243,9 +243,9 @@ public Task<Clan> DeleteAsync(string clanName)
 
 Now if we run all the tests, we have five failing tests and four passing tests.
 
-To continue with easy code, we can implement both `Read*Async` methods by delegating the call directly to the `IClanRepository`, like this:
+To continue with simple code, we can implement both `Read*Async` methods by delegating the call directly to the `IClanRepository`, like this:
 
-```` csharp
+``` csharp
 public Task<IEnumerable<Clan>> ReadAllAsync()
 {
     return _clanRepository.ReadAllAsync();
@@ -257,7 +257,7 @@ public Task<Clan> ReadOneAsync(string clanName)
 }
 ```
 
-Now if we run all the tests, we have two failing tests and seven passing tests, that's fast progressions, isn't it?
+Now if we run all the tests, we have two failing tests and seven passing tests, that is fast progressions, isn't it?
 
 Our last two tests cover the `IsClanExistsAsync` method.
 The logic is simple:
@@ -290,7 +290,7 @@ Since it is a simple in-memory implementation, here is what we will do:
 1. We will code the methods and make our tests pass.
 
 ### The barebone `ClanRepository` class
-Since we are getting better at this, it's time to get more productive and quickly complete the first two steps.
+Since we are getting better at this, it is time to get more productive and quickly complete the first two steps.
 
 First, we need to create the `ClanRepository` class in the `Repositories` directory and implement the `IClanRepository` interface.
 I will keep the full implementation away since it is only empty methods that `throw new NotImplementedException();`.
@@ -331,7 +331,7 @@ First, let's put together the `ClanRepository` specifications.
 1. `CreateAsync`, `UpdateAsync` and `DeleteAsync` should all throw a `NotSupportedException` since no data is persisted anywhere but in-memory.
 
 As you can see, it is similar to the `ClanService` class minus the `IsClanExistsAsync` method.
-That method is more about logic than data access, so I decided not to pollute our repository with it.
+That method is about domain logic, not data access.
 
 **All of that, in code, looks like this:**
 
@@ -493,7 +493,8 @@ The exception thrown is:
 
 Well, we unit tested everything, but we forgot that our units must be integrated together.
 All those independent classes and interfaces are like bricks, but to make a wall we also need mortar!
-And the mortar is our dependency graph.
+
+The mortar is our dependency graph.
 
 We need to register our dependencies with the default Asp.Net Core service provider.
 To do so, in the `Startup.ConfigureServices` method, we will add our clan's dependencies to the `IServiceCollection`.
@@ -510,15 +511,15 @@ We could also create some integration tests in C# or use a tool like [Postman](h
 
 ### Integration testing
 In Asp.Net Core, we can use XUnit and the `Microsoft.AspNetCore.TestHost.TestServer` class to automate testing.
-And since we only have one action to test, why not introduce integration testing in our Ninja App?
 
 We will start by creating a new project, in the `test` directory, named `ForEvolve.Blog.Samples.NinjaApi.IntegrationTests`.
 In it, we will create the `BaseHttpTest` abstract class and the `ClansControllerTest` class.
 
 The `BaseHttpTest` abstract class implement some base behaviors that we will be able to reuse in the future.
-I could have used a test fixture as well, but I decided to go with a base class instead.
-The main reason is to control its behaviors per test basis better.
-Instead of say, creating an `Initialize` method, I decided to create an overridable `ConfigureServices` method that will allow us to inject some test dependencies (like our clans).
+
+> I could have used a test fixture as well, but I decided to go with a base class instead.
+> The main reason is to better control its behaviors, per test basis.
+> Instead of say, creating an `Initialize` method, I decided to create an overridable `ConfigureServices` method that will allow us to inject/override some test dependencies (like the test clans).
 
 **The `BaseHttpTest` class:**
 
@@ -628,7 +629,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.IntegrationTests
 }
 ```
 
-At this point, our new test is failing. We have not yet registered our dependencies.
+At this point, our new test is failing because we have not registered our dependency graph.
 
 ### Back to Startup
 Let's open the `Startup.cs` class (of the `ForEvolve.Blog.Samples.NinjaApi` project) and register our dependencies in the `ConfigureServices` method.
@@ -661,17 +662,16 @@ namespace ForEvolve.Blog.Samples.NinjaApi
 }
 ```
 
-> My clans' name source is [Wikipedia](https://en.wikipedia.org/wiki/Ninja).
+> My clans' name source is [Wikipedia](https://en.wikipedia.org/wiki/Ninja) :sunglasses:.
 
 ## The end of this article
-Now, running all tests gives us the green light, with 16 passing tests and no failing one, to continue to the second half of our system: the Ninjas.
+Running all tests gives us the green light to continue to the second half of our system: the Ninjas (with 16 passing tests).
 
 > We have not tested the default clans ("Iga" and "Kōga"). 
 > We could or could not have any or worst an `Exception` could be thrown, and our automated tests would not give us any feedback about it; because no test covers that scenario.
-> I leave this task to you to test that out, as an exercice.
+> I leave this task to you to test that out, as a practice.
 >
-> In the source code, I implemented a test for that (in `StartupTest.cs`). 
-> There are multiple ways to do this and I used the easy one (based on our actual code base).
+> In the source code, I implemented a test for that (in [`StartupTest.cs`](https://github.com/ForEvolve/ForEvolve.Blog.Samples/blob/master/5.%20NinjaApi%20-%20Clans%20completed/test/ForEvolve.Blog.Samples.NinjaApi.IntegrationTests/StartupTest.cs)) where I reused `BaseHttpTest`.
 
 ### What have we covered in this article?
 We talked about the repositories role in a system, we defined the `IClanRepository` interface, updated the `ClanService` class, created the `ClanRepository` class, ended up with a few more unit tests and did some integration testing.
@@ -682,6 +682,6 @@ What a busy day!
 In the next article, we will implement the core of our ninja system except the `NinjaRepository`.
 Since we covered the basics, I will go faster.
 
-The plans: `NinjaController`, `INinjaService`, `NinjaService`, `INinjaRepository` and some unit tests.
+The plan: `NinjaController`, `INinjaService`, `NinjaService`, `INinjaRepository` and some tests.
 
 {% include design-patterns-web-api-service-and-repository/footer.md %}
