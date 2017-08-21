@@ -19,33 +19,32 @@ proficiency-level: Intermediate
 In the last article, we built the empty `ClansController`.
 We also created a failing test for its only action.
 That test is testing our expectation of the `ClansController.ReadAllAsync()` action.
-But obviously, since our action's body is composed of only that one line: `throw new NotImplementedException();`; it cannot pass.
+However, since our action's body is composed of only that one line: `throw new NotImplementedException();`; it cannot pass.
 
 In this article, we will focus on the services part of the patterns.
 To do so, we will create the `IClanService` interface and its default implementation, the `ClanService` class.
 In the process, we will update the `ClansController` and ensure that its test pass.
-As you probably expect, we will also create some unit tests for our `ClanService` class.<!--more-->
+As you may expect, we will also create unit tests for the `ClanService` class.<!--more-->
 
 [Skip the shared part](#services)
 
 {% include design-patterns-web-api-service-and-repository/series.md %}
 
 ## Services
-As we saw in the first part of the series, a controller must delegate the domain logic to an external class.
-
-**The service play that role.**
+As we saw in the first part of the series, a controller must delegate the domain logic to an external class; **the service will play that role.**
 
 ---
 
-> The service should encapsulate the logic behind a specific domain element.
-> For this article, that element is the **clans**.
+> A service should encapsulate a unit of domain logic.
+> For this article, that unit is the **clans**.
 
 ---
 
 ## Creation of the `IClanService` interface
 A service could be seen as an extension of the controller or as a "unit of domain logic." 
 In the case of the `IClanService`, we will implement more methods that our controller offers to our clients.
-We will use those later in the series.
+
+*I may use those methods in a future article, but for now, it will help me explain the concept behind the service.*
 
 ``` csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Services
@@ -67,7 +66,7 @@ If we take a closer look at our domain logic, we have [CRUD operations](https://
 For example, in another article, we will use the `IsClanExistsAsync` method to ensure that ninjas are not trying to trick us with fake clans!
 
 ## Controller update
-Now, we will update our controller, so it use our new service interface, and we will use `Moq` to `Mock<T>` the service in our controller tests.
+Now, we will update our controller, so it uses our new service interface, and we will use `Moq` to `Mock<T>` the service in our controller tests.
 
 ### What is a Mock?
 <figure>
@@ -100,10 +99,10 @@ The `throw new NotImplementedException();` was fun, but not that fun.
 It is now the time to get rid of it and complete our `ClansController` implementation.
 
 This is the nice thing about decoupling code with interfaces; we can update the controller only by using a contract (interface).
-We don't even need a working implementation. 
-And even more, this also means that the injected service can be of any type, as long as it implements the contract, leading to a flexible system.
+We do not even need a working implementation. 
+Moreover, this also means that the injected service can be of any type, as long as it implements the contract, leading to a flexible system.
 
-Let's have the code talk by itself a little.
+Let's read some code that speaks for itself.
 
 ``` csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
@@ -113,9 +112,9 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
     {
         private readonly IClanService _clanService;
 
-        public ClansController(IClanService clanService)
+        public ClansController(IClanService clanService) // Injection of IClanService
         {
-            _clanService = clanService ?? throw new ArgumentNullException(nameof(clanService));
+            _clanService = clanService ?? throw new ArgumentNullException(nameof(clanService)); // Guard
         }
 
         [HttpGet]
@@ -136,7 +135,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
 ### ClansControllerTest
 Now that we updated the `ClansController`, it is time to update our `ClansControllerTest` class as well.
 
-Let's have the code talk by itself a little.
+Let's jump into some more code.
 
 ``` csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
@@ -148,7 +147,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
 
         public ClansControllerTest()
         {
-            ClanServiceMock = new Mock<IClanService>();
+            ClanServiceMock = new Mock<IClanService>(); // IClanService mock
             ControllerUnderTest = new ClansController(ClanServiceMock.Object);
         }
 
@@ -166,7 +165,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
                 };
                 ClanServiceMock
                     .Setup(x => x.ReadAllAsync())
-                    .ReturnsAsync(expectedClans);
+                    .ReturnsAsync(expectedClans); // Mocked the ReadAllAsync() method
 
                 // Act
                 var result = await ControllerUnderTest.ReadAllAsync();
@@ -183,7 +182,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
 **What have we changed?**
 
 - We created an `IClanService` mock to simulate a service implementation (we are testing our controller, not the service itself).
-- We mocked the `ReadAllAsync()` method to return our `expectedClans` collection.
+- We mocked the `ReadAllAsync()` method to return our `expectedClans` collection (we could also see this as **controlling dependencies behaviors**).
 
 ---
 
@@ -281,7 +280,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 Before going further, let's write some tests about our expectations of the service behaviors.
 
 We are creating an in-memory implementation of the `IClanService` interface. 
-Why? Because this will let us cover the design pattern before connecting a real data source.
+Why? Because this will let us cover the design pattern before connecting a real data source to the project.
 This will also give us the opportunity to talk about and use the patterns twice.
 
 1. Let's start with `ReadAllAsync`: this method is expected to return all the clans.
@@ -293,18 +292,22 @@ This will also give us the opportunity to talk about and use the patterns twice.
 
 > **Why throw NotSupportedException?**
 >
-> I throw a `NotSupportedException` because our component does not support the operations (yet).
+> I throw a `NotSupportedException` because the component does not support the operations (yet).
 > 
 > I could have omitted the `CreateAsync`, `UpdateAsync` and `DeleteAsync` methods from the interface. 
-> But the day that I want to move my clans to a real database, I would have to change my `IClanService` interface, which could break other parts of the system, especially if there are external references on the assembly.
+> But the day that I want to move my clans to a real database (which should happen one day or another), I would have to change my `IClanService` interface, which could break other parts of the system.
+> This is especially true if there are external references on the assembly (in another scenario).
 > Of course, in this demo project we can easily assess the consequences of such modifications, but in a real project, this can quickly become harder.
 >
 > I could also have implemented the full Clans API (in the `ClansController`) exposing all CRUD operations.
 > In this case, the `NotSupportedException` would have told the consumers that the service does not (yet) support that operation.
+>
+> As a last note on this, usually, you do not want additional operations and unnecessary code, you want to keep your system to what is necessary and only to that. 
+> Adding functionalities that are not used only add to the project maintenance cost.
 
 ---
 
-**All of that, in code, looks like this:**
+**All of these expectations in code looks like this:**
 
 ``` csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Services
@@ -442,7 +445,7 @@ We completed the `ClansController` implementation.
 We also created more unit tests to keep improving the quality of our Ninja App.
 
 ### What's next?
-In the next article, we will create the `IClanRepository` interface.
-We will also complete the `ClanService` class, update its tests and make them pass.
+In the next article, we will talk about the Repositories pattern, create the `IClanRepository` interface and the `ClanRepository` class.
+We will also complete the `ClanService` class, update its tests to make them pass and create more automated tests.
 
 {% include design-patterns-web-api-service-and-repository/footer.md %}
