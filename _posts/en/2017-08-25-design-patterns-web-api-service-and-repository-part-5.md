@@ -60,7 +60,7 @@ This is mostly because our service does not have much logic beside data access.
 
 ---
 
-> In a more complex system, we could have services doing more domain operations instead of only raw data access.
+> In a more complex system, we could have services doing more domain operations instead of only raw data access, like an `IEmailService` that sends emails.
 
 ---
 
@@ -82,10 +82,9 @@ public ClanService(IClanRepository clanRepository)
 As you are probably beginning to be familiar with the pattern, we are injecting an `IClanRepository` interface in the controller; we added a guard clause to ensure the repository is not null then we referenced the injected class in a private field for futur use.
 
 ### Completing the tests
-Now that the `ClanService` take an `IClanRepository` instance in its constructor, our test project does not compile anymore.
-This is ok; we need to finish the `ClanServiceTest` class; which is the class that generates a compile error.
+Now that the `ClanService` gets an `IClanRepository` implementation injected in its constructor, we need to go back to the `ClanServiceTest` class and update it a little.
 
-The `IClanRepository` is our chance to do so, lets start by adding a `protected Mock<IClanRepository> ClanRepositoryMock { get; }` property.
+Let's start by adding a `protected Mock<IClanRepository> ClanRepositoryMock { get; }` property.
 This mock will help us create the missing links between our test cases and our class under test.
 
 The mock update:
