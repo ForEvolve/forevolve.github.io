@@ -35,7 +35,6 @@ In this article:
 
 {% include design-patterns-web-api-service-and-repository/series.md %}
 
-
 ## Azure Table Storage
 I will start by quoting Microsoft on this one:
 
@@ -52,10 +51,10 @@ I will start by quoting Microsoft on this one:
 In my word, an Azure Table is like a big SQL table with a composite key (`PartitionKey` + `RowKey`), but instead of user-defined columns (a schema), columns are variable, based on the entity you want to store in your table. 
 More on that, it is cheap and fast. In my humble opinion, this is a great way to store data.
 
-### Azure Table Storage
+### The Storage Account
 To get started:
 
-1. You will need an Azure subscription (if you don't have any, it requires a credit card, but you will have free credits, and I doubt that our Ninja app will cost you any money, no matter what - Table storage is cheap).
+1. You will need an Azure subscription (if you don't already have one, it requires a credit card, but MS will give you free credits. I also doubt that our Ninja Api will cost you any money, no matter what - Table storage is cheap).
 1. You will need to create an Azure Storage in your account
 
 #### Create a subscription
@@ -67,7 +66,7 @@ If you already have one, great!
 #### Create Azure Storage 
 Once you have an Azure account, create a new Storage Account resource.
 
-Managing your Azure resources is out of the scope of this article so that I will leave you on your own for a little while.
+Managing your Azure resources is out of the scope of this article so I will leave you on your own for a little while.
 
 If you are clueless, feel free to start here: [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account)
 
@@ -81,7 +80,8 @@ Once this is done, you need to fill in the form presented to you.
 
 > **Tip** 
 >
-> Use the little "information icon" if you are not sure, Microsoft made our life easier there...
+> In the form, use the little "information icons" if you are not sure. 
+> Microsoft made our life easier there...
 
 ---
 
@@ -101,16 +101,8 @@ Indirectly, we will use the Azure SDK through `ForEvolve.Azure`.
 ---
 
 That said, we need to create a new class that will represent the persisted `Ninja`'s data.
-The `NinjaEntity` class will be that data representation.
+Let's call the ninja's data representation class `NinjaEntity`.
 To make it easy, we will simply inherit from `TableEntity` instead of manually implementing `ITableEntity`.
-
----
-
-> **ForEvolve Framework**
->
-> If this is not done already, install the `ForEvolve` metapackage from [MyGet](https://www.myget.org/F/forevolve/api/v3/index.json).
-
----
 
 Here is the `NinjaEntity` class:
 
@@ -163,6 +155,17 @@ To skip the database modeling part, we will use the clan name as the `PartitionK
             <cite><a href="https://docs.microsoft.com/en-us/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage#uyuyuyuyuy">Designing a Scalable Partitioning Strategy for Azure Table Storage</a></cite>
         </figcaption>
     </figure>
+    <footer>
+        <p>
+            <strong>What does this mean?</strong><br>
+            This means that with the current design, all ninja of a single clan will always be served by the same partition server.
+            By assuming that a clan is united (fight together), this is a good scaling strategy.
+        </p>
+        <p>
+            More over, we could also be <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/Performing-Entity-Group-Transactions" target="_blank">Performing Entity Group Transactions</a>.
+            To perform transactions, all entities must be in the same partition.
+        </p>
+    </footer>
 </aside>
 
 To be able to save our ninja in the Azure Table Storage, we will map `Ninja` objects to `NinjaEntity` objects as follow:
@@ -275,7 +278,7 @@ We will create three classes, each one with a single mapping responsibility (imp
 - `NinjaToNinjaEntityMapper` will implement `IMapper<Ninja, NinjaEntity>`
 - `NinjaEntityEnumerableToNinjaMapper` will implement `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`
 
-I will skip the implementation details since it is a little out of scope, but the full implementation and the tests are available at GitHub.
+I will skip the implementation details since it is a little out of scope, but the full implementation and the tests are available at [GitHub](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/src/ForEvolve.Blog.Samples.NinjaApi/Mappers).
 I will only keep the implementation of `NinjaMappingService` in the article.
 
 > This is a very flexible design where each mapper is independent.
@@ -354,10 +357,14 @@ Once again, pretty simple code: easy to read, test and reuse.
 
 ### Unit tests
 To keep the article shorter, I omitted the full mapping subsystem implementation and testing.
-However, again, all the code is available on GitHub.
+However, again, all the code is available on GitHub:
+
+- [Mappers tests](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Mappers)
+- [NinjaMappingServiceTest](https://github.com/ForEvolve/ForEvolve.Blog.Samples/blob/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Services/NinjaMappingServiceTest.cs)
+
 Also feel free to post any questions that you may have in the comments.
 
-The `NinjaMappingServiceTest` class code is:
+The `NinjaMappingServiceTest` class code looks like:
 
 ``` csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Services
@@ -436,17 +443,31 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 ```
 
 Once again, due to the subsystem design, our tests are more than simple!
+Note that I am not testing the mapping here but the Façade.
+Each mapper has been previously tested individually (see the [source code](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Mappers) or more information).
 
 ## ForEvolve.Azure
 Another step: we need to access that Azure Table.
 To do that, we could use the Azure SDK or even simpler: inject an `ITableStorageRepository<TEntity>`; provided by `ForEvolve.Azure`.
 
-> `ForEvolve.Azure` is part of the ForEvolve Framework meta package installed earlier.
-
 We will configure the use of `ITableStorageRepository<TEntity>` later, for now, lets just assume that it is working fine (it is just an interface after all).
 
 `TEntity` is the entity to read/write.
 In this case, `TEntity` is `NinjaEntity`.
+
+---
+
+> **ForEvolve Framework**
+>
+> The ForEvolve Framework is a toolbox that I am building to help speed up repetitive tasks, like accessing an Azure Table. 
+> There are multiple helpers in it, and many more that I want to add.
+>
+> `ForEvolve.Azure` is part of the ForEvolve Framework meta package installed earlier.
+>
+> If this is not done already, install the `ForEvolve` metapackage from my [MyGet](https://www.myget.org/F/forevolve/api/v3/index.json) feed.
+> If you dont know [How to use a custom NuGet feed in Visual Studio 2017](/en/articles/2017/08/06/how-to-use-a-custom-nuget-feed-in-visual-studio-2017/), feel free to take a look at this article.
+
+---
 
 ## NinjaRepository
 Back to our main business, let's create that `NinjaRepository` that we are talking about for so long!
@@ -508,21 +529,27 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
 
 > **Ok, but wait! What! A repository in a repository? WTF is that thing?**
 >
-> I'd answer that with: why not?
+> **Short answer:**
+> Why not?
 >
 > **Long answer:**
-> `NinjaRepository` will be responsible for the mapping of domain entities to data entities and, for the data access logic.
-> In the end, it will delegate both responsibilities to external classes, and it will keep the data access orchestrator's hat for itself.
 >
-> `ITableStorageRepository<NinjaEntity>` will do the Azure Table Storage data access while keeping `NinjaService` in the dark about Azure.
-> No `INinjaService` should be aware of any dependency on Azure Storage, data is the responsibility of the Repository.
+> `NinjaRepository` will be responsible for the mapping of domain entities to data entities and, for the data access logic.
+>
+> 1. `ITableStorageRepository<NinjaEntity>` will do the Azure Table Storage data access.
+> 1. `INinjaMappingService` will do the mapping.
+> 1. `NinjaRepository` will delegate both responsibilities to external classes, and will only keep the "data access orchestrator's hat" for itself.
+>
+> `NinjaService` will be kept in the dark about Azure because no `INinjaService` implementation should be aware of any dependency on Azure Storage; data is the responsibility of the Repository.
+>
+> Clean and lean!
 
 ---
 
 ### NinjaRepository tests
-Enough chatting lets just jump to the code once again then lets attack each operation one by one.
+Enough chatting, let's just jump to the code once again then let's attack each operation one by one.
 
-The `NinjaRepositoryTest` code looks like this:
+Let's begin with the `NinjaRepositoryTest` shared code:
 
 ``` csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
