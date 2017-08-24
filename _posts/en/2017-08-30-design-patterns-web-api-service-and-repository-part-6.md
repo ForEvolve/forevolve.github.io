@@ -20,7 +20,10 @@ We implemented a `Controller`, a `Service` and a `Repository`.
 We also created unit and integration tests covering our specifications (as basic as they were).
 Our Clan sub-system is pretty basic indeed, but it allowed us to learn the patterns without bothering too much about external dependencies.
 
-In this article we will define most of the ninja sub-system and implement the `NinjaController` while in the next articles, we will implement the service, the repository, talk about Azure Table Storage and the ForEvolve Framework.<!--more-->
+In this article we will define most of the ninja sub-system and implement the `NinjaController` while in the next articles, we will implement the service, the repository, talk about Azure Table Storage and the ForEvolve Framework.
+
+Revisiting all the patterns in a more complex subsystem should help you learn them.
+Do not worry; I will also add a few more concepts along the way, this is not a copy/paste of my previous articles.<!--more-->
 
 [Skip the shared part](#defining-the-interfaces)
 
@@ -50,7 +53,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 
 ### INinjaRepository
 The `INinjaRepository` look the same as the `INinjaService` but their responsibilities are different.
-The repository's goal is to read and write data while the service is to handle the domain logic.
+The repository's goal is to read and write data while the service's goal is to handle the domain logic.
 
 As you can see, once again, we are building a simple CRUD data access interface.
 
