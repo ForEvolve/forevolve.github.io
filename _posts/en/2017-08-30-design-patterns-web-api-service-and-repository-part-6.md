@@ -659,7 +659,7 @@ public async Task<IActionResult> CreateAsync([FromBody]Ninja ninja)
 }
 ```
 
-This one is a little more complex since the `CreatedAtAction` (HTTP status code 201) must return the "read URL".
+This one is a little more "complex" since the `CreatedAtAction` (HTTP status code 201) must return the "read URL".
 Now down from 7 to 6 failing tests.
 
 ---
@@ -670,11 +670,22 @@ Now down from 7 to 6 failing tests.
 > In my opinion, **strings should never be hard-coded** anywhere in your code.
 >
 > That said, out of the utopic world of endless money, time and workforce, it is tolerable to hard code your error messages (ex.: exceptions), test data (ex.: a dev database seeder), etc. 
-> Most of the time, you don't have an unlimited budget, and these will rarely change (creating a resource file ain't that costly tho; just saying).
+> Most of the time, you do not have an unlimited budget, and these will rarely change (creating a resource file ain't that costly tho; just saying).
 >
-> But, **for code references** (ex.: method name, class name, property name), **DO NOT use a string, use the `nameof` operator.**
+> However, **for code references** (ex.: method name, class name, property name), **DO NOT use a string, use the `nameof` operator.**
 >
-> If you don't know the `nameof` operator or want more info: [nameof (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof).
+> In our last code block, `nameof(ReadOneAsync)` will simply become the string `"ReadOneAsync"`, but, it is not a string until compiled.
+> The `nameof(...)` operator is a constant expression.
+> You could see this as a "dynamic constant".
+> Like a `const`, all references are replaced by the constant's value at compile time.
+> You can also use the `nameof(...)` operator anywhere you can use a constant, like in `*Attribute` or as a default parameter value.
+>
+> One of the biggest advantages is that Visual Studio's refactoring feature (renaming a method, a class, etc.) will also rename the `nameof(...)` references.
+> More on that, if you use CodeLens or the "Find all references" on the `ReadOneAsync` method, Visual Studio will list `nameof(...)` as references.
+>
+> ![nameof shown as a reference](//cdn.forevolve.com/blog/images/2017/vs-ninja-api-nameof-references.png)
+>
+> If you do not know the `nameof` operator or want more info: [nameof (C# Reference)](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof).
 
 ---
 
@@ -701,7 +712,8 @@ public async Task<IActionResult> CreateAsync([FromBody]Ninja ninja)
 ```
 
 If there is a validation error, the API will return an HTTP status code 400 with the errors in its body.
-We don't have any restriction for the ninja; our API is highly permissive right now.
+We do not have any restriction for the ninja (yet); our API is highly permissive right now.
+However, the controller does not have to know that, which would allow us to add validation later.
 
 That said, we are now down from 6 to 5 failing tests.
 More than half done!
