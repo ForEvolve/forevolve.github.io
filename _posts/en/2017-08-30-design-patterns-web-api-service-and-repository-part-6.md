@@ -1,6 +1,6 @@
 ---
 title:  "Design Patterns: Asp.Net Core Web API, services, and repositories"
-subtitle: "Part 6: the ninja sub-system and the NinjaController"
+subtitle: "Part 6: the NinjaController and the ninja sub-system"
 date:   2017-08-30 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png"
 lang: en
