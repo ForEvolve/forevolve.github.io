@@ -798,3 +798,5 @@ In the next article, we will implement the missing piece of the ninja subsystem:
 We will use Azure Table Storage to store our ninja's data.
 
 I will also introduce my in-development ForEvolve Framework to access our data easily.
+
+{% include design-patterns-web-api-service-and-repository/footer.md %}
