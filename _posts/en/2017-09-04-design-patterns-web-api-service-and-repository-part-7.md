@@ -29,9 +29,9 @@ Due to its size, I decided to split it in two.<!--more-->
 It is now the time to attack the `NinjaService` class!
 
 ### Creating the NinjaService
-Again, we know the pattern, `NinjaService` must implement `INinjaService` and must use `INinjaRepository` to access the data source.
+Again, we know the pattern, `NinjaService` must implement `INinjaService` and will use `INinjaRepository` to access the data source.
 But this time, using the power of Dependency Injection, we will get an implementation of `IClanService` injected as well.
-We will use `IClanService` to validate the ninja's clan.
+We will use `IClanService` to validate the ninja's clan later.
 
 Let's start with the empty class:
 
@@ -83,13 +83,13 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 ```
 
 ### Testing the NinjaService
-The test pretty much speaks for themselves, besides the introduction of `.Verifiable()` and `.Verify()`.
+The tests pretty much speak for themselves, besides the introduction of `.Verifiable()` and `.Verify()`.
 
 ---
 
 > **Moq verifiable**
 >
-> Moq can keep track of what method has been call on our mocks.
+> Moq can keep track of what method has been called on our mocks.
 > To enable that, you have to call the `Verifiable()` method after the `Setup()` method.
 >
 > Ex.: `NinjaRepositoryMock.Setup(x => x.DeleteAsync(clanName, ninjaKey)).Verifiable();`
@@ -307,7 +307,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
                 NinjaRepositoryMock
                     .Verify(x => x.UpdateAsync(unexistingNinja), Times.Never);
 
-                // Make sure we read the ninja from the repository before atempting an update.
+                // Make sure we read the ninja from the repository before attempting an update.
                 NinjaRepositoryMock
                     .Verify(x => x.ReadOneAsync("Some clan", "SomeKey"), Times.Once);
             }
@@ -360,7 +360,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
                 NinjaRepositoryMock
                     .Verify(x => x.DeleteAsync(clanName, ninjaKey), Times.Never);
 
-                // Make sure we read the ninja from the repository before atempting an update.
+                // Make sure we read the ninja from the repository before attempting an update.
                 NinjaRepositoryMock
                     .Verify(x => x.ReadOneAsync(clanName, ninjaKey), Times.Once);
             }
@@ -520,7 +520,7 @@ Yeah! All tests are passing again!
 
 ### Some refactoring
 If we take a look at the `NinjaService`, there is some code that is there multiple times.
-Armed with our unit test suite, we can now start to refactor the `NinjaService` confidently!
+Armed with our unit test suite, we can now start to refactor the `NinjaService` with confidence!
 
 **The refactoring target is:**
 
@@ -598,7 +598,7 @@ To make sure that this cannot happen, we will start by adding the following two 
 1. `CreateAsync+Should_throw_a_ClanNotFoundException_when_clan_does_not_exist`
 1. `UpdateAsync+Should_throw_a_ClanNotFoundException_when_clan_does_not_exist`
 
-We will update both `CreateAsync` and `UpdateAsync` methods one by one (I belive the writing will be clearer this way).
+We will update both `CreateAsync` and `UpdateAsync` methods one by one (I believe the writing will be clearer this way).
 
 #### CreateAsync
 First we will update the `Should_create_and_return_the_created_Ninja` test method to support the call to the `IClanService.IsClanExistsAsync` method.
@@ -734,7 +734,7 @@ public async Task<Ninja> UpdateAsync(Ninja ninja)
 }
 ```
 
-And all tests are now passign again!
+And all tests are now passing again!
 
 ### Some more refactoring
 We repeated the same code block a few times; let's extract it to a method to keep our application DRY!
@@ -783,6 +783,12 @@ Ain't that code cleaner than our previous version?
 
 > I believe that code like `await EnforceClanExistenceAsync(clanName);` is easier to read and to understand than it was in its previous form.
 > It is almost plain English now, instead of raw code.
+>
+> Do not over extract methods either. 
+> As a rule of thumb, create a private method when it is used more than once.
+>
+> That said, if for some reason creating a private method would significantly improve the readability of the code, do it. 
+> Be however careful because too many private methods called only once can sometimes make the code harder to read than simply keeping the code in the caller method.
 
 ---
 
@@ -790,13 +796,13 @@ Ain't that code cleaner than our previous version?
 Running all tests gives us the green light to continue toward the repository implementation, with 41 passing tests and no failing one.
 
 ### What have we covered in this article?
-In this article, implemented  and added some domain logic to the `NinjaService`.
-We also used our unit tests to ensure that our refactoring hadn't broken anything.
+In this article, we implemented and added some domain logic to the `NinjaService`.
+We also used our unit tests to ensure that our refactoring had not broken anything.
 
 ### What's next?
-In the next article, we will implement the missing piece of the ninja subsystem: the `NinjaRepository`.
+In the next article, we will implement the missing piece of the Ninja subsystem: the `NinjaRepository`.
 We will use Azure Table Storage to store our ninja's data.
 
-I will also introduce my in-development ForEvolve Framework to access our data easily.
+I will also introduce my in-development ForEvolve Framework that will help us access our data easily.
 
 {% include design-patterns-web-api-service-and-repository/footer.md %}
