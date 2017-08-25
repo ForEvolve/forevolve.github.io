@@ -37,9 +37,35 @@
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/7.%20NinjaApi%20-%20NinjaService">7. NinjaApi - NinjaService</a></td>
         </tr>
         <tr>
-            <td><a href="/en/articles/2017/09/07/design-patterns-web-api-service-and-repository-part-8/">Part 8: the NinjaRepository, Azure table storage and the ForEvolve Framework</a></td>
-            <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository">8. NinjaApi - NinjaRepository</a></td>
+            <td><a href="/en/articles/2017/09/07/design-patterns-web-api-service-and-repository-part-8/">Part 8: Azure table storage and the data model</a></td>
+            <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaEntity">8. NinjaApi - NinjaEntity</a></td>
         </tr>
+        <tr>
+            <td>Part 9: the NinjaMappingService</td>
+            <td>9. NinjaApi - NinjaMappingService</td>
+        </tr>
+        <tr>
+            <td>Part 10: the NinjaRepository and the ForEvolve.Azure</td>
+            <td>10. NinjaApi - NinjaRepository</td>
+        </tr>
+        <tr>
+            <td>Part 11: Integration testing</td>
+            <td>11. NinjaApi - IntegrationTesting</td>
+        </tr>
+        <!--
+        <tr>
+            <td><a href="/en/articles/2017/09/08/design-patterns-web-api-service-and-repository-part-9/">Part 9: the NinjaMappingService</a></td>
+            <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/9.%20NinjaApi%20-%20NinjaMappingService">9. NinjaApi - NinjaMappingService</a></td>
+        </tr>
+        <tr>
+            <td><a href="/en/articles/2017/09/13/design-patterns-web-api-service-and-repository-part-10/">Part 10: the NinjaRepository and the ForEvolve.Azure</a></td>
+            <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/10.%20NinjaApi%20-%20NinjaRepository">10. NinjaApi - NinjaRepository</a></td>
+        </tr>
+        <tr>
+            <td><a href="/en/articles/2017/09/18/design-patterns-web-api-service-and-repository-part-11/">Part 11: Integration testing</a></td>
+            <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/11.%20NinjaApi%20-%20IntegrationTesting">11. NinjaApi - IntegrationTesting</a></td>
+        </tr>
+        -->
         <tr>
             <td>More might come…</td>
             <td>&nbsp;</td>
