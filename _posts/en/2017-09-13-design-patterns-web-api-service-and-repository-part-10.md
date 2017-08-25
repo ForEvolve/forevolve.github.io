@@ -21,20 +21,63 @@ tags:
 proficiency-level: Intermediate
 ---
 
-TODO...<!--more-->
+It is now time to complete our Ninja subsystem! 
 
-[Skip the shared part](#forevolve-azure)
+To be prepared, in the previous articles, we implemented a mapping subsystem and visited the Façade design pattern, we also created our data model and introduced Azure Table Storage.
+
+In this article:
+
+1. We will implement the `NinjaRepository`
+1. We will connect the `NinjaRepository` to Azure Table Storage (which cost basically nothing)
+1. I will introduce an open source framework that I am building; from that framework, the `ForEvolve.Azure` package will help us get things done faster than using `WindowsAzure.Storage` directly.
+1. Finally, we will store our credentials using secrets instead of in the application settings.<!--more-->
+
+[Skip the shared part](#forevolveazure)
 
 {% include design-patterns-web-api-service-and-repository/series.md %}
 
 ## ForEvolve.Azure
-Another step: we need to access that Azure Table.
-To do that, we could use the Azure SDK or even simpler: inject an `ITableStorageRepository<TEntity>`; provided by `ForEvolve.Azure`.
+To access an Azure Table, we could use the Azure SDK or the REST API over HTTP.
+However, I picked an even simpler solution: use and inject an `ITableStorageRepository<TModel>`; provided by `ForEvolve.Azure`.
 
-We will configure the use of `ITableStorageRepository<TEntity>` later, for now, let's just assume that it is working fine (it is just an interface after all).
+*We will configure `ITableStorageRepository<TModel>` later, for now, let's just assume that it is working fine (it is just an interface after all).*
 
-`TEntity` is the entity to read/write.
-In this case, `TEntity` is `NinjaEntity`.
+At the time of this writing, the `ITableStorageRepository<TModel>` interface look like this:
+
+``` csharp
+namespace ForEvolve.Azure.Storage.Table
+{
+    public interface ITableStorageRepository<TModel>
+        where TModel : class, ITableEntity, new()
+    {
+        Task<IEnumerable<TModel>> ReadPartitionAsync(string partitionKey);
+        Task<TModel> ReadOneAsync(string partitionKey, string rowkey);
+        Task<IEnumerable<TModel>> ReadAllAsync();
+        Task<TModel> InsertOrMergeAsync(TModel item);
+        Task<TModel> InsertOrReplaceAsync(TModel item);
+        Task<TModel> DeleteOneAsync(string partitionKey, string rowkey);
+        Task<IEnumerable<TModel>> DeletePartitionAsync(string partitionKey);
+        Task<TModel> InsertAsync(TModel item);
+        Task<TModel> ReplaceAsync(TModel item);
+        Task<TModel> MergeAsync(TModel item);
+    }
+}
+```
+
+`TModel` is the data model to read/write from/to Azure Table Storage.
+In this case, `TModel` will be `NinjaEntity`.
+
+As you can see, it is close to a CRUD repository interface with the following supported operations:
+
+- Read all
+- Read a partition
+- Read an entity
+- Delete an entity
+- Delete a partition
+- Replace an entity (update).
+- Merge different entities (partial update).
+- Insert a new entity.
+- Insert and update can also use `InsertOrMergeAsync` and `InsertOrReplaceAsync` depending on your application needs.
 
 ---
 
@@ -442,7 +485,7 @@ public async Task<Ninja> UpdateAsync(Ninja ninja)
 
 `DeleteAsync` should:
 
-- Delegate the call to `ITableStorageRepository<NinjaEntity>.RemoveAsync(partitionKey, rowkey)` 
+- Delegate the call to `ITableStorageRepository<NinjaEntity>.DeleteOneAsync(partitionKey, rowkey)` 
 - Then map the entity to ninja
 - To finally return that deleted ninja
 
@@ -461,7 +504,7 @@ public class DeleteAsync : NinjaRepositoryTest
         var expectedNinja = new Ninja();
 
         NinjaEntityTableStorageRepositoryMock
-            .Setup(x => x.RemoveAsync(clanName, ninjaKey))
+            .Setup(x => x.DeleteOneAsync(clanName, ninjaKey))
             .ReturnsAsync(deletedEntity)
             .Verifiable();
         NinjaMappingServiceMock
@@ -473,7 +516,7 @@ public class DeleteAsync : NinjaRepositoryTest
         var result = await RepositoryUnderTest.DeleteAsync(clanName, ninjaKey);
 
         // Assert
-        NinjaEntityTableStorageRepositoryMock.Verify(x => x.RemoveAsync(clanName, ninjaKey), Times.Once);
+        NinjaEntityTableStorageRepositoryMock.Verify(x => x.DeleteOneAsync(clanName, ninjaKey), Times.Once);
         NinjaMappingServiceMock.Verify(x => x.Map(deletedEntity), Times.Once);
         Assert.Same(expectedNinja, result);
     }
@@ -485,9 +528,17 @@ The implementation code:
 ``` csharp
 public async Task<Ninja> DeleteAsync(string clanName, string ninjaKey)
 {
-    var deletedEntity = await _ninjaEntityTableStorageRepository.RemoveAsync(clanName, ninjaKey);
+    var deletedEntity = await _ninjaEntityTableStorageRepository.DeleteOneAsync(clanName, ninjaKey);
     var deletedNinja = _ninjaMappingService.Map(deletedEntity);
     return deletedNinja;
 }
 ```
 
+## The end of this article
+...
+
+### What have we covered in this article?
+...
+
+### What's next?
+...
