@@ -8,20 +8,27 @@ categories: en/articles
 tags: 
 - Design Patterns
 - Asp.Net Core
-- Web API
 - C#
 - Unit Test
 - XUnit
 - Façade Pattern
-- Repository Pattern
-- NoSQL
-- Azure
-- Azure Table Storage
-- ForEvolve Framework
 proficiency-level: Intermediate
 ---
 
-TODO...<!--more-->
+In the previous article, we explored Azure Table Storage briefly, and we created the `NinjaEntity` class.
+Doing so opened up a new concern: mapping `Ninja` to `NinjaEntity`.
+
+Before going further, to keep the external dependencies low, in this article, we will create a mapping system.<!--more-->
+
+---
+
+> **Tools**
+>
+> In a real life project I would recommend the use of a library like
+> [AutoMapper](http://automapper.org/).
+> AutoMapper is a great tool that allows copying one object into another (and much more).
+
+---
 
 [Skip the shared part](#ninjamappingservice)
 
@@ -285,5 +292,17 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 
 Once again, due to the subsystem design, our tests are more than simple!
 Note that I am not testing the mapping here but the Façade.
-Each mapper has been previously tested individually (see the [source code](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Mappers) or more information).
+Each mapper has also been tested individually.
 
+## The end of this article
+### What have we covered in this article?
+In this article, we created the Ninja mapping subsystem that we will use on the `NinjaRepository`.
+
+### What's next?
+In the next article:
+
+1. We will finally implement the `NinjaRepository`.
+1. We will use Azure Table Storage to store our ninja's data.
+1. I will also introduce my in-development ForEvolve Framework that will help us access our data.
+
+{% include design-patterns-web-api-service-and-repository/footer.md %}

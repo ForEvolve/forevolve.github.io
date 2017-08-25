@@ -45,7 +45,7 @@
             <td>9. NinjaApi - NinjaMappingService</td>
         </tr>
         <tr>
-            <td>Part 10: the NinjaRepository and the ForEvolve.Azure</td>
+            <td>Part 10: the NinjaRepository and ForEvolve.Azure</td>
             <td>10. NinjaApi - NinjaRepository</td>
         </tr>
         <tr>
