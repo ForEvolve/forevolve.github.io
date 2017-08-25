@@ -1,6 +1,6 @@
 ---
 title:  "Design Patterns: Asp.Net Core Web API, services, and repositories"
-subtitle: "Part 9: the NinjaMappingService"
+subtitle: "Part 9: the NinjaMappingService and the Façade pattern"
 date:   2017-09-08 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png"
 lang: en
@@ -18,13 +18,14 @@ proficiency-level: Intermediate
 In the previous article, we explored Azure Table Storage briefly, and we created the `NinjaEntity` class.
 Doing so opened up a new concern: mapping `Ninja` to `NinjaEntity`.
 
-Before going further, to keep the external dependencies low, in this article, we will create a mapping system.<!--more-->
+Before going further, to keep the external dependencies low, in this article, we will create a mapping system.
+This will also allow us to explore an additional design pattern: the Façade. <!--more-->
 
 ---
 
 > **Tools**
 >
-> In a real life project I would recommend the use of a library like
+> In a real life project, to speed up development, I would recommend the use of a library like
 > [AutoMapper](http://automapper.org/).
 > AutoMapper is a great tool that allows copying one object into another (and much more).
 
@@ -125,11 +126,6 @@ We will create three classes, each one with a single mapping responsibility (imp
 - `NinjaEntityToNinjaMapper` will implement `IMapper<NinjaEntity, Ninja>`
 - `NinjaToNinjaEntityMapper` will implement `IMapper<Ninja, NinjaEntity>`
 - `NinjaEntityEnumerableToNinjaMapper` will implement `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`
-
-TODO
-
-<del>I will skip the implementation details since it is a little out of scope, but the full implementation and the tests are available at [GitHub](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/src/ForEvolve.Blog.Samples.NinjaApi/Mappers).
-I will only keep the implementation of `NinjaMappingService` in the article.</del>
 
 > This is a very flexible design where each mapper is independent.
 
@@ -420,15 +416,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 
 Once again, pretty simple code: easy to read, test and reuse.
 
-### Unit tests
-<del>To keep the article shorter, I omitted the full mapping subsystem implementation and testing.
-However, again, all the code is available on GitHub:
-
-- [Mappers tests](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Mappers)
-- [NinjaMappingServiceTest](https://github.com/ForEvolve/ForEvolve.Blog.Samples/blob/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Services/NinjaMappingServiceTest.cs)</del>
-
-Also feel free to post any questions that you may have in the comments.
-
+##### NinjaMappingService unit tests
 The `NinjaMappingServiceTest` class code looks like:
 
 ``` csharp
@@ -511,14 +499,115 @@ Once again, due to the subsystem design, our tests are more than simple!
 Note that I am not testing the mapping here but the Façade.
 Each mapper has also been tested individually.
 
-## Refactoring NinjaEntityEnumerableToNinjaMapper
-If we take a look at `NinjaEntityEnumerableToNinjaMapper`, we could easily create a more generalized implementation that would support any collection, assuming that we have a single entity mapper.
+*Feel free to post any questions that you may have in the comments.*
 
-TODO: ...
+## Refactoring NinjaEntityEnumerableToNinjaMapper
+If we take a look at `NinjaEntityEnumerableToNinjaMapper`, we could easily create a more generalized implementation that would support any collection.
+
+I will first rename `NinjaEntityEnumerableToNinjaMapper` to `EnumerableMapper`, which makes more sense.
+
+Here is the code, I will explain it after:
+
+``` csharp
+namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
+{
+    public class EnumerableMapper<TSource, TDestination> : IMapper<IEnumerable<TSource>, IEnumerable<TDestination>>
+    {
+        private readonly IMapper<TSource, TDestination> _singleMapper;
+
+        public EnumerableMapper(IMapper<TSource, TDestination> singleMapper)
+        {
+            _singleMapper = singleMapper ?? throw new ArgumentNullException(nameof(singleMapper));
+        }
+
+        public IEnumerable<TDestination> Map(IEnumerable<TSource> source)
+        {
+            var count = source.Count();
+            var destination = new TDestination[count];
+            for (int i = 0; i < count; i++)
+            {
+                var currentSource = source.ElementAt(i);
+                var currentDestination = _singleMapper.Map(currentSource);
+                destination[i] = currentDestination;
+            }
+            return destination;
+        }
+    }
+}
+```
+
+What did I do:
+
+1. I added two generic parameters: `TSource` and `TDestination`.
+1. Changed `IMapper<NinjaEntity, Ninja>` to `IMapper<TSource, TDestination>`, which is now aligned with the class' generic parameters.
+1. I also renamed variables to align their name with the new more generic aspect of the class.
+
+Now, as long as a single entity mapper exist, we can map a collection, neat right?
+
+As a proof of that, in the `NinjaEntityEnumerableToNinjaMapperTest`, the only thing that was updated is the class name:
+
+![NinjaEntityEnumerableToNinjaMapperTest refactoring diff](//cdn.forevolve.com/blog/images/2017/vs-NinjaEntityEnumerableToNinjaMapperTest-refactoring-diff.png)
+
+**After hitting the "Run all" button, all tests are still passing!**
+
+That said, I will rename `NinjaEntityEnumerableToNinjaMapperTest` to `EnumerableMapperTest` and move stuff around a little to keep our test suite healthy.
+
+``` csharp
+namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
+{
+    public class EnumerableMapperTest
+    {
+        public class Map : EnumerableMapperTest
+        {
+            public class NinjaEntity2Ninja : Map
+            {
+                protected EnumerableMapper<NinjaEntity, Ninja> MapperUnderTest { get; }
+                protected Mock<IMapper<NinjaEntity, Ninja>> NinjaEntityToNinjaMapperMock { get; }
+
+                public NinjaEntity2Ninja()
+                {
+                    NinjaEntityToNinjaMapperMock = new Mock<IMapper<NinjaEntity, Ninja>>();
+                    MapperUnderTest = new EnumerableMapper<NinjaEntity, Ninja>(NinjaEntityToNinjaMapperMock.Object);
+                }
+
+                [Fact]
+                public void Should_delegate_mapping_to_the_single_entity_mapper()
+                {
+                    // Arrange
+                    var ninja1 = new NinjaEntity();
+                    var ninja2 = new NinjaEntity();
+                    var ninjaEntities = new List<NinjaEntity> { ninja1, ninja2 };
+
+                    NinjaEntityToNinjaMapperMock
+                        .Setup(x => x.Map(It.IsAny<NinjaEntity>()))
+                        .Returns(new Ninja())
+                        .Verifiable();
+
+                    // Act
+                    var result = MapperUnderTest.Map(ninjaEntities);
+
+                    // Assert
+                    NinjaEntityToNinjaMapperMock.Verify(x => x.Map(ninja1), Times.Once);
+                    NinjaEntityToNinjaMapperMock.Verify(x => x.Map(ninja2), Times.Once);
+                }
+            }
+        }
+    }
+}
+```
+
+With this refactoring, the test name is more meaningful of its intent: `EnumerableMapperTest+Map+NinjaEntity2Ninja.Should_delegate_mapping_to_the_single_entity_mapper`.
+
+To test more types combo, we could extract a generic representation of the test to reuse the code.
+I will leave you to it because, for now, we do not need other collection mappers.
 
 ## The end of this article
 ### What have we covered in this article?
-In this article, we created the Ninja mapping subsystem that we will use on the `NinjaRepository`.
+In this article:
+
+1. We created the Ninja mapping subsystem that we will use in the `NinjaRepository`.
+1. We also used our test suite to refactor our subsystem, introducing a more flexible `EnumerableMapper` than its predecessor.
+1. We also ensured that our test suite stays healthy by keeping it up to date.
 
 ### What's next?
 In the next article:
