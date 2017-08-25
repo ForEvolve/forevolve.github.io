@@ -606,7 +606,8 @@ I will leave you to it because, for now, we do not need other collection mappers
 In this article:
 
 1. We created the Ninja mapping subsystem that we will use in the `NinjaRepository`.
-1. We also used our test suite to refactor our subsystem, introducing a more flexible `EnumerableMapper` than its predecessor.
+1. We explored the Façade design pattern.
+1. We also used our test suite to refactor our subsystem, introducing a more flexible than its predecessor `EnumerableMapper`.
 1. We also ensured that our test suite stays healthy by keeping it up to date.
 
 ### What's next?
