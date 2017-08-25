@@ -133,6 +133,221 @@ I will only keep the implementation of `NinjaMappingService` in the article.</de
 
 > This is a very flexible design where each mapper is independent.
 
+##### NinjaToNinjaEntityMapper
+`NinjaToNinjaEntityMapper` implement `IMapper<Ninja, NinjaEntity>`.
+Its role is to convert `Ninja` to `NinjaEntity`.
+
+**The test:**
+
+``` csharp
+namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
+{
+    public class NinjaToNinjaEntityMapperTest
+    {
+        protected NinjaToNinjaEntityMapper MapperUnderTest { get; }
+
+        public NinjaToNinjaEntityMapperTest()
+        {
+            MapperUnderTest = new NinjaToNinjaEntityMapper();
+        }
+
+        public class Map : NinjaToNinjaEntityMapperTest
+        {
+            [Fact]
+            public void Should_return_a_well_formatted_entity()
+            {
+                // Arrange
+                var ninja = new Ninja
+                {
+                    Key = "Some key",
+                    Name = "Some name",
+                    Level = 45,
+                    Clan = new Clan { Name = "Super clan" }
+                };
+
+                // Act
+                var result = MapperUnderTest.Map(ninja);
+
+                // Assert
+                Assert.Equal("Some key", result.RowKey);
+                Assert.Equal("Some name", result.Name);
+                Assert.Equal(45, result.Level);
+                Assert.Equal("Super clan", result.PartitionKey);
+            }
+        }
+    }
+}
+```
+
+**The implementation:**
+
+``` csharp
+namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
+{
+    public class NinjaToNinjaEntityMapper : IMapper<Ninja, NinjaEntity>
+    {
+        public NinjaEntity Map(Ninja ninja)
+        {
+            var entity = new NinjaEntity
+            {
+                PartitionKey = ninja.Clan.Name,
+                RowKey = ninja.Key,
+                Name = ninja.Name,
+                Level = ninja.Level
+            };
+            return entity;
+        }
+    }
+}
+```
+
+##### NinjaEntityToNinjaMapper
+`NinjaEntityToNinjaMapper` implement `IMapper<NinjaEntity, Ninja>`.
+Its role is to convert `Ninja` to `NinjaEntity`.
+
+**The test:**
+
+``` csharp
+namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
+{
+    public class NinjaEntityToNinjaMapperTest
+    {
+        protected NinjaEntityToNinjaMapper MapperUnderTest { get; }
+
+        public NinjaEntityToNinjaMapperTest()
+        {
+            MapperUnderTest = new NinjaEntityToNinjaMapper();
+        }
+
+        public class Map : NinjaEntityToNinjaMapperTest
+        {
+            [Fact]
+            public void Should_return_a_well_formatted_ninja()
+            {
+                // Arrange
+                var entity = new NinjaEntity
+                {
+                    Level = 10,
+                    Name = "Some fake name",
+                    PartitionKey = "Some clan name",
+                    RowKey = "Some ninja key"
+                };
+
+                // Act
+                var result = MapperUnderTest.Map(entity);
+
+                // Assert
+                Assert.Equal(10, result.Level);
+                Assert.Equal("Some fake name", result.Name);
+                Assert.NotNull(result.Clan);
+                Assert.Equal("Some clan name", result.Clan.Name);
+                Assert.Equal("Some ninja key", result.Key);
+            }
+        }
+    }
+}
+```
+
+**The implementation:**
+
+``` csharp
+namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
+{
+    public class NinjaEntityToNinjaMapper : IMapper<NinjaEntity, Ninja>
+    { 
+        public Ninja Map(NinjaEntity entity)
+        {
+            var ninja = new Ninja
+            {
+                Key = entity.RowKey,
+                Clan = new Clan { Name = entity.PartitionKey },
+                Level = entity.Level,
+                Name = entity.Name
+            };
+            return ninja;
+        }
+    }
+}
+```
+
+##### NinjaEntityEnumerableToNinjaMapper
+`NinjaEntityEnumerableToNinjaMapper` implement `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`.
+Its role is to convert `Ninja` to `NinjaEntity`.
+
+**The test:**
+
+``` csharp
+namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
+{
+    public class NinjaEntityEnumerableToNinjaMapperTest
+    {
+        protected NinjaEntityEnumerableToNinjaMapper MapperUnderTest { get; }
+        protected Mock<IMapper<NinjaEntity, Ninja>> NinjaEntityToNinjaMapperMock { get; }
+
+        public NinjaEntityEnumerableToNinjaMapperTest()
+        {
+            NinjaEntityToNinjaMapperMock = new Mock<IMapper<NinjaEntity, Ninja>>();
+            MapperUnderTest = new NinjaEntityEnumerableToNinjaMapper(NinjaEntityToNinjaMapperMock.Object);
+        }
+
+        public class Map : NinjaEntityEnumerableToNinjaMapperTest
+        {
+            [Fact]
+            public void Should_delegate_mapping_to_the_sinlge_entity_mapper()
+            {
+                // Arrange
+                var ninja1 = new NinjaEntity();
+                var ninja2 = new NinjaEntity();
+                var ninjaEntities = new List<NinjaEntity> { ninja1, ninja2 };
+
+                NinjaEntityToNinjaMapperMock
+                    .Setup(x => x.Map(It.IsAny<NinjaEntity>()))
+                    .Returns(new Ninja())
+                    .Verifiable();
+
+                // Act
+                var result = MapperUnderTest.Map(ninjaEntities);
+
+                // Assert
+                NinjaEntityToNinjaMapperMock.Verify(x => x.Map(ninja1), Times.Once);
+                NinjaEntityToNinjaMapperMock.Verify(x => x.Map(ninja2), Times.Once);
+            }
+        }
+    }
+}
+```
+
+**The implementation:**
+
+``` csharp
+namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
+{
+    public class NinjaEntityEnumerableToNinjaMapper : IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>
+    {
+        private readonly IMapper<NinjaEntity, Ninja> _ninjaEntityToNinjaMapper;
+
+        public NinjaEntityEnumerableToNinjaMapper(IMapper<NinjaEntity, Ninja> ninjaEntityToNinjaMapper)
+        {
+            _ninjaEntityToNinjaMapper = ninjaEntityToNinjaMapper ?? throw new ArgumentNullException(nameof(ninjaEntityToNinjaMapper));
+        }
+
+        public IEnumerable<Ninja> Map(IEnumerable<NinjaEntity> entities)
+        {
+            var count = entities.Count();
+            var all = new Ninja[count];
+            for (int i = 0; i < count; i++)
+            {
+                var entity = entities.ElementAt(i);
+                var ninja = _ninjaEntityToNinjaMapper.Map(entity);
+                all[i] = ninja;
+            }
+            return all;
+        }
+    }
+}
+```
+
+
 #### The right side
 
 As you can maybe deduce from `IMapper<TSource, TDestination>` and the `INinjaMappingService` definition (and the diagram), `INinjaMappingService` can simply inherit from `IMapper<TSource, TDestination>` with three different generic pairs.
@@ -206,11 +421,11 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 Once again, pretty simple code: easy to read, test and reuse.
 
 ### Unit tests
-To keep the article shorter, I omitted the full mapping subsystem implementation and testing.
+<del>To keep the article shorter, I omitted the full mapping subsystem implementation and testing.
 However, again, all the code is available on GitHub:
 
 - [Mappers tests](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Mappers)
-- [NinjaMappingServiceTest](https://github.com/ForEvolve/ForEvolve.Blog.Samples/blob/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Services/NinjaMappingServiceTest.cs)
+- [NinjaMappingServiceTest](https://github.com/ForEvolve/ForEvolve.Blog.Samples/blob/master/8.%20NinjaApi%20-%20NinjaRepository/test/ForEvolve.Blog.Samples.NinjaApi.Tests/Services/NinjaMappingServiceTest.cs)</del>
 
 Also feel free to post any questions that you may have in the comments.
 
@@ -295,6 +510,11 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 Once again, due to the subsystem design, our tests are more than simple!
 Note that I am not testing the mapping here but the Façade.
 Each mapper has also been tested individually.
+
+## Refactoring NinjaEntityEnumerableToNinjaMapper
+If we take a look at `NinjaEntityEnumerableToNinjaMapper`, we could easily create a more generalized implementation that would support any collection, assuming that we have a single entity mapper.
+
+TODO: ...
 
 ## The end of this article
 ### What have we covered in this article?
