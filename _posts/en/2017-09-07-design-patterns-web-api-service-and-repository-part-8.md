@@ -40,7 +40,7 @@ I will start by quoting Microsoft on this one:
 
 <figure>
     <blockquote>
-        Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because Table storage is schemaless, it's easy to adapt your data as your application evolve. Access to Table storage data is fast and cost-effective for many types of applications and is typically lower in cost than traditional SQL for similar volumes of data.
+        Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because Table storage is schemaless, it is easy to adapt your data as your application evolve. Access to Table storage data is fast and cost-effective for many types of applications and is typically lower in cost than traditional SQL for similar volumes of data.
     </blockquote>
     <figcaption>
         Quoted from 
@@ -54,7 +54,7 @@ More on that, it is cheap and fast. In my humble opinion, this is a great way to
 ### The Storage Account
 To get started:
 
-1. You will need an Azure subscription (if you don't already have one, it requires a credit card, but MS will give you free credits. I also doubt that our Ninja Api will cost you any money, no matter what - Table storage is cheap).
+1. You will need an Azure subscription (if you do not already have one, it requires a credit card, but MS will give you free credits. I also doubt that our Ninja API will cost you any money, no matter what - Table storage is cheap).
 1. You will need to create an Azure Storage in your account
 
 #### Create a subscription
@@ -66,7 +66,7 @@ If you already have one, great!
 #### Create Azure Storage 
 Once you have an Azure account, create a new Storage Account resource.
 
-Managing your Azure resources is out of the scope of this article so I will leave you on your own for a little while.
+Managing your Azure resources is out of the scope of this article, so I will leave you on your own for a little while.
 
 If you are clueless, feel free to start here: [Create a storage account](https://docs.microsoft.com/en-us/azure/storage/storage-create-storage-account#create-a-storage-account)
 
@@ -86,7 +86,7 @@ Once this is done, you need to fill in the form presented to you.
 ---
 
 #### Create an Azure Storage Table
-We don't need to create a Table; it will be created automatically later.
+We do not need to create a Table; it will be created automatically later.
 
 ## Data Model
 As I previously stated: our data source will be an Azure Table Storage.
@@ -117,7 +117,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Models
 }
 ```
 
-Compared to the `Ninja` class, there is a few missing properties, right?
+Compared to the `Ninja` class, there are a few missing properties, right?
 
 ``` csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Models
@@ -180,7 +180,7 @@ To be able to save our ninja in the Azure Table Storage, we will map `Ninja` obj
 > **Tools**
 >
 > To keep the external dependencies low, we will code the mapping manually.
-> In a real life project I'd recommend the use of a library like
+> In a real life project I would recommend the use of a library like
 > [AutoMapper](http://automapper.org/).
 > AutoMapper is a great tool that allows copying one object into another (and much more).
 
@@ -192,7 +192,7 @@ Before going further, we will create an `INinjaMappingService` interface that wi
 The `INinjaMappingService` responsibility is to offer a centralized and convenient way to convert `Ninja` to `NinjaEntity` and vice versa.
 We will also need to convert `IEnumerable<NinjaEntity>` to `IEnumerable<Ninja>` (for the `ReadAll*()` methods).
 
-In its current state, our Ninja App has no need to convert `IEnumerable<Ninja>` to `IEnumerable<NinjaEntity>` so we will omit that functionality to keep our project clean of useless code.
+In its current state, our Ninja App does not need to convert `IEnumerable<Ninja>` to `IEnumerable<NinjaEntity>` so we will omit that functionality to keep our project clean of useless code.
 If the need of such operation ever arises, we will add it then, and only then.
 
 > I could have added those methods directly in the `NinjaRepository` class, but remember SOLID and it single responsibility principle (SRP): **A class should have only one reason to change**.
@@ -210,9 +210,9 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 ```
 
 While thinking about it, a little more, I want to use `Ninja Map(NinjaEntity entity);` in `IEnumerable<Ninja> Map(IEnumerable<NinjaEntity> entity);`.
-This could be a little harder to test than expected, which lead me to a more fine-grained design.
+This could be a little harder to test than expected, which leads me to a more fine-grained design.
 
-We will keep the `INinjaMappingService` but it will simply become a **Façade**.
+We will keep the `INinjaMappingService`, but it will simply become a **Façade**.
 
 ---
 
@@ -450,7 +450,7 @@ Each mapper has been previously tested individually (see the [source code](https
 Another step: we need to access that Azure Table.
 To do that, we could use the Azure SDK or even simpler: inject an `ITableStorageRepository<TEntity>`; provided by `ForEvolve.Azure`.
 
-We will configure the use of `ITableStorageRepository<TEntity>` later, for now, lets just assume that it is working fine (it is just an interface after all).
+We will configure the use of `ITableStorageRepository<TEntity>` later, for now, let's just assume that it is working fine (it is just an interface after all).
 
 `TEntity` is the entity to read/write.
 In this case, `TEntity` is `NinjaEntity`.
@@ -464,8 +464,8 @@ In this case, `TEntity` is `NinjaEntity`.
 >
 > `ForEvolve.Azure` is part of the ForEvolve Framework meta package installed earlier.
 >
-> If this is not done already, install the `ForEvolve` metapackage from my [MyGet](https://www.myget.org/F/forevolve/api/v3/index.json) feed.
-> If you dont know [How to use a custom NuGet feed in Visual Studio 2017](/en/articles/2017/08/06/how-to-use-a-custom-nuget-feed-in-visual-studio-2017/), feel free to take a look at this article.
+> If this is not done already, install the `ForEvolve` meta-package from my [MyGet](https://www.myget.org/F/forevolve/api/v3/index.json) feed.
+> If you do not know [How to use a custom NuGet feed in Visual Studio 2017](/en/articles/2017/08/06/how-to-use-a-custom-nuget-feed-in-visual-studio-2017/), feel free to take a look at this article.
 
 ---
 
@@ -1273,7 +1273,7 @@ In this article:
 - We used `ForEvolve.Azure` to connect the Ninja App to Azure Table Storage
 - We explored the new Asp.Net Core 2.0 default configuration and used 3 out of 4 of its sources.
 
-I hope you enjoyed the little ForEvolve Framework glimpse, it is still a work in progress, and there is a lot of functionalities that I'd like to add to it (and probably a lot more that I have not thought of yet).
+I hope you enjoyed the little ForEvolve Framework glimpse, it is still a work in progress, and there are many functionalities that I would like to add to it (and probably a lot more that I have not thought of yet).
 
 If you have any interest, question or time to invest: feel free to leave a comment here or open an issue in the [ForEvolve Framework GitHub](https://github.com/ForEvolve/ForEvolve-Framework) repository.
 
