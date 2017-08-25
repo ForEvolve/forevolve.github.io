@@ -126,8 +126,10 @@ We will create three classes, each one with a single mapping responsibility (imp
 - `NinjaToNinjaEntityMapper` will implement `IMapper<Ninja, NinjaEntity>`
 - `NinjaEntityEnumerableToNinjaMapper` will implement `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`
 
-I will skip the implementation details since it is a little out of scope, but the full implementation and the tests are available at [GitHub](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/src/ForEvolve.Blog.Samples.NinjaApi/Mappers).
-I will only keep the implementation of `NinjaMappingService` in the article.
+TODO
+
+<del>I will skip the implementation details since it is a little out of scope, but the full implementation and the tests are available at [GitHub](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaRepository/src/ForEvolve.Blog.Samples.NinjaApi/Mappers).
+I will only keep the implementation of `NinjaMappingService` in the article.</del>
 
 > This is a very flexible design where each mapper is independent.
 
