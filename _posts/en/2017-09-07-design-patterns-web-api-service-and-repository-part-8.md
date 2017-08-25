@@ -928,14 +928,15 @@ Let's first take a look at our initial diagram:
 
 We modified the `NinjaRepository` a little, adding two new dependencies:
 
-- `INinjaMappingService` that help us map our ninja (and that also has dependencies).
+- `INinjaMappingService` that help us map our ninja.
 - `ITableStorageRepository<NinjaEntity>` that handle the Azure SDK code for us.
 
 ### Integration tests
 Let's do some integration testing here.
 
 First, we will replace Azure Table Storage by a Fake: `NinjaEntityTableStorageRepositoryFake`.
-Why? Because it will be easier to assess success or failure.
+Why? 
+Because it will be easier to assess success or failure and the tests will run faster (no need to access a remote data source).
 
 `NinjaEntityTableStorageRepositoryFake` is a light inmemory implementation of `ITableStorageRepository<NinjaEntity>` with a few extras.
 
@@ -1037,7 +1038,8 @@ Now the shared part of `NinjaControllerTest`.
 I faked the `IClanRepository` by injecting a custom list of clans for the test, overriding the default.
 We are testing the whole system (but Azure), so clans name will be validated.
 
-I also created a `NinjaEntityTableStorageRepositoryFake` instance that tests can use and added it to the `IServiceCollection`, overriding the default.
+I also created a `NinjaEntityTableStorageRepositoryFake` instance that tests can use. 
+I also added it to the `IServiceCollection`, overriding the default.
 
 The `PopulateTableStorageFake` method will help fill our fake repository.
 
@@ -1226,7 +1228,7 @@ This should open an empty `secrets.json` file.
 We will use this file to manage our credentials.
 
 In my opinions, the biggest upside of secrets is that **it is located outside of the solution directory**.
-Due to this, secrets are **not added to source control**, which gives the option of configuring **settings per developer** (connection strings, accounts, username, password, etc.).
+Due to this, secrets are **not added to source control**, which gives the option of configuring **settings per developer** (connection strings, accounts, username, password, etc.). It also allow you to keep the production credentials somewhere else; developers might not even have access to production credentials.
 
 <figure>
     <header>Warning</header>
@@ -1258,9 +1260,10 @@ Right now, if we run the API, we should be able to access the ninja's data from 
 If we run our automated tests, everything should be green!
 
 ## The end of this article
-Congratulation, you reached the end of this article series!
+Congratulation, you reached this end of the article series!
 
-I have a lot of ideas to build on top of our little ninja API so that I may write articles based on this code in the future.
+Moreover, **this end** was not a typo.
+I have many ideas to build on top of the Ninja API: I might write articles based on this code in the future.
 
 ### What have we covered in this article?
 In this article:
