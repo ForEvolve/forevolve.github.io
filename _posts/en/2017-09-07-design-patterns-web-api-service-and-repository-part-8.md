@@ -6,15 +6,11 @@ post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-co
 lang: en
 categories: en/articles
 tags: 
-- Design Patterns
 - Asp.Net Core
-- Web API
 - C#
-- Repository Pattern
 - NoSQL
 - Azure
 - Azure Table Storage
-- ForEvolve Framework
 proficiency-level: Intermediate
 ---
 
@@ -82,8 +78,7 @@ Once this is done, you need to fill in the form presented to you.
 We do not need to create a Table; it will be created automatically later.
 
 ## Data Model
-As I previously stated: our data source will be an Azure Table Storage.
-Indirectly, we will use the Azure SDK through `ForEvolve.Azure`.
+As I previously stated, our data source will be an Azure Table Storage, and we will use the Azure SDK indirectly through `ForEvolve.Azure`.
 
 ---
 
@@ -180,7 +175,7 @@ To be able to save our ninja in the Azure Table Storage, we will map `Ninja` obj
 ---
 
 ## The end of this article
-This was a short article, but once again I splitted an article into multiple parts to make it clearer and easier to read.
+This was a short article, but once again I split an article into multiple parts to make it clearer and easier to read; it was way too long, trust me.
 
 ### What have we covered in this article?
 In this article, I introduced Microsoft Azure Table Storage and we created the Ninja's data model based on that knowledge.
