@@ -800,9 +800,9 @@ In this article, we implemented and added some domain logic to the `NinjaService
 We also used our unit tests to ensure that our refactoring had not broken anything.
 
 ### What's next?
-In the next article, we will implement the missing piece of the Ninja subsystem: the `NinjaRepository`.
-We will use Azure Table Storage to store our ninja's data.
+In the next articles, we will implement the missing piece of the Ninja subsystem: the `NinjaRepository`.
+We will use Azure Table Storage to store our ninja's data and create a mapping system.
 
-I will also introduce my in-development ForEvolve Framework that will help us access our data easily.
+I will also introduce my in-development ForEvolve Framework that will help us access our data.
 
 {% include design-patterns-web-api-service-and-repository/footer.md %}
