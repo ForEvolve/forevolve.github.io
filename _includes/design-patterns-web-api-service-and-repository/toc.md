@@ -37,8 +37,20 @@
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/7.%20NinjaApi%20-%20NinjaService">7. NinjaApi - NinjaService</a></td>
         </tr>
         <tr>
-            <td>Part 8: the NinjaRepository, Azure table storage and the ForEvolve Framework</td>
-            <td>8. NinjaApi - NinjaRepository</td>
+            <td>Part 8: Azure table storage and the data model</td>
+            <td>8. NinjaApi - NinjaEntity</td>
+        </tr>
+        <tr>
+            <td>Part 9: the NinjaMappingService</td>
+            <td>9. NinjaApi - NinjaMappingService</td>
+        </tr>
+        <tr>
+            <td>Part 10: the NinjaRepository and ForEvolve.Azure</td>
+            <td>10. NinjaApi - NinjaRepository</td>
+        </tr>
+        <tr>
+            <td>Part 11: Integration testing</td>
+            <td>11. NinjaApi - IntegrationTesting</td>
         </tr>
         <!--
         <tr>
