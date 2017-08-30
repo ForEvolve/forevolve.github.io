@@ -29,8 +29,7 @@ In this article:
 
 1. We will implement the `NinjaRepository`
 1. We will connect the `NinjaRepository` to Azure Table Storage (which cost basically nothing)
-1. I will introduce an open source framework that I am building; from that framework, the `ForEvolve.Azure` package will help us get things done faster than using `WindowsAzure.Storage` directly.
-1. Finally, we will store our credentials using secrets instead of in the application settings.<!--more-->
+1. I will introduce an open source framework that I am building; from that framework, the `ForEvolve.Azure` package will help us get things done faster than using `WindowsAzure.Storage` directly.<!--more-->
 
 [Skip the shared part](#forevolveazure)
 
@@ -89,7 +88,7 @@ As you can see, it is close to a CRUD repository interface with the following su
 > `ForEvolve.Azure` is part of the ForEvolve Framework meta package installed earlier.
 >
 > If this is not done already, install the `ForEvolve` meta-package from my [MyGet](https://www.myget.org/F/forevolve/api/v3/index.json) feed.
-> If you do not know [How to use a custom NuGet feed in Visual Studio 2017](/en/articles/2017/08/06/how-to-use-a-custom-nuget-feed-in-visual-studio-2017/), feel free to take a look at this article.
+> If you do not know [How to use a custom NuGet feed in Visual Studio 2017](/en/articles/2017/08/06/how-to-use-a-custom-nuget-feed-in-visual-studio-2017/), feel free to take a look at that article.
 
 ---
 
@@ -535,10 +534,15 @@ public async Task<Ninja> DeleteAsync(string clanName, string ninjaKey)
 ```
 
 ## The end of this article
-...
+We finally have an `INinjaRepository` implementation: the `NinjaRepository` class and our Ninja API is almost completed!
+
+The 53 passing tests give us the green light to continue and finalize the system.
 
 ### What have we covered in this article?
-...
+In this article:
+
+- We implemented the `NinjaRepository` and used our Ninja mapping subsystem.
+- We also used `ForEvolve.Azure` to connect the Ninja App to Azure Table Storage.
 
 ### What's next?
-...
+In the next and "final" article of this series, we will integrate our subsystems together!
