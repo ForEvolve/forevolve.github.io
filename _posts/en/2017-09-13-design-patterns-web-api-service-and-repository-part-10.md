@@ -12,9 +12,7 @@ tags:
 - C#
 - Unit Test
 - XUnit
-- Façade Pattern
 - Repository Pattern
-- NoSQL
 - Azure
 - Azure Table Storage
 - ForEvolve Framework
