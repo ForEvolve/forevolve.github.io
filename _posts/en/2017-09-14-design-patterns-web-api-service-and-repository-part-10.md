@@ -1,7 +1,7 @@
 ---
 title:  "Design Patterns: Asp.Net Core Web API, services, and repositories"
 subtitle: "Part 10: the NinjaRepository and the ForEvolve.Azure"
-date:   2017-09-13 00:00:00 -0500
+date:   2017-09-14 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png"
 lang: en
 categories: en/articles
