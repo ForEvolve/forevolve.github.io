@@ -52,14 +52,14 @@ The new diagram looks like this:
 
 <figure>
     <img src="//cdn.forevolve.com/blog/images/2017/controller-service-repo-ninja-with-DI-2.png">
-    <figcaption>An HTTP request from the <code>Controller</code> to the data source, fully decoupled, including the dependencies.</figcaption>
+    <figcaption>An HTTP request from the <code>Controller</code> to the data source, fully decoupled, including <code>NinjaRepository</code>'s dependencies.</figcaption>
 </figure>
 
 If we add the indirect `ForEvolve.Azure` dependencies, we end up with:
 
 <figure>
     <img src="//cdn.forevolve.com/blog/images/2017/controller-service-repo-ninja-with-DI-3.png">
-    <figcaption>An HTTP request from the <code>Controller</code> to the data source, fully decoupled, including the `ForEvolve.Azure` dependency.</figcaption>
+    <figcaption>An HTTP request from the <code>Controller</code> to the data source, fully decoupled, including <code>NinjaRepository</code>'s dependencies and the <code>ForEvolve.Azure</code> implementation.</figcaption>
 </figure>
 
 
