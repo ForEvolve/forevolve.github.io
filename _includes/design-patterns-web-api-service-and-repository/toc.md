@@ -41,7 +41,7 @@
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20NinjaEntity">8. NinjaApi - NinjaEntity</a></td>
         </tr>
         <tr>
-            <td><a href="/en/articles/2017/09/08/design-patterns-web-api-service-and-repository-part-9/">Part 9: the NinjaMappingService and the Façade pattern</a></td>
+            <td><a href="/en/articles/2017/09/11/design-patterns-web-api-service-and-repository-part-9/">Part 9: the NinjaMappingService and the Façade pattern</a></td>
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/9.%20NinjaApi%20-%20NinjaMappingService">9. NinjaApi - NinjaMappingService</a></td>
         </tr>
         <tr>
@@ -54,7 +54,7 @@
         </tr>
         <!--
         <tr>
-            <td><a href="/en/articles/2017/09/13/design-patterns-web-api-service-and-repository-part-10/">Part 10: the NinjaRepository and the ForEvolve.Azure</a></td>
+            <td><a href="/en/articles/2017/09/14/design-patterns-web-api-service-and-repository-part-10/">Part 10: the NinjaRepository and the ForEvolve.Azure</a></td>
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/10.%20NinjaApi%20-%20NinjaRepository">10. NinjaApi - NinjaRepository</a></td>
         </tr>
         <tr>
