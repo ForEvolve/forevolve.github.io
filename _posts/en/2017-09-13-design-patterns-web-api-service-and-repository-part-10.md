@@ -369,6 +369,13 @@ public async Task<Ninja> ReadOneAsync(string clanName, string ninjaKey)
 - Then map the entity back to ninja
 - To finally return that new ninja
 
+---
+
+> In another App, you should maybe consider using `InsertAsync` instead of `InsertOrReplaceAsync` if you want better control over your data.
+
+---
+
+
 The test code:
 
 ``` csharp
@@ -428,6 +435,12 @@ public async Task<Ninja> CreateAsync(Ninja ninja)
 - Then delegate the call to `ITableStorageRepository<NinjaEntity>.InsertOrMergeAsync(NinjaEntity item)` 
 - Then map the entity back to ninja
 - To finally return that new ninja
+
+---
+
+> In another App, you should maybe consider using `ReplaceAsync` or `MergeAsync` instead of `InsertOrMergeAsync` if you want better control over your data.
+
+---
 
 The test code:
 
