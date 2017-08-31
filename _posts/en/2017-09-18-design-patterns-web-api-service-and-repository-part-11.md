@@ -83,7 +83,7 @@ Let's start with the services that we will not use in our integration tests:
 - When asking for the `ITableStorageRepository<NinjaEntity>` service, the system should return a `TableStorageRepository<NinjaEntity>` instance.
 - To build that instance, we will also need an `ITableStorageSettings` which will be a `TableStorageSettings` instance.
 
-The `ITableStorageSettings` is a simple class:
+The `ITableStorageSettings` is a simple interface:
 
 ``` csharp
 public interface ITableStorageSettings : IStorageSettings
@@ -194,7 +194,7 @@ public static class TableStorageMockExtensions
 {
     public static NinjaEntity SetupEnforceNinjaExistenceAsync(this Mock<ITableStorageRepository<NinjaEntity>> tableStorageMock, string clanName, string ninjaKey)
     {
-        var entity = new NinjaEntity(); // Only need to be not null
+        var entity = new NinjaEntity(); // Only need to not be null
         tableStorageMock
             .Setup(x => x.ReadOneAsync(clanName, ninjaKey))
             .ReturnsAsync(entity);
@@ -246,7 +246,7 @@ All of our tests will be executed over HTTP against a real running instance of o
 Lets proceed method by method.
 
 ##### ReadAllAsync
-We are validating that the ninja, returned by our Web API, ninja are the one returned by our mocked database, the `TableStorageMock` `ReadAllAsync()` method.
+We are validating that the ninja, returned by our Web API, are the one returned by our mocked database, the `TableStorageMock` `ReadAllAsync()` method.
 
 ``` csharp
 public class ReadAllAsync : NinjaControllerTest
@@ -286,6 +286,7 @@ public class ReadAllAsync : NinjaControllerTest
 We are validating that the ninja, returned by our Web API, are the one returned by our mocked database, the `TableStorageMock` `ReadPartitionAsync()` method.
 
 > As a reminder, our ninja's partition key is the clan's name, which leads us to request the whole partition to query all ninja of a single clan.
+> This kind of design can also come in handy if we want to delete a whole clan (by simply deleting the partition).
 
 ``` csharp
 public class ReadAllInClanAsync : NinjaControllerTest
@@ -505,16 +506,17 @@ These represent our core Ninja pipeline.
 
 #### ForEvolve.Azure
 This section is a little less strait-forward since we need to access configurations and use secrets.
-Once you know all of this, it is as easy as the previous steps; now is the time to cover all that up!
+Once you know all of this, it is as easy as the previous steps; let's cover all that up!
 
 ##### Configurations
 By default, Asp.Net Core 2.0 do most of the configuration plumbing for us.
 The only thing we will need to do is get the configurations injected in the `Startup` class by adding a constructor and a property (for future references).
 
 > Great job on this one to the Asp.Net Core team!
+> Asp.Net was never as clean as Asp.Net Core, and Asp.Net Core 1.0 was not close to what Asp.Net Core 2.0 is now.
 >
-> Asp.Net was never as clean as Asp.Net Core 1.0, and Asp.Net Core 1.0 was not close to Asp.Net Core 2.0.
 > Now we are talking!
+> Keep up the good work!
 
 ``` csharp
 public Startup(IConfiguration configuration)
@@ -525,7 +527,7 @@ public Startup(IConfiguration configuration)
 public IConfiguration Configuration { get; }
 ```
 
-Once this is done, we can access our configurations, as easy as that.
+Once this is done, we can access our configurations, as easily as by using the `Configuration` property.
 
 ##### ConfigureServices
 
@@ -543,10 +545,11 @@ services.TryAddSingleton<ITableStorageSettings>(x => new TableStorageSettings
 
 Most of the classes and interfaces are taken from the `ForEvolve.Azure` assembly and will help us access Azure Table Storage.
 
-The main class is `TableStorageRepository<NinjaEntity>`, associated to the `ITableStorageRepository<NinjaEntity>` interface that is injected in our `NinjaRepository`.
-To create the `TableStorageRepository`, we need to provide an `ITableStorageSettings`, as talked about earlier.
+The main class is `TableStorageRepository<NinjaEntity>`, associated to `ITableStorageRepository<NinjaEntity>`, that is injected in the `NinjaRepository`.
+Hoever, to create the `TableStorageRepository`, we need to provide an `ITableStorageSettings`, as talked about earlier.
 The default `TableStorageSettings` implementation should do the job but, we need to set some values.
-These values will come from the application configurations.
+
+The `TableStorageSettings` values will come from the application configurations.
 
 - **AccountKey:** this is one of your Azure Storage "Access Keys."
 - **AccountName:** this is your Azure Storage name, the one you entered during creation.
@@ -566,11 +569,9 @@ By default, Asp.Net Core 2 read from `appsettings.json`, `appsettings.{env.Envir
 
 ---
 
-We will use the first 3 of these settings location.
-If we were to deploy our application, we would also use the Environment Variables as well.
+We will configure and use the first 3 of these settings locations.
 
-To start, in the `appsettings.json`, we will add the default settings.
-They are mostly placeholders but the `TableName`.
+To start, in the `appsettings.json`, we will add the default settings which are mostly placeholders but the `TableName`.
 
 ``` json
   "AzureTable": {
@@ -580,13 +581,21 @@ They are mostly placeholders but the `TableName`.
   }
 ```
 
-In the `appsettings.Development.json` we will override the `TableName` to make sure that we are not writing to the "production" table (in case it is on the same Azure Storage Account - which could be a bad idea for a real project). 
+In the `appsettings.Development.json` we will override the `TableName` to make sure that we are not writing to the "staging" table (in case it is on the same Azure Storage Account). 
 
 ``` json
   "AzureTable": {
     "TableName": "NinjaDev"
   }
 ```
+
+> **Tips**
+>
+> In case of a real project, I would recommend storing production data in a different Storage Account than dev/testing.
+>
+> Why? 
+> So many things can go wrong so fast that I don't even know where to start...
+> Just don't use the same storage account.
 
 Finally, we will add our credentials to the User Secrets, using the secrets manager (don't worry, it is only JSON).
 
@@ -607,7 +616,8 @@ This should open an empty `secrets.json` file.
 We will use this file to manage our credentials.
 
 In my opinions, the biggest upside of secrets is that **it is located outside of the solution directory**.
-Due to this, secrets are **not added to source control**, which gives the option of configuring **settings per developer** (connection strings, accounts, username, password, etc.). It also allow you to keep the production credentials somewhere else; developers might not even have access to production credentials.
+Due to this, secrets are **not added to source control**, which gives the option of configuring **settings per developer** (connection strings, accounts, username, password, etc.). 
+It is also allowing you to keep the production credentials somewhere else; developers might not even have access to production credentials.
 
 <figure>
     <header>Warning</header>
@@ -630,7 +640,8 @@ We will add our development credentials to `secrets.json`.
 
 > **Where are those secret?**
 > 
-> Secrets are saved in some user subdirectory, and Visual Studio knows about it using the `UserSecretsId` tag of the `csproj` file.
+> Secrets are saved in `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json` file.
+> Visual Studio knows about `<userSecretsId>` using the value of the `UserSecretsId` tag located in the `csproj` file.
 >
 > Ex.: in the `ForEvolve.Blog.Samples.NinjaApi.csproj` file: `<UserSecretsId>aspnet-ForEvolve.Blog.Samples.NinjaApi-F62B525A-ACF4-4C7C-BF23-1EB0F434DDE5</UserSecretsId>`
 
@@ -647,6 +658,7 @@ There are other functionalities in the framework, but I will keep that for anoth
 At this point, if we run our automated tests, everything should be green!
 
 We should also be able to access the ninja's data from a browser or with a tool like Postman by running the API (`F5`).
+We could also build a UI on top of it.
 
 ## The end of this article
 Congratulation, you reached this end of the article series!
@@ -654,13 +666,24 @@ Congratulation, you reached this end of the article series!
 Moreover, **this end** was not a typo.
 I have many ideas to build on top of the Ninja API; yes, I might write articles based on this code in the future.
 
+---
+
+> **Backstory of this article series**
+> 
+> I initially planned on writing a single article (epic fail).
+> It quickly became a 5-8 article series.
+> However, the 8th part was becoming so long that I split it into 3 pieces, adding a little to each piece.
+> Which, after countless hours, led to this 11 article series.
+
+---
+
 ### What have we covered in this article?
 In this article:
 
-- We created integration tests, over HTTP
+- We created integration tests, testing the API over HTTP
 - We integrated the Ninja subsystem
 - We used `ForEvolve.Azure` to connect the Ninja App to Azure Table Storage
-- We explored the new Asp.Net Core 2.0 default configuration and used 3 out of 4 of its sources.
+- We explored the new Asp.Net Core 2.0 default configuration
 
 I hope you enjoyed the little glimpse of the ForEvolve Framework, it is still a work in progress, and there are many functionalities that I would like to add to it (and probably a lot more that I have not thought of yet).
 

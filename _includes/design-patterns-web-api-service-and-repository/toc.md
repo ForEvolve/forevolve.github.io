@@ -53,7 +53,7 @@
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/11.%20NinjaApi%20-%20IntegrationTesting">11. NinjaApi - IntegrationTesting</a></td>
         </tr>
         <tr>
-            <td>More might come…</td>
+            <td>More might come someday…</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
