@@ -49,15 +49,9 @@
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/10.%20NinjaApi%20-%20NinjaRepository">10. NinjaApi - NinjaRepository</a></td>
         </tr>
         <tr>
-            <td>Part 11: Integration testing</td>
-            <td>11. NinjaApi - IntegrationTesting</td>
-        </tr>
-        <!--
-        <tr>
             <td><a href="/en/articles/2017/09/18/design-patterns-web-api-service-and-repository-part-11/">Part 11: Integration testing</a></td>
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/11.%20NinjaApi%20-%20IntegrationTesting">11. NinjaApi - IntegrationTesting</a></td>
         </tr>
-        -->
         <tr>
             <td>More might come…</td>
             <td>&nbsp;</td>
