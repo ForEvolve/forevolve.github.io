@@ -18,11 +18,11 @@ tags:
 proficiency-level: Intermediate
 ---
 
-In the previous article, we completed the last piece of the Ninja Api.
-In this article we will glue all of these pieces together by:
+In the previous article, we completed the last piece of the Ninja API.
+In this article, we will glue all of these pieces together by:
 
 - Creating integration tests to integrate the Ninja subsystem confidently
-- Connecting the Ninja Api to Azure Table Storage
+- Connecting the Ninja API to Azure Table Storage
 - Leveraging the new Asp.Net Core 2.0 default configuration<!--more-->
 
 [Skip the shared part](#integration-of-the-ninja)
@@ -39,7 +39,7 @@ We now have a fully unit tested Ninja sub-system but, we still need to integrate
 
 ---
 
-Let's first take a look at our initial diagram:
+Let's first take a look at our original diagram:
 <figure>
     <img src="//cdn.forevolve.com/blog/images/2017/controller-service-repo-ninja-with-DI.png">
     <figcaption>An HTTP request from the <code>Controller</code> to the data source, fully decoupled.</figcaption>
@@ -65,25 +65,25 @@ If we add the indirect `ForEvolve.Azure` dependencies, we end up with:
 </figure>
 
 ### Integration tests
-The first thing that we will do, I to plan our integration and create some integration test.
+The first thing that we will do is to plan our integration and create some integration test.
 
-First, to have the tests run faster we will `Mock` the `ForEvolve.Azure.Storage.Table.ITableStorageRepository<NinjaEntity>`.
-This is not part of our system so we can assume that it is working as expected and we dont need to test it out.
+First, to have the tests run faster, we will `Mock` the `ForEvolve.Azure.Storage.Table.ITableStorageRepository<NinjaEntity>`.
+This is not part of our system so we can assume that it is working as expected and we do not need to test it out.
 By doing this, it will also be easier to assess success or failure.
 
-> We could have tested against a real Azure Storage table or even against the local emulator but it would have required more setup.
+> We could have tested against a real Azure Storage table or even against the local emulator, but it would have required more setup.
 >
-> If I find the time, I'd like to do that kind of end to end testing (and write about it) in a CI/CD pipeline using Postman/Newman against a real staging Azure Web App.
+> If I find the time, I would like to do that kind of end to end testing (and write about it) in a CI/CD pipeline using Postman/Newman against a real staging Azure Web App.
 
 Even if we test our controller with a Mock, this does not mean that we should not make sure that an implementation of `ITableStorageRepository<NinjaEntity>` is returned on our real system.
 
 #### ITableStorageRepository
-Lets start by the services that we wont use in our integration tests:
+Let's start with the services that we will not use in our integration tests:
 
 - When asking for the `ITableStorageRepository<NinjaEntity>` service, the system should return a `TableStorageRepository<NinjaEntity>` instance.
 - To build that instance, we will also need an `ITableStorageSettings` which will be a `TableStorageSettings` instance.
 
-The `ITableStorageSettings` is really simple:
+The `ITableStorageSettings` is a simple class:
 
 ``` csharp
 public interface ITableStorageSettings : IStorageSettings
@@ -106,7 +106,7 @@ The `TableStorageSettings` class will add two properties, inherited from `Storag
 
 Now that we took a little look at the `ForEvolve.Azure.Storage` namespace, let's write those tests.
 
-In the `StartupTest+ServiceProvider` class of the `ForEvolve.Blog.Samples.NinjaApi.IntegrationTests` project, we will add those two tests, enforcing the rules that has previously been stated:
+In the `StartupTest+ServiceProvider` class of the `ForEvolve.Blog.Samples.NinjaApi.IntegrationTests` project, we will add those two tests, enforcing the rules that have previously been stated:
 
 ``` csharp
 [Fact]
@@ -126,10 +126,10 @@ public void Should_return_TableStorageSettings()
 }
 ```
 
-As you can see, we want to make sure that `AccountKey`, `AccountName` and `TableName` are set.
+As you can see, we want to make sure that `AccountKey`, `AccountName`, and `TableName` are set.
 
-> I am testing `AccountKey` and `AccountName` only against `NotNull` because I dont want to hard code any credentials in the project.
-> We will set that up later using sercrets.
+> I am testing `AccountKey` and `AccountName` only against `NotNull` because I do not want to hard code any credentials in the project.
+> We will set that up later using secrets.
 
 ``` csharp
 [Fact]
@@ -153,7 +153,7 @@ If we run those tests, they will fail. We will make them pass later.
 #### NinjaControllerTest
 Now that we made sure the `ITableStorageRepository<NinjaEntity>` implementation is tested, we can jump right to the `NinjaControllerTest` class.
 
-The test initialization, shared by all tests does as follow:
+The test initialization, shared by all tests, does as follow:
 
 ``` csharp
 public class NinjaControllerTest : BaseHttpTest
@@ -183,7 +183,7 @@ public class NinjaControllerTest : BaseHttpTest
 ```
 
 In this part of the `NinjaControllerTest` class, the `Mock<ITableStorageRepository<NinjaEntity>>` will play the role of the Azure Storage.
-To do so, it need to be registered in the `IServiceCollection`, overriding the default.
+To do so, it needs to be registered in the `IServiceCollection`, overriding the default.
 If we want to control the test clans (`IEnumerable<Clan>`), we also need to override that default as well. 
 
 That said, do you remember our little refactoring about the extraction of the `EnforceNinjaExistenceAsync` method?
@@ -203,7 +203,7 @@ public static class TableStorageMockExtensions
 }
 ```
 
-Then these few helpers has been created along the way:
+Then these few helpers have been created along the way:
 
 ``` csharp
 public class NinjaControllerTest : BaseHttpTest
@@ -241,7 +241,7 @@ public class NinjaControllerTest : BaseHttpTest
 ```
 
 These will help us compare `NinjaEntity` to `Ninja` as well as to create `NinjaEntity` classes.
-All of our tests will be executed over HTTP against a real running instance of our Web API so we cant just compare mocked references anymore.
+All of our tests will be executed over HTTP against a real running instance of our Web API, so we can't just compare mocked references anymore.
 
 Lets proceed method by method.
 
@@ -478,7 +478,7 @@ I divided the dependencies into three groups:
 #### Mappers
 In `Startup.ConfigureServices`, we will add the following:
 
-```csharp
+``` csharp
 services.TryAddSingleton<IMapper<Ninja, NinjaEntity>, NinjaToNinjaEntityMapper>();
 services.TryAddSingleton<IMapper<NinjaEntity, Ninja>, NinjaEntityToNinjaMapper>();
 services.TryAddSingleton<IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>, EnumerableMapper<NinjaEntity, Ninja>>();
@@ -493,7 +493,7 @@ These define our mappers:
 #### Ninja
 In `Startup.ConfigureServices`, we will add the following:
 
-```csharp
+``` csharp
 services.TryAddSingleton<INinjaService, NinjaService>();
 services.TryAddSingleton<INinjaRepository, NinjaRepository>();
 services.TryAddSingleton<INinjaMappingService, NinjaMappingService>();
@@ -501,7 +501,7 @@ services.TryAddSingleton<INinjaMappingService, NinjaMappingService>();
 
 These represent our core Ninja pipeline.
 
-> I put the `INinjaMappingService` in the ninja's section since it's more of a core service than a mapper (it's a Façade to our mapping subsystem remember?).
+> I put the `INinjaMappingService` in the ninja's section since it is more of a core service than a mapper (it is a Façade to our mapping subsystem remember?).
 
 #### ForEvolve.Azure
 This section is a little less strait-forward since we need to access configurations and use secrets.
@@ -511,9 +511,9 @@ Once you know all of this, it is as easy as the previous steps; now is the time 
 By default, Asp.Net Core 2.0 do most of the configuration plumbing for us.
 The only thing we will need to do is get the configurations injected in the `Startup` class by adding a constructor and a property (for future references).
 
-> Great job on the this one to the Asp.Net Core team!
+> Great job on this one to the Asp.Net Core team!
 >
-> Asp.Net was never as clean as Asp.Net Core 1.0 and Asp.Net Core 1.0 was not close to Asp.Net Core 2.0.
+> Asp.Net was never as clean as Asp.Net Core 1.0, and Asp.Net Core 1.0 was not close to Asp.Net Core 2.0.
 > Now we are talking!
 
 ``` csharp
@@ -529,9 +529,9 @@ Once this is done, we can access our configurations, as easy as that.
 
 ##### ConfigureServices
 
-Now that this is done, in `Startup.ConfigureServices`, we will add the following:
+Now that we have access to `Configuration`, in `Startup.ConfigureServices`, we will add the following:
 
-```csharp
+``` csharp
 services.TryAddSingleton<ITableStorageRepository<NinjaEntity>, TableStorageRepository<NinjaEntity>>();
 services.TryAddSingleton<ITableStorageSettings>(x => new TableStorageSettings
 {
@@ -544,7 +544,7 @@ services.TryAddSingleton<ITableStorageSettings>(x => new TableStorageSettings
 Most of the classes and interfaces are taken from the `ForEvolve.Azure` assembly and will help us access Azure Table Storage.
 
 The main class is `TableStorageRepository<NinjaEntity>`, associated to the `ITableStorageRepository<NinjaEntity>` interface that is injected in our `NinjaRepository`.
-To create the `TableStorageRepository`, we need to provide a `ITableStorageSettings`, as talked about earlier.
+To create the `TableStorageRepository`, we need to provide an `ITableStorageSettings`, as talked about earlier.
 The default `TableStorageSettings` implementation should do the job but, we need to set some values.
 These values will come from the application configurations.
 
@@ -562,7 +562,7 @@ By default, Asp.Net Core 2 read from `appsettings.json`, `appsettings.{env.Envir
 
 ---
 
-> See the source code of [WebHost.cs](https://github.com/aspnet/MetaPackages/blob/rel/2.0.0/src/Microsoft.AspNetCore/WebHost.cs#L157) for more information about the `CreateDefaultBuilder()` method which create the default configuration options.
+> See the source code of [WebHost.cs](https://github.com/aspnet/MetaPackages/blob/rel/2.0.0/src/Microsoft.AspNetCore/WebHost.cs#L157) for more information about the `CreateDefaultBuilder()` method which creates the default configuration options.
 
 ---
 
@@ -580,7 +580,7 @@ They are mostly placeholders but the `TableName`.
   }
 ```
 
-In the `appsettings.Development.json` we will override the `TableName` to make sure that we are not writing to the "production" table (in case it is on the same Azure Storage Account - which could be a bad idea in a real project). 
+In the `appsettings.Development.json` we will override the `TableName` to make sure that we are not writing to the "production" table (in case it is on the same Azure Storage Account - which could be a bad idea for a real project). 
 
 ``` json
   "AzureTable": {
@@ -630,7 +630,7 @@ We will add our development credentials to `secrets.json`.
 
 > **Where are those secret?**
 > 
-> Secrets are saved in some user subdiretory and Visual Studio knows about it using the `UserSecretsId` tag of the `csproj` file.
+> Secrets are saved in some user subdirectory, and Visual Studio knows about it using the `UserSecretsId` tag of the `csproj` file.
 >
 > Ex.: in the `ForEvolve.Blog.Samples.NinjaApi.csproj` file: `<UserSecretsId>aspnet-ForEvolve.Blog.Samples.NinjaApi-F62B525A-ACF4-4C7C-BF23-1EB0F434DDE5</UserSecretsId>`
 
@@ -668,8 +668,7 @@ If you have any interest, question, request or time to invest: feel free to leav
 
 ### What's next?
 What's next?
-
-You guys & gals tell me...
+You guys tell me.
 
 - What are you up to now that you played a little around with Repositories, Services, and Web APIs?
 - Any project in mind?
