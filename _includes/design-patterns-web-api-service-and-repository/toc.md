@@ -36,6 +36,7 @@
             <td><a href="/en/articles/2017/09/04/design-patterns-web-api-service-and-repository-part-7/">Part 7: the NinjaService</a></td>
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/7.%20NinjaApi%20-%20NinjaService">7. NinjaApi - NinjaService</a></td>
         </tr>
+        <!--
         <tr>
             <td>Part 8: Azure table storage and the data model</td>
             <td>8. NinjaApi - NinjaEntity</td>
@@ -51,11 +52,6 @@
         <tr>
             <td>Part 11: Integration testing</td>
             <td>11. NinjaApi - IntegrationTesting</td>
-        </tr>
-        <!--
-        <tr>
-            <td><a href="/en/articles/2017/09/07/design-patterns-web-api-service-and-repository-part-8/">Part 8: the NinjaRepository, Azure table storage and the ForEvolve Framework</a></td>
-            <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/8.%20NinjaApi%20-%20Ninjas%20completed">8. NinjaApi - NinjaRepository</a></td>
         </tr>
         -->
         <tr>
