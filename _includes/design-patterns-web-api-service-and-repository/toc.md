@@ -1,4 +1,4 @@
-### Table of content
+﻿### Table of content
 
 <table class="table table-striped table-hover">
     <thead class="thead-inverse">
@@ -36,7 +36,6 @@
             <td><a href="/en/articles/2017/09/04/design-patterns-web-api-service-and-repository-part-7/">Part 7: the NinjaService</a></td>
             <td><a href="https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/7.%20NinjaApi%20-%20NinjaService">7. NinjaApi - NinjaService</a></td>
         </tr>
-        <!--
         <tr>
             <td>Part 8: Azure table storage and the data model</td>
             <td>8. NinjaApi - NinjaEntity</td>
@@ -53,9 +52,8 @@
             <td>Part 11: Integration testing</td>
             <td>11. NinjaApi - IntegrationTesting</td>
         </tr>
-        -->
         <tr>
-            <td>More to come…</td>
+            <td>More might come…</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
