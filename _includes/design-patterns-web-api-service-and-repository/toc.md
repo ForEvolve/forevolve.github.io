@@ -1,4 +1,4 @@
-### Table of content
+﻿### Table of content
 
 <table class="table table-striped table-hover">
     <thead class="thead-inverse">
