@@ -9,6 +9,7 @@ tags:
 - Design Patterns
 - Asp.Net Core
 - Web API
+- MVC
 - C#
 - Unit Test
 - XUnit
@@ -844,7 +845,7 @@ In this article, we defined our ninja subsystem and implemented the `NinjaContro
 
 ### What's next?
 I originally planned to write a single article for both the `NinjaController` and the `NinjaService`. 
-However, due to the quantity of code, it was becomming super long, so I decided to create two distinct part instead.
+However, due to the quantity of code, it was becoming super long, so I decided to create two distinct part instead.
 
 In the next article, we will implement the `NinjaService` and use our unit tests suite to do some refactoring.
 

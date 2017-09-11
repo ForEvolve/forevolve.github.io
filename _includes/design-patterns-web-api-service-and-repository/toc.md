@@ -49,7 +49,7 @@
             <td>10. NinjaApi - NinjaRepository</td>
         </tr>
         <tr>
-            <td>Part 11: Integration testing</td>
+            <td>Part 11: Ninja Integration testing</td>
             <td>11. NinjaApi - IntegrationTesting</td>
         </tr>
         <!--
