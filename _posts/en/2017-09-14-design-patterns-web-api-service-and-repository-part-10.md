@@ -557,3 +557,5 @@ In this article:
 
 ### What's next?
 In the next and "final" article of this series, we will integrate our subsystems together!
+
+{% include design-patterns-web-api-service-and-repository/footer.md %}
