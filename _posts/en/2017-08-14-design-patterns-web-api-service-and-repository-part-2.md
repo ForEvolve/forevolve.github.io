@@ -375,4 +375,29 @@ Next, we will start writing some Ninja App code and see all that theory in pract
 **A Ninja need a clan to fight for!**
 <small>(And because it is a very simple controller)</small>
 
+<aside>
+    <section class="with-amazon-content">
+        <aside class="amazon-content">
+            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=forevolve-20&marketplace=amazon&region=US&placement=1935182501&asins=1935182501&linkId=795a99bab72f6d1a5063a3003a902876&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
+        </aside>
+        <section class="blog-content">
+            <header>Dependency Injection</header>
+            <p>
+                If you are looking for a book, this is a great read on dependency injection.
+                It explains the concepts behind DI very well.
+                The book does not focus on .Net Core, but understanding the concepts is still pretty important and remains the same no matter what technology you are using. 
+            </p>
+            <p>
+                I understand that there is a lot of information on the internet nowadays, but sometimes, books and papers still feel great.
+                For those allergic to paper, there is still the electronic version :wink:.
+            </p>
+            <p>I highly recommend it.</p>
+        </section>
+    </section>
+</aside>
+
+### History
+- 2017-08-14 Initial article.
+- 2017-09-28 Added the `Dependency Injection in .NET` book link.
+
 {% include design-patterns-web-api-service-and-repository/footer.md %}
