@@ -47,7 +47,7 @@ Let's first take a look at our original diagram:
 
 We modified the `NinjaRepository` a little, adding two new dependencies:
 
-- `INinjaMappingService` that help us map our ninja.
+- `INinjaMappingService` that help us map our ninja to data-entities.
 - `ITableStorageRepository<NinjaEntity>` that handles the Azure Table data access.
 
 The new diagram looks like this:
@@ -79,7 +79,8 @@ By doing this, it will also be easier to assess success and failure.
 >
 > If I find the time, I would like to do that kind of end to end testing (and write about it) in a CI/CD pipeline using Postman/Newman against a real staging Azure Web App. But unfortunately not today.
 
-That said, integration testing does not imply testing the whole system; for example, you could verify the integration of only two components together if you'd feel the need to. It is all about combining the units and making sure the system is working as intended.
+That said, integration testing does not imply testing the whole system; for example, you could verify the integration of only two components together if you'd feel the need to. 
+It is all about combining the units and testing their interaction; making sure the system is working as intended.
 
 > If you remember my Lego block example, it is now time to take those blocks and build a castle with them.
 
@@ -103,7 +104,7 @@ Of course combining both make sure that units, subsystems and the whole applicat
     </section>
 </aside>
 
-Another point before jumping into the code: while using dependency injection help us decouple our system by moving the system composition responsibility outside of individual components, it also creates that new centralized "integration machine" that combines the units (at the composition root).
+Another point before jumping into the code: while using dependency injection help us decouple our units, by moving the system composition responsibility outside of individual components, it also creates that centralized "sewing machine" that combines the units (at the composition root).
 
 To increase the quality of our software, that composition must also be tested. 
 We can see this as another significant role of integration testing.
@@ -125,18 +126,18 @@ We can see this as another significant role of integration testing.
                 I understand that there is a lot of information on the internet nowadays, but sometimes, books and papers still feel great.
                 For those allergic to paper, there is still the electronic version :wink:.
             </p>
-            <p>I highly recommend it.</p>
+            <p>I highly recommend this one.</p>
         </section>
     </section>
 </aside>
 
 #### ITableStorageRepository
 Even if we (will) use a Mock, we still have to make sure that an implementation of `ITableStorageRepository<NinjaEntity>` is returned for our real system.
-*I could also have phrased this: "especially since we used a Mock".*
+*I could also have phrased this: "especially since we used a Mock".* :wink:
 
 Basically, we want to make sure that the units we are not directly testing (the mocked part) are correctly configured with our DI container.
 
-Here is what we will not use in our integration tests:
+Here is what we will not use in our integration tests (these comes from the `ForEvolve.Azure` package):
 
 - When asking for the `ITableStorageRepository<NinjaEntity>` service, the system should return a `TableStorageRepository<NinjaEntity>` instance.
 - To build that instance, we will also need an `ITableStorageSettings` implementation, which will be an instance of the `TableStorageSettings` class.
@@ -183,7 +184,7 @@ public abstract class StorageSettings : IStorageSettings
 
 The `TableStorageSettings` class add one property to the three inherited from `StorageSettings`.
 
-We will use those three properties:
+For a connection to Azure Table to work, we will (only) need those three properties:
 
 - `AccountName`
 - `AccountKey`
@@ -191,7 +192,27 @@ We will use those three properties:
 
 > You could also use the `DevelopmentTableStorageSettings` class to test against the emulator during development instead of the `TableStorageSettings` class.
 
-Now that we took a little look at the `ForEvolve.Azure.Storage` namespace, let's write those tests.
+Now that we took a little look at the `ForEvolve.Azure.Storage` namespace, let's configure our integration tests.
+
+At the root of `ForEvolve.Blog.Samples.NinjaApi.IntegrationTests`, let's create an `appsettings.json` file with the following content:
+
+``` json
+{
+  "AzureTable": {
+    "TableName": "MyTableName"
+  }
+}
+```
+
+Once this is done, make sure the file is copied to the build directory by using the property tab of Visual Studio (or `Right Click > Properties`) or by editing the `ForEvolve.Blog.Samples.NinjaApi.IntegrationTests.csproj` file.
+
+> **Why?**
+>
+> The reason is simple (but maybe not that obvious): we are hosting `ForEvolve.Blog.Samples.NinjaApi.dll` in-memory, but we are not copying its settings file. 
+> As we will explore later, we are loading settings from multiple sources, and the `TableName` come from the `appsettings.json` file.
+
+
+Ok, now we have some specs and some required configurations, it's time write those tests.
 
 In the `StartupTest+ServiceProvider` class of the `ForEvolve.Blog.Samples.NinjaApi.IntegrationTests` project, we will add those two tests, enforcing the rules that have previously been stated:
 
@@ -240,7 +261,7 @@ If we run those tests, they will fail. We will make them pass later.
 #### NinjaControllerTest
 Now that we made sure the `ITableStorageRepository<NinjaEntity>` implementation is tested, we can jump right to the `NinjaControllerTest` class.
 
-The test initialization, shared by all tests, does as follow:
+The test initialization, shared by all tests, goes as follow:
 
 ``` csharp
 public class NinjaControllerTest : BaseHttpTest
@@ -269,9 +290,23 @@ public class NinjaControllerTest : BaseHttpTest
 }
 ```
 
-In this part of the `NinjaControllerTest` class, the `Mock<ITableStorageRepository<NinjaEntity>>` will play the role of the Azure Storage.
+In the `NinjaControllerTest` class, the `Mock<ITableStorageRepository<NinjaEntity>>` will play the role of the Azure Storage.
 To do so, it needs to be registered in the `IServiceCollection`, overriding the default.
 If we want to control the test clans (`IEnumerable<Clan>`), we also need to override that default as well. 
+
+> **The test clans**
+>
+> I concur that the `IEnumerable<Clan>` values are the same as the live data.
+> That said, live data could change in the future voiding our tests.
+> Having predictable input and output in automatic tests is important.
+> To conclude, I could have used `Clan Foo` and `Clan Bar` instead of `Iga` and `Kōga` (but hey! I did thorough research to come up with those names).
+>
+
+> **ConfigureServices**
+>
+> The code of `NinjaControllerTest.ConfigureServices(...)` is run before the execution of `Startup.ConfigureServices(...)` which allows us to modify the application's composition beforehand.
+> More on that, this is possible because we used the `TryAddSingleton<...>(...)` extension method (in `Startup.cs`).
+> Without the use of that extension, an exception would be thrown at runtime.
 
 That said, do you remember our little refactoring about the extraction of the `EnforceNinjaExistenceAsync` method?
 If you do, here is an extension method to help set it up in both `UpdateAsync` and `DeleteAsync` (making sure the validation pass):
