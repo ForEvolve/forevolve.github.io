@@ -39,9 +39,12 @@ The more brains, the more chances of improving a design!
 
 ## The NuGet package
 First, you will need to install the `ForEvolve.AspNetCore.Localization` NuGet package from a custom NuGet feed.
-The feed URI for all ForEvolve packages is `https://www.myget.org/F/forevolve/api/v3/index.json`.
+The feed URI of all ForEvolve packages is `https://www.myget.org/F/forevolve/api/v3/index.json`.
 
-If you don't, know [How to use a custom NuGet feed in Visual Studio 2017](/en/articles/2017/08/06/how-to-use-a-custom-nuget-feed-in-visual-studio-2017/), feel free to take a look at this article.
+If you don't, know [How to use a custom NuGet feed in Visual Studio 2017](/en/articles/2017/08/06/how-to-use-a-custom-nuget-feed-in-visual-studio-2017/), feel free to take a look at this article first.
+
+### Source code
+See GitHub for the [source code](https://github.com/ForEvolve/ForEvolve.AspNetCore.Localization), the supported languages and the supported attributes.
 
 ## The code
 Before beginning, I've built 2 samples MVC applications available on [GitHub](https://github.com/ForEvolve/ForEvolve.Blog.Samples/tree/master/Localization%20-%20Samples). They both are a basic contact form.
