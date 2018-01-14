@@ -37,10 +37,9 @@ If they are not, your program will crash (partially or entirely).
 
 Here is a visual representation of this:
 
-X--> Y -->Z (throw)
-X (catch) <-- Y <-- Z
+![Exception propagation diagram](//cdn.forevolve.com/blog/images/2018/exception-propagation-diagram.png)
 
-Frameworks, SDKs and what not, throws exceptions to alert you when an error occurred.
+Frameworks, SDKs and what not, throws exceptions to alert you, the developer, that an error occurred.
 Don’t worry; you can throw some too in your own programs!
 
 Here is how:
