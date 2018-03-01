@@ -80,7 +80,8 @@ Here are some advantages and disadvantages.
 
 ### Disadvantages
 - It is more complex to use than exceptions. Why? Because it must be "manually propagated up the call stack" (AKA returned by the callee and handled by the caller).
-- There is at least one more class to create: the "operation result" class. Why? Do I really need to answer this? *That said, is this that bad?*
+- There is at least one more class to create: the "operation result" class. Why? Do I really need to answer this?
+    > I am not sure this is really a disadvantage, but that's pretty much the only few drawbacks that I was able to think of...
 
 ## Implementation: the Ninja War API
 I will continue to follow my 2017 mood: the ninjas! This time I will create and use a microservice using ASP.NET Core 2 that will allow consumers to read the list of the other ninja clans relation of a specific clan!
