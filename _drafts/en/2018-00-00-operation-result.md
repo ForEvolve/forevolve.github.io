@@ -83,10 +83,13 @@ Here are some advantages and disadvantages.
 - There is at least one more class to create: the "operation result" class. Why? Do I really need to answer this?
     > I am not sure this is really a disadvantage, but that's pretty much the only few drawbacks that I was able to think of...
 
-## Implementation: the Ninja War API
-I will continue to follow my 2017 mood: the ninjas! This time I will create and use a microservice using ASP.NET Core 2 that will allow consumers to read the list of the other ninja clans relation of a specific clan!
+## Implementation: the Ninja Wars API
+I will continue to follow my 2017 mood: the ninjas! 
+For this article, I will create a microservice (or tiny API if you prefer) using ASP.NET Core 2.
+The first endpoint will allow consumers to read the list of relationships of a specicific ninja clan.
+I will not go too far into enginerring since I want the focus to be on the "operation result" pattern.
 
-The status will be called a `WarStatus` and will be as simple as:
+The relationship status of a clan is represented by the `WarStatus` class and will be as simple as:
 
 ``` csharp
 public class WarStatus
@@ -99,42 +102,49 @@ public class WarStatus
 }
 ```
 
-The following URI pattern will represent the endpoint: `api/clans/{clanId}/warstatus`.
+The endpoint will answers to the following URI pattern: `api/clans/{clanId}/warstatus`.
 To handle the request, we will use the ASP.NET Core 2 router, as follow:
 
+> Don't forget to add the router to the `IServiceCollection` in the `ConfigureServices` method as follow: `services.AddRouting();`.
+
 ``` csharp
-app.UseRouter(builder =>
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-	var clanService = new ClanWarService();
-	builder.MapGet("api/clans/{clanId}/warstatus", async (request, response, data) =>
+	app.UseRouter(builder =>
 	{
-		// Read param
-		var clanId = data.Values["clanId"].ToString();
-
-		// Execute operation
-		var result = clanService.ReadAllWarStatusOf(clanId);
-
-		// Handle the result
-		string jsonResponse;
-		if (result.IsSuccessful)
+		var clanService = new ClanWarService();
+		builder.MapGet("api/clans/{clanId}/warstatus", async (request, response, data) =>
 		{
-			jsonResponse = JsonConvert.SerializeObject(result.Value);
-		}
-		else
-		{
-			jsonResponse = JsonConvert.SerializeObject(new { error = result.Error });
-		}
-		await response.WriteAsync(jsonResponse);
+			// Read param
+			var clanId = data.Values["clanId"].ToString();
+
+			// Execute operation
+			var result = clanService.ReadAllWarStatusOf(clanId);
+
+			// Handle the result
+			string jsonResponse;
+			if (result.IsSuccessful)
+			{
+				jsonResponse = JsonConvert.SerializeObject(result.Value);
+			}
+			else
+			{
+				jsonResponse = JsonConvert.SerializeObject(new { error = result.Error });
+			}
+			await response.WriteAsync(jsonResponse);
+		});
 	});
-});
+}
 ```
 
 As you can see, the result of `clanService.ReadAllWarStatusOf(clanId);` is elegant and clear. 
 Even if you dont know the implementation details of the `ClanWarService` class, you should have a pretty good idea of the outcome; which is (one of) the point of all of this.
 
-Ok; now that we got the *caller* point of view, let analyse the *callee*.
+OK; now that we got the *caller* point of view, let analyse the *callee*.
 
-Let's begin by the result itself:
+For the result itself, I decided to take the easiest path and define the `Error` as a simple `string`.
+The `IsSuccessful` property's implementation is also very simple following this logic: "the operation is successful as long as there is no error (message)."
+There could be a value or not, an error or not, or any combination of these.
 
 ``` csharp
 public class ReadWarStatusOperationResult
@@ -150,17 +160,20 @@ public class ReadWarStatusOperationResult
 }
 ```
 
-As you might have noticed, the operation result class has the 3 elements described in the "Role" section:
+Now that we saw the code, as you may have noticed, the operation result class has the 3 elements described in the "Role" section:
 
 1. Access the result of an operation: `Value`
 2. Access the success indicator of an operation: `IsSuccessful`
 3. Access the cause of the failure in case the operation was not successful: `Error`
 
-In our case, we will simply use a `string` as the error; but it could be an object as well.
+The `Error` property could be a complex object or even a collection of complex error objects.
 
 ---
 
-The `ClanWarService` looks like this:
+To keep things simple, the `ClanWarService` implementation has two static use cases:
+
+1. It return a valid `ReadWarStatusOperationResult` object when the consumer ask for the clan `clanId == "c810e13c-1083-4f39-aebc-e150c82dc770"`.
+1. It return an invalid `ReadWarStatusOperationResult` object when the consumer ask for any other clans.
 
 ``` csharp
 public class ClanWarService
@@ -212,17 +225,21 @@ public class ClanWarService
 }
 ```
 
-As you may have noticed, the `ReadAllWarStatusOf` method of the `ClanWarService` class always return a `ReadWarStatusOperationResult` no matter if the result is a success or a failure.
+After reading the code, you may have noticed that the `ReadAllWarStatusOf` method of the `ClanWarService` class always return a `ReadWarStatusOperationResult` no matter if the result is a success or a failure. In the case of a more complexe scenario, we could have wrapped the code in a `try/catch` block to handle possible errors.
 
 ## Implementation: the Ninja War API - Part 2: update the war status
-In the previous implementation, we returned a value about the WarStatus. 
-This is not mandatory, we could only want to return the success indicator and the error (in caswe there is an error).
+In the previous implementation, we returned a `Value` about the WarStatus. 
+Returning a `Value` is not mandatory, we could only want to return the success indicator and the error (in case there is an error).
 
-To show case this, I will create a "delete" method that set the `WarStatus.IsAtWar` to the specified value.
+To showcase this, let's create a `SetWarStatus` method that set the `WarStatus.IsAtWar` to the specified value.
+
+> Important: the result will not be reflected by the `ReadAllWarStatusOf` method. 
+> In a real scenario you would have a data source of some sort anyway which is out if the scope of the current article.
+> If you find it harder to follow this way, feel free to leave me a comment and I will create a second working code sample.
 
 ...
 
-`POST api/clans/{clanId}/warstatus/` | BODY: `{ "targetClanId": "8C0AE03F-202D-4352-BD59-2F794779F3E9", "isAtWar": false }`
+`POST|PUT|PATCH api/clans/{clanId}/warstatus/` | BODY: `{ "targetClanId": "8C0AE03F-202D-4352-BD59-2F794779F3E9", "isAtWar": false }`
 
 - return OK if ...
 - Return BadRequest if ...
