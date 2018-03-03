@@ -233,17 +233,83 @@ Returning a `Value` is not mandatory, we could only want to return the success i
 
 To showcase this, let's create a `SetWarStatus` method that set the `WarStatus.IsAtWar` to the specified value.
 
-> Important: the result will not be reflected by the `ReadAllWarStatusOf` method. 
-> In a real scenario you would have a data source of some sort anyway which is out if the scope of the current article.
-> If you find it harder to follow this way, feel free to leave me a comment and I will create a second working code sample.
+> It is important to note that the result will not be reflected when calling the `ReadAllWarStatusOf` method. 
+> In a real scenario you would have a data source of some sort.
+> This is out if the scope of the current article.
+> If you find it harder to follow this way, feel free to leave me a comment and I will create another code sample.
 
-...
+First of all, what do we want?
 
-`POST|PUT|PATCH api/clans/{clanId}/warstatus/` | BODY: `{ "targetClanId": "8C0AE03F-202D-4352-BD59-2F794779F3E9", "isAtWar": false }`
+1. A success indicator
+1. An error message if the operation was not successful
 
-- return OK if ...
-- Return BadRequest if ...
-- No operation result "Value" (i.e.: void)
+These 2 points are reflected in the `SetWarStatusOperationResult` class:
+
+```csharp
+public class SetWarStatusOperationResult
+{
+	[JsonProperty("successful")]
+	public bool IsSuccessful => string.IsNullOrWhiteSpace(Error);
+
+	[JsonProperty("error", DefaultValueHandling = DefaultValueHandling.Ignore)]
+	public string Error { get; set; }
+}
+```
+
+The `SetWarStatus` method will return an empty `SetWarStatusOperationResult` instance or one with an error message if not successful:
+
+```csharp
+public SetWarStatusOperationResult SetWarStatus(string clanId, string targetClanId, bool isAtWar)
+{
+	if (clanId == "378E8982-5E90-4379-8926-32FEA62B4B4C" && targetClanId == "002A8E50-E39B-4AC6-9411-2F02AAE6C845")
+	{
+		return new SetWarStatusOperationResult();
+	}
+
+	return new SetWarStatusOperationResult
+	{
+		Error = $"The clan {clanId} or the target clan {targetClanId} was not found"
+	};
+}
+```
+
+As you can notice, the concept is the same, but we dont need to return any value. 
+You can see this as a method "returning" `void` or an error message/object.
+
+To close the circle, we need to call the `SetWarStatus` method somewhere.
+That somewhere will be another API endpoint, but this time we will `PATCH` the URI.
+The request body will need to be a JSON `WarStatus` object.
+
+```csharp
+builder.MapVerb("PATCH", "api/clans/{clanId}/warstatus", async (request, response, data) =>
+{
+	// Read param
+	var clanId = data.Values["clanId"].ToString();
+
+	// Deserialize the JSON body
+	using (StreamReader reader = new StreamReader(request.Body, Encoding.UTF8))
+	{
+		var jsonText = await reader.ReadToEndAsync();
+		var warStatus = JsonConvert.DeserializeObject<WarStatus>(jsonText);
+
+		// Execute operation
+		var result = clanService.SetWarStatus(clanId, warStatus.TargetClanId, warStatus.IsAtWar);
+
+		// Handle the result
+		if (result.IsSuccessful)
+		{
+			return;
+		}
+		response.StatusCode = StatusCodes.Status404NotFound;
+		var jsonResponse = JsonConvert.SerializeObject(new { error = result.Error });
+		await response.WriteAsync(jsonResponse);
+	}
+});
+```
+
+If we take a look at that last code block, the endpoint return an empty `200 OK` response when the operation is successful and a `404 NotFound` with an error message if an error occured.
+
+> OK, here the response is tightly coupled with the `ClanWarService` implementation, but your focus should be around the "operation result", not the operation itself.
 
 
 TODO: show a "classic way" of doing this (with return Value + exception)
