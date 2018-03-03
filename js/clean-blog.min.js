@@ -1,6 +1,6 @@
 /*!
  * Clean Blog v1.0.0 (http://startbootstrap.com)
- * Copyright 2017 Start Bootstrap
+ * Copyright 2018 Start Bootstrap
  * Licensed under MIT (https://spdx.org/licenses/MIT)
  */
 

@@ -1,6 +1,6 @@
 /*!
  * Clean Blog v1.0.0 (http://startbootstrap.com)
- * Copyright 2017 Start Bootstrap
+ * Copyright 2018 Start Bootstrap
  * Licensed under MIT (https://spdx.org/licenses/MIT)
  */
 
@@ -679,6 +679,22 @@ ul.regroup-list li a small {
 .with-amazon-content + footer {
   color: #808080;
   margin-bottom: 10px;
+}
+section.multi-box {
+  border: 1px solid #EFEFEF;
+  margin: 0 0 25px;
+  padding: 15px;
+  border-radius: 15px;
+}
+section.multi-box section header {
+  border-bottom: 1px solid #EFEFEF;
+  padding: 0 25px 14px;
+  margin: 0 -15px;
+  font-weight: bold;
+}
+section.multi-box section:nth-child(n+2) header {
+  border-top: 1px solid #EFEFEF;
+  padding-top: 14px;
 }
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)

@@ -316,6 +316,38 @@ If we take a look at that last code block, the endpoint return an empty `200 OK`
 
 > OK, here the response is tightly coupled with the `ClanWarService` implementation, but your focus should be around the "operation result", not the operation itself.
 
+## Usage
+When to use and when not to use?
+
+This is hard to define since most software engineering techniques are better used on a case by case basis.
+As a soft guide, I'd go for this:
+
+<section class="multi-box">
+	<section>
+		<header>Use the operation result pattern when...</header>
+		<p>
+			<ul>
+				<li>You dont mind the added complexity.</li>
+				<li>You want better control over your error messages, their state, or their propagation.</li>
+				<li>You prefer `if/else` over `try/catch`.</li>
+				<li>You want a micro speed gain.</li>
+				<li>You want to write code that is more explicit.</li>
+			</ul>
+		</p>
+	</section>
+	<section>
+		<header>You may want to rethink the use of the operation result pattern when...</header>
+		<p>
+			<ul>
+				<li>You want <code>Exception</code>'s propagation simplicity.</li>
+				<li>You dont mind about the error messages themself.</li>
+			</ul>
+		</p>
+	</section>
+</section>
+
+> If you find any more "use" or "dont", feel free to leave them in the comments bellow.
+
 ## Conclusion
 At this point there is not much else to say, the "operation result" pattern is another way of propagating a success/failure state and to optionnally return a value.
 
