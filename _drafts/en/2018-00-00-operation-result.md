@@ -322,7 +322,7 @@ When to use and when not to use?
 This is hard to define since most software engineering techniques are better used on a case by case basis.
 As a soft guide, I'd go for this:
 
-<section class="multi-box">
+<section class="multi-section">
 	<section>
 		<header>Use the operation result pattern when...</header>
 		<p>
