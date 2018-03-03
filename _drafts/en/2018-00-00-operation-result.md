@@ -44,13 +44,13 @@ To be used effectively, a method must return a complex object containing the ele
 Here are some UML diagrams representing the pattern (some code will follow).
 
 #### Operation Result pattern class diagram
-![Operation Result pattern class diagram](/img/operation-result-design-pattern-1.png)
+![Operation Result pattern class diagram](//cdn.forevolve.com/blog/images/2018/operation-result-design-pattern-1.png)
 
 #### Operation Result pattern sequence diagram
-![Operation Result pattern sequence diagram](/img/operation-result-design-pattern-2.png)
+![Operation Result pattern sequence diagram](//cdn.forevolve.com/blog/images/2018/operation-result-design-pattern-2.png)
 
 #### Operation Result pattern "handle the result" flow diagram
-![Operation Result pattern "handle the result" flow diagram](/img/operation-result-design-pattern-3.png)
+![Operation Result pattern "handle the result" flow diagram](//cdn.forevolve.com/blog/images/2018/operation-result-design-pattern-3.png)
 
 ### Definition of the diagrams' classes
 Before jumping into the code, lets peek into the "actors" of the previous diagrams.
@@ -63,31 +63,34 @@ The class containing the `Execute` method that return an `ExecuteOperationResult
 
 #### ExecuteOperationResult
 The complex result.
-As a convention, I like to name the class `[Operation/Method name]OperationResult`.
+
+> As a convention, I like to name the class `[Operation/Method name]OperationResult`.
 
 #### SomeValue
 The operation's expected value.
 
 #### SomeError
-The error representation. This could be a `string`, an `Exception` or a custom error object.
+The error representation. This could be a `string`, an `Exception` or a custom error `object`.
 
 ## Advantages and disadvantages
-Here are some advantages and disadvantages.
-
 ### Advantages 
-- It is more explicit than throwing an Exception. Why? Because it is part of the returned value (the method "signature-ish").
-- It is faster. Why? because returning an object is faster than throwing an Exception.
+1. It is more explicit than throwing an Exception. 
+    - Why? Because it is part of the returned value (the method "signature-ish").
+1. It is faster. 
+    - Why? because returning an object is faster than throwing an Exception.
 
 ### Disadvantages
-- It is more complex to use than exceptions. Why? Because it must be "manually propagated up the call stack" (AKA returned by the callee and handled by the caller).
-- There is at least one more class to create: the "operation result" class. Why? Do I really need to answer this?
+1. It is more complex to use than exceptions. 
+    - Why? Because it must be "manually propagated up the call stack" (AKA returned by the callee and handled by the caller).
+1. There is at least one more class to create: the "operation result" class. 
     > I am not sure this is really a disadvantage, but that's pretty much the only few drawbacks that I was able to think of...
 
 ## Implementation: the Ninja Wars API
 I will continue to follow my 2017 mood: the ninjas! 
 For this article, I will create a microservice (or tiny API if you prefer) using ASP.NET Core 2.
 The first endpoint will allow consumers to read the list of relationships of a specicific ninja clan.
-I will not go too far into enginerring since I want the focus to be on the "operation result" pattern.
+
+> I will not go too far into enginerring since I want the focus to stay on the "operation result" pattern.
 
 The relationship status of a clan is represented by the `WarStatus` class and will be as simple as:
 
@@ -102,10 +105,12 @@ public class WarStatus
 }
 ```
 
+> Basically, a clan can be at war with another clan... or not.
+
 The endpoint will answers to the following URI pattern: `api/clans/{clanId}/warstatus`.
 To handle the request, we will use the ASP.NET Core 2 router, as follow:
 
-> Don't forget to add the router to the `IServiceCollection` in the `ConfigureServices` method as follow: `services.AddRouting();`.
+> To use the router you need to add it to the `IServiceCollection` in the `ConfigureServices` method as follow: `services.AddRouting();`.
 
 ``` csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -166,7 +171,7 @@ Now that we saw the code, as you may have noticed, the operation result class ha
 2. Access the success indicator of an operation: `IsSuccessful`
 3. Access the cause of the failure in case the operation was not successful: `Error`
 
-The `Error` property could be a complex object or even a collection of complex error objects.
+> Note that the `Error` property could be a complex object or even a collection of complex error objects.
 
 ---
 
@@ -225,17 +230,17 @@ public class ClanWarService
 }
 ```
 
-After reading the code, you may have noticed that the `ReadAllWarStatusOf` method of the `ClanWarService` class always return a `ReadWarStatusOperationResult` no matter if the result is a success or a failure. In the case of a more complexe scenario, we could have wrapped the code in a `try/catch` block to handle possible errors.
+After reading the code, you may have noticed that the `ReadAllWarStatusOf` method always return a `ReadWarStatusOperationResult` no matter if the result is a success or a failure. In the case of a more complexe scenario, we could have wrapped the code in one or more `try/catch` block to handle possible errors and make sure the only possible outcome is a `ReadWarStatusOperationResult`.
 
 ## Implementation: the Ninja War API - Part 2: update the war status
-In the previous implementation, we returned a `Value` about the WarStatus. 
+In the previous implementation, we returned a `Value` describing the `WarStatus` of ninja's clans. 
 Returning a `Value` is not mandatory, we could only want to return the success indicator and the error (in case there is an error).
 
 To showcase this, let's create a `SetWarStatus` method that set the `WarStatus.IsAtWar` to the specified value.
 
 > It is important to note that the result will not be reflected when calling the `ReadAllWarStatusOf` method. 
 > In a real scenario you would have a data source of some sort.
-> This is out if the scope of the current article.
+> This is out of the scope of the current article.
 > If you find it harder to follow this way, feel free to leave me a comment and I will create another code sample.
 
 First of all, what do we want?
@@ -274,11 +279,11 @@ public SetWarStatusOperationResult SetWarStatus(string clanId, string targetClan
 ```
 
 As you can notice, the concept is the same, but we dont need to return any value. 
-You can see this as a method "returning" `void` or an error message/object.
+
+> You could see this as a method "returning" `void` or an error message/object.
 
 To close the circle, we need to call the `SetWarStatus` method somewhere.
-That somewhere will be another API endpoint, but this time we will `PATCH` the URI.
-The request body will need to be a JSON `WarStatus` object.
+That somewhere will be another API endpoint, but this time we will `PATCH` the URI with a request body made of a JSON `WarStatus` object.
 
 ```csharp
 builder.MapVerb("PATCH", "api/clans/{clanId}/warstatus", async (request, response, data) =>
