@@ -311,5 +311,9 @@ If we take a look at that last code block, the endpoint return an empty `200 OK`
 
 > OK, here the response is tightly coupled with the `ClanWarService` implementation, but your focus should be around the "operation result", not the operation itself.
 
+## Conclusion
+At this point there is not much else to say, the "operation result" pattern is another way of propagating a success/failure state and to optionnally return a value.
 
-TODO: show a "classic way" of doing this (with return Value + exception)
+If you have any question or suggestion, feel free to leave a comment and I will do my best to answer as fast as I can with the best of my knowledge.
+
+Enjoy your new coding technique!
