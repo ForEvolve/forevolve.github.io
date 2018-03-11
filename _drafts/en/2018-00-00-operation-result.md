@@ -1,8 +1,8 @@
 ---
 title:  "Operation result"
-subtitle: "Design Patterns"
+subtitle: "Design Pattern"
 date:     2018-02-01 00:00:00 -0500
-post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-01-00-exceptions.png"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-03-00-operation-result.png"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
 lang: en
 categories: en/articles
@@ -15,13 +15,13 @@ proficiency-level: Intermediate
 
 This article will focus on the "Operation Result" design pattern, as I call it. 
 Why do I said "as I call it"? 
-Because it doesn’t seem to have an official name yet; and as you will see, this name fits well. 
-You can see this technique used in multiple SDK. 
+Because it doesn’t seem to have an official name yet; I havnt read anything about it; and as you will see, this name fits well. 
+I saw this technique used in multiple SDK and I used it myself multiple times.
 It is also very easy to implement and powerful enough to be worth mentionning.
 
 > What's a design pattern?
 >
-> A design pattern is simply a way to solve a problem or to implement a solution.
+> In case you dont know, a design pattern is simply a way to solve a problem or to implement a solution.
 
 ## Role
 The role of the "Operation Result" design pattern is to return a complex result from an operation, allowing the consumer to:<!--more-->
@@ -349,7 +349,7 @@ As a soft guide, I'd go for this:
 > If you find any more "use" or "dont", feel free to leave them in the comments bellow.
 
 ## Conclusion
-At this point there is not much else to say, the "operation result" pattern is another way of propagating a success/failure state and to optionnally return a value.
+At this point there is not much else to say; the "operation result" pattern is another way of propagating a success/failure state and to optionnally attach a value or an error to it.
 
 If you have any question or suggestion, feel free to leave a comment and I will do my best to answer as fast as I can with the best of my knowledge.
 
