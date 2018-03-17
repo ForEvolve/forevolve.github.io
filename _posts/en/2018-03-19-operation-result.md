@@ -1,7 +1,7 @@
 ---
 title:  "Operation result"
 subtitle: "Design Pattern"
-date:     2018-02-01 00:00:00 -0500
+date:     2018-03-19 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-03-00-operation-result.png"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
 lang: en
