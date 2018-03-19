@@ -1,4 +1,5 @@
 @import "variables.less";
+@import "mixins.less";
 //@import (reference) "../css/bootstrap.css";
 
 .intro-header .site-heading {
@@ -46,13 +47,6 @@
     ul + figure,
     ol + figure {
         margin-top: 30px;
-    }
-
-    .round-bordered-box(){
-        border: 1px solid #EFEFEF;
-        margin: 0 0 25px;
-        padding: 15px;
-        border-radius: 15px;
     }
 
     code {
@@ -333,6 +327,24 @@ ul.regroup-list
         margin-bottom: 10px;
     }
 
+}
+
+section.multi-section {
+    .round-bordered-box();
+
+    section {
+        header {
+            border-bottom: 1px solid #EFEFEF;
+            padding: 0 25px 14px;
+            margin: 0 -15px;
+            font-weight: bold;
+        }
+    
+        &:nth-child(n+2) header {
+            border-top: 1px solid #EFEFEF;
+            padding-top: 14px;
+        }
+    }
 }
 
 @import "prism-vs-theme.less";

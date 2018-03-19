@@ -9,6 +9,7 @@ jekyll serve --watch
 grunt watch
 jekyll serve --watch --drafts
 bundle exec jekyll serve --watch --drafts
+bundle exec jekyll serve --watch --drafts --incremental --future
 ```
 
 # Clean Blog by Start Bootstrap - Jekyll Version
