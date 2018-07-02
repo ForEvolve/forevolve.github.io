@@ -30,7 +30,7 @@ permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-gems: [jekyll-feed, jekyll-paginate, jekyll-redirect-from, jemoji] 
+plugins: [jekyll-feed, jekyll-paginate, jekyll-redirect-from, jemoji] 
 
 excerpt_separator: <!--more-->
 
