@@ -1,0 +1,14 @@
+Beginners:
+  name: Beginners
+  short-description: You are new to the technology.
+  description: You are new to this technology.
+
+Intermediate:
+  name: Intermediate
+  short-description: You are familiar with the technology.
+  description: You are already familiar with the technology; you built a few projects with it already.
+
+Expert:
+  name: Expert
+  short-description: You know the technology well.
+  description: You worked a lot with the technology and know it very well.
