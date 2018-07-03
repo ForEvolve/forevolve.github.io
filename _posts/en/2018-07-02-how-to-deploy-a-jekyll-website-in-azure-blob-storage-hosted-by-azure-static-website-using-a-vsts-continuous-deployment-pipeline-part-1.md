@@ -1,6 +1,6 @@
 ---
-title:  "How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS CD pipeline"
-# subtitle: "Design Pattern"
+title:  "How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS continuous deployment pipeline"
+subtitle: "Introduction"
 date:     2018-07-02 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
@@ -19,6 +19,8 @@ technology-relative-level:
 - { name: Jekyll, level: Intermediate }
 ---
 
+{{ "How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS continuous deployment pipeline" | slugify }}
+
 In this article we will create a continuous deployment (CD) pipeline using Visual Studio Team Services (VSTS) to deploy a Jekyll website to Azure.
 
 We will use Azure Blob Storage to store the files in the cloud, a CDN to deliver those files using a custom domain that support HTTPS (for free), and the `Static Website` option of Azure Storage to configure a default page (index.html) and an error page (404 Not Found).
@@ -30,6 +32,8 @@ Here is a diagram that explains the whole idea:
 ![How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS CD pipeline diagram](//cdn.forevolve.com/blog/images/2018/VSTS-jekyll-git-vsts-azure-flow.png)
 
 > At the day of the writing, the `Static Website` option is in `Preview`.
+
+{% include jekyll-vsts-azure/toc.md %}
 
 ## Difference with GitHub Pages (pros/cons)
 
