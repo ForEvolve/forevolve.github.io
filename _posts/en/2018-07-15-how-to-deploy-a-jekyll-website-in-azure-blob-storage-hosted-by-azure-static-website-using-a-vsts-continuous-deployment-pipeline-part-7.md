@@ -22,3 +22,7 @@ technology-relative-level:
 ...
 
 {% include jekyll-vsts-azure/toc.md %}
+
+## Step 6: Configuring a CDN
+
+This is the last part, the part where a website goes from "no body will remember the URI" to "this is a real website with a real URI".
