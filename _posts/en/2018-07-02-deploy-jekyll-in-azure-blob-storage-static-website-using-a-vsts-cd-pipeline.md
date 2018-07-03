@@ -2,7 +2,7 @@
 title:  "How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS CD pipeline"
 # subtitle: "Design Pattern"
 date:     2018-07-02 00:00:00 -0500
-post-img: "img/2018-07-00-jekyll-vsts-azure-v2.jpg"
+post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
 lang: en
 categories: en/articles
@@ -27,7 +27,7 @@ In my humble opinion, Azure Storage is a great, cost effective, cloud storage of
 
 Here is a diagram that explains the whole idea:
 
-![How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS CD pipeline diagram](/img/VSTS-jekyll-git-vsts-azure-flow.png)
+![How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS CD pipeline diagram](//cdn.forevolve.com/blog/images/2018/VSTS-jekyll-git-vsts-azure-flow.png)
 
 > At the day of the writing, the `Static Website` option is in `Preview`.
 
@@ -115,23 +115,23 @@ If you dont have a VSTS account, you can create one for free there: [Visual Stud
 
 In VSTS, create a new project. I named mine `JekyllOnAzure`.
 
-![Create a VSTS project](/img/VSTS-create-project.png)
+![Create a VSTS project](//cdn.forevolve.com/blog/images/2018/VSTS-create-project.png)
 
 ### 2.2 Push code to VSTS
 
 Once the project is created, we need to push our Jekyll code to VSTS.
 In the new UI, after creating the project, you should be redirected to a "project summary" page that contains your repository link.
 
-![Git repository uri from project summary section](/img/VSTS-git-repo-uri.png)
+![Git repository uri from project summary section](//cdn.forevolve.com/blog/images/2018/VSTS-git-repo-uri.png)
 
 If not, that same link is available in the "Code" section of your project.
 There is also the git commands to push your repo there; so lets do that.
 
-![Git repository uri from Code section](/img/VSTS-git-repo-code.png)
+![Git repository uri from Code section](//cdn.forevolve.com/blog/images/2018/VSTS-git-repo-code.png)
 
 Once pushed, VSTS should contain your code (after a refresh).
 
-![Initial commit pushed to VSTS](/img/VSTS-initial-commit-pushed.png)
+![Initial commit pushed to VSTS](//cdn.forevolve.com/blog/images/2018/VSTS-initial-commit-pushed.png)
 
 <aside>
     <header>Having troubles with credentials?</header>
@@ -156,19 +156,19 @@ Once pushed, VSTS should contain your code (after a refresh).
 
 Now that we have some Git repository containing Jekyll code, we need to create a `Build definition`.
 
-![Create a new VSTS build definition](/img/VSTS-new-build-definition.png)
+![Create a new VSTS build definition](//cdn.forevolve.com/blog/images/2018/VSTS-new-build-definition.png)
 
 Then select a source: your VSTS Git repository.
 
-![Select your repository](/img/VSTS-create-build-1-source.png)
+![Select your repository](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-1-source.png)
 
 Then start with an `Empty process`.
 
-![Choose a template](/img/VSTS-create-build-2-empty-process.png)
+![Choose a template](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-2-empty-process.png)
 
 Then from there we will add a few tasks. To add a task click the `+` button, next to the phase.
 
-![Add task](/img/VSTS-create-build-3-add-task.png)
+![Add task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-3-add-task.png)
 
 ### Add build tasks
 
@@ -178,7 +178,7 @@ Since we know exactly what we want to do, we will add all build tasks then we wi
 
 Since we need Ruby, lets start by adding that. A good way to find what you are looking for is to use the search box.
 
-![Add a Ruby version build task](/img/VSTS-create-build-4-task-ruby.png)
+![Add a Ruby version build task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-4-task-ruby.png)
 
 #### Add Task 2, 3 and 4: Command Line
 
@@ -192,26 +192,26 @@ We need to execute 3 commands here:
 
 Back to business: click 3 times on the "Add" button to add 3 `Command Line` task.
 
-![Add three command line build task](/img/VSTS-create-build-5-task-command-line.png)
+![Add three command line build task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-5-task-command-line.png)
 
 #### Add Task 5: Copy Files
 
 Next we want to copy the Jekyll output to the staging directory.
 To do so, we will use the `Copy Files` task.
 
-![Add a Copy Files build task](/img/VSTS-create-build-6-task-copy-files.png)
+![Add a Copy Files build task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-6-task-copy-files.png)
 
 #### Add Task 6: Publish Build Artifacts
 
 Finally, we want to puslish the artifact that we copied with the previous task; to do so, we want to add a `Publish Build Artifacts` task.
 
-![Add a Publish Build Artifacts build task](/img/VSTS-create-build-7-publish-build-artifacts.png)
+![Add a Publish Build Artifacts build task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-7-publish-build-artifacts.png)
 
 ### Configure build tasks
 
 Before going further, make sure that uour build pipeline looks like this:
 
-![Unconfigured Build pipeline](/img/VSTS-create-build-8-all-tasks.png)
+![Unconfigured Build pipeline](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-8-all-tasks.png)
 
 Now that the pipeline is set, we will configure it task by task.
 
@@ -223,21 +223,21 @@ You can leave the Ruby task as is, no need to change anything.
 
 Like for code, I believe that it is important to give a relevant name to your tasks.
 
-![Configure Task 2: Install Jekyll and bundler](/img/VSTS-configure-task-2.png)
+![Configure Task 2: Install Jekyll and bundler](//cdn.forevolve.com/blog/images/2018/VSTS-configure-task-2.png)
 
 - Display name: `Install Jekyll and bundler`
 - Script: `gem install jekyll bundler`
 
 #### Configure Task 3: Install Gems
 
-![Configure Task 3: Install Gems](/img/VSTS-configure-task-3.png)
+![Configure Task 3: Install Gems](//cdn.forevolve.com/blog/images/2018/VSTS-configure-task-3.png)
 
 - Display name: `Install Gems`
 - Script: `bundle install`
 
 #### Configure Task 4: Build the Jekyll website
 
-![Configure Task 4: Build the Jekyll website](/img/VSTS-configure-task-4.png)
+![Configure Task 4: Build the Jekyll website](//cdn.forevolve.com/blog/images/2018/VSTS-configure-task-4.png)
 
 - Display name: `Build`
 - Script: `bundle exec jekyll build`
@@ -246,7 +246,7 @@ Like for code, I believe that it is important to give a relevant name to your ta
 
 For this one, we want the `_site` directory (where Jekyll generate the static website) to be copied to the `$(build.artifactstagingdirectory)` (where we will get them to publish them with the next task).
 
-![Configure Task 5: Copy Files](/img/VSTS-configure-task-5.png)
+![Configure Task 5: Copy Files](//cdn.forevolve.com/blog/images/2018/VSTS-configure-task-5.png)
 
 - Display name: `Copy "_site" to staging directory`
 - Source Folder: `_site`
@@ -256,7 +256,7 @@ For this one, we want the `_site` directory (where Jekyll generate the static we
 
 Finally, we want to publish the website as an artifact (that we will use later). To be more consice, lets name the artifact `_site` instead of `drop`.
 
-![Configure Task 6: Publish Build Artifacts](/img/VSTS-configure-task-6.png)
+![Configure Task 6: Publish Build Artifacts](//cdn.forevolve.com/blog/images/2018/VSTS-configure-task-6.png)
 
 - Artifact name: `_site`
 
@@ -264,23 +264,23 @@ Finally, we want to publish the website as an artifact (that we will use later).
 
 At this point, everything is set, so let save and run the build just to make sure.
 
-![Save and queue VSTS build](/img/VSTS-save-and-queue-build.png)
+![Save and queue VSTS build](//cdn.forevolve.com/blog/images/2018/VSTS-save-and-queue-build.png)
 
 Then keep the default values.
 
-![Save and queue VSTS build](/img/VSTS-save-and-queue-build-2.png)
+![Save and queue VSTS build](//cdn.forevolve.com/blog/images/2018/VSTS-save-and-queue-build-2.png)
 
 Once the UI update, click on the build number and you should see the build start.
 
-![VSTS build started](/img/VSTS-build-started.gif)
+![VSTS build started](//cdn.forevolve.com/blog/images/2018/VSTS-build-started.gif)
 
 And the build succeeded!
 
-![VSTS build succeeded](/img/VSTS-build-succeeded.png)
+![VSTS build succeeded](//cdn.forevolve.com/blog/images/2018/VSTS-build-succeeded.png)
 
 From there you should be able to download the build artifacts.
 
-![Download VSTS build artifacts](/img/VSTS-download-build-artifacts.png)
+![Download VSTS build artifacts](//cdn.forevolve.com/blog/images/2018/VSTS-download-build-artifacts.png)
 
 ### Configure Continuous Integration
 
@@ -289,11 +289,11 @@ You can also set some policies that forces users to create branches and pull req
 
 Lets go back to our build definition by clicking the `Edit pipeline` button.
 
-![Click edit pipeline](/img/VSTS-build-edit-pipeline.png)
+![Click edit pipeline](//cdn.forevolve.com/blog/images/2018/VSTS-build-edit-pipeline.png)
 
 Then go to `Triggers` to check `Enable continuous integration`.
 
-![Enable continuous integration](/img/VSTS-build-enable-continuous-integration.png)
+![Enable continuous integration](//cdn.forevolve.com/blog/images/2018/VSTS-build-enable-continuous-integration.png)
 
 Save the build definition.
 
@@ -312,7 +312,7 @@ So let's head to [https://portal.azure.com/](https://portal.azure.com/).
 
 Resource groups are a good way to keep your resources organized. I named mine `JekyllOnAzure`.
 
-![Create a new resource group](/img/Azure-new-resource-group.png)
+![Create a new resource group](//cdn.forevolve.com/blog/images/2018/Azure-new-resource-group.png)
 
 ### 4.2 Create Storage Account
 
@@ -323,7 +323,7 @@ We need a blob storage to store our files in the cloud, so from our resource gro
 - Select `Storage account - blob, file, table, queue`
 - Click `Create`
 
-![New Storage account - blob, file, table, queue](/img/Azure-new-storage-account-blob-file-table-queue.png)
+![New Storage account - blob, file, table, queue](//cdn.forevolve.com/blog/images/2018/Azure-new-storage-account-blob-file-table-queue.png)
 
 In the `Create storage account` blade, make sure you:
 
@@ -334,7 +334,7 @@ In the `Create storage account` blade, make sure you:
 
 You can also enable `Secure transfer required` if you want to force HTTPS (this can be changed later). I recommend that you activate that at some point.
 
-![New Storage account - blob, file, table, queue](/img/Azure-new-storage-account-blob-file-table-queue-options.png)
+![New Storage account - blob, file, table, queue](//cdn.forevolve.com/blog/images/2018/Azure-new-storage-account-blob-file-table-queue-options.png)
 
 Once Azure completes the creation of your Storage account, navigate to your new resource.
 
@@ -348,7 +348,7 @@ From your storage account:
 1.  Enter `404.html` as the `Error document path` (the file is created by `Jekyll new`)
 1.  Click `Save`
 
-![Enable Azure Storage static website](/img/Azure-storage-enable-static-website.png)
+![Enable Azure Storage static website](//cdn.forevolve.com/blog/images/2018/Azure-storage-enable-static-website.png)
 
 _Note that, as of this writing, not all regions supports the `static website (preview)` option._
 
@@ -381,7 +381,7 @@ Here is the code of the `index.html` page I uploaded:
 
 Navigate to your `Primary endpoint` (you can find this in the `Static website (preview)` blade) and voilà, I see my test page:
 
-![Azure static website test page with Edge](/img/Azure-static-website-test-page-edge.png)
+![Azure static website test page with Edge](//cdn.forevolve.com/blog/images/2018/Azure-static-website-test-page-edge.png)
 
 ## Step 5: The VSTS Release Pipeline
 
@@ -391,12 +391,12 @@ Now that we have a Blob Storage container setup for static website delivery, we 
 
 If you want to deploy your site manually, you can always use the VS Code [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) extension that add the `Deploy to static website` option to the file explorer's context menu.
 
-![VS Code - Azure Storage Extensions - Deploy to static website](/img/VSCode-deploy-to-static-website.png)
+![VS Code - Azure Storage Extensions - Deploy to static website](//cdn.forevolve.com/blog/images/2018/VSCode-deploy-to-static-website.png)
 
 ---
 
 <figure style="float:right">
-    <img src="/img/VSTS-preview-features.png" alt="VSTS turn on and off preview features">
+    <img src="//cdn.forevolve.com/blog/images/2018/VSTS-preview-features.png" alt="VSTS turn on and off preview features">
     <figcaption>You can turn on an off VSTS preview features from your user menu.</figcaption>
 </figure>
 
@@ -410,17 +410,17 @@ From VSTS:
 
 1.  Click on `Release`
 1.  Click on `Create release definition`
-    ![Create a new VSTS release definition](/img/VSTS-release-create-new.png)
+    ![Create a new VSTS release definition](//cdn.forevolve.com/blog/images/2018/VSTS-release-create-new.png)
 1.  Select `Empty pipeline`
-    ![Select an empty VSTS release pipeline](/img/VSTS-release-empty-pipeline.png)
+    ![Select an empty VSTS release pipeline](//cdn.forevolve.com/blog/images/2018/VSTS-release-empty-pipeline.png)
 
 ### 5.2 Add artifacts
 
 From your empty release definition, choose the artifacts from the build definition created earlier (mine is named `JekyllOnAzure-CI`), then click `Add`.
 
-![Add artifacts to a VSTS release definition](/img/VSTS-release-add-artifacts-buttons.png)
+![Add artifacts to a VSTS release definition](//cdn.forevolve.com/blog/images/2018/VSTS-release-add-artifacts-buttons.png)
 
-![Choose build artifacts for a VSTS release definition](/img/VSTS-release-choose-build-artifacts.png)
+![Choose build artifacts for a VSTS release definition](//cdn.forevolve.com/blog/images/2018/VSTS-release-choose-build-artifacts.png)
 
 ### 5.3 Configure the deployment
 
@@ -431,7 +431,7 @@ We want to achieve 2 things here:
 
 Click on the `1 phase, 0 task` link, under `Environement 1` (or click the `Tasks` tab) to open the tasks panel.
 
-![Open the VSTS release definition tasks](/img/VSTS-release-open-tasks.png)
+![Open the VSTS release definition tasks](//cdn.forevolve.com/blog/images/2018/VSTS-release-open-tasks.png)
 
 As you can see, this pane in very similar to build definitions.
 To achieve our goal:
@@ -440,7 +440,7 @@ To achieve our goal:
 1.  Search for `cli`
 1.  Add 2 `Azure CLI` tasks
 
-![Add Azure CLI tasks to a VSTS release definition](/img/VSTS-release-add-task-azure-cli.png)
+![Add Azure CLI tasks to a VSTS release definition](//cdn.forevolve.com/blog/images/2018/VSTS-release-add-task-azure-cli.png)
 
 #### Link an Azure subscription
 
@@ -451,13 +451,13 @@ This is what we will do.
 
 > Why? This allows you to "name a reusable connection to Azure"; which feels more explicit to me.
 
-![Manage Azure Subscription from an Azure CLI task](/img/VSTS-release-azure-cli-manage-sub.png)
+![Manage Azure Subscription from an Azure CLI task](//cdn.forevolve.com/blog/images/2018/VSTS-release-azure-cli-manage-sub.png)
 
 From the `Service endpoints` page :
 
 1.  Add a `New Service Endpoint`
 1.  Select `Azure Resource Manager`
-    ![Add an Azure Resource Manager endpoint from VSTS](/img/VSTS-add-azure-resource-manager-endpoint.png)
+    ![Add an Azure Resource Manager endpoint from VSTS](//cdn.forevolve.com/blog/images/2018/VSTS-add-azure-resource-manager-endpoint.png)
 1.  Write a name for that connection (I choose `Jekyll on Azure resource group`)
 1.  Choose your subscription
 1.  Choose your resource group
@@ -468,7 +468,7 @@ From the `Service endpoints` page :
 Our first task is to clean up old files.
 To do this, select the first Azure CLI task.
 
-![Delete Azure Blob files from VSTS release definition using Azure CLI](/img/VSTS-release-azure-cli-delete-blob-files.png)
+![Delete Azure Blob files from VSTS release definition using Azure CLI](//cdn.forevolve.com/blog/images/2018/VSTS-release-azure-cli-delete-blob-files.png)
 
 - Display name: `Delete old files`
 - Azure subscription: `Jekyll on Azure resource group` (choose the one you just created)
@@ -483,7 +483,7 @@ To do this, select the first Azure CLI task.
 Now that we cleaned old files, we want to upload our artifacts.
 Select the second Azure CLI task and do the same thing.
 
-![Upload build artifacts to Azure blob storage from VSTS release definition using Azure CLI](/img/VSTS-release-azure-cli-upload-artifacts-to-blob-storage.png)
+![Upload build artifacts to Azure blob storage from VSTS release definition using Azure CLI](//cdn.forevolve.com/blog/images/2018/VSTS-release-azure-cli-upload-artifacts-to-blob-storage.png)
 
 - Display name: `Upload new files`
 - Azure subscription: `Jekyll on Azure resource group` (choose the one you just created)
@@ -502,7 +502,7 @@ It is alway good to give relevant names to the stuff you create, this way you wi
 
 I will call mine `Deploy to Azure Blob Storage`.
 
-![Change VSTS release definition name](/img/VSTS-change-release-definition-name.png)
+![Change VSTS release definition name](//cdn.forevolve.com/blog/images/2018/VSTS-change-release-definition-name.png)
 
 ### Set the variables
 
@@ -513,7 +513,7 @@ Navigate to the `Variables` tab and add the following variables:
 - Set the `storageAccount` value to the name of your storage account. Mine was `jekyllonazure`.
 - Set the `storageKey` value to one of the Azure Storage Access keys (see below). Then protect this value by clicking the `lock` icon.
 
-![Lock the VSTS variable secret values](/img/VSTS-lock-variable-values.png)
+![Lock the VSTS variable secret values](//cdn.forevolve.com/blog/images/2018/VSTS-lock-variable-values.png)
 
 > How does this work? The value of the `containerName` variable will replace `$(containerName)` in the Azure CLI scripts.
 > So it will execute that command: `az storage blob upload-batch --source _site --destination $web [...]`
@@ -523,7 +523,7 @@ Navigate to the `Variables` tab and add the following variables:
 #### Find Azure Storage Keys
 
 From your Azure Storage Account, navigate to `Access keys` then copy one of the two keys.
-![Locate azure storage keys](/img/Azure-storage-keys.png)
+![Locate azure storage keys](//cdn.forevolve.com/blog/images/2018/Azure-storage-keys.png)
 
 > Note: I regenerated both keys so dont try them they will not work.
 
@@ -532,23 +532,23 @@ From your Azure Storage Account, navigate to `Access keys` then copy one of the 
 Now that everything is complete, lets try this out!
 
 1.  Save the release definition
-    ![Save VSTS release definition](/img/VSTS-save-release-definition.png)
+    ![Save VSTS release definition](//cdn.forevolve.com/blog/images/2018/VSTS-save-release-definition.png)
 2.  Create a Release
-    ![Create a VSTS release](/img/VSTS-create-a-release.png)
+    ![Create a VSTS release](//cdn.forevolve.com/blog/images/2018/VSTS-create-a-release.png)
 3.  Leave all the defaults and click `Create`
 4.  Follow the release link
-    ![Follow the release link](/img/VSTS-follow-release-link.png)
+    ![Follow the release link](//cdn.forevolve.com/blog/images/2018/VSTS-follow-release-link.png)
 5.  You can click on the `In progress` element to navigate to the release details (to see the progress).
-    ![See VSTS release details](/img/VSTS-release-details.png)
+    ![See VSTS release details](//cdn.forevolve.com/blog/images/2018/VSTS-release-details.png)
 6.  Wait for the deployment to complete.
-    ![VSTS release is completed successfully from the pipeline tab](/img/VSTS-release-completed-pipeline.png)
+    ![VSTS release is completed successfully from the pipeline tab](//cdn.forevolve.com/blog/images/2018/VSTS-release-completed-pipeline.png)
     OR
-    ![VSTS release is completed successfully from the logs tab](/img/VSTS-release-completed.png)
+    ![VSTS release is completed successfully from the logs tab](//cdn.forevolve.com/blog/images/2018/VSTS-release-completed.png)
 7.  Navigate back to your primary endpoint (mine was `https://jekyllonazure.z9.web.core.windows.net/`) to test the Jekyll release.
 
 And once more: voilà!
 
-![Azure static website](/img/Azure-static-website-jekyll-page-edge.png)
+![Azure static website](//cdn.forevolve.com/blog/images/2018/Azure-static-website-jekyll-page-edge.png)
 
 ### Configure Continuous Deployment
 
@@ -562,7 +562,7 @@ To do this, lets start by going back to our release definition then:
 1.  Select the `master` branch (our only branch)
 1.  Save the release definition
 
-![VSTS release trigger](/img/VSTS-release-trigger.png)
+![VSTS release trigger](//cdn.forevolve.com/blog/images/2018/VSTS-release-trigger.png)
 
 ### Testing the Continuous Deployment pipeline
 
@@ -575,9 +575,9 @@ Your project should be rebuilt then redeployed.
 To see this happen:
 
 1.  Go to the `Builds` page after your pushed your changes.
-    ![VSTS build in progress](/img/VSTS-build-in-progress.png)
+    ![VSTS build in progress](//cdn.forevolve.com/blog/images/2018/VSTS-build-in-progress.png)
 2.  Once the build is completed, go to the `Releases` page and there you should see an in-progress release. *There can be a delay between the end of a build and the beginning of a release. You may need to be patient here.*
-    ![VSTS release in progress](/img/VSTS-release-in-progress.png)
+    ![VSTS release in progress](//cdn.forevolve.com/blog/images/2018/VSTS-release-in-progress.png)
 
 > Another option is to go grab a drink or something to eat and come back later.
 
