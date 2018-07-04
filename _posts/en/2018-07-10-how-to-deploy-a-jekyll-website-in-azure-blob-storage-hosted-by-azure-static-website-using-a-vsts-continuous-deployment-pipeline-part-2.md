@@ -20,16 +20,21 @@ technology-relative-level:
 ---
 
 The first step is to create a [Jekyll](https://jekyllrb.com/) website.
+This article is very short; the focus of the series is more about DevOps than Jekyll itself.
+I also assume that you know Jekyll already.
+If you dont, dont worry, just keep reading.
 
-Any static website or site builder could do the job if you want to try that out after reading all the articles. I may even try to go [Blazor](https://github.com/aspnet/Blazor) on Azure in the future, who knows!<!--more-->
+That said, after reading the entire series, you could try with another static site builder or even simply a static web site if you want; Jekyll is only a mean to an end here. Personaly, I may go [Blazor](https://github.com/aspnet/Blazor) on Azure (if I find the time)!
+
+That said, I did choose Jekyll because I like that static sitebuilder.<!--more-->
 
 {% include jekyll-vsts-azure/toc.md currentIndex=2 %}
 
 ## The setup
 
-### If you need to install Jekyll and Ruby
+### Install Jekyll and Ruby
 
-You should follow the [official Jekyll installation guide](https://jekyllrb.com/docs/installation/) to install all prerequisites.
+If you need to install Jekyll and Ruby, you should follow the [official Jekyll installation guide](https://jekyllrb.com/docs/installation/) to install all prerequisites.
 
 <aside>
     <header>Tips and tricks - Setup Ruby and Jekyll using Ubuntu on Windows 10</header>
@@ -52,11 +57,9 @@ You should follow the [official Jekyll installation guide](https://jekyllrb.com/
     </section>
 </aside>
 
-### If you have Jekyll installed
+### Creating the website
 
-Using Jekyll to create a website is as easy as to follow the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/).
-
-Or you can try to follow these steps:
+To create our Jekyll website, follow those quicksteps:
 
 1.  Create directory (I will call mine `JekyllOnAzure`)
 1.  Initialize a Git repository
@@ -66,6 +69,9 @@ Or you can try to follow these steps:
 
 And voilà! You got yourself a new empty Jekyll website.
 
-From here, you can use another theme, add some plugins, etc. I will not cover Jekyll customization, this site is only a mean to an end; I will leave you to build your own thing!
+> If you have a hard time, please refer to the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/).
+
+From here, you can use another theme, add some plugins, etc.
+I will not cover Jekyll customization; I will leave you to build your own thing!
 
 {% include jekyll-vsts-azure/next.md nextIndex=2 %}
