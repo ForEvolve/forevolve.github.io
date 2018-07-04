@@ -54,3 +54,5 @@ Now to create a Jekyll website, you can follow the official [Quick-start guide](
 And voilà! You got yourself a new empty Jekyll website.
 
 From here, you can use another theme, add some plugins, etc.
+
+{% include jekyll-vsts-azure/next.md nextIndex=2 %}

@@ -220,3 +220,5 @@ To see this happen:
     ![VSTS release in progress](//cdn.forevolve.com/blog/images/2018/VSTS-release-in-progress.png)
 
 > Another option is to go grab a drink or something to eat and come back later.
+
+{% include jekyll-vsts-azure/next.md nextIndex=6 %}

@@ -167,3 +167,5 @@ Then go to `Triggers` to check `Enable continuous integration`.
 ![Enable continuous integration](//cdn.forevolve.com/blog/images/2018/VSTS-build-enable-continuous-integration.png)
 
 Save the build definition.
+
+{% include jekyll-vsts-azure/next.md nextIndex=4 %}

@@ -76,7 +76,9 @@ In this article series, I will assume that readers knows:
 
 If I missed something feel free to leave a comment!
 
-## ...
+{% include jekyll-vsts-azure/next.md nextIndex=1 continueText="Now that you know the big picture, it is time to move to the first step: " %}
+
+<!-- ## ...
 
 Microsoft showcased a way to host static websites with Azure Blob Storage during Build 2018 and, as of today, it is in preview in some datacenters.
-We will combine that offering with the power of Azure CDN, VSTS and Git to create a free hosting for our static Jekyll website similar to GitHub Pages.
+We will combine that offering with the power of Azure CDN, VSTS and Git to create a free hosting for our static Jekyll website similar to GitHub Pages. -->

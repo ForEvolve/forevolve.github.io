@@ -108,3 +108,5 @@ Here is the code of the `index.html` page I uploaded:
 Navigate to your `Primary endpoint` (you can find this in the `Static website (preview)` blade) and voilà, I see my test page:
 
 ![Azure static website test page with Edge](//cdn.forevolve.com/blog/images/2018/Azure-static-website-test-page-edge.png)
+
+{% include jekyll-vsts-azure/next.md nextIndex=5 %}

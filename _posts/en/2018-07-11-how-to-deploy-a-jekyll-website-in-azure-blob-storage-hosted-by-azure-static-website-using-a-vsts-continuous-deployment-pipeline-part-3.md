@@ -77,3 +77,5 @@ Once pushed, VSTS should contain your code (after a refresh).
         </figcaption>
     </figure>
 </aside>
+
+{% include jekyll-vsts-azure/next.md nextIndex=3 %}
