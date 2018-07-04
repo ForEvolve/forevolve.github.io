@@ -63,11 +63,17 @@ To create our Jekyll website, follow those quicksteps:
 
 1.  Create directory (I will call mine `JekyllOnAzure`)
 1.  Initialize a Git repository
-1.  Open a terminal (or open the folder in VS Code then use the integrated terminal) and type `bash` to start a bash session (if your terminal is not already bash)
+1.  Open a terminal (or open the folder in VS Code then use the integrated terminal).
+    - If you installed Jekyll on Ubuntu on Windows 10, type `bash` to start a bash session.
 1.  Type `jekyll new .`
 1.  Commit you changes
 
 And voilà! You got yourself a new empty Jekyll website.
+
+To test if it work:
+
+1.  Type: `jekyll server` or `bundle exec jekyll server`.
+1.  Open a browser on the `Server address` (in VS Code, `ctrl+click` on the link in the terminal).
 
 > If you have a hard time, please refer to the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/).
 
