@@ -27,32 +27,45 @@ Any static website or site builder could do the job if you want to try that out 
 
 ## The setup
 
+### If you need to install Jekyll and Ruby
+
+You should follow the [official Jekyll installation guide](https://jekyllrb.com/docs/installation/) to install all prerequisites.
+
 <aside>
-    <header>Setup Ruby and Jekyll using Ubuntu on Windows 10</header>
+    <header>Tips and tricks - Setup Ruby and Jekyll using Ubuntu on Windows 10</header>
     <section>
-        <p>How to setup Jekyll is not the focus of this article, but here is how I do it:</p>
+        <p>If you have Windows 10, this is the easiest way that I fugyured out to set everthing up:</p>
         <ol>
-            <li>On Windows 10, I install Ubuntu (see the Windows Store).</li>
+            <li>Open the Windows Store</li>
+            <li>Search and install Ubuntu.</li>
             <li>
                 Then I open a bash terminal and follow the official
                 <a href="https://jekyllrb.com/docs/installation/#ubuntu">Install on Ubuntu Linux</a>
                 instruction from the Jekyll website.
-                <i>Non-Microsoft things tend to be easier to install using bash!</i>
             </li>
         </ol>
+        <p>
+            This is way easier than setting up everything on Windows (unless stuff changed recently and since I wrote this).
+            <i>Non-Microsoft things tend to be easier to install using bash!</i>
+        </p>
+        <p>Another cool thing, if you are using <a href="https://code.visualstudio.com/">Visual Studio Code</a>, you can access bach directly from there in the VS Code folder. This is really awesome, you should use this oportunity to try that out!</p>
     </section>
 </aside>
 
-Now to create a Jekyll website, you can follow the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/) or simply:
+### If you have Jekyll installed
+
+Using Jekyll to create a website is as easy as to follow the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/).
+
+Or you can try to follow these steps:
 
 1.  Create directory (I will call mine `JekyllOnAzure`)
 1.  Initialize a Git repository
-1.  Open a terminal (or open the folder in VS Code and use the integrated terminal) and type `bash` to start a bash session (if your terminal is not already bash)
+1.  Open a terminal (or open the folder in VS Code then use the integrated terminal) and type `bash` to start a bash session (if your terminal is not already bash)
 1.  Type `jekyll new .`
 1.  Commit you changes
 
 And voilà! You got yourself a new empty Jekyll website.
 
-From here, you can use another theme, add some plugins, etc.
+From here, you can use another theme, add some plugins, etc. I will not cover Jekyll customization, this site is only a mean to an end; I will leave you to build your own thing!
 
 {% include jekyll-vsts-azure/next.md nextIndex=2 %}
