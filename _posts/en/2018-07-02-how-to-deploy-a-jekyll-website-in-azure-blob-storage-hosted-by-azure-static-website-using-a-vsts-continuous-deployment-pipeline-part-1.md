@@ -25,14 +25,18 @@ We will use Azure Blob Storage to store the files in the cloud, a Content Delive
 
 In my humble opinion, Azure Storage is a great, cost effective, cloud storage offering from Microsoft (and no they dont pay me to say that). For example, the images of this very blog are delivered using a CDN and stored in Blob Storage on Azure.
 
+Initially, I planed a single article but it became very long very quickly, so I decided to split it into smaller chapters.
+For example, when I decided to split the article, I had 55 screenshots; only that made the page ultra long.
+But dont fear, there is some shorter parts (and lots of images); the article series focus on the DevOps part of the problem and how to implement it.
+
 Here is a diagram that explains the whole idea:<!--more-->
 
 ![How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS CD pipeline diagram](//cdn.forevolve.com/blog/images/2018/VSTS-jekyll-git-vsts-azure-flow.png)
 
-> At the day of the writing, the `Static Website` option is in `Preview`.
+- The top red part describe a user requesting a page and the CDN delivering it.
+- The bottom blue part describe the Continuous Deployment pipeline; basically, what we will build in this article series.
 
-Initially, I planed a single article but it became very long very quickly, so I decided to split it into smaller chapters.
-For example, when I decided to split the article, I had 55 screenshots; only that made the page ultra long.
+> At the day of the writing, the `Static Website` option is in `Preview`.
 
 {% include jekyll-vsts-azure/toc.md currentIndex=1 %}
 
