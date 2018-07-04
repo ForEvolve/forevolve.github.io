@@ -9,7 +9,13 @@
     <tbody>
     {% for article in site.data.jekyll-vsts-azure-nav %}
         <tr>
-            <td><a href="{{ article.url }}">{{ article.title }}</a></td>
+            <td>
+                {% if article.index == include.currentIndex %}
+                    <strong>{{ article.title }} [you are here]</strong>
+                {% else %}
+                    <a href="{{ article.url }}">{{ article.title }}</a>
+                {% endif %}
+            </td>
         </tr>
     {% endfor %}
     </tbody>

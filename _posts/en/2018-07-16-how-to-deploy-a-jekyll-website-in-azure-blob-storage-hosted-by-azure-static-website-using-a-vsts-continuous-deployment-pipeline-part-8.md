@@ -21,4 +21,4 @@ technology-relative-level:
 
 ...<!--more-->
 
-{% include jekyll-vsts-azure/toc.md %}
+{% include jekyll-vsts-azure/toc.md currentIndex=8 %}

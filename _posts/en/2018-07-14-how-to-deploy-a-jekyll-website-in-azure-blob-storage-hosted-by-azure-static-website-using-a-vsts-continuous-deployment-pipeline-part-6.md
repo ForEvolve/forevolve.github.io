@@ -21,7 +21,7 @@ technology-relative-level:
 
 ...<!--more-->
 
-{% include jekyll-vsts-azure/toc.md %}
+{% include jekyll-vsts-azure/toc.md currentIndex=6 %}
 
 ## Step 5: The VSTS Release Pipeline
 

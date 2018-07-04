@@ -19,13 +19,13 @@ technology-relative-level:
 - { name: Jekyll, level: Intermediate }
 ---
 
-...<!--more-->
+The first step is to create a [Jekyll](https://jekyllrb.com/) website.
 
-{% include jekyll-vsts-azure/toc.md %}
+Any static website or site builder could do the job if you want to try that out after reading all the articles. I may even try to go [Blazor](https://github.com/aspnet/Blazor) on Azure in the future, who knows!<!--more-->
 
-## Step 1: Jekyll
+{% include jekyll-vsts-azure/toc.md currentIndex=2 %}
 
-First of all, you will need to create a [Jekyll](https://jekyllrb.com/) website. This step could be substituated by any static website or sitebuilder. Maybe in the future I will even try to go full [Blazor](https://github.com/aspnet/Blazor) on Azure, who knows!
+## The setup
 
 <aside>
     <header>Setup Ruby and Jekyll using Ubuntu on Windows 10</header>

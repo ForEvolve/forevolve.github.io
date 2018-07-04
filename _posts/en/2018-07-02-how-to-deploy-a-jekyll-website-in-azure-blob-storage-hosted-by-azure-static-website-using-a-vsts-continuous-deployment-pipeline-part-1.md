@@ -34,7 +34,7 @@ Here is a diagram that explains the whole idea:<!--more-->
 Initially, I planed a single article but it became very long very quickly, so I decided to split it into smaller chapters.
 For example, when I decided to split the article, I had 55 screenshots; only that made the page ultra long.
 
-{% include jekyll-vsts-azure/toc.md %}
+{% include jekyll-vsts-azure/toc.md currentIndex=1 %}
 
 ## Difference with GitHub Pages (pros and cons)
 
