@@ -17,6 +17,7 @@ technology-relative-level:
 - { name: VSTS, level: Beginners }
 - { name: DevOps, level: Beginners }
 - { name: Jekyll, level: Intermediate }
+- { name: Git, level: Intermediate }
 ---
 
 The first step is to create a [Jekyll](https://jekyllrb.com/) website.
