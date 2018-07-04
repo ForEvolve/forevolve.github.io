@@ -83,6 +83,14 @@ In this article series, I will assume that readers know:
 
 If I missed something, feel free to leave a comment!
 
+## DevOps
+
+What do we want to achieve in this series, DevOps-wise?
+
+We want to create an automated deployment pipeline for a Jekyll website: **from code to cloud**!
+
+> If after reading this series you want to know more about the DevOps culture, I am sure you will find lots of resources on the internet.
+
 {% include jekyll-vsts-azure/next.md nextIndex=1 continueText="Now that you know the big picture, it is time to move to the first step: " %}
 
 <!-- ## ...
