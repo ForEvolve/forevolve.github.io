@@ -22,7 +22,7 @@ technology-relative-level:
 
 ...<!--more-->
 
-{% include jekyll-vsts-azure/toc.md currentIndex=4 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=3 %}
 
 ## Step 3: The VSTS Build Pipeline
 

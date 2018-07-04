@@ -22,7 +22,7 @@ technology-relative-level:
 
 ...<!--more-->
 
-{% include jekyll-vsts-azure/toc.md currentIndex=3 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=2 %}
 
 ## Step 2: Setup Git in VSTS
 

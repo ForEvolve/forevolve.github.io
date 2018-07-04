@@ -29,7 +29,7 @@ That said, after reading the entire series, you could try with another static si
 
 That said, I did choose Jekyll because I like that static sitebuilder.<!--more-->
 
-{% include jekyll-vsts-azure/toc.md currentIndex=2 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=1 %}
 
 ## The setup
 

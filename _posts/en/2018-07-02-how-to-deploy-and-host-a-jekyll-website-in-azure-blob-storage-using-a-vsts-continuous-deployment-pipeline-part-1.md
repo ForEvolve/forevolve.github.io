@@ -22,15 +22,15 @@ technology-relative-level:
 
 In this article series, we will create a continuous deployment (CD) pipeline using Visual Studio Team Services (VSTS) to deploy a Jekyll website to Microsoft Azure.
 
-We will use Azure Blob Storage to host and store the files in the cloud, a Content Delivery Network (CDN) to deliver those files using a custom domain (with free HTTPS support). From Blob Storage, we will use the `Static Website` blade to configure a default page (index.html) and an error page (404 Not Found).
+We will use Azure Blob Storage to store and host the files in the cloud, a Content Delivery Network (CDN) to deliver those files using a custom domain (with free HTTPS support). From Blob Storage, we will use the `Static Website` blade to configure a default page (index.html) and an error page (404 Not Found).
 
 > In my humble opinion, Azure Storage is a great, cost-effective, cloud storage offering from Microsoft (and no they don't pay me to say that). For example, the images of this very blog are delivered using a CDN and stored in Blob Storage on Azure. Moreover, as a developer, I way prefer my experience working with Azure, Jekyll and GitHub Pages than my experience with WordPress.
 
-Initially, I planned a single article, and once again it became very long very quickly, so I decided to split it into smaller chapters to make it easier for the readers.
+Initially, I planned a single article, and once again it became very long very quickly, so I decided to split it into smaller chapters to make it easier to read.
 For example, when I decided to split the article, I had 55 screenshots; only that made the page ultra long.
 However, don't fear, there are some shorter parts (and lots of images).
 
-The article series focuses on the DevOps part of the equation and how to implement the pipeline, not really on Jekyll itself.
+The articles focus on the DevOps part of the equation and how to implement the pipeline, not really on Jekyll itself.
 
 Here is a diagram that explains the whole idea:<!--more-->
 
@@ -41,13 +41,13 @@ Here is a diagram that explains the whole idea:<!--more-->
 
 > At the day of the writing, the `Static Website` option is in `Preview`.
 
-{% include jekyll-vsts-azure/toc.md currentIndex=1 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=0 %}
 
 ## Difference with GitHub Pages (pros and cons)
 
 For those who don't know, GitHub has an offering that is called [GitHub Pages](https://pages.github.com/).
 GitHub Pages allows a GitHub user to deploy a Jekyll website from a git repository.
-Then GitHub builds and deploys the Jekyll static website automatically for you.
+Then GitHub builds, deploys and hosts the Jekyll static website automatically for you.
 
 In this article, we will recreate that exact pipeline, but we will use different tools to do so.
 

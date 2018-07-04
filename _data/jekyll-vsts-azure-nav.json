@@ -1,48 +1,48 @@
 [
   {
-    "index": 1,
+    "index": 0,
     "title": "Introduction",
     "url":
       "/en/articles/2018/07/02/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-1/"
   },
   {
-    "index": 2,
+    "index": 1,
     "title": "Step 1: Jekyll",
     "url":
       "/en/articles/2018/07/10/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-2/"
   },
   {
-    "index": 3,
+    "index": 2,
     "title": "Step 2: Setup Git in VSTS",
     "url":
       "/en/articles/2018/07/11/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-3/"
   },
   {
-    "index": 4,
+    "index": 3,
     "title": "Step 3: The VSTS Build Pipeline",
     "url":
       "/en/articles/2018/07/12/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-4/"
   },
   {
-    "index": 5,
+    "index": 4,
     "title": "Step 4: Create Azure resources",
     "url":
       "/en/articles/2018/07/13/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-5/"
   },
   {
-    "index": 6,
+    "index": 5,
     "title": "Step 5: The VSTS Release Pipeline",
     "url":
       "/en/articles/2018/07/14/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-6/"
   },
   {
-    "index": 7,
+    "index": 6,
     "title": "Step 6: Configuring a Content Delivery Network (CDN)",
     "url":
       "/en/articles/2018/07/15/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-7/"
   },
   {
-    "index": 8,
+    "index": 7,
     "title": "Conclusion",
     "url":
       "/en/articles/2018/07/16/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-8/"

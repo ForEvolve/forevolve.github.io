@@ -22,7 +22,7 @@ technology-relative-level:
 
 ...<!--more-->
 
-{% include jekyll-vsts-azure/toc.md currentIndex=7 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=6 %}
 
 ## Step 6: Configuring a CDN
 
