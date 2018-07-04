@@ -1,5 +1,5 @@
 ---
-title:  "How to deploy a Jekyll website in Azure blob storage hosted by Azure static website using a VSTS continuous deployment pipeline"
+title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
 subtitle: "Step 4: Create Azure resources"
 date:     2018-07-13 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
