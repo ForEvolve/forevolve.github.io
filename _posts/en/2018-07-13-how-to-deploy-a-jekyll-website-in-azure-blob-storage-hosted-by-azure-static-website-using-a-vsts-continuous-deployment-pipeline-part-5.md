@@ -19,7 +19,7 @@ technology-relative-level:
 - { name: Jekyll, level: Intermediate }
 ---
 
-...
+...<!--more-->
 
 {% include jekyll-vsts-azure/toc.md %}
 
