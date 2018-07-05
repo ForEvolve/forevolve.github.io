@@ -35,7 +35,7 @@ _This article is very brief and was extracted on its own only to remove some clu
 
 {% include jekyll-vsts-azure/toc.md currentIndex=2 %}
 
-### Create a resource group
+## Create a resource group
 
 Resource groups are an excellent way to keep your resources organized. I named mine `JekyllOnAzure`.
 
@@ -43,7 +43,7 @@ Resource groups are an excellent way to keep your resources organized. I named m
 
 > You can also create the resource group at the same time as the Storage Account if you prefer.
 
-### Create a Storage Account
+## Create a Storage Account
 
 We will use the blob storage account to store our files in the cloud (the build artifact: `_site`).
 The storage account will also serve as the website host (or "server" if you prefer).
@@ -70,7 +70,7 @@ You can also enable `Secure transfer required` if you want to force HTTPS (this 
 
 Once Azure completes the creation of the Storage account: navigate to the new resource blade.
 
-### Configure the Storage Account
+## Configure the Storage Account
 
 From the storage account you just created:
 
@@ -87,7 +87,7 @@ From the storage account you just created:
 At this point, Azure should have created a `$web` container in the Storage Account.
 That's where your website files should be uploaded.
 
-### Testing the setup
+## Testing the setup
 
 Using `Azure Storage Explorer` or the `Storage Explorer (preview)` blade, in the `$web` blob container, we will upload an `index.html` file to test this out.
 

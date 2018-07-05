@@ -44,11 +44,11 @@ To add a task click the `+` button, next to the phase.
 
 ![Add task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-3-add-task.png)
 
-### Add build tasks
+## Add build tasks
 
 Since we know what we want to do, we can add all build tasks then we can configure them later one by one. This will save us some time. Productivity is always important!
 
-#### Add Task 1: Ruby
+### Add Task 1: Ruby
 
 Since we need Ruby, let's start by adding that.
 
@@ -56,7 +56,7 @@ Since we need Ruby, let's start by adding that.
 
 ![Add a Ruby version build task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-4-task-ruby.png)
 
-#### Add Task 2, 3 and 4: Command Line
+### Add Task 2, 3 and 4: Command Line
 
 We need to execute 3 commands:
 
@@ -72,30 +72,30 @@ Back to business: click 3 times on the "Add" button to add 3 `Command Line` task
 
 ![Add three command line build task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-5-task-command-line.png)
 
-#### Add Task 5: Copy Files
+### Add Task 5: Copy Files
 
 Next, we want to copy the Jekyll output to the staging directory.
 To do so, use the `Copy Files` task.
 
 ![Add a Copy Files build task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-6-task-copy-files.png)
 
-#### Add Task 6: Publish Build Artifacts
+### Add Task 6: Publish Build Artifacts
 
 Finally, we want to publish the artifact that we copied with the previous task; to do so, add a `Publish Build Artifacts` task.
 
 ![Add a Publish Build Artifacts build task](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-7-publish-build-artifacts.png)
 
-### Configure build tasks
+## Configure build tasks
 
 Now that the pipeline is initialized, we can configure it task by task; but, before going further, make sure that your build pipeline looks like this:
 
 ![Unconfigured Build pipeline](//cdn.forevolve.com/blog/images/2018/VSTS-create-build-8-all-tasks.png)
 
-#### Configure Task 1: Ruby
+### Configure Task 1: Ruby
 
 You can leave the Ruby task as is, no need to change anything.
 
-#### Configure Task 2: Install Jekyll and bundler
+### Configure Task 2: Install Jekyll and bundler
 
 I believe that it is essential to give a relevant name to your tasks.
 
@@ -104,21 +104,21 @@ I believe that it is essential to give a relevant name to your tasks.
 - Display name: `Install Jekyll and bundler`
 - Script: `gem install jekyll bundler`
 
-#### Configure Task 3: Install Gems
+### Configure Task 3: Install Gems
 
 ![Configure Task 3: Install Gems](//cdn.forevolve.com/blog/images/2018/VSTS-configure-task-3.png)
 
 - Display name: `Install Gems`
 - Script: `bundle install`
 
-#### Configure Task 4: Build the Jekyll website
+### Configure Task 4: Build the Jekyll website
 
 ![Configure Task 4: Build the Jekyll website](//cdn.forevolve.com/blog/images/2018/VSTS-configure-task-4.png)
 
 - Display name: `Build`
 - Script: `bundle exec jekyll build`
 
-#### Configure Task 5: Copy Files
+### Configure Task 5: Copy Files
 
 For this one, we want the `_site` directory (where Jekyll generate the static website) to be copied to the `$(build.artifactstagingdirectory)`.
 
@@ -130,7 +130,7 @@ For this one, we want the `_site` directory (where Jekyll generate the static we
 - Source Folder: `_site`
 - Target Folder: `$(build.artifactstagingdirectory)`
 
-#### Configure Task 6: Publish Build Artifacts
+### Configure Task 6: Publish Build Artifacts
 
 Finally, we want to publish the website as an artifact (that we will use later; during the release). To be more concise, let's name the artifact `_site` instead of `drop`.
 
@@ -138,7 +138,7 @@ Finally, we want to publish the website as an artifact (that we will use later; 
 
 - Artifact name: `_site`
 
-### Save and run the build
+## Save and run the build
 
 At this point, our build definition is completed. So let's save and run it to make sure it is indeed working as expected.
 
@@ -168,7 +168,7 @@ From this page, you should be able to download the build artifacts, if you want 
 
 ![Download VSTS build artifacts](//cdn.forevolve.com/blog/images/2018/VSTS-download-build-artifacts.png)
 
-### Configure Continuous Integration
+## Configure Continuous Integration
 
 Now that we know that our build work, the last piece is to set the build to trigger automatically every time that someone pushes code to `master`.
 

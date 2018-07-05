@@ -93,7 +93,7 @@ Let's resume: what do we want to achieve in this series, DevOps-wise?
 
 We want to create an automated deployment pipeline for a Jekyll website: **from code to cloud**!
 
-# Prerequisite 1: Create a Jekyll website
+## Prerequisite 1: Create a Jekyll website
 
 The first step is to create a [Jekyll](https://jekyllrb.com/) website to deploy in Azure.
 I assume that you know Jekyll already if you don't, fear not and keep reading, we won't go deep into Jekyll so you should be fine (might take you a little more time, that's all).
@@ -103,9 +103,9 @@ I assume that you know Jekyll already if you don't, fear not and keep reading, w
 
 After reading the entire series, you could try with another static website builder or even plain static website if you want; Jekyll is only a means to an end here. Personally, I may go [Blazor](https://github.com/aspnet/Blazor) on Azure, if I find the time!
 
-## The setup
+### The setup
 
-### Install Jekyll and Ruby
+#### Install Jekyll and Ruby
 
 If you need to install Jekyll and Ruby, you should follow the [official Jekyll installation guide](https://jekyllrb.com/docs/installation/) to install all prerequisites.
 
@@ -130,7 +130,7 @@ If you need to install Jekyll and Ruby, you should follow the [official Jekyll i
     </section>
 </aside>
 
-### Creating the website
+#### Creating the website
 
 To create a Jekyll website, follow those quick steps:
 
@@ -153,13 +153,13 @@ From here, you can change the theme, add plugins, write pages and post for examp
 
 > If you have a hard time executing this step, please refer to the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/) or leave a comment and I will do my best to help you out.
 
-# Prerequisite 2: Create a VSTS/Git project
+## Prerequisite 2: Create a VSTS/Git project
 
 Now that we have a website to deploy, we need a VSTS project (and a git repo) to push our code to.
 If you don't have a VSTS account, you can create one for free here: [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/).
 This part should be very brief to complete.
 
-## Create a VSTS project
+### Create a VSTS project
 
 In your VSTS account, create a new project and make sure to select `Git` in the `Version control` dropdown list.
 
@@ -167,7 +167,7 @@ I named my project `JekyllOnAzure`.
 
 ![Create a VSTS project](//cdn.forevolve.com/blog/images/2018/VSTS-create-project.png)
 
-## Push code to VSTS
+### Push code to VSTS
 
 Once the project is created, we need to push our Jekyll code to VSTS so we can build it there.
 After creating the project, you should be redirected to a "project summary" page that contains the link to your Git repository.
