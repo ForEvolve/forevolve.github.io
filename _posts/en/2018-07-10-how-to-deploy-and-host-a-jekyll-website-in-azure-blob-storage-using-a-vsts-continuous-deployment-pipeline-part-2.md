@@ -20,10 +20,13 @@ technology-relative-level:
 - { name: Git, level: Intermediate }
 ---
 
-The first step is to create a [Jekyll](https://jekyllrb.com/) website.
-This article is very short; the focus of the series is more about DevOps than Jekyll itself.
-I also assume that you know Jekyll already.
-If you dont, dont worry, just keep reading.
+The first step is to create a [Jekyll](https://jekyllrb.com/) website to deploy in Azure.
+As I said in the introduction, the focus of this series is more about DevOps than Jekyll itself, so this article is very short.
+I will also assume that you know Jekyll already.
+If you dont, fear not and keep reading, we wont go deep into Jekyll so you should be fine (might take you a little more time, thats all).
+
+> If you already have a Jekyll website you want to use, you can do that too.
+> I'd recomment you take a look at how I named mine for future refenrece in the other chapters, but beside that, feel free to jump to the next article.
 
 That said, after reading the entire series, you could try with another static site builder or even simply a static web site if you want; Jekyll is only a mean to an end here. Personaly, I may go [Blazor](https://github.com/aspnet/Blazor) on Azure (if I find the time)!
 
@@ -73,12 +76,12 @@ And voilà! You got yourself a new empty Jekyll website.
 
 To test if it work:
 
-1.  Type: `jekyll server` or `bundle exec jekyll server`.
+1.  Type: `jekyll serve` or `bundle exec jekyll serve`.
 1.  Open a browser on the `Server address` (in VS Code, `ctrl+click` on the link in the terminal).
-
-> If you have a hard time, please refer to the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/).
 
 From here, you can use another theme, add some plugins, etc.
 I will not cover Jekyll customization; I will leave you to build your own thing!
+
+> If you have a hard time, please refer to the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/).
 
 {% include jekyll-vsts-azure/next.md nextIndex=2 %}

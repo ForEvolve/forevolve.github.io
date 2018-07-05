@@ -20,13 +20,14 @@ technology-relative-level:
 - { name: Git, level: Intermediate }
 ---
 
-...<!--more-->
+Now the fun begins, we have a website to deploy, a VSTS project and a Git repository.
+It is time to start that continous deployment pipeline we want to build!
+
+<!--more-->
 
 {% include jekyll-vsts-azure/toc.md currentIndex=3 %}
 
-## Step 3: The VSTS Build Pipeline
-
-Now that we have some Git repository containing Jekyll code, we need to create a `Build definition`.
+The first thing that we need is to create a `Build definition`.
 
 ![Create a new VSTS build definition](//cdn.forevolve.com/blog/images/2018/VSTS-new-build-definition.png)
 

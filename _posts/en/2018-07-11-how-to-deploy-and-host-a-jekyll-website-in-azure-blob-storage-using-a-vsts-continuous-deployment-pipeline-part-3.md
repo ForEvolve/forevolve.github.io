@@ -20,31 +20,19 @@ technology-relative-level:
 - { name: Git, level: Intermediate }
 ---
 
-...<!--more-->
+Now that we have a website to deploy, we need a VSTS project (and a git repo) to push our code to.
+If you dont have a VSTS account, you can create one for free there: [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/).
+This part should be very brief to execute.<!--more-->
 
 {% include jekyll-vsts-azure/toc.md currentIndex=2 %}
 
-## Step 2: Setup Git in VSTS
-
-Now that we have a website to deploy, we will create a VSTS project (and a git repo) to sync our code.
-
-If you dont have a VSTS account, you can create one for free there: [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/)
-
-<aside>
-    <header>Notes about VSTS screenshots</header>
-    <p>
-        All the VSTS screenshots uses the new UI, if you are still using the old one, the main menu is located at the top of the page instead than at its left.
-        All options should be very similar.
-    </p>
-</aside>
-
-### 2.1 Create a VSTS project
+## Create a VSTS project
 
 In VSTS, create a new project. I named mine `JekyllOnAzure`.
 
 ![Create a VSTS project](//cdn.forevolve.com/blog/images/2018/VSTS-create-project.png)
 
-### 2.2 Push code to VSTS
+## Push code to VSTS
 
 Once the project is created, we need to push our Jekyll code to VSTS.
 In the new UI, after creating the project, you should be redirected to a "project summary" page that contains your repository link.

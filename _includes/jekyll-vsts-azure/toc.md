@@ -21,3 +21,10 @@
     {% endfor %}
     </tbody>
 </table>
+<aside>
+    <header>Notes about VSTS screenshots</header>
+    <p>
+        All the VSTS screenshots uses the new UI, if you are still using the old one, the main menu is located at the top of the page instead of left.
+        All options should be very similar.
+    </p>
+</aside>

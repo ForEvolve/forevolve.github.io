@@ -25,7 +25,7 @@
   },
   {
     "index": 4,
-    "title": "Step 4: Create Azure resources",
+    "title": "Step 4: Create Azure Blob Storage and configure static website",
     "url":
       "/en/articles/2018/07/13/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-5/"
   },

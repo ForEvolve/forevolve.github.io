@@ -24,13 +24,14 @@ In this article series, we will create a continuous deployment (CD) pipeline usi
 
 We will use Azure Blob Storage to store and host the files in the cloud, a Content Delivery Network (CDN) to deliver those files using a custom domain (with free HTTPS support). From Blob Storage, we will use the `Static Website` blade to configure a default page (index.html) and an error page (404 Not Found).
 
-> In my humble opinion, Azure Storage is a great, cost-effective, cloud storage offering from Microsoft (and no they don't pay me to say that). For example, the images of this very blog are delivered using a CDN and stored in Blob Storage on Azure. Moreover, as a developer, I way prefer my experience working with Azure, Jekyll and GitHub Pages than my experience with WordPress.
+> Azure Storage is a great, cost-effective, cloud storage offering from Microsoft (and no they don't pay me to say that). For example, the images of this blog are delivered using a CDN and stored in Blob Storage on Azure. Moreover, as a developer, I enjoyed my experiences working with both Azure and Jekyll.
 
-Initially, I planned a single article, and once again it became very long very quickly, so I decided to split it into smaller chapters to make it easier to read.
+That said, I initially planned a single article, and once again it became very long very quickly, so I decided to split it into smaller chapters to make it easier to read.
+You can consider the whole series to be a single long article.
 For example, when I decided to split the article, I had 55 screenshots; only that made the page ultra long.
 However, don't fear, there are some shorter parts (and lots of images).
 
-The articles focus on the DevOps part of the equation and how to implement the pipeline, not really on Jekyll itself.
+The articles focus on the DevOps part of the equation and how to implement the cd pipeline, not really on Jekyll itself.
 
 Here is a diagram that explains the whole idea:<!--more-->
 
@@ -48,6 +49,7 @@ Here is a diagram that explains the whole idea:<!--more-->
 For those who don't know, GitHub has an offering that is called [GitHub Pages](https://pages.github.com/).
 GitHub Pages allows a GitHub user to deploy a Jekyll website from a git repository.
 Then GitHub builds, deploys and hosts the Jekyll static website automatically for you.
+This blog uses GitHub Pages.
 
 In this article, we will recreate that exact pipeline, but we will use different tools to do so.
 
@@ -64,7 +66,7 @@ Here are the pros and cons (if you find other pros and cons feel free to leave t
 - Compared to GitHub Pages, you need to **setup the CD pipeline**.
 - The **build and release time is slower** since the Agent must install everything everytime you start a new build.
   - That setup time is not needed on GitHub; they probably reuse pre-built agents.
-  - This is the downside of flexibility.
+  - This is the downside of flexibility I guess.
 - To be fair, at some point it **may cost some money**; if you get a lot of traffic, use a lot of storage or use too much VSTS build time. As of today:
   - You have **240 minutes per month of free VSTS build time**. You also have 5 free users with unlimited private Git repositories. See [Visual Studio Team Services pricing](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/) for more information.
   - General Purpose v2 (Blob storage) cost **US $0.0208 per GB**, per month, plus the transfer cost which is also ridiculously low. See [Block Blob pricing](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/) for more information.
@@ -79,7 +81,7 @@ In this article series, I will assume that readers know:
 - Git basics like `clone`, `commit` and `push`.
 - How to use a terminal or the [VS Code](https://code.visualstudio.com/download) integrated terminal.
 - Have an Azure account (trial or not) or be willing to create one.
-- How to follow installation procedure not covered in the current article series.
+- How to create a VSTS project.
 
 If I missed something, feel free to leave a comment!
 
@@ -89,11 +91,4 @@ What do we want to achieve in this series, DevOps-wise?
 
 We want to create an automated deployment pipeline for a Jekyll website: **from code to cloud**!
 
-> If after reading this series you want to know more about the DevOps culture, I am sure you will find lots of resources on the internet.
-
 {% include jekyll-vsts-azure/next.md nextIndex=1 continueText="Now that you know the big picture, it is time to move to the first step: " %}
-
-<!-- ## ...
-
-Microsoft showcased a way to host static websites with Azure Blob Storage during Build 2018 and, as of today, it is in preview in some datacenters.
-We will combine that offering with the power of Azure CDN, VSTS and Git to create a free hosting for our static Jekyll website similar to GitHub Pages. -->
