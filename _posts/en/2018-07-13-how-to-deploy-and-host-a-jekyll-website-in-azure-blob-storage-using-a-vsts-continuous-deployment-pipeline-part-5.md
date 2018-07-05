@@ -1,6 +1,6 @@
 ---
 title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
-subtitle: "Step 4: Create Azure Blob Storage and configure static website"
+subtitle: "Part 2: Create Azure Blob Storage, and configure static website"
 date:     2018-07-13 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
@@ -11,6 +11,7 @@ tags:
 - VSTS
 - DevOps
 - Jekyll
+- FromCodeToCloud
 # proficiency-level: Novice
 technology-relative-level:
 - { name: Azure, level: Beginners }
@@ -22,7 +23,7 @@ technology-relative-level:
 
 ...<!--more-->
 
-{% include jekyll-vsts-azure/toc.md currentIndex=4 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=2 %}
 
 ## Step 4: Create Azure resources
 
@@ -110,4 +111,4 @@ Navigate to your `Primary endpoint` (you can find this in the `Static website (p
 
 ![Azure static website test page with Edge](//cdn.forevolve.com/blog/images/2018/Azure-static-website-test-page-edge.png)
 
-{% include jekyll-vsts-azure/next.md nextIndex=5 %}
+{% include jekyll-vsts-azure/next.md nextIndex=3 %}

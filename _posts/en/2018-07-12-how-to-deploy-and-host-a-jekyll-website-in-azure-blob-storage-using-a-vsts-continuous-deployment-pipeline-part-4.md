@@ -1,6 +1,6 @@
 ---
 title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
-subtitle: "Step 3: The VSTS Build Pipeline"
+subtitle: "Part 1: The VSTS Build Pipeline"
 date:     2018-07-12 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
@@ -11,6 +11,7 @@ tags:
 - VSTS
 - DevOps
 - Jekyll
+- FromCodeToCloud
 # proficiency-level: Novice
 technology-relative-level:
 - { name: Azure, level: Beginners }
@@ -25,7 +26,7 @@ It is time to start that continous deployment pipeline we want to build!
 
 <!--more-->
 
-{% include jekyll-vsts-azure/toc.md currentIndex=3 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=1 %}
 
 The first thing that we need is to create a `Build definition`.
 
@@ -170,4 +171,4 @@ Then go to `Triggers` to check `Enable continuous integration`.
 
 Save the build definition.
 
-{% include jekyll-vsts-azure/next.md nextIndex=4 %}
+{% include jekyll-vsts-azure/next.md nextIndex=2 %}

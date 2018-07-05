@@ -11,6 +11,7 @@ tags:
 - VSTS
 - DevOps
 - Jekyll
+- FromCodeToCloud
 # proficiency-level: Novice
 technology-relative-level:
 - { name: Azure, level: Beginners }
@@ -22,4 +23,4 @@ technology-relative-level:
 
 ...<!--more-->
 
-{% include jekyll-vsts-azure/toc.md currentIndex=7 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=5 %}

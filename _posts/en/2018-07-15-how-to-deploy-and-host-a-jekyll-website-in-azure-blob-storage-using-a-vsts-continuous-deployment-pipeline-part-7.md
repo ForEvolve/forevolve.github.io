@@ -1,6 +1,6 @@
 ---
 title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
-subtitle: "Step 6: Configuring a Content Delivery Network (CDN)"
+subtitle: "Part 4: Configuring a Content Delivery Network (CDN)"
 date:     2018-07-15 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
@@ -11,6 +11,7 @@ tags:
 - VSTS
 - DevOps
 - Jekyll
+- FromCodeToCloud
 # proficiency-level: Novice
 technology-relative-level:
 - { name: Azure, level: Beginners }
@@ -22,10 +23,10 @@ technology-relative-level:
 
 ...<!--more-->
 
-{% include jekyll-vsts-azure/toc.md currentIndex=6 %}
+{% include jekyll-vsts-azure/toc.md currentIndex=4 %}
 
 ## Step 6: Configuring a CDN
 
 This is the last part, the part where a website goes from "no body will remember the URI" to "this is a real website with a real URI".
 
-{% include jekyll-vsts-azure/next.md nextIndex=7 %}
+{% include jekyll-vsts-azure/next.md nextIndex=5 %}
