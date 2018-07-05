@@ -21,30 +21,34 @@ technology-relative-level:
 - { name: Git, level: Intermediate }
 ---
 
-...<!--more-->
+Lets recap: we have a Jekyll website saved in VSTS/Git, with a build that starts automatically each time someone pushes code to the `master` branch.
+
+From there we need to deploy our website in the cloud!
+However before automating that, we need to create some resources in Azure.
+To do so, let's use the [Azure portal](https://portal.azure.com/).<!--more-->
+
+> The Azure Portal is easy to use, and I am not even sure if the other tools support the `Static website (preview)` option yet.
+
+_If you don't have an Azure account, you can start a free trial here: [https://azure.microsoft.com/en-us/free/](https://azure.microsoft.com/en-us/free/)._
+
+_This article is very brief and was extracted on its own only to remove some clutter from `{{ site.data.jekyll-vsts-azure-nav[3].title }}`._
 
 {% include jekyll-vsts-azure/toc.md currentIndex=2 %}
 
-## Step 4: Create Azure resources
+### Create a resource group
 
-Lets recap: we have a Jekyll website saved in Git, in VSTS, with a automated build that starts automatically each time someone pushes code to the `master` branch.
-
-From there we need to deploy our website in the cloud!
-But before that, we need to create those resources and to do so, we will use the Azure portal.
-
-_If you dont have an Azure account, you can start a free trial there: [https://azure.microsoft.com/en-us/free/](https://azure.microsoft.com/en-us/free/)._
-
-So let's head to [https://portal.azure.com/](https://portal.azure.com/).
-
-### 4.1 Create a resource group
-
-Resource groups are a good way to keep your resources organized. I named mine `JekyllOnAzure`.
+Resource groups are an excellent way to keep your resources organized. I named mine `JekyllOnAzure`.
 
 ![Create a new resource group](//cdn.forevolve.com/blog/images/2018/Azure-new-resource-group.png)
 
-### 4.2 Create Storage Account
+> You can also create the resource group at the same time as the Storage Account if you prefer.
 
-We need a blob storage to store our files in the cloud, so from our resource group:
+### Create a Storage Account
+
+We will use the blob storage account to store our files in the cloud (the build artifact: `_site`).
+The storage account will also serve as the website host (or "server" if you prefer).
+
+From the resource group (or somewhere else in the Azure portal):
 
 - Click `Create resource`.
 - Search for `storage`
@@ -56,19 +60,19 @@ We need a blob storage to store our files in the cloud, so from our resource gro
 In the `Create storage account` blade, make sure you:
 
 - Select `StorageV2 (general purpose v2)`
-- Choose an adequate replication strategy for your website (I will choose `LRS` for this demo since I dont need redondancy; it is only a demo after all).
-- Choose the right performance option (standard should be fine for most website).
-- Choose your previously created resource group
+- Choose an adequate replication strategy for your website (I chose `LRS` for this demo since I don't need redundancy).
+- Choose the right performance option (`Standard` should be fine for most website).
+- Choose your previously created resource group or create a new one
 
-You can also enable `Secure transfer required` if you want to force HTTPS (this can be changed later). I recommend that you activate that at some point.
+You can also enable `Secure transfer required` if you want to force HTTPS (this can be changed later). I recommend that you activate this option at some point.
 
 ![New Storage account - blob, file, table, queue](//cdn.forevolve.com/blog/images/2018/Azure-new-storage-account-blob-file-table-queue-options.png)
 
-Once Azure completes the creation of your Storage account, navigate to your new resource.
+Once Azure completes the creation of the Storage account: navigate to the new resource blade.
 
-### 4.3 Setup Storage Account
+### Configure the Storage Account
 
-From your storage account:
+From the storage account you just created:
 
 1.  Click on `Static website (preview)`
 1.  Click `Enable`
@@ -78,13 +82,18 @@ From your storage account:
 
 ![Enable Azure Storage static website](//cdn.forevolve.com/blog/images/2018/Azure-storage-enable-static-website.png)
 
-_Note that, as of this writing, not all regions supports the `static website (preview)` option._
+> Note that, as of this writing, not all regions support the `static website (preview)` option. I used `Canada (central)`.
 
-At this point, Azure created a `$web` container in the Storage Account and we will deploy our files in there.
+At this point, Azure should have created a `$web` container in the Storage Account.
+That's where your website files should be uploaded.
 
 ### Testing the setup
 
-Using [Azure Storage Explorer](https://azure.microsoft.com/en-ca/features/storage-explorer/) or the `Storage Explorer (preview)` blade, in the `$web` blob container, we will upload an `index.html` file to test this out.
+Using `Azure Storage Explorer` or the `Storage Explorer (preview)` blade, in the `$web` blob container, we will upload an `index.html` file to test this out.
+
+> [Azure Storage Explorer](https://azure.microsoft.com/en-ca/features/storage-explorer/) is a helpful tool that I recommend you to install if you plan on using Azure Storage.
+>
+> There is also a **Visual Studio Code** plugin, for you VSCode enthusiasts out there, named: [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) that does more or less the same thing from inside VS Code.
 
 Here is the code of the `index.html` page I uploaded:
 
@@ -107,7 +116,7 @@ Here is the code of the `index.html` page I uploaded:
 </html>
 ```
 
-Navigate to your `Primary endpoint` (you can find this in the `Static website (preview)` blade) and voilà, I see my test page:
+Once the file is uploaded, navigate to your `Primary endpoint` (you can find the URI in the `Static website (preview)` blade), and voilà, you should see your test page:
 
 ![Azure static website test page with Edge](//cdn.forevolve.com/blog/images/2018/Azure-static-website-test-page-edge.png)
 
