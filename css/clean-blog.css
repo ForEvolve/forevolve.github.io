@@ -283,7 +283,7 @@ footer .copyright {
   position: relative;
   margin-bottom: 0;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #eee;
 }
 .floating-label-form-group input,
 .floating-label-form-group textarea {
@@ -305,18 +305,18 @@ footer .copyright {
   top: 2em;
   margin: 0;
   font-size: 0.85em;
-  line-height: 1.764705882em;
+  line-height: 1.76470588em;
   vertical-align: middle;
   vertical-align: baseline;
   opacity: 0;
-  -webkit-transition: top 0.3s ease,opacity 0.3s ease;
-  -moz-transition: top 0.3s ease,opacity 0.3s ease;
-  -ms-transition: top 0.3s ease,opacity 0.3s ease;
-  transition: top 0.3s ease,opacity 0.3s ease;
+  -webkit-transition: top 0.3s ease, opacity 0.3s ease;
+  -moz-transition: top 0.3s ease, opacity 0.3s ease;
+  -ms-transition: top 0.3s ease, opacity 0.3s ease;
+  transition: top 0.3s ease, opacity 0.3s ease;
 }
 .floating-label-form-group::not(:first-child) {
   padding-left: 14px;
-  border-left: 1px solid #eeeeee;
+  border-left: 1px solid #eee;
 }
 .floating-label-form-group-with-value label {
   top: 0;
@@ -326,7 +326,7 @@ footer .copyright {
   color: #007f00;
 }
 form .row:first-child .floating-label-form-group {
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #eee;
 }
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -528,7 +528,7 @@ body {
 .post-preview figure > footer {
   margin: 15px 0 0 0;
   text-align: left;
-  border-top: 1px solid #EFEFEF;
+  border-top: 1px solid #efefef;
   padding: 15px 0 0 0;
   color: #808080;
 }
@@ -571,7 +571,7 @@ body {
   margin: 0 0 25px;
 }
 .post-content .intro-header {
-  background-color: #FFF;
+  background-color: #fff;
 }
 .post-content .intro-header .post-heading {
   padding: 0;
@@ -590,7 +590,7 @@ body {
 }
 .post-preview .post-readmore a {
   display: inline-block;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1em;
   padding: 0.5em 2em;
   background: #007f00;
@@ -638,7 +638,7 @@ ol ol {
 }
 .post-list-container .side-bar aside h4 {
   margin-top: 0;
-  border-bottom: 1px solid #EFEFEF;
+  border-bottom: 1px solid #efefef;
   padding: 15px 0;
 }
 .post-list-container .side-bar aside ul {
@@ -687,14 +687,17 @@ section.multi-section {
   border-radius: 15px;
 }
 section.multi-section section header {
-  border-bottom: 1px solid #EFEFEF;
+  border-bottom: 1px solid #efefef;
   padding: 0 25px 14px;
   margin: 0 -15px;
   font-weight: bold;
 }
-section.multi-section section:nth-child(n+2) header {
-  border-top: 1px solid #EFEFEF;
+section.multi-section section:nth-child(n + 2) header {
+  border-top: 1px solid #efefef;
   padding-top: 14px;
+}
+.badge.toc-you-are-here {
+  background-color: #3c763d;
 }
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)
@@ -734,14 +737,14 @@ code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
   padding: 1em;
-  margin: .5em 0;
+  margin: 0.5em 0;
   overflow: auto;
   border: 1px solid #dddddd;
   background-color: white;
 }
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: .2em;
+  padding: 0.2em;
   padding-top: 1px;
   padding-bottom: 1px;
   background: #f8f8f8;
@@ -755,7 +758,7 @@ pre[class*="language-"] {
   font-style: italic;
 }
 .token.namespace {
-  opacity: .7;
+  opacity: 0.7;
 }
 .token.string {
   color: #A31515;

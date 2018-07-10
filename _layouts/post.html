@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-
+ 
 {% assign posts=site.posts | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
 {% assign pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
 {% assign postCount=posts | size %}
@@ -32,8 +32,8 @@ layout: default
                                 <a href="/languages/#{{ language.categoryName | slugify }}">{{ language.displayName }}</a>
 
                                 {% if totalCount > 0 %}
-                                    {% for post in posts %}| <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
-                                    {% for page in pages %}| <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                                    {% for post in posts %}{% if page.ref %}| <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {%endif%}{% endfor %}
+                                    {% for page in pages %}{% if page.ref %}| <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {%endif%}{% endfor %}
                                     <hr>
                                 {% endif %}
                             </aside>
@@ -71,8 +71,8 @@ layout: default
                     <hr>
                     <nav>
                         <div class="wrapper" style="text-align: right; line-height: 2em">
-                            {% for post in posts %} <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
-                            {% for page in pages %} <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {% endfor %}
+                            {% for post in posts %}{% if page.ref %}| <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {%endif%}{% endfor %}
+                            {% for page in pages %}{% if page.ref %}| <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {%endif%}{% endfor %}
                         </div>
                     </nav>
                 {% endif %}
