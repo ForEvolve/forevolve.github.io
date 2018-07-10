@@ -11,9 +11,9 @@
   {
     "index": 1,
     "enabled": true,
-    "title": "Part 1: The VSTS Build Pipeline",
+    "title": "Part 1: The VSTS Build",
     "description":
-      "In this article, we create the Jekyll build pipeline in VSTS.",
+      "In this article, we create the Jekyll build definition in VSTS.",
     "url":
       "/en/articles/2018/07/10/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-2/"
   },
@@ -29,9 +29,9 @@
   {
     "index": 3,
     "enabled": true,
-    "title": "Part 3: The VSTS Release Pipeline",
+    "title": "Part 3: The VSTS Release",
     "description":
-      "In this article, we create the deployment (release) pipeline. At the end, every code push in `master` will be deployed automatically.",
+      "In this article, we create the release definition. At the end, every code push in `master` will be deployed automatically.",
     "url":
       "/en/articles/2018/07/10/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-4/"
   },
