@@ -1,5 +1,5 @@
 ## Table of content
-{% if include.currentIndex > 0 %}{% assign intro = site.data.jekyll-vsts-azure-nav[0] %}If you are starting the article series, I recommend that you start by the <a href="{{ intro.url }}">{{ intro.title | downcase }}</a>, to make sure you read the plan first then get all the steps right.{% endif %}
+{% if include.currentIndex > 0 %}{% assign intro = site.data.jekyll-vsts-azure-nav[0] %}If you are beginning to read the article series, I recommend that you start by the <a href="{{ intro.url }}">{{ intro.title | downcase }}</a>, to make sure you read the plan first then get all the prerequisites set up right.{% endif %}
 
 <table class="table table-striped table-hover">
     <thead class="thead-inverse">
@@ -19,7 +19,7 @@
     {% else %}
         {% assign tdClass = "text-muted" %}
     {% endif %}
-
+        {% unless article.hidden %}
         <tr>
             <td class="{{ tdClass }}">
                 {% if article.enabled %}
@@ -40,6 +40,7 @@
                 <div class="small"><small>{{ article.description }}</small></div>
             </td>
         </tr>
+        {% endunless %}
     {% endfor %}
     </tbody>
 </table>

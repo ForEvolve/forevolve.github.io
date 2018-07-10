@@ -1,7 +1,7 @@
 ---
 title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
 subtitle: "Introduction"
-date:     2018-07-02 00:00:00 -0500
+date:     2018-07-10 00:00:00 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
 lang: en
@@ -83,7 +83,7 @@ In this article series, I will assume that readers know:
 - Git basics like `clone`, `commit` and `push`.
 - How to use a terminal or the [VS Code](https://code.visualstudio.com/download) integrated terminal.
 - Have an Azure account (trial or not) or be willing to create one.
-- How to create a VSTS project.
+- Have a VSTS account or be willing to create one.
 
 If I missed something, feel free to leave a comment!
 
@@ -117,16 +117,17 @@ If you need to install Jekyll and Ruby, you should follow the [official Jekyll i
             <li>Open the Windows Store</li>
             <li>Search and install Ubuntu.</li>
             <li>
-                Then I open a bash terminal and follow the official
+                Then open a bash terminal and follow the official
                 <a href="https://jekyllrb.com/docs/installation/#ubuntu">Install on Ubuntu Linux</a>
                 instruction from the Jekyll website.
             </li>
         </ol>
         <p>
-            This is way easier than setting up everything on Windows (unless stuff changed recently and since I wrote this).
+            This is way easier than setting up everything on Windows (unless stuff changed recently or since I wrote this):
             <i>Non-Microsoft things tend to be easier to install using bash!</i>
+            And now, with Windows 10, we have access to the better of both worlds!
         </p>
-        <p>Another cool thing, if you are using <a href="https://code.visualstudio.com/">Visual Studio Code</a>, you can access bach directly from there in the VS Code opened folder. This is awesome; you should use this opportunity to try that out!</p>
+        <p>Another cool thing, if you are using <a href="https://code.visualstudio.com/">Visual Studio Code</a>, you can access <code>bash</code> directly from there in the VS Code opened folder. This is awesome; you should use this article series as an opportunity to try that out!</p>
     </section>
 </aside>
 
@@ -149,7 +150,7 @@ To test if it works:
 1.  Open a browser on the specified `Server address`
     - From VS Code, `ctrl+click` on the link in the terminal to open it in your default browser.
 
-From here, you can change the theme, add plugins, write pages and post for example. This article does not cover Jekyll customizations; I leave you to build your own thing!
+From here, you can change the theme, add plugins, write pages and posts. This article does not cover Jekyll customizations; I leave you to build your own thing!
 
 > If you have a hard time executing this step, please refer to the official [Quick-start guide](https://jekyllrb.com/docs/quickstart/) or leave a comment and I will do my best to help you out.
 
@@ -175,7 +176,10 @@ After creating the project, you should be redirected to a "project summary" page
 ![Git repository uri from project summary section](//cdn.forevolve.com/blog/images/2018/VSTS-git-repo-uri.png)
 
 If not, that same link is available in the "Code" section of your project.
-There is also the git commands to push your repo there; if you feel lazy enough (which is fine by me; in this case, we can even call that productivity!).
+There is also the git commands to push your repo there; if you feel like copy/pasting it.
+
+Personally, I am a big fan of [Git Extensions](http://git-extensions-documentation.readthedocs.io/en/latest/git_extensions.html).
+It adds options to Windows Explorer context menus, and there is a Visual Studio plugin to launch it from there as well!
 
 ![Git repository uri from Code section](//cdn.forevolve.com/blog/images/2018/VSTS-git-repo-code.png)
 

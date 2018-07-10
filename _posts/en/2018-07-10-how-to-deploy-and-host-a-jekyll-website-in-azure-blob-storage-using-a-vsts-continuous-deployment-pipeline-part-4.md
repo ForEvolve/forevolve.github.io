@@ -1,7 +1,7 @@
 ---
 title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
 subtitle: "Part 3: The VSTS Release Pipeline"
-date:     2018-07-14 00:00:00 -0500
+date:     2018-07-10 00:00:04 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
 lang: en
@@ -210,6 +210,10 @@ To accomplish this, let's start by going back to our release definition then:
 
 ![VSTS release trigger](//cdn.forevolve.com/blog/images/2018/VSTS-release-trigger.png)
 
+> The filters are not required.
+> However, I believe it is a good idea to limit the deployment to production to one or more explicitly defined branch(es).
+> This could avoid unexpected behaviors and unplanned deployment of unstable releases to production.
+
 ## Testing the Continuous Deployment pipeline
 
 To test the continuous deployment pipeline, make a change in your Jekyll project, commit and push it to VSTS.
@@ -225,14 +229,14 @@ To see this happen:
 2.  Once the build is completed, go to the `Releases` page, and there you should see an in-progress release. *Please note that there can be a delay between the end of a build and the beginning of a release. You may need to be patient here.*
     ![VSTS release in progress](//cdn.forevolve.com/blog/images/2018/VSTS-release-in-progress.png)
 
-> Another option is to grab a drink or something to eat and come back later (or work on something else if you are working).
+> Another option is to grab a drink or something to eat and come back later (or work on something else for a few minutes).
 
 ## A note about deleting files.
 
 > This delivery pipeline is very basic, if we'd want, instead of deleting all files before uploading the new ones, we could begin by uploading the new files to then delete unwanted files from the destination (if any).
 > We could also only upload new files and leave the old unused one there (depending on your website's content of course).
 >
-> Nevertheless, in the end, once the CDN is connected to the site, deleting all blobs should not shut the site, the CDN should have them pre-loaded and use its own file cache to serves them to your clients.
+> Nevertheless, in the end, once the CDN is connected to the site, deleting all blobs should not shut down the website, the CDN should have them pre-loaded and use its own file cache to serves them to your visitors.
 >
 > If for some reason a downtime does occur or if you don't want to take that risk, I see the following few possible solutions.
 > <small>A possible cause for this would be if you update your site more frequently than the time it takes the CDN to pre-load the site's assets. A.K.A. the time it takes for all of your resources to be viewed by a user is longer than the time you push your updates.</small>

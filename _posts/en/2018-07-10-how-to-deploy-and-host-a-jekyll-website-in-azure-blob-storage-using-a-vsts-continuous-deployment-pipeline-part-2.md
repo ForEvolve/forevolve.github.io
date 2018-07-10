@@ -1,7 +1,7 @@
 ---
 title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
 subtitle: "Part 1: The VSTS Build Pipeline"
-date:     2018-07-12 00:00:00 -0500
+date:     2018-07-10 00:00:01 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
 lang: en
@@ -97,7 +97,7 @@ You can leave the Ruby task as is, no need to change anything.
 
 ### Configure Task 2: Install Jekyll and bundler
 
-I believe that it is essential to give a relevant name to your tasks.
+I believe it is essential to give a relevant name to your tasks, so you and others know what they do by reading their name.
 
 ![Configure Task 2: Install Jekyll and bundler](//cdn.forevolve.com/blog/images/2018/VSTS-configure-task-2.png)
 
@@ -138,11 +138,16 @@ Finally, we want to publish the website as an artifact (that we will use later; 
 
 - Artifact name: `_site`
 
+By looking at the build definition (from the above screenshot), it is easy to know what each task do, only by reading their name.
+This was my exact point when I talked about naming your tasks right.
+
 ## Save and run the build
 
 At this point, our build definition is completed. So let's save and run it to make sure it is indeed working as expected.
 
-> I believe that it is essential to quickly test every building block of what you are developing (could be a program, a CD pipeline or something else; it doesn't matter). If you wait too long before testing, you will first need to find what part is generating the problem before diagnosing and fixing it!
+> I believe that it is essential to quickly test every building block of what you are developing (could be a program, a CD pipeline or something else; it doesn't matter).
+> If you wait too long before testing, you will first need to find what part is generating the problem before diagnosing and fixing it!
+> You better limit the area you want to test to a minimum.
 
 ![Save and queue VSTS build](//cdn.forevolve.com/blog/images/2018/VSTS-save-and-queue-build.png)
 
@@ -150,7 +155,7 @@ Then keep the default values and hit `Save & queue`.
 
 ![Save and queue VSTS build](//cdn.forevolve.com/blog/images/2018/VSTS-save-and-queue-build-2.png)
 
-Once the UI update, click on the build number.
+Once the UI update, click on the build number, this will redirect you to the build details view.
 
 ![VSTS build started](//cdn.forevolve.com/blog/images/2018/VSTS-follow-build-link.png)
 
@@ -170,15 +175,15 @@ From this page, you should be able to download the build artifacts, if you want 
 
 ## Configure Continuous Integration
 
-Now that we know that our build work, the last piece is to set the build to trigger automatically every time that someone pushes code to `master`.
+Now that we know that our build works, the last piece is to set the build to trigger automatically every time someone pushes code to `master`.
 
 > You can also set policies that force users to create branches and pull requests and all that good stuff, but for this article, let's keep it simple.
 
-To go edit to the build definition click the `Edit pipeline` button.
+To edit to the build definition click the `Edit pipeline` button.
 
 ![Click edit pipeline](//cdn.forevolve.com/blog/images/2018/VSTS-build-edit-pipeline.png)
 
-Then go to the `Triggers` tab and check `Enable continuous integration`.
+Then navigate to the `Triggers` tab and check `Enable continuous integration`.
 
 ![Enable continuous integration](//cdn.forevolve.com/blog/images/2018/VSTS-build-enable-continuous-integration.png)
 

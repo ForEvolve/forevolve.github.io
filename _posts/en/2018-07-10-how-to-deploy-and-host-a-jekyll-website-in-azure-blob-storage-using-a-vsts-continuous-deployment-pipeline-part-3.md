@@ -1,7 +1,7 @@
 ---
 title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
 subtitle: "Part 2: Create Azure Blob Storage, and configure static website"
-date:     2018-07-13 00:00:00 -0500
+date:     2018-07-10 00:00:02 -0500
 post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
 lang: en
@@ -77,7 +77,7 @@ From the storage account you just created:
 1.  Click on `Static website (preview)`
 1.  Click `Enable`
 1.  Enter `index.html` as the `Index document name`
-1.  Enter `404.html` as the `Error document path` (the file is created by `Jekyll new`)
+1.  Enter `404.html` as the `Error document path`. _The `404.html` file is created by `Jekyll new`, if your 404 page is not that one, set your own custom one's path here instead._
 1.  Click `Save`
 
 ![Enable Azure Storage static website](//cdn.forevolve.com/blog/images/2018/Azure-storage-enable-static-website.png)
@@ -89,7 +89,7 @@ That's where your website files should be uploaded.
 
 ## Testing the setup
 
-Using `Azure Storage Explorer` or the `Storage Explorer (preview)` blade, in the `$web` blob container, we will upload an `index.html` file to test this out.
+Using `Azure Storage Explorer` or the `Storage Explorer (preview)` blade, in the `$web` blob container, let's upload an `index.html` file to test this out.
 
 > [Azure Storage Explorer](https://azure.microsoft.com/en-ca/features/storage-explorer/) is a helpful tool that I recommend you to install if you plan on using Azure Storage.
 >

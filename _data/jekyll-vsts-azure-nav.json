@@ -6,7 +6,7 @@
     "description":
       "In this article, we draw the plan and start the project. We will create a Jekyll website and create a VSTS project with a Git repository.",
     "url":
-      "/en/articles/2018/07/02/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-1/"
+      "/en/articles/2018/07/10/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-1/"
   },
   {
     "index": 1,
@@ -15,7 +15,7 @@
     "description":
       "In this article, we create the Jekyll build pipeline in VSTS.",
     "url":
-      "/en/articles/2018/07/12/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-2/"
+      "/en/articles/2018/07/10/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-2/"
   },
   {
     "index": 2,
@@ -24,7 +24,7 @@
     "description":
       "In this article, we create an Azure Blob Storage and we configure it to be ready for the deployment phase.",
     "url":
-      "/en/articles/2018/07/13/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-3/"
+      "/en/articles/2018/07/10/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-3/"
   },
   {
     "index": 3,
@@ -33,7 +33,7 @@
     "description":
       "In this article, we create the deployment (release) pipeline. At the end, every code push in `master` will be deployed automatically.",
     "url":
-      "/en/articles/2018/07/14/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-4/"
+      "/en/articles/2018/07/10/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-4/"
   },
   {
     "index": 4,
@@ -42,14 +42,15 @@
     "description":
       "In this article, we create the final piece of the puzzle, the way to access our Jekyll website using a custom domain over HTTPS. We also update the VSTS CD pipeline to account for this new addition.",
     "url":
-      "/en/articles/2018/07/15/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-5/"
+      "/en/articles/2018/00/00/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-5/"
   },
   {
     "index": 5,
     "enabled": false,
+    "hidden": true,
     "title": "Conclusion",
     "description": "This is the end, a little recap of what was achieved.",
     "url":
-      "/en/articles/2018/07/16/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-6/"
+      "/en/articles/2018/00/00/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-part-6/"
   }
 ]
