@@ -46,6 +46,15 @@
   },
   {
     "index": 5,
+    "enabled": true,
+    "title": "Infrastructure as code",
+    "description":
+      "In this article, I give you the VSTS pipeline code that you can import.",
+    "url":
+      "/en/articles/2018/07/23/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-infrastructure-as-code/"
+  },
+  {
+    "index": 6,
     "enabled": false,
     "hidden": true,
     "title": "Conclusion",

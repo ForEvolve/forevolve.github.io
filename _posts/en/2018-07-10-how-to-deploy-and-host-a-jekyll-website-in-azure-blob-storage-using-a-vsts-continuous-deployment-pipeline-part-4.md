@@ -253,3 +253,5 @@ To see this happen:
 ---
 
 {% include jekyll-vsts-azure/next.md nextIndex=4 %}
+
+{% include jekyll-vsts-azure/next.md nextIndex=5 continueText="Until I publish the CDN article, you can move to: " hideHeading=true %}

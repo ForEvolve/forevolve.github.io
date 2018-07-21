@@ -1,7 +1,7 @@
 {% assign nextIndex = include.nextIndex %}
 {% assign nextArticle = site.data.jekyll-vsts-azure-nav[nextIndex] %}
 
-## Next step
+{% if include.hideHeading %}{% else %}## Next step{% endif %}
 
 {% if include.continueText %}{{ include.continueText }}{% else %}It is now time to move to the next article:{% endif %}{% if nextArticle.enabled %}
 [{{ nextArticle.title }}]({{ nextArticle.url }}).
