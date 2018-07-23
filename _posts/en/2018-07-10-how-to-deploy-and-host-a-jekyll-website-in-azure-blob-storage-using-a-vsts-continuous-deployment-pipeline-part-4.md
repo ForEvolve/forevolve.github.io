@@ -19,6 +19,8 @@ technology-relative-level:
 - { name: DevOps, level: Beginners }
 - { name: Jekyll, level: Intermediate }
 - { name: Git, level: Intermediate }
+updates:
+- { date: 2018-07-23, description: "Remove references to \"storage key\". "}
 ---
 
 Now that we have a Blob Storage container set up for static website delivery, we need to deploy our Jekyll website there.<!--more-->
@@ -116,7 +118,7 @@ To do this, select the first Azure CLI task.
 - Display name: `Delete old files`
 - Azure subscription: `Jekyll on Azure resource group` (choose the one you just created)
 - Script location: `Inline Scripts`
-- Inline Script: `az storage blob delete-batch --source $(containerName) --account-name $(storageAccount) --account-key $(storageKey) --output table`
+- Inline Script: `az storage blob delete-batch --source $(containerName) --account-name $(storageAccount) --output table`
 - Working Directory: select the artifact name. Mine is `$(System.DefaultWorkingDirectory)/_JekyllOnAzure-CI`.
   <br><small><strong>Do not</strong> select the `_site` subdirectory.</small>
 
@@ -135,7 +137,7 @@ Select the second Azure CLI task and do the same thing.
 - Script location: `Inline Scripts`
 - Inline Script:
   ```
-  az storage blob upload-batch --source _site --destination $(containerName) --account-name $(storageAccount) --account-key $(storageKey) --output table --no-progress
+  az storage blob upload-batch --source _site --destination $(containerName) --account-name $(storageAccount) --output table --no-progress
   ```
 - Working Directory: select the artifact name. Mine is `$(System.DefaultWorkingDirectory)/_JekyllOnAzure-CI`.
   <br><small><strong>Do not</strong> select the `_site` subdirectory.</small>
@@ -157,21 +159,13 @@ Navigate to the `Variables` tab and add the following variables:
 
 - Set the `containerName` value to `$web`
 - Set the `storageAccount` value to the name of your storage account. Mine was `jekyllonazure`.
-- Set the `storageKey` value to one of the Azure Storage Access keys (see below). Then protect this value by clicking the `lock` icon.
 
-![Lock the VSTS variable secret values](//cdn.forevolve.com/blog/images/2018/VSTS-lock-variable-values.png)
+![Lock the VSTS variable secret values](//cdn.forevolve.com/blog/images/2018/VSTS-lock-variable-values-v2.png)
 
 > How does this work? The value of the `containerName` variable will replace `$(containerName)` in the Azure CLI scripts.
 > So it will execute that command: `az storage blob upload-batch --source _site --destination $web [...]`
 >
 > You can use variables extensively in VSTS.
-
-### Find Azure Storage Keys
-
-From your Azure Storage Account, navigate to `Access keys` then copy one of the two keys.
-![Locate azure storage keys](//cdn.forevolve.com/blog/images/2018/Azure-storage-keys.png)
-
-> Note: I regenerated both keys so don't waste your time trying them, they don't work anymore.
 
 ## Save and test the deployment
 
