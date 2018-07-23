@@ -49,7 +49,7 @@
     "enabled": true,
     "title": "Infrastructure as code",
     "description":
-      "In this article, I give you the VSTS pipeline code that you can import.",
+      "In this article, I give you the YAML code that you can use to automatically create the build definition by adding a `.vsts-ci.yml` file to your Jekyll website. This can replace \"Part 1: The VSTS Build\".",
     "url":
       "/en/articles/2018/07/23/how-to-deploy-and-host-a-jekyll-website-in-azure-blob-storage-using-a-vsts-continuous-deployment-pipeline-infrastructure-as-code/"
   },

@@ -19,6 +19,8 @@ technology-relative-level:
 - { name: DevOps, level: Beginners }
 - { name: Jekyll, level: Intermediate }
 - { name: Git, level: Intermediate }
+updates:
+- { date: 2018-07-23, description: "Add Infrastructure as code" }
 ---
 
 In this article series, we will create a continuous deployment (CD) pipeline using Visual Studio Team Services (VSTS) to deploy a Jekyll website to Microsoft Azure.
@@ -205,5 +207,11 @@ Once pushed, VSTS should contain your code (after you refresh the page).
         </figcaption>
     </figure>
 </aside>
+
+## Infrastructure as code
+
+{% assign iacArticle = site.data.jekyll-vsts-azure-nav[5] %}
+
+If you want to automatically create the build definition when you push your code, you can jump to [{{ iacArticle.title }}]({{ iacArticle.url }}) and use the provided YAML code.
 
 {% include jekyll-vsts-azure/next.md nextIndex=1 %}

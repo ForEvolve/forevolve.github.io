@@ -1,0 +1,10 @@
+{% if page.updates %}
+<aside class="update-list">
+    <h2 id="updates">Updates</h2>
+    <ul>
+    {% for update in page.updates %}
+        <li>{{ update.date }}: {{ update.description }}</li>
+    {% endfor %}
+    </ul>
+</aside>
+{% endif %}
