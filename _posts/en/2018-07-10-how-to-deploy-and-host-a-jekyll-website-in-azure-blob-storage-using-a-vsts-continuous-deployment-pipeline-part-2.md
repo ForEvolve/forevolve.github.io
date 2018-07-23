@@ -19,6 +19,8 @@ technology-relative-level:
 - { name: DevOps, level: Beginners }
 - { name: Jekyll, level: Intermediate }
 - { name: Git, level: Intermediate }
+updates:
+- { date: 2018-07-23, description: "Add Infrastructure as code" }
 ---
 
 Now the fun begins, we have a website to deploy, a VSTS project and a Git repository.
@@ -190,5 +192,15 @@ Then navigate to the `Triggers` tab and check `Enable continuous integration`.
 Save the build definition, and voilà, each `push` will now queue a new build!
 
 > You can push some changes if you want to try it out!
+
+## Infrastructure as code
+
+{% assign iacArticle = site.data.jekyll-vsts-azure-nav[5] %}
+
+If you want to automatically create the build definition when you push your code instead of manually following all the steps (and at the same time automating the build process creation), you can jump to [{{ iacArticle.title }}]({{ iacArticle.url }}) and use the provided YAML code.
+
+Alternatively, if you know what I am talking about, here is the code:
+
+{% include jekyll-vsts-azure/yaml-build-definition.md %}
 
 {% include jekyll-vsts-azure/next.md nextIndex=2 %}
