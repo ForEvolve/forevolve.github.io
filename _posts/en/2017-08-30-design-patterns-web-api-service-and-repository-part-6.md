@@ -1,19 +1,21 @@
 ---
-title:  "Design Patterns: Asp.Net Core Web API, services, and repositories"
-subtitle: "Part 6: the NinjaController and the ninja sub-system"
-date:   2017-08-30 00:00:00 -0500
-post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png"
+title: 'Design Patterns: Asp.Net Core Web API, services, and repositories'
+subtitle: 'Part 6: the NinjaController and the ninja sub-system'
+date: 2017-08-30 00:00:00 -0500
+post-img: '//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png'
 lang: en
 categories: en/articles
-tags: 
-- Design Patterns
-- Asp.Net Core
-- Web API
-- MVC
-- C#
-- Unit Test
-- XUnit
+tags:
+    - Design Patterns
+    - Asp.Net Core
+    - Web API
+    - MVC
+    - C#
+    - Unit Test
+    - XUnit
 proficiency-level: Intermediate
+updates:
+    - { date: 2019-07-02, description: 'Fix the "UpdateAsync - Should_return_BadRequestResult" code snippet.' }
 ---
 
 In the previous articles, we covered all the patterns needed to create a system where each responsibility is isolated.
@@ -31,13 +33,15 @@ Do not worry; I will also add a few more concepts along the way, this is not a c
 {% include design-patterns-web-api-service-and-repository/series.md %}
 
 ## Defining the interfaces
+
 Now that we understand the patterns and know where we are heading, we will start by defining both our interfaces.
 
 ### INinjaService
-The ninja service should give us access to the Ninja objects. 
+
+The ninja service should give us access to the Ninja objects.
 Once again, it will only support CRUD operations.
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Services
 {
     public interface INinjaService
@@ -53,12 +57,13 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 ```
 
 ### INinjaRepository
+
 The `INinjaRepository` look the same as the `INinjaService` but their responsibilities are different.
 The repository's goal is to read and write data while the service's goal is to handle the domain logic.
 
 As you can see, once again, we are building a simple CRUD data access interface.
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
 {
     public interface INinjaRepository
@@ -74,18 +79,21 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
 ```
 
 ## Controller
+
 Having our interfaces defined will allow us to create the `NinjaController` and unit test it.
 
 As a reminder of the patterns, here is the schema from the first article of the series:
+
 <figure>
     <img src="//cdn.forevolve.com/blog/images/2017/controller-service-repo-ninja-with-DI.png">
     <figcaption>An HTTP request from the <code>Controller</code> to the data source, fully decoupled.</figcaption>
 </figure>
 
 ### Creating the NinjaController
+
 Once again, the `NinjaController` only exposes CRUD actions.
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
 {
     [Route("v1/[controller]")]
@@ -190,13 +198,14 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
 ---
 
 ### Creating project specific exception classes
+
 Before testing the controller, we will create some project specific exceptions.
 
 Instead of using the built-in ones or returning `null` we will be able to `throw` and `catch` `NinjaApiException`s.
 
 We will also create `ClanNotFoundException` and `NinjaNotFoundException` that inherits from `NinjaApiException`, as follow:
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi
 {
     public class NinjaApiException : Exception
@@ -260,12 +269,13 @@ namespace ForEvolve.Blog.Samples.NinjaApi
 ---
 
 ### Testing the NinjaController
+
 The `NinjaController` already expect an `INinjaService` interface upon instantiation.
 The API contracts are also well defined, including different status code with `ProducesResponseType` attribute.
-Based on that, creating our unit tests should be relatively easy. 
+Based on that, creating our unit tests should be relatively easy.
 We only have to translate our already well-thought use cases to XUnit test code.
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
 {
     public class NinjaControllerTest
@@ -530,6 +540,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Controllers
 ```
 
 ### Making the NinjaController tests pass
+
 Now that we defined the expected behaviors of the `NinjaController` in our automated tests, it is time to make those tests pass.
 
 In general, it should be pretty strait forward: delegates the business logic responsibility to the service class.
@@ -538,9 +549,10 @@ Our controller will need to handle a few more things here for non-OK paths.
 Let's implement the `NinjaController`, method by method and test by test.
 
 #### ReadAllAsync
+
 The test says all: `ReadAllAsync.Should_return_OkObjectResult_with_all_Ninja`.
 
-``` csharp
+```csharp
 [HttpGet]
 [ProducesResponseType(typeof(IEnumerable<Ninja>), StatusCodes.Status200OK)]
 public async Task<IActionResult> ReadAllAsync()
@@ -554,14 +566,15 @@ With those two lines of code, we are now down from 12 to 11 failing tests.
 This is a start!
 
 #### ReadAllInClanAsync
+
 For this one, we have two tests
 
-- `ReadAllInClanAsync.Should_return_OkObjectResult_with_all_Ninja_in_Clan`
-- `ReadAllInClanAsync.Should_return_NotFoundResult_when_ClanNotFoundException_is_thrown`
+-   `ReadAllInClanAsync.Should_return_OkObjectResult_with_all_Ninja_in_Clan`
+-   `ReadAllInClanAsync.Should_return_NotFoundResult_when_ClanNotFoundException_is_thrown`
 
 **Should_return_OkObjectResult_with_all_Ninja_in_Clan**
 
-``` csharp
+```csharp
 [HttpGet("{clan}")]
 [ProducesResponseType(typeof(IEnumerable<Ninja>), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -576,7 +589,7 @@ Again, pretty straight forward. We are now down from 11 to 10 failing tests.
 
 **Should_return_NotFoundResult_when_ClanNotFoundException_is_thrown**
 
-``` csharp
+```csharp
 [HttpGet("{clan}")]
 [ProducesResponseType(typeof(IEnumerable<Ninja>), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -597,14 +610,15 @@ public async Task<IActionResult> ReadAllInClanAsync(string clan)
 After this little update, we are down from 10 to 9 failing tests.
 
 #### ReadOneAsync
+
 For this one, we also have two tests
 
-- `ReadOneAsync.Should_return_OkObjectResult_with_a_Ninja`
-- `ReadOneAsync.Should_return_NotFoundResult`
+-   `ReadOneAsync.Should_return_OkObjectResult_with_a_Ninja`
+-   `ReadOneAsync.Should_return_NotFoundResult`
 
 **Should_return_OkObjectResult_with_a_Ninja**
 
-``` csharp
+```csharp
 [HttpGet("{clan}/{key}")]
 [ProducesResponseType(typeof(Ninja), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -619,7 +633,7 @@ Now down from 9 to 8 failing tests.
 
 **Should_return_NotFoundResult_when_NinjaNotFoundException_is_thrown**
 
-``` csharp
+```csharp
 [HttpGet("{clan}/{key}")]
 [ProducesResponseType(typeof(Ninja), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -640,14 +654,15 @@ public async Task<IActionResult> ReadOneAsync(string clan, string key)
 Now down from 8 to 7 failing tests.
 
 #### CreateAsync
+
 `CreateAsync` also have two tests
 
-- `CreateAsync.Should_return_CreatedAtActionResult_with_the_created_Ninja`
-- `CreateAsync.Should_return_BadRequestResult`
+-   `CreateAsync.Should_return_CreatedAtActionResult_with_the_created_Ninja`
+-   `CreateAsync.Should_return_BadRequestResult`
 
 **Should_return_CreatedAtActionResult_with_the_created_Ninja**
 
-``` csharp
+```csharp
 [HttpPost]
 [ProducesResponseType(typeof(Ninja), StatusCodes.Status201Created)]
 [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -672,7 +687,7 @@ Now down from 7 to 6 failing tests.
 > As you may have noticed, I am using the `nameof` operator to avoid hard coding strings.
 > In my opinion, **strings should never be hard-coded** anywhere in your code.
 >
-> That said, out of the utopic world of endless money, time and workforce, it is tolerable to hard code your error messages (ex.: exceptions), test data (ex.: a dev database seeder), etc. 
+> That said, out of the utopic world of endless money, time and workforce, it is tolerable to hard code your error messages (ex.: exceptions), test data (ex.: a dev database seeder), etc.
 > Most of the time, you do not have an unlimited budget, and these will rarely change (creating a resource file ain't that costly tho; just saying).
 >
 > However, **for code references** (ex.: method name, class name, property name), **DO NOT use a string, use the `nameof` operator.**
@@ -694,7 +709,7 @@ Now down from 7 to 6 failing tests.
 
 **Should_return_BadRequestResult**
 
-``` csharp
+```csharp
 [HttpPost]
 [ProducesResponseType(typeof(Ninja), StatusCodes.Status201Created)]
 [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -722,15 +737,16 @@ That said, we are now down from 6 to 5 failing tests.
 More than half done!
 
 #### UpdateAsync
-`UpdateAsync` has three tests: 
 
-- One if everything is fine
-- One if the ninja's validation fails
-- And the last one in case the ninja was not found
+`UpdateAsync` has three tests:
+
+-   One if everything is fine
+-   One if the ninja's validation fails
+-   And the last one in case the ninja was not found
 
 **Should_return_OkObjectResult_with_the_updated_Ninja**
 
-``` csharp
+```csharp
 [HttpPut]
 [ProducesResponseType(typeof(Ninja), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -744,10 +760,9 @@ public async Task<IActionResult> UpdateAsync([FromBody]Ninja ninja)
 
 Down from 5 to 4 failing tests.
 
-
 **Should_return_NotFoundResult**
 
-``` csharp
+```csharp
 [HttpPut]
 [ProducesResponseType(typeof(Ninja), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -774,34 +789,39 @@ Meanwhile, we are down from 4 to 3 failing tests.
 
 **Should_return_BadRequestResult**
 
-``` csharp
-[HttpPost]
-[ProducesResponseType(typeof(Ninja), StatusCodes.Status201Created)]
+```csharp
+[HttpPut]
+[ProducesResponseType(typeof(Ninja), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status400BadRequest)]
-public async Task<IActionResult> CreateAsync([FromBody]Ninja ninja)
+[ProducesResponseType(StatusCodes.Status404NotFound)]
+public async Task<IActionResult> UpdateAsync([FromBody]Ninja ninja)
 {
     if (!ModelState.IsValid)
     {
         return BadRequest(ModelState);
     }
 
-    var createdNinja = await _ninjaService.CreateAsync(ninja);
-    return CreatedAtAction(
-        nameof(ReadOneAsync),
-        new { clan = createdNinja.Clan.Name, key = createdNinja.Key },
-        createdNinja
-    );
+    try
+    {
+        var updatedNinja = await _ninjaService.UpdateAsync(ninja);
+        return Ok(updatedNinja);
+    }
+    catch (NinjaNotFoundException)
+    {
+        return NotFound();
+    }
 }
 ```
 
 Down from 3 to 2 failing tests.
 
 #### DeleteAsync
+
 `DeleteAsync` has the last two tests needed to complete the `NinjaController` implementation.
 
 **Should_return_OkObjectResult_with_the_deleted_Ninja**
 
-``` csharp
+```csharp
 [HttpDelete("{clan}/{key}")]
 [ProducesResponseType(typeof(Ninja), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -817,7 +837,7 @@ Almost done!
 
 **Should_return_NotFoundResult**
 
-``` csharp
+```csharp
 [HttpDelete("{clan}/{key}")]
 [ProducesResponseType(typeof(Ninja), StatusCodes.Status200OK)]
 [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -838,13 +858,16 @@ public async Task<IActionResult> DeleteAsync(string clan, string key)
 Bam! 29 passing tests! 0 failing test!
 
 ## The end of this article
+
 Running all tests gives us the green light to continue toward the service implementation, with 29 passing tests and no failing one.
 
 ### What have we covered in this article?
+
 In this article, we defined our ninja subsystem and implemented the `NinjaController`.
 
 ### What's next?
-I originally planned to write a single article for both the `NinjaController` and the `NinjaService`. 
+
+I originally planned to write a single article for both the `NinjaController` and the `NinjaService`.
 However, due to the quantity of code, it was becoming super long, so I decided to create two distinct part instead.
 
 In the next article, we will implement the `NinjaService` and use our unit tests suite to do some refactoring.
