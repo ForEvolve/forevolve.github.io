@@ -1,26 +1,27 @@
 ---
-title:  "How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline"
-subtitle: "Part 3: The VSTS Release"
-date:     2018-07-10 00:00:04 -0500
-post-img: "//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg"
+title: 'How to deploy and host a Jekyll website in Azure blob storage using a VSTS continuous deployment pipeline'
+subtitle: 'Part 3: The VSTS Release'
+date: 2018-07-10 00:00:04 -0500
+post-img: '//cdn.forevolve.com/blog/images/articles-header/2018-07-00-jekyll-vsts-azure-v3.jpg'
 unsplash-credit: Photo by Jilbert Ebrahimi on Unsplash
 lang: en
 categories: en/articles
-tags: 
-- Azure
-- VSTS
-- DevOps
-- Jekyll
-- FromCodeToCloud
+tags:
+    - Azure
+    - VSTS
+    - DevOps
+    - Jekyll
+    - FromCodeToCloud
 # proficiency-level: Novice
 technology-relative-level:
-- { name: Azure, level: Beginners }
-- { name: VSTS, level: Beginners }
-- { name: DevOps, level: Beginners }
-- { name: Jekyll, level: Intermediate }
-- { name: Git, level: Intermediate }
+    - { name: Azure, level: Beginners }
+    - { name: VSTS, level: Beginners }
+    - { name: DevOps, level: Beginners }
+    - { name: Jekyll, level: Intermediate }
+    - { name: Git, level: Intermediate }
 updates:
-- { date: 2018-07-23, description: "Remove references to \"storage key\". "}
+    - { date: 2019-07-02, description: 'Add an Azure CLI sync section.' }
+    - { date: 2018-07-23, description: 'Remove references to "storage key".' }
 ---
 
 Now that we have a Blob Storage container set up for static website delivery, we need to deploy our Jekyll website there.<!--more-->
@@ -74,6 +75,8 @@ We want to achieve 2 things here:
 1.  Delete old files (from blob storage)
 1.  Upload new files (from build artifacts to blob storage)
 
+_See also the **Synchronizing files** section below on how to synchronize the files using a single task._
+
 Click on the `1 phase, 0 task` link, under `Environment 1` (or click the `Tasks` tab) to open the tasks panel.
 
 ![Open the VSTS release definition tasks](//cdn.forevolve.com/blog/images/2018/VSTS-release-open-tasks.png)
@@ -115,12 +118,12 @@ To do this, select the first Azure CLI task.
 
 ![Delete Azure Blob files from VSTS release definition using Azure CLI](//cdn.forevolve.com/blog/images/2018/VSTS-release-azure-cli-delete-blob-files.png)
 
-- Display name: `Delete old files`
-- Azure subscription: `Jekyll on Azure resource group` (choose the one you just created)
-- Script location: `Inline Scripts`
-- Inline Script: `az storage blob delete-batch --source $(containerName) --account-name $(storageAccount) --output table`
-- Working Directory: select the artifact name. Mine is `$(System.DefaultWorkingDirectory)/_JekyllOnAzure-CI`.
-  <br><small><strong>Do not</strong> select the `_site` subdirectory.</small>
+-   Display name: `Delete old files`
+-   Azure subscription: `Jekyll on Azure resource group` (choose the one you just created)
+-   Script location: `Inline Scripts`
+-   Inline Script: `az storage blob delete-batch --source $(containerName) --account-name $(storageAccount) --output table`
+-   Working Directory: select the artifact name. Mine is `$(System.DefaultWorkingDirectory)/_JekyllOnAzure-CI`.
+    <br><small><strong>Do not</strong> select the `_site` subdirectory.</small>
 
 > As you may have noticed, I used `$(...)` variables in the script. We will set those later.
 
@@ -132,15 +135,15 @@ Select the second Azure CLI task and do the same thing.
 
 ![Upload build artifacts to Azure blob storage from VSTS release definition using Azure CLI](//cdn.forevolve.com/blog/images/2018/VSTS-release-azure-cli-upload-artifacts-to-blob-storage.png)
 
-- Display name: `Upload new files`
-- Azure subscription: `Jekyll on Azure resource group` (choose the one you just created)
-- Script location: `Inline Scripts`
-- Inline Script:
-  ```
-  az storage blob upload-batch --source _site --destination $(containerName) --account-name $(storageAccount) --output table --no-progress
-  ```
-- Working Directory: select the artifact name. Mine is `$(System.DefaultWorkingDirectory)/_JekyllOnAzure-CI`.
-  <br><small><strong>Do not</strong> select the `_site` subdirectory.</small>
+-   Display name: `Upload new files`
+-   Azure subscription: `Jekyll on Azure resource group` (choose the one you just created)
+-   Script location: `Inline Scripts`
+-   Inline Script:
+    ```
+    az storage blob upload-batch --source _site --destination $(containerName) --account-name $(storageAccount) --output table --no-progress
+    ```
+-   Working Directory: select the artifact name. Mine is `$(System.DefaultWorkingDirectory)/_JekyllOnAzure-CI`.
+    <br><small><strong>Do not</strong> select the `_site` subdirectory.</small>
 
 > Once again, as you may have noticed, I used variables in the script. We will set those later.
 
@@ -157,8 +160,8 @@ It is important to give accurate names to the stuff you create, this way you can
 OK, one last thing to do before trying this out.
 Navigate to the `Variables` tab and add the following variables:
 
-- Set the `containerName` value to `$web`
-- Set the `storageAccount` value to the name of your storage account. Mine was `jekyllonazure`.
+-   Set the `containerName` value to `$web`
+-   Set the `storageAccount` value to the name of your storage account. Mine was `jekyllonazure`.
 
 ![Lock the VSTS variable secret values](//cdn.forevolve.com/blog/images/2018/VSTS-lock-variable-values-v2.png)
 
@@ -220,12 +223,29 @@ To see this happen:
 
 1.  Go to the `Builds` page after your pushed your changes.
     ![VSTS build in progress](//cdn.forevolve.com/blog/images/2018/VSTS-build-in-progress.png)
-2.  Once the build is completed, go to the `Releases` page, and there you should see an in-progress release. *Please note that there can be a delay between the end of a build and the beginning of a release. You may need to be patient here.*
+2.  Once the build is completed, go to the `Releases` page, and there you should see an in-progress release. _Please note that there can be a delay between the end of a build and the beginning of a release. You may need to be patient here._
     ![VSTS release in progress](//cdn.forevolve.com/blog/images/2018/VSTS-release-in-progress.png)
 
 > Another option is to grab a drink or something to eat and come back later (or work on something else for a few minutes).
 
+## Synchronizing files
+
+Since I first wrote this article, the Azure CLI evolved; they added the `sync` option.
+
+With that in mind, we could simplify our pipeline to a single `Sync` task instead of a `delete` task followed by an `upload` task. The Azure CLI task would look like this:
+
+-   Display name: `Synchronize files`
+-   Azure subscription: `Jekyll on Azure resource group` (choose the one you created)
+-   Script location: `Inline Scripts`
+-   Inline Script: `az storage blob sync -s _site -c $(containerName) --account-name $(storageAccount)`
+-   Working Directory: select the artifact name. Mine is `$(System.DefaultWorkingDirectory)/_JekyllOnAzure-CI`.
+    <br><small><strong>Do not</strong> select the `_site` subdirectory.</small>
+
+Thanks to Maximilian Melcher for pointing this out in the comments. He also as a great blog post about that feature if you want to know more about it (it is a quick read): [Azure Storage Blob Sync - Updates to AzCopy and Azure CLI](https://melcher.dev/2019/06/azure-storage-blob-sync-updates-to-azcopy-and-azure-cli/).
+
 ## A note about deleting files.
+
+_This section applies mostly to the original delete/upload workflow but some parts could also be applied to other use-cases._
 
 > This delivery pipeline is very basic, if we'd want, instead of deleting all files before uploading the new ones, we could begin by uploading the new files to then delete unwanted files from the destination (if any).
 > We could also only upload new files and leave the old unused one there (depending on your website's content of course).
