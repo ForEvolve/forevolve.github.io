@@ -20,6 +20,7 @@ technology-relative-level:
 - { name: Jekyll, level: Intermediate }
 - { name: Git, level: Intermediate }
 updates:
+- { date: 2019-07-09, description: "Fix an error in the build code" }
 - { date: 2018-07-23, description: "Add Infrastructure as code" }
 ---
 

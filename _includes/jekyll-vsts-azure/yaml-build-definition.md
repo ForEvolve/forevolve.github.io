@@ -22,7 +22,7 @@ steps:
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
-  displayName: Publish Artifact: _site
+  displayName: 'Publish Artifact: _site'
   inputs:
     ArtifactName: '_site'
 ```

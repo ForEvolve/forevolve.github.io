@@ -16,6 +16,8 @@ tags:
 technology-relative-level:
 - { name: VSTS, level: Beginners }
 - { name: DevOps, level: Beginners }
+updates:
+- { date: 2019-07-09, description: "Fix an error in the build code" }
 ---
 
 I've got a good idea from a reader, and I decided to move forward with it: Infrastructure as code.
