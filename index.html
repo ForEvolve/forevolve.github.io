@@ -7,7 +7,7 @@ hide-page-header: true
 <div class="post-list-container">
     <section class="post-list">
         {% for post in paginator.posts %}
-            {%- comment -%} {%- if forloop.index == 3 or forloop.index == 9 -%}
+            {%- if forloop.index == 3 or forloop.index == 9 -%}
                 <div class="post-ads">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <ins class="adsbygoogle"
@@ -20,7 +20,7 @@ hide-page-header: true
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-            {%- endif -%} {%- endcomment -%}
+            {%- endif -%}
             <div class="post-preview">
                 <a href="{{ post.url }}" class="post-title-a">
                     <h2 class="post-title">
