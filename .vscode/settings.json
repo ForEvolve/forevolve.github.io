@@ -1,4 +1,9 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "html.format.enable": true
+    "html.format.enable": true,
+    "files.associations": {
+        "*.md": "jekyll",
+        "*.html": "jekyll",
+        "Gemfile.*": "ruby"
+    }
 }
