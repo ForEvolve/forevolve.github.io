@@ -2,15 +2,15 @@
 title: ForEvolve
 subtitle: A piece of mind...
 header-img: //cdn.forevolve.com/blog/images/pages-header/default-header.jpg
-#email: 
+#email:
 copyright_name: Carl-Hugo Marcotte
-description: "A piece of mind"
-baseurl: ""
-url: "http://www.forevolve.com"
+description: 'A piece of mind'
+baseurl: ''
+url: 'http://www.forevolve.com'
 twitter_username: CarlHugoM
 github_username: ForEvolve
 #facebook_username: carl.hugo.marcotte
-#email_username: 
+#email_username:
 linkedin_username: carl-hugo-marcotte
 default_lang: en
 
@@ -18,7 +18,7 @@ default_lang: en
 comments: true
 disqus_shortname: forevolve
 kramdown:
-  entity_output: numeric
+    entity_output: numeric
 
 # Google Analytics
 google_tracking_id: UA-81489213-2
@@ -28,23 +28,21 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ['less', 'node_modules', 'Gruntfile.js', 'package.json', 'README.md']
 
-plugins: [jekyll-feed, jekyll-paginate, jekyll-redirect-from, jemoji] 
+plugins: [jekyll-feed, jekyll-paginate, jekyll-redirect-from, jemoji]
 
 excerpt_separator: <!--more-->
 
 defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "Carl-Hugo Marcotte"
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
+    - scope:
+          path: ''
+          type: 'posts'
+      values:
+          layout: 'post'
+          author: 'Carl-Hugo Marcotte'
+    - scope:
+          path: ''
+          type: 'pages'
+      values:
+          layout: 'page'
