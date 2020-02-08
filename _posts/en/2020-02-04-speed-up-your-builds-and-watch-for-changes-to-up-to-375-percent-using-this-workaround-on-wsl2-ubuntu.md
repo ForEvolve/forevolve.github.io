@@ -1,9 +1,8 @@
 ---
 title: 'Speed up your builds to up to 375% and watch for changes for an even faster dev cycle using this workaround on WSL2/Ubuntu'
-subtitle: 'Using Jekyll'
+subtitle: 'Using Jekyll, from WSL/Linux (Workaround 1)'
 date: 2020-02-04 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2020-02-00-WSL2.jpg'
-# "//cdn.forevolve.com/blog/images/articles-header/2020-02-00-WSL2.jpg"
 unsplash-credit: Photos by Victoria Heath and Matthew T Rader on Unsplash
 lang: en
 categories: en/articles
@@ -19,6 +18,7 @@ technology-relative-level:
     - { name: Git, level: Intermediate }
 updates:
     - { date: 2020-02-04, description: 'Fix some typos and update the title to be clearer' }
+    - { date: 2020-02-07, description: 'Link to the second version of the article' }
 ---
 
 In this article, we explore a workaround to watch for changes using a Jekyll project, Windows 10, WSL2, Ubuntu 18.04, and Visual Studio Code.
@@ -28,6 +28,10 @@ Moreover, I noticed a significant speed boost when running commands, like build,
 > Unfortunately, everything was working fine for me over WSL1 and broke on WSL2. Why not go back? Well, I wanted to explore WSL2 to see if it was a viable alternative for projects built with Docker.
 > So far, besides the impossibility of watching the file system correctly, it is working well enough, so I want to stick with it. ¸
 > My goal behind using WSL2 is to maintain a single set of bash script to run, build, debug, and deploy containers instead of a mix of bash and PowerShell (to keep this short).
+
+## Follow up article
+
+I wrote a [follow up article](/en/articles/2020/02/07/speed-up-your-builds-and-watch-for-changes-to-up-to-375-percent-using-this-workaround-on-wsl2-ubuntu-on-windows/), showing an improved solution to the same problem covered in this article. Some information of the current article could still be of interest to you, so don't stop reading or feel free to come back later.
 
 ## Prerequisites
 
