@@ -1,19 +1,19 @@
 Beginners:
     name: Beginners
-    short-description: You are new to the technology.
+    short-description: You are new to the technology
     description: You are new to this technology.
 
 Familiar:
     name: Familiar
-    short-description: You are familiar with the technology.
+    short-description: You are familiar with the technology
     description: You are already familiar with the technology; you built a few projects with it already.
 
 Seasoned:
     name: Seasoned
-    short-description: You know the technology well.
+    short-description: You know the technology well
     description: You worked a lot with the technology and know it well.
 
 Expert:
     name: Expert
-    short-description: The technology as no more secret for you.
+    short-description: The technology as no more secret for you
     description: You worked with the technology for more years than you can count and it has no more secret for you.

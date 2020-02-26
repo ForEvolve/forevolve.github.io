@@ -71,6 +71,23 @@ hide-page-header: true
                     <p><img src="{{ site.baseurl }}/{{ post.post-img }}" alt="{{ post.title }}"></p>
                 {% endif %}
 
+                {% if post.technology-relative-level %}
+                    <aside class="technology-relative-level">
+                        <strong>Expected knowlegde level:</strong>
+                        <ul>
+                            {%- for techLevel in post.technology-relative-level -%}                                
+                                <li>
+                                    {{ techLevel.name }}:
+                                    {% assign levelInfo = site.data.technology-relative-levels[techLevel.level] %}
+                                    <a href="javascript:;" title="{{ levelInfo.description }}">{{ levelInfo.name }}</a>
+                                    <small>({{ levelInfo.short-description }})</small>
+                                </li>
+                            {%- endfor -%}
+                        </ul>
+                        <hr>
+                    </aside>
+                {% endif %}
+
                 {% comment %}{% if post.proficiency-level %}
                     <aside>
                         <strong>Target proficiency level:</strong>

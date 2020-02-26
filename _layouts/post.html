@@ -52,13 +52,13 @@ layout: default
                     
                     {% if page.technology-relative-level %}
                         <aside class="technology-relative-level">
-                            <strong>Expected knowlegde:</strong>
+                            <strong>Expected knowlegde level:</strong>
                             <ul>
                                 {%- for techLevel in page.technology-relative-level -%}                                
                                     <li>
                                         {{ techLevel.name }}:
                                         {% assign levelInfo = site.data.technology-relative-levels[techLevel.level] %}
-                                        <a href="#" title="{{ levelInfo.description }}">{{ levelInfo.name }}</a>
+                                        <a href="javascript:;" title="{{ levelInfo.description }}">{{ levelInfo.name }}</a>
                                         <small>({{ levelInfo.short-description }})</small>
                                     </li>
                                 {%- endfor -%}
@@ -78,7 +78,12 @@ layout: default
                     {% endif %}
 
                     {% if page.post-img %}
-                    <p><img src="{{ site.baseurl }}/{{ page.post-img }}" alt="{{ page.title }}"></p>
+                    <figure>
+                        <img src="{{ site.baseurl }}/{{ page.post-img }}" alt="{{ page.title }}">
+                        {%- if page.unsplash-credit -%}
+                            <figcaption>{{ page.unsplash-credit }}</figcaption>
+                        {%- endif -%}
+                    </figure>
                     {% endif %}
                 </header>
 

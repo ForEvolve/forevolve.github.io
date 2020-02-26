@@ -2,6 +2,7 @@
 title: ForEvolve
 subtitle: A piece of mind...
 header-img: //cdn.forevolve.com/blog/images/pages-header/default-header.jpg
+override-header-img-with-post-img: false
 #email:
 copyright_name: Carl-Hugo Marcotte
 description: 'A piece of mind'

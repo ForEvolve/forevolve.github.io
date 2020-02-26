@@ -16,8 +16,18 @@
 <body>
     {% include nav.html %}
 
+    {%- assign introHeaderImageUri = site.baseurl | append: "/" -%}
+    {%- if page.header-img -%}
+        {%- assign introHeaderImageUri = introHeaderImageUri | append: page.header-img -%}
+    {%- elsif site.override-header-img-with-post-img and page.post-img -%}
+        {%- assign introHeaderImageUri = introHeaderImageUri | append: page.post-img -%}
+    {%- else -%}
+        {%- assign introHeaderImageUri = introHeaderImageUri | append: site.header-img -%}
+    {%- endif -%}
+
+    
     <!-- Page Header -->
-    <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <header class="intro-header" style="background-image: url('{{ introHeaderImageUri }}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
