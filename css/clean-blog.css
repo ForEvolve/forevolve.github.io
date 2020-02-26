@@ -625,6 +625,12 @@ ol ol {
 .navbar-brand:hover span:last-child {
   color: #008900;
 }
+@media (max-width: 768px) {
+  .post-list-container .post-list {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
 .post-list-container {
   display: flex;
 }
@@ -706,6 +712,17 @@ section.multi-section section:nth-child(n + 2) header {
 }
 .badge.toc-you-are-here {
   background-color: #3c763d;
+}
+.follow-me-list {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 10px;
+  list-style-type: none;
+  bottom: 50%;
+  position: fixed;
+  right: 0;
+  z-index: 1;
 }
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)

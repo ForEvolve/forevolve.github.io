@@ -254,6 +254,14 @@ ol {
         }
     }
 }
+@media (max-width: 768px) {
+    .post-list-container {
+        .post-list {
+            width: 100%;
+            overflow-x: hidden;
+        }
+    }
+}
 
 .post-list-container {
     display: flex;
@@ -364,6 +372,18 @@ section.multi-section {
     }
     &.toc-coming-soon {
     }
+}
+
+.follow-me-list {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 10px;
+    list-style-type: none;
+    bottom: 50%;
+    position: fixed;
+    right: 0;
+    z-index: 1;
 }
 
 @import 'prism-vs-theme.less';
