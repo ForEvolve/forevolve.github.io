@@ -1,9 +1,3 @@
-/*!
- * Clean Blog v1.0.0 (http://startbootstrap.com)
- * Copyright 2018 Start Bootstrap
- * Licensed under MIT (https://spdx.org/licenses/MIT)
- */
-
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -423,6 +417,10 @@ body {
 .intro-header .site-heading hr.small {
   border-color: #007f00;
 }
+.technology-relative-level {
+  font-size: 0.8em;
+}
+.technology-relative-level,
 .proficiency-level,
 .tags,
 .languages {
@@ -596,7 +594,7 @@ body {
   background: #007f00;
   text-decoration: none;
   font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .post-preview .post-readmore a:hover {
   background: #009900;
@@ -663,7 +661,7 @@ ul.regroup-list li a span.post-subtitle {
   font-weight: bold;
 }
 ul.regroup-list li a span.post-subtitle:before {
-  content: "- ";
+  content: '- ';
 }
 ul.regroup-list li a small {
   color: #999;

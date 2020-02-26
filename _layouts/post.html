@@ -49,6 +49,23 @@ layout: default
                             <small>({{ level.short-description }})</small>
                         </aside>
                     {% endif %}
+                    
+                    {% if page.technology-relative-level %}
+                        <aside class="technology-relative-level">
+                            <strong>Expected knowlegde:</strong>
+                            <ul>
+                                {%- for techLevel in page.technology-relative-level -%}                                
+                                    <li>
+                                        {{ techLevel.name }}:
+                                        {% assign levelInfo = site.data.technology-relative-levels[techLevel.level] %}
+                                        <a href="#" title="{{ levelInfo.description }}">{{ levelInfo.name }}</a>
+                                        <small>({{ levelInfo.short-description }})</small>
+                                    </li>
+                                {%- endfor -%}
+                            </ul>
+                            <hr>
+                        </aside>
+                    {% endif %}
 
                     {% if page.tags[0] %}
                         <aside class="tags">

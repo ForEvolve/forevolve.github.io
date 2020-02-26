@@ -14,6 +14,7 @@ bundle exec jekyll serve --watch --drafts
 bundle exec jekyll serve --watch --drafts --incremental --future
 bundle exec jekyll serve --watch --incremental
 bundle exec jekyll build --profile
+bundle exec jekyll s -I
 ```
 
 # Clean Blog by Start Bootstrap - Jekyll Version

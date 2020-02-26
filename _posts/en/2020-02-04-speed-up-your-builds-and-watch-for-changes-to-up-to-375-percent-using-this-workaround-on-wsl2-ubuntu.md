@@ -11,11 +11,11 @@ tags:
     - WSL2
 # proficiency-level: Intermediate
 technology-relative-level:
-    - { name: Jekyll, level: Intermediate }
-    - { name: WSL2, level: Intermediate }
-    - { name: Bash, level: Intermediate }
-    - { name: VS Code, level: Intermediate }
-    - { name: Git, level: Intermediate }
+    - { name: Jekyll, level: Familiar }
+    - { name: WSL2, level: Familiar }
+    - { name: Bash, level: Familiar }
+    - { name: VS Code, level: Familiar }
+    - { name: Git, level: Familiar }
 updates:
     - { date: 2020-02-04, description: 'Fix some typos and update the title to be clearer' }
     - { date: 2020-02-07, description: 'Link to the second version of the article' }

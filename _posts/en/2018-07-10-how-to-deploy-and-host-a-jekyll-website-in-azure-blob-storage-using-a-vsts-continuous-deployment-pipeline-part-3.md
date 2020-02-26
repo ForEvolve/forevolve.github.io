@@ -17,8 +17,8 @@ technology-relative-level:
 - { name: Azure, level: Beginners }
 - { name: VSTS, level: Beginners }
 - { name: DevOps, level: Beginners }
-- { name: Jekyll, level: Intermediate }
-- { name: Git, level: Intermediate }
+- { name: Jekyll, level: Familiar }
+- { name: Git, level: Familiar }
 ---
 
 Lets recap: we have a Jekyll website saved in VSTS/Git, with a build that starts automatically each time someone pushes code to the `master` branch.

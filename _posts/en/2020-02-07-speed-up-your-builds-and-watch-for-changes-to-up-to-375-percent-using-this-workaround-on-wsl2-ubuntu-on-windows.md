@@ -11,11 +11,11 @@ tags:
     - WSL2
 # proficiency-level: Intermediate
 technology-relative-level:
-    - { name: Jekyll, level: Intermediate }
-    - { name: WSL2, level: Intermediate }
-    - { name: Bash, level: Intermediate }
-    - { name: VS Code, level: Intermediate }
-    - { name: Git, level: Intermediate }
+    - { name: Jekyll, level: Familiar }
+    - { name: WSL2, level: Familiar }
+    - { name: Bash, level: Familiar }
+    - { name: VS Code, level: Familiar }
+    - { name: Git, level: Familiar }
 ---
 
 In this article, we explore how to use VS Code on Windows and use the Linux file system to watch for changes in an improved dev workflow that I described recently in the [first article](/en/articles/2020/02/04/speed-up-your-builds-and-watch-for-changes-to-up-to-375-percent-using-this-workaround-on-wsl2-ubuntu/) about this subject.
