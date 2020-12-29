@@ -1,12 +1,10 @@
 ---
 layout: default
 ---
- 
-{% assign posts=site.posts | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
-{% assign pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %}
-{% assign postCount=posts | size %}
-{% assign pageCount=pages | size %}
-{% assign totalCount=postCount | plus:pageCount %}
+
+{% assign posts=site.posts | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %} {% assign
+pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page.lang" | sort: 'lang' %} {% assign postCount=posts | size %}
+{% assign pageCount=pages | size %} {% assign totalCount=postCount | plus:pageCount %}
 
 <!-- Post Content -->
 <article>
@@ -15,165 +13,181 @@ layout: default
             <main class="col-sm-12 post-content">
                 <!-- Post Header -->
                 <header class="intro-header">
+                    <div class="hidden-xs intro-header-buy-net5-book">{%- include buy-net5-book.html -%}</div>
+
                     <div class="post-heading">
                         <h1>{{ page.title }}</h1>
                         {% if page.subtitle %}
                         <h2 class="subheading">{{ page.subtitle }}</h2>
                         {% endif %}
-                        <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
-                        {% comment %}<a href="{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{ page.url }}"></a>{% endcomment %}
+                        <span class="meta"
+                            >Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date:
+                            "%B %-d, %Y" }}</span
+                        >
                     </div>
-                    
-                    {% for lang in site.data.languages %}
-                        {% assign language = lang[1] %}
-                        {% if language.shortName == page.lang %}
-                            <aside class="languages">
-                                <strong>Language: </strong>
-                                <a href="/languages/#{{ language.categoryName | slugify }}">{{ language.displayName }}</a>
 
-                                {% if totalCount > 0 %}
-                                    {% for post in posts %}{% if page.ref %}| <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {%endif%}{% endfor %}
-                                    {% for page in pages %}{% if page.ref %}| <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {%endif%}{% endfor %}
-                                    <hr>
-                                {% endif %}
-                            </aside>
+                    {% for lang in site.data.languages %} {% assign language = lang[1] %} {% if language.shortName == page.lang %}
+                    <aside class="languages">
+                        <strong>Language: </strong>
+                        <a href="/languages/#{{ language.categoryName | slugify }}">{{ language.displayName }}</a>
+
+                        {% if totalCount > 0 %} {% for post in posts %}{% if page.ref %}|
+                        <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}"
+                            >{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a
+                        >
+                        {%endif%}{% endfor %} {% for page in pages %}{% if page.ref %}|
+                        <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}"
+                            >{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a
+                        >
+                        {%endif%}{% endfor %}
+                        <hr />
                         {% endif %}
-                    {% endfor %}
-                    
-                    {% if page.proficiency-level %}
-                        <aside class="proficiency-level">
-                            <strong>Target proficiency level:</strong>
+                    </aside>
+                    {% endif %} {% endfor %} {% if page.proficiency-level %}
+                    <aside class="proficiency-level">
+                        <strong>Target proficiency level:</strong>
 
-                            {% assign level = site.data.proficiency-levels[page.proficiency-level] %}
-                            <a href="/levels/#proficiency-level-{{ page.proficiency-level | slugify }}" title="{{ level.description }}">{{ level.name }}</a>
-                            <small>({{ level.short-description }})</small>
-                        </aside>
-                    {% endif %}
-                    
-                    {% if page.technology-relative-level %}
-                        <aside class="technology-relative-level">
-                            <strong>Expected knowlegde level:</strong>
-                            <ul>
-                                {%- for techLevel in page.technology-relative-level -%}                                
-                                    <li>
-                                        {{ techLevel.name }}:
-                                        {% assign levelInfo = site.data.technology-relative-levels[techLevel.level] %}
-                                        <a href="javascript:;" title="{{ levelInfo.description }}">{{ levelInfo.name }}</a>
-                                        <small>({{ levelInfo.short-description }})</small>
-                                    </li>
-                                {%- endfor -%}
-                            </ul>
-                            <hr>
-                        </aside>
-                    {% endif %}
-
-                    {% if page.tags[0] %}
-                        <aside class="tags">
-                            <i class="glyphicon glyphicon-tags"></i>
-                            &nbsp;
-                            {% for tag in page.tags %} 
-                                <a href="/tags/#{{ tag | slugify }}" title="View posts tagged with &quot;{{ tag }}&quot;"><u>{{ tag }}</u></a>{% if forloop.last != true %}, {% endif %} 
-                            {% endfor %}
-                        </aside>
-                    {% endif %}
-
-                    {% if page.post-img %}
+                        {% assign level = site.data.proficiency-levels[page.proficiency-level] %}
+                        <a href="/levels/#proficiency-level-{{ page.proficiency-level | slugify }}" title="{{ level.description }}"
+                            >{{ level.name }}</a
+                        >
+                        <small>({{ level.short-description }})</small>
+                    </aside>
+                    {% endif %} {% if page.technology-relative-level %}
+                    <aside class="technology-relative-level">
+                        <strong>Expected knowlegde level:</strong>
+                        <ul>
+                            {%- for techLevel in page.technology-relative-level -%}
+                            <li>
+                                {{ techLevel.name }}: {% assign levelInfo = site.data.technology-relative-levels[techLevel.level] %}
+                                <a href="javascript:;" title="{{ levelInfo.description }}">{{ levelInfo.name }}</a>
+                                <small>({{ levelInfo.short-description }})</small>
+                            </li>
+                            {%- endfor -%}
+                        </ul>
+                        <hr />
+                    </aside>
+                    {% endif %} {% if page.tags[0] %}
+                    <aside class="tags">
+                        <i class="glyphicon glyphicon-tags"></i>
+                        &nbsp; {% for tag in page.tags %}
+                        <a href="/tags/#{{ tag | slugify }}" title='View posts tagged with "{{ tag }}"'><u>{{ tag }}</u></a
+                        >{% if forloop.last != true %}, {% endif %} {% endfor %}
+                    </aside>
+                    {% endif %} {% if page.post-img %}
                     <figure>
-                        <img src="{{ site.baseurl }}/{{ page.post-img }}" alt="{{ page.title }}">
+                        <img src="{{ site.baseurl }}/{{ page.post-img }}" alt="{{ page.title }}" />
                         {%- if page.unsplash-credit -%}
-                            <figcaption>{{ page.unsplash-credit }}</figcaption>
+                        <figcaption>{{ page.unsplash-credit }}</figcaption>
                         {%- endif -%}
                     </figure>
                     {% endif %}
                 </header>
 
-				<article>{{ content }}</article>
+                <article>{{ content }}</article>
 
-                {% include updates.html %}
-
-                {% if totalCount > 0 %}
-                    <hr>
-                    <nav>
-                        <div class="wrapper" style="text-align: right; line-height: 2em">
-                            {% for post in posts %}{% if page.ref %}| <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {%endif%}{% endfor %}
-                            {% for page in pages %}{% if page.ref %}| <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}">{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a> {%endif%}{% endfor %}
-                        </div>
-                    </nav>
+                {% include updates.html %} {% if totalCount > 0 %}
+                <hr />
+                <nav>
+                    <div class="wrapper" style="text-align: right; line-height: 2em">
+                        {% for post in posts %}{% if page.ref %}|
+                        <a href="{{ post.url | prepend: site.baseurl }}" class="{{ post.lang }}"
+                            >{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a
+                        >
+                        {%endif%}{% endfor %} {% for page in pages %}{% if page.ref %}|
+                        <a href="{{ page.url | prepend: site.baseurl }}" class="{{ page.lang }}"
+                            >{% if post.lang == "fr" %}Lire la version francophone{% else %}Read the english version{% endif %}</a
+                        >
+                        {%endif%}{% endfor %}
+                    </div>
+                </nav>
                 {% endif %}
 
-                <hr>
+                <hr />
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- Static Ads -->
-                <ins class="adsbygoogle"
-                    style="display:block"
+                <ins
+                    class="adsbygoogle"
+                    style="display: block"
                     data-ad-client="ca-pub-4006645379906183"
                     data-ad-slot="9960733545"
                     data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
+                    data-full-width-responsive="true"
+                ></ins>
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
 
                 {% if page.previous.url or page.next.url %}
-                    <hr>
-                    <ul class="pager">
-                        {% if page.previous.url %}
-                        <li class="previous">
-                            <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}{% if page.previous.subtitle %} | {{page.previous.subtitle}}{% endif %}">
-                                &larr; Previous Post
-                            </a>
-                        </li>
-                        {% endif %}
-                        {% if page.next.url %}
-                        <li class="next">
-                            <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}{% if page.next.subtitle %} | {{page.next.subtitle}}{% endif %}">
-                                Next Post &rarr;
-                            </a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                    <hr>
-                {% endif %}
-
-                {% if page.tags[0] %}
-                    <footer>
-                        <i class="glyphicon glyphicon-tags"></i>
-                        &nbsp;
-                        {% for tag in page.tags %} 
-                            <a href="/tags/#{{ tag | slugify }}" title="View posts tagged with &quot;{{ tag }}&quot;"><u>{{ tag }}</u></a>{% if forloop.last != true %}, {% endif %} 
-                        {% endfor %}
-                    </footer>
-                    <hr>
-                {% endif %}
-
-                {% if site.comments %}
-                    {% unless page.comments == false %}
-                        <h2>Comments</h2>
-                        <aside id="disqus_thread"></aside>
-                        <script>
-                        (function() {
-                            var d = document, s = d.createElement('script');
-                            s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
-                            s.setAttribute('data-timestamp', +new Date());
-                            (d.head || d.body).appendChild(s);
-                        })();
-                        </script>
-                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                    {% endunless %}
-                {% endif %}
+                <hr />
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a
+                            href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="{{page.previous.title}}{% if page.previous.subtitle %} | {{page.previous.subtitle}}{% endif %}"
+                        >
+                            &larr; Previous Post
+                        </a>
+                    </li>
+                    {% endif %} {% if page.next.url %}
+                    <li class="next">
+                        <a
+                            href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="{{page.next.title}}{% if page.next.subtitle %} | {{page.next.subtitle}}{% endif %}"
+                        >
+                            Next Post &rarr;
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <hr />
+                {% endif %} {% if page.tags[0] %}
+                <footer>
+                    <i class="glyphicon glyphicon-tags"></i>
+                    &nbsp; {% for tag in page.tags %}
+                    <a href="/tags/#{{ tag | slugify }}" title='View posts tagged with "{{ tag }}"'><u>{{ tag }}</u></a
+                    >{% if forloop.last != true %}, {% endif %} {% endfor %}
+                </footer>
+                <hr />
+                {% endif %} {% if site.comments %} {% unless page.comments == false %}
+                <h2>Comments</h2>
+                <aside id="disqus_thread"></aside>
+                <script>
+                    (function () {
+                        var d = document,
+                            s = d.createElement('script');
+                        s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript
+                    >Please enable JavaScript to view the
+                    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript
+                >
+                {% endunless %} {% endif %}
             </main>
         </div>
     </div>
 </article>
-<hr>
-{%- comment -%} <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-4006645379906183"
-     data-ad-slot="3656299205"></ins>
+<hr />
+{%- comment -%}
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins
+    class="adsbygoogle"
+    style="display: block; text-align: center"
+    data-ad-layout="in-article"
+    data-ad-format="fluid"
+    data-ad-client="ca-pub-4006645379906183"
+    data-ad-slot="3656299205"
+></ins>
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+    (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<hr> {%- endcomment -%}
+<hr />
+{%- endcomment -%}

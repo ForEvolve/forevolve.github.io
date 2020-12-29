@@ -724,6 +724,44 @@ section.multi-section section:nth-child(n + 2) header {
   right: 0;
   z-index: 1;
 }
+.xs-top-buy-net5-book {
+  width: 250px;
+  padding: 0 0 25px;
+  margin: auto;
+}
+.xs-top-buy-net5-book aside.book {
+  border: 1px solid #007f00;
+  padding-bottom: 25px;
+}
+.xs-top-buy-net5-book aside.book h4 {
+  text-align: center;
+  color: #007f00;
+}
+.intro-header-buy-net5-book {
+  float: right;
+  width: 250px;
+  padding: 0 0 25px;
+  margin: 0 0 0 25px;
+}
+.intro-header-buy-net5-book aside.book {
+  border: 1px solid #007f00;
+  padding-bottom: 25px;
+}
+.intro-header-buy-net5-book h4 {
+  text-align: center;
+  color: #007f00;
+}
+aside.book {
+  cursor: pointer;
+  margin: auto;
+}
+aside.book img {
+  margin: auto;
+}
+.post-content .intro-header aside.book img {
+  width: auto;
+  margin: auto;
+}
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)
  * Inspired by Visual Studio syntax coloring
