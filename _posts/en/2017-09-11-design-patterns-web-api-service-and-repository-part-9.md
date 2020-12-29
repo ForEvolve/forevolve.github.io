@@ -1,17 +1,17 @@
 ---
-title:  "Design Patterns: Asp.Net Core Web API, services, and repositories"
-subtitle: "Part 9: the NinjaMappingService and the Façade pattern"
-date:   2017-09-11 00:00:00 -0500
-post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png"
+title: 'Design Patterns: Asp.Net Core Web API, services, and repositories'
+subtitle: 'Part 9: the NinjaMappingService and the Façade pattern'
+date: 2017-09-11 00:00:00 -0500
+post-img: '//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png'
 lang: en
 categories: en/articles
-tags: 
-- Design Patterns
-- Asp.Net Core
-- C#
-- Unit Test
-- XUnit
-- Façade Pattern
+tags:
+    - Design Patterns
+    - Asp.Net Core
+    - C#
+    - Unit Test
+    - XUnit
+    - Façade Pattern
 proficiency-level: Intermediate
 ---
 
@@ -36,6 +36,7 @@ This will also allow us to explore an additional design pattern: the Façade. <!
 {% include design-patterns-web-api-service-and-repository/series.md %}
 
 ## NinjaMappingService
+
 Before going further, we will create an `INinjaMappingService` interface that will become our "ninja mapping hub."
 
 The `INinjaMappingService` responsibility is to offer a centralized and convenient way to convert `Ninja` to `NinjaEntity` and vice versa.
@@ -46,7 +47,7 @@ If the need of such operation ever arises, we will add it then, and only then.
 
 > I could have added those methods directly in the `NinjaRepository` class, but remember SOLID and it single responsibility principle (SRP): **A class should have only one reason to change**.
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Services
 {
     public interface INinjaMappingService
@@ -76,7 +77,7 @@ We will keep the `INinjaMappingService`, but it will simply become a **Façade**
             </figcaption>
         </figure>
         <aside class="amazon-content">
-            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=forevolve-20&marketplace=amazon&region=US&placement=059652773X&asins=059652773X&linkId=c1c10bedd9bfd94c53969aefe3e249a0&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
+            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=forevolve0b-20&marketplace=amazon&amp;region=US&placement=059652773X&asins=059652773X&linkId=dccb52fe1568f137f6956103450bd87e&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
         </aside>
     </section>
     <footer>
@@ -87,6 +88,7 @@ We will keep the `INinjaMappingService`, but it will simply become a **Façade**
 ---
 
 ### Mapping subsystem
+
 Behind our Façade hides the mapping subsystem.
 I created a little visual representation of the design.
 
@@ -95,9 +97,9 @@ The hard part was to represent the concept in a single diagram.
 
 I used colors to identify elements.
 
-- `Ninja Map(NinjaEntity entity);` reference color is blue.
-- `NinjaEntity Map(Ninja ninja);` reference color is green.
-- `IEnumerable<Ninja> Map(IEnumerable<NinjaEntity> entity);` reference color is yellow.
+-   `Ninja Map(NinjaEntity entity);` reference color is blue.
+-   `NinjaEntity Map(Ninja ninja);` reference color is green.
+-   `IEnumerable<Ninja> Map(IEnumerable<NinjaEntity> entity);` reference color is yellow.
 
 Let's take a look:
 
@@ -105,7 +107,7 @@ Let's take a look:
 
 The first large red interface is a generic mapping interface with only one method defined: the `Map` method.
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public interface IMapper<TSource, TDestination>
@@ -121,21 +123,23 @@ Even more, the first three are the same as the last three; I only needed more sp
 > :thought_balloon: I would have needed a 3D diagram to make this clearer...
 
 #### The left side
+
 We will create three classes, each one with a single mapping responsibility (implementing `IMapper<TSource, TDestination>`).
 
-- `NinjaEntityToNinjaMapper` will implement `IMapper<NinjaEntity, Ninja>`
-- `NinjaToNinjaEntityMapper` will implement `IMapper<Ninja, NinjaEntity>`
-- `NinjaEntityEnumerableToNinjaMapper` will implement `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`
+-   `NinjaEntityToNinjaMapper` will implement `IMapper<NinjaEntity, Ninja>`
+-   `NinjaToNinjaEntityMapper` will implement `IMapper<Ninja, NinjaEntity>`
+-   `NinjaEntityEnumerableToNinjaMapper` will implement `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`
 
 > This is a very flexible design where each mapper is independent.
 
 ##### NinjaToNinjaEntityMapper
+
 `NinjaToNinjaEntityMapper` implement `IMapper<Ninja, NinjaEntity>`.
 Its role is to convert `Ninja` to `NinjaEntity`.
 
 **The test:**
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class NinjaToNinjaEntityMapperTest
@@ -177,7 +181,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 
 **The implementation:**
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class NinjaToNinjaEntityMapper : IMapper<Ninja, NinjaEntity>
@@ -198,12 +202,13 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 ```
 
 ##### NinjaEntityToNinjaMapper
+
 `NinjaEntityToNinjaMapper` implement `IMapper<NinjaEntity, Ninja>`.
 Its role is to convert `Ninja` to `NinjaEntity`.
 
 **The test:**
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class NinjaEntityToNinjaMapperTest
@@ -246,11 +251,11 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 
 **The implementation:**
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class NinjaEntityToNinjaMapper : IMapper<NinjaEntity, Ninja>
-    { 
+    {
         public Ninja Map(NinjaEntity entity)
         {
             var ninja = new Ninja
@@ -267,12 +272,13 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 ```
 
 ##### NinjaEntityEnumerableToNinjaMapper
+
 `NinjaEntityEnumerableToNinjaMapper` implement `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`.
 Its role is to convert `Ninja` to `NinjaEntity`.
 
 **The test:**
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class NinjaEntityEnumerableToNinjaMapperTest
@@ -315,7 +321,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 
 **The implementation:**
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class NinjaEntityEnumerableToNinjaMapper : IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>
@@ -343,14 +349,13 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 }
 ```
 
-
 #### The right side
 
 As you can maybe deduce from `IMapper<TSource, TDestination>` and the `INinjaMappingService` definition (and the diagram), `INinjaMappingService` can simply inherit from `IMapper<TSource, TDestination>` with three different generic pairs.
 
 The updated `INinjaMappingService` interface now looks like this:
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Services
 {
     public interface INinjaMappingService : IMapper<Ninja, NinjaEntity>, IMapper<NinjaEntity, Ninja>, IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>
@@ -359,24 +364,24 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 }
 ```
 
-The tricky part of the diagram was to illustrate the `NinjaMappingService` class relations. 
+The tricky part of the diagram was to illustrate the `NinjaMappingService` class relations.
 
-In words: `NinjaMappingService` implement `INinjaMappingService` and indirectly uses the three mappers. 
+In words: `NinjaMappingService` implement `INinjaMappingService` and indirectly uses the three mappers.
 This makes `NinjaMappingService` coupled only with the `IMapper` interface, which keeps our application loosely coupled.
 
 The full description goes as follow:
 
-- `NinjaMappingService` implement `INinjaMappingService`.
-- `NinjaMappingService` use an `IMapper<NinjaEntity, Ninja>`. The runtime implementation will be `NinjaEntityToNinjaMapper`.
-- `NinjaMappingService` use an `IMapper<Ninja, NinjaEntity>`. The runtime implementation will be `NinjaToNinjaEntityMapper`.
-- `NinjaMappingService` use a `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`. The runtime implementation will be `NinjaEntityEnumerableToNinjaMapper`.
+-   `NinjaMappingService` implement `INinjaMappingService`.
+-   `NinjaMappingService` use an `IMapper<NinjaEntity, Ninja>`. The runtime implementation will be `NinjaEntityToNinjaMapper`.
+-   `NinjaMappingService` use an `IMapper<Ninja, NinjaEntity>`. The runtime implementation will be `NinjaToNinjaEntityMapper`.
+-   `NinjaMappingService` use a `IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>`. The runtime implementation will be `NinjaEntityEnumerableToNinjaMapper`.
 
 This is the `Façade` I was talking about earlier. It gives access to the ninja mapping subsystem in a convenient and centralized way.
 We could hide the individual mappers, we could create a mapping assembly, we could create a mapper factory, or we could have simply used `AutoMapper` :wink:.
 
 The full `NinjaMappingService` looks like this:
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Services
 {
     public class NinjaMappingService : INinjaMappingService
@@ -386,8 +391,8 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
         private readonly IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>> _ninjaEntityEnumerableToNinjaMapper;
 
         public NinjaMappingService(
-            IMapper<Ninja, NinjaEntity> ninjaToNinjaEntityMapper, 
-            IMapper<NinjaEntity, Ninja> ninjaEntityToNinjaMapper, 
+            IMapper<Ninja, NinjaEntity> ninjaToNinjaEntityMapper,
+            IMapper<NinjaEntity, Ninja> ninjaEntityToNinjaMapper,
             IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>> ninjaEntityEnumerableToNinjaMapper
         )
         {
@@ -417,9 +422,10 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
 Once again, pretty simple code: easy to read, test and reuse.
 
 ##### NinjaMappingService unit tests
+
 The `NinjaMappingServiceTest` class code looks like:
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Services
 {
     public class NinjaMappingServiceTest
@@ -499,16 +505,17 @@ Once again, due to the subsystem design, our tests are more than simple!
 Note that I am not testing the mapping here but the Façade.
 Each mapper has also been tested individually.
 
-*Feel free to post any questions that you may have in the comments.*
+_Feel free to post any questions that you may have in the comments._
 
 ## Refactoring NinjaEntityEnumerableToNinjaMapper
+
 If we take a look at `NinjaEntityEnumerableToNinjaMapper`, we could easily create a more generalized implementation that would support any collection.
 
 I will first rename `NinjaEntityEnumerableToNinjaMapper` to `EnumerableMapper`, which makes more sense.
 
 Here is the code, I will explain it after:
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class EnumerableMapper<TSource, TDestination> : IMapper<IEnumerable<TSource>, IEnumerable<TDestination>>
@@ -552,7 +559,7 @@ As a proof of that, in the `NinjaEntityEnumerableToNinjaMapperTest`, the only th
 
 That said, I will rename `NinjaEntityEnumerableToNinjaMapperTest` to `EnumerableMapperTest` and move stuff around a little to keep our test suite healthy.
 
-``` csharp
+```csharp
 namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class EnumerableMapperTest
@@ -602,7 +609,9 @@ To test more types combo, we could extract a generic representation of the test 
 I will leave you to it because, for now, we do not need other collection mappers.
 
 ## The end of this article
+
 ### What have we covered in this article?
+
 In this article:
 
 1. We created the Ninja mapping subsystem that we will use in the `NinjaRepository`.
@@ -611,6 +620,7 @@ In this article:
 1. We also ensured that our test suite stays healthy by keeping it up to date.
 
 ### What's next?
+
 In the next article:
 
 1. We will finally implement the `NinjaRepository`.

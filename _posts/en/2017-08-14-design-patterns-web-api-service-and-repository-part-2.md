@@ -117,8 +117,7 @@ The container manages dependencies and their lifecycle.
 
 ---
 
-> We could resume the use of a Container as follow: <br>
- > **You register your dependencies in it, and it gives you back what you configured; when needed.**
+> We could resume the use of a Container as follow: <br> **You register your dependencies in it, and it gives you back what you configured; when needed.**
 
 ---
 
@@ -395,7 +394,7 @@ Next, we will start writing some Ninja App code and see all that theory in pract
 <aside>
     <section class="with-amazon-content">
         <aside class="amazon-content">
-            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=forevolve-20&marketplace=amazon&region=US&placement=1935182501&asins=1935182501&linkId=795a99bab72f6d1a5063a3003a902876&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
+            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=forevolve0b-20&marketplace=amazon&amp;region=US&placement=1935182501&asins=1935182501&linkId=95fde63ce69ec153c64356914551ba09&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
         </aside>
         <section class="blog-content">
             <header>Dependency Injection</header>

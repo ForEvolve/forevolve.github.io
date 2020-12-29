@@ -1,35 +1,36 @@
 ---
-title:  "Design Patterns: Asp.Net Core Web API, services, and repositories"
-subtitle: "Part 11: Integration testing"
-date:   2017-10-02 00:00:00 -0500
-post-img: "//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png"
+title: 'Design Patterns: Asp.Net Core Web API, services, and repositories'
+subtitle: 'Part 11: Integration testing'
+date: 2017-10-02 00:00:00 -0500
+post-img: '//cdn.forevolve.com/blog/images/articles-header/2017-07-00-asp-net-core-design-patterns.png'
 lang: en
 categories: en/articles
-tags: 
-- Design Patterns
-- Asp.Net Core
-- Web API
-- C#
-- Integration Test
-- XUnit
-- Azure
-- Azure Table Storage
-- ForEvolve Framework
+tags:
+    - Design Patterns
+    - Asp.Net Core
+    - Web API
+    - C#
+    - Integration Test
+    - XUnit
+    - Azure
+    - Azure Table Storage
+    - ForEvolve Framework
 proficiency-level: Intermediate
 ---
 
 In the previous article, we completed the last piece of the Ninja API.
 In this article, we will glue all of these pieces together by:
 
-- Creating integration tests to integrate the Ninja subsystem confidently
-- Connecting the Ninja API to Azure Table Storage
-- Leveraging the new Asp.Net Core 2.0 default configuration<!--more-->
+-   Creating integration tests to integrate the Ninja subsystem confidently
+-   Connecting the Ninja API to Azure Table Storage
+-   Leveraging the new Asp.Net Core 2.0 default configuration<!--more-->
 
 [Skip the shared part](#integration-of-the-ninja)
 
 {% include design-patterns-web-api-service-and-repository/series.md %}
 
 ## Integration of the Ninja
+
 We now have a fully unit tested Ninja sub-system but, we still need to integrate it together if we want it to work.
 
 ---
@@ -40,6 +41,7 @@ We now have a fully unit tested Ninja sub-system but, we still need to integrate
 ---
 
 Let's first take a look at our original diagram:
+
 <figure>
     <img src="//cdn.forevolve.com/blog/images/2017/controller-service-repo-ninja-with-DI.png">
     <figcaption>An HTTP request from the <code>Controller</code> to the data source, fully decoupled.</figcaption>
@@ -47,8 +49,8 @@ Let's first take a look at our original diagram:
 
 We modified the `NinjaRepository` a little, adding two new dependencies:
 
-- `INinjaMappingService` that help us map our ninja to data-entities.
-- `ITableStorageRepository<NinjaEntity>` that handles the Azure Table data access.
+-   `INinjaMappingService` that help us map our ninja to data-entities.
+-   `ITableStorageRepository<NinjaEntity>` that handles the Azure Table data access.
 
 The new diagram looks like this:
 
@@ -65,6 +67,7 @@ If we add the indirect `TableStorageRepository<NinjaEntity>` dependency, we end 
 </figure>
 
 ### Integration tests
+
 The first thing we will do is plan our integration by creating some integration tests.
 The goal behind integration testing is to make sure that all of our units work well together: that our software behaves as expected.
 
@@ -79,16 +82,16 @@ By doing this, it will also be easier to assess success and failure.
 >
 > If I find the time, I would like to do that kind of end to end testing (and write about it) in a CI/CD pipeline using Postman/Newman against a real staging Azure Web App. But unfortunately not today.
 
-That said, integration testing does not imply testing the whole system; for example, you could verify the integration of only two components together if you'd feel the need to. 
+That said, integration testing does not imply testing the whole system; for example, you could verify the integration of only two components together if you'd feel the need to.
 It is all about combining the units and testing their interaction; making sure the system is working as intended.
 
 > If you remember my Lego block example, it is now time to take those blocks and build a castle with them.
 
-Integration testing is an essential part of testing your software and should not be overlooked. 
+Integration testing is an essential part of testing your software and should not be overlooked.
 I find integration testing (especially end-to-end testing) to be more concrete than unit testing since it allows you to make sure the system behaves as expected, from a user point of view (ex.: make sure that a call to the API does what it should).
 It is easier to see the benefit of it than unit tests.
 
-While unit testing is necessary, especially for testing complex features, like algorithms implementation, domain logic, etc. I believe that integration testing is even more important since it focuses on testing the interaction of those units together. 
+While unit testing is necessary, especially for testing complex features, like algorithms implementation, domain logic, etc. I believe that integration testing is even more important since it focuses on testing the interaction of those units together.
 Of course combining both make sure that units, subsystems and the whole application works as expected, which is even better.
 
 <aside>
@@ -99,20 +102,20 @@ Of course combining both make sure that units, subsystems and the whole applicat
             <p>Even if the book is a little old and the code samples in the book use NUnit instead of XUnit, the concepts remain; after all a test is a test, whatever the tools or the language behind it.</p>
         </section>
         <aside class="amazon-content">
-            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=forevolve-20&marketplace=amazon&region=US&placement=047064320X&asins=047064320X&linkId=09c9fcf83635ce3e79485f88e6debf29&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
+            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=forevolve0b-20&marketplace=amazon&amp;region=US&placement=047064320X&asins=047064320X&linkId=1d600b73d0d37854b0d74d592b403336&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
         </aside>
     </section>
 </aside>
 
 Another point before jumping into the code: while using dependency injection help us decouple our units, by moving the system composition responsibility outside of individual components, it also creates that centralized "sewing machine" that combines the units (at the composition root).
 
-To increase the quality of our software, that composition must also be tested. 
+To increase the quality of our software, that composition must also be tested.
 We can see this as another significant role of integration testing.
 
 <aside>
     <section class="with-amazon-content">
         <aside class="amazon-content">
-            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=forevolve-20&marketplace=amazon&region=US&placement=1935182501&asins=1935182501&linkId=795a99bab72f6d1a5063a3003a902876&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
+            <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=forevolve0b-20&marketplace=amazon&amp;region=US&placement=1935182501&asins=1935182501&linkId=399e6d28fa7112b3a2225e5997cd323f&show_border=false&link_opens_in_new_window=true&price_color=404040&title_color=007f00&bg_color=ffffff"></iframe>
         </aside>
         <section class="blog-content">
             <header>Dependency Injection</header>
@@ -132,19 +135,20 @@ We can see this as another significant role of integration testing.
 </aside>
 
 #### ITableStorageRepository
+
 Even if we (will) use a Mock, we still have to make sure that an implementation of `ITableStorageRepository<NinjaEntity>` is returned for our real system.
-*I could also have phrased this: "especially since we used a Mock".* :wink:
+_I could also have phrased this: "especially since we used a Mock"._ :wink:
 
 Basically, we want to make sure that the units we are not directly testing (the mocked part) are correctly configured with our DI container.
 
 Here is what we will not use in our integration tests (these comes from the `ForEvolve.Azure` package):
 
-- When asking for the `ITableStorageRepository<NinjaEntity>` service, the system should return a `TableStorageRepository<NinjaEntity>` instance.
-- To build that instance, we will also need an `ITableStorageSettings` implementation, which will be an instance of the `TableStorageSettings` class.
+-   When asking for the `ITableStorageRepository<NinjaEntity>` service, the system should return a `TableStorageRepository<NinjaEntity>` instance.
+-   To build that instance, we will also need an `ITableStorageSettings` implementation, which will be an instance of the `TableStorageSettings` class.
 
 The `ITableStorageSettings` is a simple interface:
 
-``` csharp
+```csharp
 public interface ITableStorageSettings : IStorageSettings
 {
     string TableName { get; set; }
@@ -158,7 +162,7 @@ public interface IStorageSettings
 
 The implementations looks like this:
 
-``` csharp
+```csharp
 public class TableStorageSettings : StorageSettings, ITableStorageSettings
 {
     public string TableName { get; set; }
@@ -180,15 +184,15 @@ public abstract class StorageSettings : IStorageSettings
 }
 ```
 
-*See [ForEvolve.Azure.Storage](https://github.com/ForEvolve/ForEvolve-Framework/tree/master/src/ForEvolve.Azure/Storage) source code for more info.*
+_See [ForEvolve.Azure.Storage](https://github.com/ForEvolve/ForEvolve-Framework/tree/master/src/ForEvolve.Azure/Storage) source code for more info._
 
 The `TableStorageSettings` class add one property to the three inherited from `StorageSettings`.
 
 For a connection to Azure Table to work, we will (only) need those three properties:
 
-- `AccountName`
-- `AccountKey`
-- `TableName`
+-   `AccountName`
+-   `AccountKey`
+-   `TableName`
 
 > You could also use the `DevelopmentTableStorageSettings` class to test against the emulator during development instead of the `TableStorageSettings` class.
 
@@ -196,11 +200,11 @@ Now that we took a little look at the `ForEvolve.Azure.Storage` namespace, let's
 
 At the root of `ForEvolve.Blog.Samples.NinjaApi.IntegrationTests`, let's create an `appsettings.json` file with the following content:
 
-``` json
+```json
 {
-  "AzureTable": {
-    "TableName": "MyTableName"
-  }
+    "AzureTable": {
+        "TableName": "MyTableName"
+    }
 }
 ```
 
@@ -208,15 +212,14 @@ Once this is done, make sure the file is copied to the build directory by using 
 
 > **Why?**
 >
-> The reason is simple (but maybe not that obvious): we are hosting `ForEvolve.Blog.Samples.NinjaApi.dll` in-memory, but we are not copying its settings file. 
+> The reason is simple (but maybe not that obvious): we are hosting `ForEvolve.Blog.Samples.NinjaApi.dll` in-memory, but we are not copying its settings file.
 > As we will explore later, we are loading settings from multiple sources, and the `TableName` come from the `appsettings.json` file.
-
 
 Ok, now we have some specs and some required configurations, it's time write those tests.
 
 In the `StartupTest+ServiceProvider` class of the `ForEvolve.Blog.Samples.NinjaApi.IntegrationTests` project, we will add those two tests, enforcing the rules that have previously been stated:
 
-``` csharp
+```csharp
 [Fact]
 public void Should_return_TableStorageSettings()
 {
@@ -239,7 +242,7 @@ As you can see, we want to make sure that `AccountKey`, `AccountName`, and `Tabl
 > I am testing `AccountKey` and `AccountName` only against `NotNull` because I do not want to hard code any credentials in the project.
 > We will set that up later using secrets.
 
-``` csharp
+```csharp
 [Fact]
 public void Should_return_TableStorageRepository_of_NinjaEntity()
 {
@@ -259,11 +262,12 @@ Once again, this is a pretty simple test enforcing the expected type of the `ITa
 If we run those tests, they will fail. We will make them pass later.
 
 #### NinjaControllerTest
+
 Now that we made sure the `ITableStorageRepository<NinjaEntity>` implementation is tested, we can jump right to the `NinjaControllerTest` class.
 
 The test initialization, shared by all tests, goes as follow:
 
-``` csharp
+```csharp
 public class NinjaControllerTest : BaseHttpTest
 {
     protected Mock<ITableStorageRepository<NinjaEntity>> TableStorageMock { get; }
@@ -292,7 +296,7 @@ public class NinjaControllerTest : BaseHttpTest
 
 In the `NinjaControllerTest` class, the `Mock<ITableStorageRepository<NinjaEntity>>` will play the role of the Azure Storage.
 To do so, it needs to be registered in the `IServiceCollection`, overriding the default.
-If we want to control the test clans (`IEnumerable<Clan>`), we also need to override that default as well. 
+If we want to control the test clans (`IEnumerable<Clan>`), we also need to override that default as well.
 
 > **The test clans**
 >
@@ -300,7 +304,6 @@ If we want to control the test clans (`IEnumerable<Clan>`), we also need to over
 > That said, live data could change in the future voiding our tests.
 > Having predictable input and output in automatic tests is important.
 > To conclude, I could have used `Clan Foo` and `Clan Bar` instead of `Iga` and `Kōga` (but hey! I did thorough research to come up with those names).
->
 
 > **ConfigureServices**
 >
@@ -311,7 +314,7 @@ If we want to control the test clans (`IEnumerable<Clan>`), we also need to over
 That said, do you remember our little refactoring about the extraction of the `EnforceNinjaExistenceAsync` method?
 If you do, here is an extension method to help set it up in both `UpdateAsync` and `DeleteAsync` (making sure the validation pass):
 
-``` csharp
+```csharp
 public static class TableStorageMockExtensions
 {
     public static NinjaEntity SetupEnforceNinjaExistenceAsync(this Mock<ITableStorageRepository<NinjaEntity>> tableStorageMock, string clanName, string ninjaKey)
@@ -327,7 +330,7 @@ public static class TableStorageMockExtensions
 
 Then these few helpers have been created along the way:
 
-``` csharp
+```csharp
 public class NinjaControllerTest : BaseHttpTest
 {
     // ...
@@ -365,13 +368,14 @@ public class NinjaControllerTest : BaseHttpTest
 These will help us compare `NinjaEntity` to `Ninja` as well as to create `NinjaEntity` classes.
 All of our tests will be executed over HTTP against a real running instance of our Web API, so we can't just compare mocked references anymore.
 
-Now that we covered all the shared code, it is time to jump to the tests themselves. 
+Now that we covered all the shared code, it is time to jump to the tests themselves.
 We will proceed test method by test method.
 
 ##### ReadAllAsync
+
 We want to make sure that the ninja returned by the Web API are the one returned by our mocked database, the `TableStorageMock`'s `ReadAllAsync()` method.
 
-``` csharp
+```csharp
 public class ReadAllAsync : NinjaControllerTest
 {
     [Fact]
@@ -406,12 +410,13 @@ public class ReadAllAsync : NinjaControllerTest
 ```
 
 ##### ReadAllInClanAsync
+
 We want to make sure that the ninja returned by the Web API are the one returned by our mocked database, the `TableStorageMock`'s `ReadPartitionAsync()` method.
 
 > As a reminder, our ninja's partition key is the clan's name, which leads us to request the whole partition to query all ninja of a single clan.
 > This kind of design can also come in handy if we want to delete a whole clan (by simply deleting the partition).
 
-``` csharp
+```csharp
 public class ReadAllInClanAsync : NinjaControllerTest
 {
     [Fact]
@@ -443,9 +448,10 @@ public class ReadAllInClanAsync : NinjaControllerTest
 ```
 
 ##### ReadOneAsync
+
 We want to make sure that the ninja returned by the Web API is the one returned by our mocked database, the `TableStorageMock`'s `ReadOneAsync()` method.
 
-``` csharp
+```csharp
 public class ReadOneAsync : NinjaControllerTest
 {
     [Fact]
@@ -473,9 +479,10 @@ public class ReadOneAsync : NinjaControllerTest
 ```
 
 ##### CreateAsync
+
 We want to make sure that the ninja sent to our Web API is the one received by our mocked database, the `TableStorageMock`'s `InsertOrReplaceAsync()` method.
 
-``` csharp
+```csharp
 public class CreateAsync : NinjaControllerTest
 {
     [Fact]
@@ -514,9 +521,10 @@ public class CreateAsync : NinjaControllerTest
 ```
 
 ##### UpdateAsync
+
 We want to make sure that the ninja sent to our Web API is the one received by our mocked database, the `TableStorageMock`'s `InsertOrMergeAsync()` method.
 
-``` csharp
+```csharp
 public class UpdateAsync : NinjaControllerTest
 {
     [Fact]
@@ -557,9 +565,10 @@ public class UpdateAsync : NinjaControllerTest
 ```
 
 ##### DeleteAsync
+
 We want to make sure that the ninja sent to our Web API is the one received by our mocked database, the `TableStorageMock`'s `DeleteAsync()` method.
 
-``` csharp
+```csharp
 public class DeleteAsync : NinjaControllerTest
 {
     [Fact]
@@ -592,10 +601,11 @@ As expected, since we only added tests with no code in the API, when we run all 
 However, we now know what we need to do: make them pass!
 
 We could create more integration tests, but the level of test coverage is pretty high as it is (around 90% based on VS Test Coverage results).
-Moreover, most code blocks that are not covered are the guard clauses, exceptions constructors, and the `Startup` class. 
+Moreover, most code blocks that are not covered are the guard clauses, exceptions constructors, and the `Startup` class.
 I am confident that these will not break anything at runtime (if you want 100% code coverage, I leave you to it).
 
 ### Startup dependencies
+
 Now that our integration tests are ready, it is time to register our dependencies with the DI Container.
 
 I divided the dependencies into three groups:
@@ -605,10 +615,11 @@ I divided the dependencies into three groups:
 1. ForEvolve.Azure
 
 #### Mappers
+
 In a previous article, we created three mappers to help us copy `Ninja` to `NinjaEntity` and vice versa.
 To make that subsystem work, in `Startup.ConfigureServices`, we will add the following:
 
-``` csharp
+```csharp
 services.TryAddSingleton<IMapper<Ninja, NinjaEntity>, NinjaToNinjaEntityMapper>();
 services.TryAddSingleton<IMapper<NinjaEntity, Ninja>, NinjaEntityToNinjaMapper>();
 services.TryAddSingleton<IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>, EnumerableMapper<NinjaEntity, Ninja>>();
@@ -621,27 +632,30 @@ These define our three mappers:
 1. `IEnumerable<NinjaEntity>` to `IEnumerable<Ninja>`
 
 #### Ninja
+
 Here, to attack the core Ninja's services, in `Startup.ConfigureServices`, we will add the following:
 
-``` csharp
+```csharp
 services.TryAddSingleton<INinjaService, NinjaService>();
 services.TryAddSingleton<INinjaRepository, NinjaRepository>();
 services.TryAddSingleton<INinjaMappingService, NinjaMappingService>();
 ```
 
-> I grouped the `INinjaMappingService` in the ninja’s section since it is more of a core service than a mapper (it is a Façade to our mapping subsystem remember?). 
-> That also means that it is the access point to the mapping subsystem. 
+> I grouped the `INinjaMappingService` in the ninja’s section since it is more of a core service than a mapper (it is a Façade to our mapping subsystem remember?).
+> That also means that it is the access point to the mapping subsystem.
 > Which leads me to say that putting the `INinjaMappingService` in either group would be fine.
 
 #### ForEvolve.Azure
+
 This section is a little less strait-forward since we need to access configurations and use secrets.
 Once you know all of this, it is as easy as the previous steps; let's cover all that up!
 
 ##### Configurations
+
 By default, Asp.Net Core 2.0 do most of the configuration plumbing for us.
 The only thing we will need to do is get the configurations injected in the `Startup` class by adding a constructor and a property (for future references).
 
-``` csharp
+```csharp
 public Startup(IConfiguration configuration)
 {
     Configuration = configuration;
@@ -661,7 +675,7 @@ Once this is done, we can access our configurations, as easily as by using the `
 
 Now that we have access to `Configuration`, in `Startup.ConfigureServices`, we will add the following:
 
-``` csharp
+```csharp
 services.TryAddSingleton<ITableStorageRepository<NinjaEntity>, TableStorageRepository<NinjaEntity>>();
 services.TryAddSingleton<ITableStorageSettings>(x => new TableStorageSettings
 {
@@ -693,9 +707,9 @@ The default `TableStorageSettings` implementation should do the job but, we need
 
 As we previously saw, the `TableStorageSettings` values come from the application configurations, here is the description of each value:
 
-- **AccountKey:** this is one of your Azure Storage "Access Keys."
-- **AccountName:** this is your Azure Storage name, the one you entered during creation.
-- **TableName:** this is the name of the table to use (you dont need to create anything, just define the name).
+-   **AccountKey:** this is one of your Azure Storage "Access Keys."
+-   **AccountName:** this is your Azure Storage name, the one you entered during creation.
+-   **TableName:** this is the name of the table to use (you dont need to create anything, just define the name).
 
 <aside>
     <header>AccountKey</header>
@@ -707,7 +721,8 @@ As we previously saw, the `TableStorageSettings` values come from the applicatio
 </aside>
 
 ###### Application settings
-We now know what we need and that our values should come from the application configuration, but we don't know how Asp.Net Core handles all of that. In Asp.Net Core 2.0, it is simpler than ever: by default, it read the application settings from `appsettings.json`, `appsettings.{env.EnvironmentName}.json`, User Secrets and Environment Variables, in that order. 
+
+We now know what we need and that our values should come from the application configuration, but we don't know how Asp.Net Core handles all of that. In Asp.Net Core 2.0, it is simpler than ever: by default, it read the application settings from `appsettings.json`, `appsettings.{env.EnvironmentName}.json`, User Secrets and Environment Variables, in that order.
 This gives us a lot of possibilities and is provided to us with this simple call: `WebHost.CreateDefaultBuilder(args)` (in `Starup.cs`).
 
 ---
@@ -720,7 +735,7 @@ We will configure and use the first 3 of these settings locations.
 
 To start, in the `appsettings.json`, we will add the default settings which are mostly placeholders but the `TableName`.
 
-``` json
+```json
   "AzureTable": {
     "AccountKey": "[Configure your account key in secrets]",
     "AccountName": "[Configure your account name in secrets]",
@@ -730,7 +745,7 @@ To start, in the `appsettings.json`, we will add the default settings which are 
 
 In the `appsettings.Development.json` we will override the `TableName` to make sure that we are not writing to the "Production" environment's table. As you may have noticed, we are doing the same thing that we did for our integration tests, but for the specific "Development" environment.
 
-``` json
+```json
   "AzureTable": {
     "TableName": "NinjaDev"
   }
@@ -740,7 +755,7 @@ In the `appsettings.Development.json` we will override the `TableName` to make s
 >
 > In case of a real project, I would recommend storing production data in a different Storage Account than dev/testing.
 >
-> Why? 
+> Why?
 > So many things can go wrong so fast that I don't even know where to start...
 > Just don't use the same storage account :wink:
 
@@ -763,7 +778,7 @@ This should open an empty `secrets.json` file.
 We will use this file to manage our credentials.
 
 In my opinions, the biggest upside of secrets is that **it is located outside of the solution directory**.
-Due to this, secrets are **not added to source control**, which gives the option of configuring **settings per developer** (connection strings, accounts, username, password, etc.). 
+Due to this, secrets are **not added to source control**, which gives the option of configuring **settings per developer** (connection strings, accounts, username, password, etc.).
 It is also allowing you to keep the production credentials somewhere else; developers might not even have access to production credentials.
 
 <figure>
@@ -774,29 +789,30 @@ It is also allowing you to keep the production credentials somewhere else; devel
 
 We will add our development credentials to `secrets.json`.
 
-``` json
+```json
 {
-  "AzureTable": {
-    "AccountKey": "some-key==",
-    "AccountName": "some-account-name"
-  }
+    "AzureTable": {
+        "AccountKey": "some-key==",
+        "AccountName": "some-account-name"
+    }
 }
 ```
 
 ---
 
 > **Where are those secret?**
-> 
+>
 > Secrets are saved in `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json` file.
 > Visual Studio knows about `<userSecretsId>` using the value of the `UserSecretsId` tag located in the `csproj` file.
 >
 > Ex.: in the `ForEvolve.Blog.Samples.NinjaApi.csproj` file: `<UserSecretsId>aspnet-ForEvolve.Blog.Samples.NinjaApi-F62B525A-ACF4-4C7C-BF23-1EB0F434DDE5</UserSecretsId>` which leads to the following file on disk: `%APPDATA%\microsoft\UserSecrets\aspnet-ForEvolve.Blog.Samples.NinjaApi-F62B525A-ACF4-4C7C-BF23-1EB0F434DDE5\secrets.json`
 >
-> I am saying this because, you know, in case the tooling break... 
+> I am saying this because, you know, in case the tooling break...
 
 ---
 
 ##### Yes, connecting to Azure Table Storage was that easy!
+
 It took way longer to write or read this part of the article than it takes to actually do the job.
 
 As you can see, it is ultra easy to connect to Azure Table Storage when using `ForEvolve.Azure`.
@@ -813,6 +829,7 @@ As a last advice: always analyze your need before picking up a technology; if yo
 More on that, the Azure Table API is supported as part of <a href="https://azure.microsoft.com/en-ca/services/cosmos-db/">Cosmos DB</a>, which could lead to an easy port to the newest kid on the block: Microsoft's <q cite="https://azure.microsoft.com/en-ca/services/cosmos-db/">Globally distributed, multi-model database</q>.
 
 ### That's it for the Ninja subsystem integration
+
 At this point, if we run our automated tests, everything should be green!
 
 We should also be able to access the ninja's data from a browser or with a tool like Postman by running the API (`F5`).
@@ -820,6 +837,7 @@ We should also be able to access the ninja's data from a browser or with a tool 
 We could also build a UI on top of it.
 
 ## The end of this article
+
 Congratulation, you reached this end of the article series!
 
 Moreover, **this end** was not a typo.
@@ -828,7 +846,7 @@ I have many ideas to build on top of the Ninja API; so yes, I might write articl
 ---
 
 > **Backstory of this article series**
-> 
+>
 > I initially planned on writing a single article (epic fail).
 > It quickly became a 5-8 article series.
 > However, the 8th part was becoming so long that I split it into 3 pieces, adding a little to each piece.
@@ -839,24 +857,26 @@ I have many ideas to build on top of the Ninja API; so yes, I might write articl
 ---
 
 ### What have we covered in this article?
+
 In this article:
 
-- We created integration tests, testing the API over HTTP (in-memory)
-- We integrated the Ninja subsystem
-- We used `ForEvolve.Azure` to connect the Ninja App to Azure Table Storage
-- We explored the new Asp.Net Core 2.0 default configuration
+-   We created integration tests, testing the API over HTTP (in-memory)
+-   We integrated the Ninja subsystem
+-   We used `ForEvolve.Azure` to connect the Ninja App to Azure Table Storage
+-   We explored the new Asp.Net Core 2.0 default configuration
 
 I hope you enjoyed the little glimpse of the ForEvolve Framework, it is still a work in progress, and there are many functionalities that I would like to add to it (and probably a lot more than I have not thought of yet).
 
 If you have any interests, questions, requests or time to invest: feel free to leave a comment here, open an issue in the [ForEvolve Framework GitHub](https://github.com/ForEvolve/ForEvolve-Framework) repository, contact me on Twitter or on LinkedIn (see the page footer for these).
 
 ### What's next?
+
 What's next?
 You guys tell me.
 
-- What are you up to now that you played a little around with Repositories, Services, and Web APIs?
-- Any project in mind?
-- Maybe a ninja game ahead?
+-   What are you up to now that you played a little around with Repositories, Services, and Web APIs?
+-   Any project in mind?
+-   Maybe a ninja game ahead?
 
 I hope you enjoyed, feel free to leave a comment and happy coding!
 
