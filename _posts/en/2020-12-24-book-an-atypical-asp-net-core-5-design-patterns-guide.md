@@ -1,7 +1,7 @@
 ---
 title: 'Book: An Atypical ASP.NET Core 5 Design Patterns Guide'
 subtitle: 'A SOLID adventure into architectural principles, design patterns, ASP.NET Core 5, .NET 5, and C#'
-date: 2020-12-24 00:00:00 -0500
+date: 2020-12-30 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2020-12-00-BookBanner.png'
 lang: en
 categories: en/articles
