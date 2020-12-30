@@ -10,6 +10,7 @@ tags:
     - Design Patterns
     - ASP.NET Core 5
     - .NET 5
+    - Book
 proficiency-level: Intermediate
 ---
 
@@ -23,7 +24,11 @@ That adventure began with a message on LinkedIn. I was asked if I would be inter
 
 ## The first outline
 
-At this point, I started to collaborate with Packt and built the first outline, which had 21 chapters. Half of those are more or less in the final book. The chapters were split into six sections. I ended up working with multiple people on that, as people tend to move on to other jobs or get promoted. At this point, we signed a standard contract and they evaluated a timeline to complete that outlined book.
+Here, I started to collaborate with Packt and built the first outline, which had 21 chapters.
+Half of those are more or less in the final book.
+The chapters were split into six sections.
+I ended up working with multiple people on that, as people tend to move on to other jobs or get promoted.
+At this point, we signed a standard contract, and they evaluated a timeline to complete that outlined book; I had no idea how to determine the number of pages per day that I could write.
 
 ## The writing
 
@@ -95,13 +100,6 @@ This was a great idea, and I wish I had created that list a few months earlier.
 Once the writing process, editorial review, and technical reviews were completed, it was time to start the copy-editing process.
 So a firm reviewed my spelling, styles and made sure the quality was book-level.
 
-~~Suppose you are a tad perfectionist and worked with other people.~~
-~~In that case, you know that standards are different from one individual to the next.~~
-~~So here started the review of the changes made by the proof-readers.~~
-~~I noticed the various people who work on the chapters, as each had their style and personal preferences.~~
-~~I must give them that my writing from two years ago was probably worst than what I'm writing today.~~
-~~Furthermore, with all the moving parts around, moving chapters, splitting chapters, adding and removing content, they caught many mistakes during this phase, leading to an improved product.~~
-
 So here started the review of the changes made by the proof-readers.
 Because I wanted to make sure that what they did was in line with what I wanted.
 With all the moving parts around, moving chapters, splitting chapters, adding and removing content, they caught many mistakes during this phase that we missed during the earlier stages, leading to an improved product.
@@ -118,12 +116,14 @@ So here we go again, reviewing all chapters.
 At this point, I read the whole book to make sure I did not miss anything and that the final product would be fluid.
 This was another round of updates, from small leads to invalid characters to missing explanations to blurry images and tables.
 
+Some chapters were cleaner than others. For example, some had around 400 comments in them, with quote characters in code blocks that were not imported correctly and were transformed into curly quotes or french-like quotes. There were all kinds of details to fix.
+Here I wished I wrote only 300-400 pages instead of 750!
+
 Next was another round of proofing.
 
 ### Proofing
 
 Once again, they applied my changes, and proof-readers read all the chapters to correct any mistakes we could have missed.
-There was a lot in some chapters.
 Then I received the prefinal document.
 
 ### Prefinal
@@ -133,11 +133,12 @@ I started to see some light at the end of the tunnel.
 That said, I had quite a long list of elements from the last proofing phase to make sure everything was there, so it took many days to revise at 12 to 15 hours per day.
 My wife helped a lot here and in the previous phase.
 She's not a tech person but has high standards and knows how to review documents.
-She found many of my mistakes.
-I should have got her on board earlier, and I'm sure it would have saved me a few headaches.
+She found many mistakes in my changes and the changes made by the other actors.
+I guess that "once an auditor, always an auditor."
+I should have got her on board earlier.
 
 Now that I could see the diagrams in a final-enough format, I remade about 80 diagrams, so they looked good in that format, under a 100% zoom level.
-Reworking wide diagrams to fit on a 600 pixels wide page, it not always easy, especially if you want to keep it clear.
+Reworking wide diagrams to fit on a 600 pixels wide page, it not always easy, especially if you want to keep them clear.
 
 At this point, I sent our 450 comments back (which was significantly less than in any other phases).
 
@@ -157,7 +158,7 @@ I then learned it was too much work for a 40 (or 60) hours course.
 Well, I was carried away by the fun of teaching ASP.NET/C# I guess.
 
 During this book-writing process, I learned a lot that I wish I knew two years and a half ago.
-Suppose I write another book or for a future revision of this one, I'll take the experience that I acquired to make it easier for me and everybody else who worked on the book.
+Suppose I write another book or for a future revision of this one, I'll take the experience that I acquired to make it easier for me and everybody else who will work on the book.
 
 ### Tips
 
@@ -166,9 +167,13 @@ Here are a few tips that can seem obvious at first, but that should help writing
 1. Start with a convention about what you highlight and why. Make sure everyone follows that same convention. This will save you countless hours.
 1. Make sure you know all of the styles you can and cannot use, like bold, italic, code, code block, keywords, quote, etc. This should save you another countless hours.
 1. Keep track of the state of each phase. This helps you know what you have to do next and in what order (priority). It also helps with the moral as the more green you see in your tracking sheet (done items), the better it feels. If the people who work with you update their own status in that list/change tracker, it will save lots of unneeded coordination efforts.
-1. Split long code listing into smaller pieces. Initially, I wrote about many subjects following blog-like recipe: small lead, pages of code, explanation. Not the best in a book, so I ended up breaking those huge blocks into smaller pieces. For most of them, I followed that recipe: small lead, small code block, explanation of that code, optional lead to the next block, more code, and so on, until the end, where I added the last explanations and often some additional information about the whole code.
+1. Split long code listing into smaller pieces.
+   Initially, I wrote about many subjects following a blog-like recipe: small lead, pages of code, explanation.
+   Not the best in a book, so I ended up breaking those huge blocks into smaller pieces.
+   For most of them, I followed that recipe: small lead, part of the code (a method for example), explanation of that code, optional lead to the next block, more code, and so on.
+   Once the listing was completed, I added the last explanations and often some additional information about the whole code (often a file or a few files).
 
 I hope you enjoyed this short story and few tricks.
 From here, feel free to have a look and buy my book.
 
-{%- include buy-net5-book.html -%}
+{% include buy-net5-book.html %}
