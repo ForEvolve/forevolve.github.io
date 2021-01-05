@@ -2,7 +2,7 @@
 title: 'Book: An Atypical ASP.NET Core 5 Design Patterns Guide'
 subtitle: "What's inside?"
 date: 2021-01-05 00:00:00 -0500
-post-img: 'img/2021-01-00-Book-content.png' # //cdn.forevolve.com/blog/images/articles-header
+post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-01-00-Book-content.png'
 lang: en
 categories: en/articles
 tags:

@@ -1,6 +1,6 @@
 ---
 title: 'Book: An Atypical ASP.NET Core 5 Design Patterns Guide'
-subtitle: 'A SOLID adventure into architectural principles, design patterns, ASP.NET Core 5, .NET 5, and C#'
+subtitle: 'The story behind the book'
 date: 2020-12-30 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-01-00-Book-story.png'
 lang: en
@@ -12,6 +12,8 @@ tags:
     - .NET 5
     - Book
 proficiency-level: Intermediate
+updates:
+    - { date: 2021-01-04, description: 'Update the subtitle and the header image' }
 ---
 
 During the summer of 2018, I began writing a book outline with Packt. At first, the goal was a 320-350 pages hands-on book about ASP.NET Core design patterns. Two years and a half later, we have 750+ pages. I can say that I learned many things during that period and that writing a book is way different from what I initially thought.
