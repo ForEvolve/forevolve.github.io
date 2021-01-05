@@ -14,8 +14,8 @@ tags:
 proficiency-level: Intermediate
 ---
 
-You may be wondering what's **An Atypical ASP.NET Core 5 Design Patterns Guide** is all about?
-Well, here I'll list as much information as I can, from the highlights, to the journey, passing by the list of patterns, architectural styles, and other stuff that are covered in the book.
+Are you wondering what's **An Atypical ASP.NET Core 5 Design Patterns Guide** is all about?
+Here I'll list as much information as possible, from the highlights to the journey, passing by the list of patterns, architectural styles, and other stuff covered in the book.
 
 <!--more-->
 
