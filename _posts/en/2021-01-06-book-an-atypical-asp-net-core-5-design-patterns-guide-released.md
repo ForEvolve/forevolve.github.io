@@ -1,7 +1,7 @@
 ---
 title: 'Book: An Atypical ASP.NET Core 5 Design Patterns Guide'
 subtitle: 'Officially Published'
-date: 2021-01-11 00:00:00 -0500
+date: 2021-01-06 08:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-01-00-Book-published.png'
 lang: en
 categories: en/articles
