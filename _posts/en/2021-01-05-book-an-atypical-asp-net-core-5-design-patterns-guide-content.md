@@ -304,5 +304,3 @@ After reading it, please take a few minutes of your time to leave a review on Am
 
 If you are interested in the story behind the book, have a look at the following article:
 [The story behind the book](/en/articles/2020/12/30/book-an-atypical-asp-net-core-5-design-patterns-guide/)
-
-{% include buy-net5-book.html %}

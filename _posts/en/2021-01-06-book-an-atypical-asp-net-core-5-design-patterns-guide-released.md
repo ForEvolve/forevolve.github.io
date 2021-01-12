@@ -33,5 +33,3 @@ But are you ready to begin your _SOLID adventure into architectural principles, 
 
 If you want to know more about the content, have a look at the following article:
 [What's inside?](/en/articles/2021/01/05/book-an-atypical-asp-net-core-5-design-patterns-guide-content/)
-
-{% include buy-net5-book.html %}

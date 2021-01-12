@@ -180,5 +180,3 @@ From here, feel free to have a look and buy my book.
 
 If you are interested in the content, have a look at the following article:
 [What's inside?](/en/articles/2021/01/05/book-an-atypical-asp-net-core-5-design-patterns-guide-content/)
-
-{% include buy-net5-book.html %}

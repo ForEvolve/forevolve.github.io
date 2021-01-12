@@ -84,7 +84,10 @@ pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page
                     {% endif %}
                 </header>
 
-                <article>{{ content }}</article>
+                <article>
+                    {{ content }}
+                    <div class="horizontal-book-links">{% include buy-net5-book.html %}{% include buy-coffee.html %}</div>
+                </article>
 
                 {% include updates.html %} {% if totalCount > 0 %}
                 <hr />

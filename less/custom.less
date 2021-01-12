@@ -69,25 +69,29 @@
         //white-space: pre-wrap;
     }
 
-    article aside {
-        .round-bordered-box();
+    article {
+        overflow-x: auto;
 
-        header {
-            padding: 15px 0 0;
-            font-weight: bold;
-            text-align: center;
-        }
-        header + figure {
-            margin-top: 30px;
-        }
-        p + footer,
-        section + footer {
-            padding: 0;
-        }
-        footer {
-            padding: 30px 0 0;
-            & > figure {
-                margin-bottom: 0;
+        aside {
+            .round-bordered-box();
+
+            header {
+                padding: 15px 0 0;
+                font-weight: bold;
+                text-align: center;
+            }
+            header + figure {
+                margin-top: 30px;
+            }
+            p + footer,
+            section + footer {
+                padding: 0;
+            }
+            footer {
+                padding: 30px 0 0;
+                & > figure {
+                    margin-bottom: 0;
+                }
             }
         }
     }
@@ -394,10 +398,16 @@ section.multi-section {
     aside.book {
         border: 1px solid #007f00; //#007f00 //efefef
         padding-bottom: 25px;
+        width: 48%;
+        display: inline-block;
 
         h4 {
             text-align: center;
             color: #007f00;
+        }
+
+        img {
+            width: 100px;
         }
     }
 }
@@ -417,18 +427,55 @@ section.multi-section {
     }
 }
 aside.book {
-    margin: auto;
-
+    margin: 1px auto;
+    h4 {
+        small {
+            white-space: nowrap;
+            // display: block;
+        }
+    }
     img {
         cursor: pointer;
         margin: auto;
     }
+    a {
+        text-decoration: none;
+    }
 }
 
-.post-content .intro-header aside.book img {
-    width: auto;
-    margin: auto;
-    cursor: pointer;
+.post-content .intro-header aside.book {
+    width: 48%;
+    display: inline-block;
+
+    small {
+        font-size: 50%;
+    }
+
+    img {
+        width: auto;
+        margin: auto;
+        cursor: pointer;
+        width: 100px;
+    }
+}
+
+.horizontal-book-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: wrap;
+    aside.book {
+        h4 {
+            text-align: center;
+            margin-top: 0;
+        }
+        small {
+            display: block;
+            margin-top: 0.5em;
+        }
+    }
+    aside.coffee {
+    }
 }
 
 @import 'prism-vs-theme.less';

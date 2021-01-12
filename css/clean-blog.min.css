@@ -453,6 +453,10 @@ body {
   overflow: auto;
   display: block;
 }
+.post-content article,
+.post-preview article {
+  overflow-x: auto;
+}
 .post-content article aside,
 .post-preview article aside {
   border: 1px solid #EFEFEF;
@@ -732,10 +736,15 @@ section.multi-section section:nth-child(n + 2) header {
 .xs-top-buy-net5-book aside.book {
   border: 1px solid #007f00;
   padding-bottom: 25px;
+  width: 48%;
+  display: inline-block;
 }
 .xs-top-buy-net5-book aside.book h4 {
   text-align: center;
   color: #007f00;
+}
+.xs-top-buy-net5-book aside.book img {
+  width: 100px;
 }
 .intro-header-buy-net5-book {
   float: right;
@@ -752,16 +761,44 @@ section.multi-section section:nth-child(n + 2) header {
   color: #007f00;
 }
 aside.book {
-  margin: auto;
+  margin: 1px auto;
+}
+aside.book h4 small {
+  white-space: nowrap;
 }
 aside.book img {
   cursor: pointer;
   margin: auto;
 }
+aside.book a {
+  text-decoration: none;
+}
+.post-content .intro-header aside.book {
+  width: 48%;
+  display: inline-block;
+}
+.post-content .intro-header aside.book small {
+  font-size: 50%;
+}
 .post-content .intro-header aside.book img {
   width: auto;
   margin: auto;
   cursor: pointer;
+  width: 100px;
+}
+.horizontal-book-links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.horizontal-book-links aside.book h4 {
+  text-align: center;
+  margin-top: 0;
+}
+.horizontal-book-links aside.book small {
+  display: block;
+  margin-top: 0.5em;
 }
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)
