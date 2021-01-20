@@ -1,16 +1,14 @@
 ---
 layout: page
-title: "Contact"
-description: "Have questions? I have answers (maybe)."
-header-img: "//cdn.forevolve.com/blog/images/pages-header/contact-header-book.jpg"
+title: 'Contact'
+description: 'Have questions? I have answers (maybe).'
+header-img: '//cdn.forevolve.com/blog/images/pages-header/contact-header-book.jpg'
 ---
 
-<p>
-    I have no contact form at the moment but, I will add one as soon as possible (or something).
-    Until then feel free to use one of the social media links below to get in touch.
-</p>
+Please use one of the social media or email links at the bottom of the page or on the floating panel to get in touch.
 
 {% comment %}<p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
+
 <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
 <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
 <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
