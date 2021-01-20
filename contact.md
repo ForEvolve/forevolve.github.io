@@ -5,7 +5,7 @@ description: 'Have questions? I have answers (maybe).'
 header-img: '//cdn.forevolve.com/blog/images/pages-header/contact-header-book.jpg'
 ---
 
-Please use one of the social media or email links at the bottom of the page or on the floating panel to get in touch.
+Please use one of the social media or email links at the top or bottom of the page to get in touch.
 
 {% comment %}<p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
 

@@ -3,23 +3,45 @@ title: ForEvolve
 subtitle: A piece of mind...
 header-img: //cdn.forevolve.com/blog/images/pages-header/default-header.jpg
 override-header-img-with-post-img: false
-#email:
 copyright_name: Carl-Hugo Marcotte
 description: 'A piece of mind'
 baseurl: ''
 url: 'http://www.forevolve.com'
-twitter_username: CarlHugoM
-github_username: ForEvolve
-#facebook_username: carl.hugo.marcotte
-email_username: opensource@forevolve.com
-linkedin_username: carl-hugo-marcotte
+social_icons:
+  - name: Twitter
+    icon: fa-twitter
+    url: https://twitter.com/CarlHugoM
+  - name: GitHub (ForEvolve)
+    icon: fa-github
+    url: https://github.com/ForEvolve
+  - name: My GitHub Account
+    icon: fa-github
+    url: https://github.com/Carl-Hugo
+  - name: LinkedIn
+    icon: fa-linkedin
+    url: https://www.linkedin.com/in/carl-hugo-marcotte
+  - name: Twitch
+    icon: fa-twitch
+    url: https://www.twitch.tv/carlhugom
+    hide: true
+  - name: YouTube
+    icon: fa-youtube
+    url: https://www.youtube.com/channel/UCbRroQU-PWfTthu41qOf3OQ
+    hide: true
+  - name: RSS Feed
+    icon: fa-rss
+    url: /feed.xml
+  - name: Email
+    icon: fa-envelope
+    url: mailto:public@forevolve.com
+follow-me-label: Follow me
 default_lang: en
 
 # Discus comments
 comments: true
 disqus_shortname: forevolve
 kramdown:
-    entity_output: numeric
+  entity_output: numeric
 
 # Google Analytics
 google_tracking_id: UA-81489213-2
@@ -36,14 +58,14 @@ plugins: [jekyll-feed, jekyll-paginate, jekyll-redirect-from, jemoji]
 excerpt_separator: <!--more-->
 
 defaults:
-    - scope:
-          path: ''
-          type: 'posts'
-      values:
-          layout: 'post'
-          author: 'Carl-Hugo Marcotte'
-    - scope:
-          path: ''
-          type: 'pages'
-      values:
-          layout: 'page'
+  - scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: 'post'
+      author: 'Carl-Hugo Marcotte'
+  - scope:
+      path: ''
+      type: 'pages'
+    values:
+      layout: 'page'

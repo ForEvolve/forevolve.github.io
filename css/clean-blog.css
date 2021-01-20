@@ -717,16 +717,34 @@ section.multi-section section:nth-child(n + 2) header {
 .badge.toc-you-are-here {
   background-color: #3c763d;
 }
-.follow-me-list {
-  background-color: rgba(0, 0, 0, 0.25);
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  padding: 10px;
+.intro-header {
+  margin-bottom: 0;
+}
+.follow-me-list-horizontal ul,
+.follow-me-list-footer ul {
   list-style-type: none;
-  bottom: 50%;
-  position: fixed;
-  right: 0;
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding: 0;
+}
+.follow-me-list-horizontal ul li,
+.follow-me-list-footer ul li {
+  padding-right: 1em;
+}
+.follow-me-list-horizontal {
+  margin-bottom: 50px;
+  border-top: 1px solid #007f00;
+  border-bottom: 1px solid #007f00;
+  background-color: #efefef;
+}
+.follow-me {
+  align-self: center;
+  font-weight: bold;
+}
+.side-bar .social .social-icons-list a span.fa-stack {
+  font-size: 0.75em;
 }
 .xs-top-buy-net5-book {
   width: 250px;

@@ -1,0 +1,15 @@
+<ul class="social-icons-list">
+    {%- unless include.hide-follow-me-text -%}
+    <li class="hidden-xs follow-me">{{ site.follow-me-label }}:</li>
+    {%- endunless -%} {%- for item in site.social_icons -%}{%- unless item.hide -%}
+    <li>
+        <a href="{{ item.url }}" title="{{ item.name }}">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa {{ item.icon }} fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="hidden-xs">{{ item.name }}</span>
+        </a>
+    </li>
+    {%- endunless -%}{%- endfor -%}
+</ul>

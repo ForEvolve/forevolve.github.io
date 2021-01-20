@@ -9,9 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/">
-                <span>For</span><span>Evolve</span>
-            </a>
+            <a class="navbar-brand" href="{{ site.baseurl }}/"> <span>For</span><span>Evolve</span> </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,19 +18,16 @@
                 <li>
                     <a href="{{ site.baseurl }}/">Home</a>
                 </li>
-                {% for page in site.pages %}
-                    {% if page.title and page.url != '/404.html' and page.name != 'index.html' %}
-                        {%- if page.hide-page-header -%}
-                            <li class="visible-xs-block">
-                                <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                            </li>
-                        {%- else -%}
-                            <li>
-                                <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                            </li>
-                        {%- endif -%}
-                    {% endif %}
-                {% endfor %}
+                {% for page in site.pages %} {% if page.title and page.url != '/404.html' and page.name != 'index.html' %} {%- if
+                page.hide-page-header -%}
+                <li class="visible-xs-block">
+                    <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                </li>
+                {%- else -%}
+                <li>
+                    <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                </li>
+                {%- endif -%} {% endif %} {% endfor %}
             </ul>
         </div>
         <!-- /.navbar-collapse -->
