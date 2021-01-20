@@ -431,7 +431,10 @@ aside.book {
     h4 {
         small {
             white-space: nowrap;
-            // display: block;
+
+            .amazon-associate {
+                display: block;
+            }
         }
     }
     img {
@@ -459,6 +462,16 @@ aside.book {
     }
 }
 
+.post-list-container .side-bar aside.book {
+    small {
+        display: block;
+        line-height: 2em;
+    }
+    .amazon-associate {
+        display: inline;
+    }
+}
+
 .horizontal-book-links {
     display: flex;
     justify-content: space-evenly;
@@ -473,9 +486,17 @@ aside.book {
             display: block;
             margin-top: 0.5em;
         }
+        .amazon-associate {
+            font-size: 75%;
+            line-height: 2em;
+        }
     }
     aside.coffee {
     }
+}
+
+.amazon-associate {
+    cursor: help;
 }
 
 @import 'prism-vs-theme.less';

@@ -766,6 +766,9 @@ aside.book {
 aside.book h4 small {
   white-space: nowrap;
 }
+aside.book h4 small .amazon-associate {
+  display: block;
+}
 aside.book img {
   cursor: pointer;
   margin: auto;
@@ -786,6 +789,13 @@ aside.book a {
   cursor: pointer;
   width: 100px;
 }
+.post-list-container .side-bar aside.book small {
+  display: block;
+  line-height: 2em;
+}
+.post-list-container .side-bar aside.book .amazon-associate {
+  display: inline;
+}
 .horizontal-book-links {
   display: flex;
   justify-content: space-evenly;
@@ -799,6 +809,13 @@ aside.book a {
 .horizontal-book-links aside.book small {
   display: block;
   margin-top: 0.5em;
+}
+.horizontal-book-links aside.book .amazon-associate {
+  font-size: 75%;
+  line-height: 2em;
+}
+.amazon-associate {
+  cursor: help;
 }
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)
