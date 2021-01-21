@@ -33,7 +33,7 @@ social_icons:
     url: /feed.xml
   - name: Email
     icon: fa-envelope
-    url: mailto:public@forevolve.com
+    url: mailto:blog@forevolve.com
 follow-me-label: Follow me
 default_lang: en
 
