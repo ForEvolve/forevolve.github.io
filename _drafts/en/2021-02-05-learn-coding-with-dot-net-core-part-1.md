@@ -1,49 +1,54 @@
 ---
-title: 'Creating our .NET 5 first program'
-# subtitle: 'All you need to know to understand the diagrams of<br>An Atypical ASP.NET Core 5 Design Patterns Guide'
-excerpt: In this article, we are creating a small console application, using the .NET CLI, to get started with .NET 5.
+title: 'Creating your first .NET/C# program'
+subtitle: 'Learning to program with .NET 5+ and C#'
+excerpt: |
+    In this article, we are creating a small console application using the .NET CLI to get started with .NET 5+ and C#.
+    The article is the first of a <em>learning to code</em> series that does not expect any prior knowledge of programming.
+    If you don't know how to program and want to learn .NET, this is the right place.
 date: 2021-02-07 00:00:00 -0500
-# post-img: 'img/2021-01-00-Book-UML.png' # //cdn.forevolve.com/blog/images/articles-header
+post-img: 'img/2021-02-06-learn-coding-with-dot-net-core.png' # //cdn.forevolve.com/blog/images/articles-header
+unsplash-credit: Photo by Jefferson Santos on Unsplash
 lang: en
 categories: en/articles
 tags:
     - .NET 5
+    - .NET Core
     - C#
-    - Learn to code
+    - Learn Programming
 proficiency-level: Novice
 technology-relative-level:
     - { name: .NET, level: Beginners }
     - { name: C#, level: Beginners }
     - {
-          name: Computers in general,
+          name: Computers,
           level: Familiar,
           short-description: You are familiar with computers,
-          description: 'You know your way around a computer and is able to install software, apply simple configurations, etc.',
+          description: 'You know your way around a computer and is able to install a software, configure your OS, open a terminal, and perform other similar simple tasks.',
       }
 ---
 
 The first step of coding is to create a program.
 The program could be a simple console or a more complex application.
-To get started, we will creating a console application, which is the simplest type of program that we can create.
+To get started, we will create a console application, which is the simplest type of program that we can make.
 
 Beforehand, let's look at the prerequisites.
 
 ## Prerequisites
 
-If you have not already installed the .NET **Software Development Kit (SDK)**, you can download it from: [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
+If you have not already installed the .NET **Software Development Kit (SDK)**, you can download it from [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
 Make sure you install the **.NET 5+** SDK.
 
-> Hint: Make sure you install the .NET SDK, not the Runtime.
+> **Hint:** Make sure you install the .NET SDK, not the runtime.
 > The runtime is used and optimized to run .NET apps.
 > The SDK contains the runtime.
-> To develop new programs, you need the SDK that contains all the required tools.
+> To develop new programs, you need the SDK that contains all the necessary tools.
 
 Another good idea would be to install an **Integrated Development Environment (IDE)** or a **code editor**.
-To get started, I suggest a simple, free, yet powerful, code editor named [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
+To get started, I suggest a simple, free, yet powerful code editor named [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
 
-> Hint: For more complex programs, especially if you are developing on Windows, I suggest Visual Studio (VS).
-> VS is a full-fledge IDE, more complex than VS Code, but extremely powerful to create and maintain large .NET applications.
-> VS also offers a free Community Edition, so you can learn and get started with.
+> **Hint:** For more complex programs, especially if you are developing on Windows, I suggest Visual Studio (VS).
+> VS is a full-fledged IDE, more complex than VS Code, but extremely powerful to create and maintain large .NET applications.
+> VS also offers a free Community Edition, so you can learn and get started with it.
 
 Next, let's get started with our console.
 
@@ -55,10 +60,10 @@ It is a program that we can use to execute and automate tasks, like creating new
 
 > Hint: cross-platform means targeting multiple platforms like Windows and Linux.
 
-But first things first, we first need to create a directory that will hold our program files.
+But first things first, we need to create a directory that will hold our program files.
 It is important to be organized.
 Let's name the directory `IntroToDotNet`.
-From a terminal (bash, PowerShell, or cmd), let's start by typing `dotnet new console` which generates a new console application.
+From a terminal (bash, PowerShell, or cmd), let's start by typing `dotnet new console`, which generates a new console application.
 
 > **Hint:** make sure you are in the right directory.
 > I suggest a structure similar to `[drive]:\Repos\[name of your project]`.
@@ -82,8 +87,8 @@ The result of the console template is the following two files.
 **IntroToDotNet.csproj**
 
 `[name of the directory].csproj` (`IntroToDotNet.csproj`) is an XML file defining project properties.
-This file can be used to configure more advanced scenarios.
-We won't get into more details, but know that you need one.
+We can use this file to configure more advanced scenarios.
+We won't get into more details but know that you need one `csproj` file.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -96,7 +101,7 @@ We won't get into more details, but know that you need one.
 </Project>
 ```
 
-**It is important to note that the content of this file will remain the same for the whole article.**
+**It is important to note that the `IntroToDotNet.csproj` file's content will remain the same for the whole article.**
 
 > **More info:** the name of this file does not have to match the name of the directory it is in; that's just the default behavior of `dotnet new`.
 
@@ -126,7 +131,7 @@ As mentioned before, the file that interests us the most is the `Program.cs` fil
 However, it is already filled with boilerplate code that we don't really need (for now).
 To keep our focus on the task at hand: learning C#, we will leverage **top-level statements** to discard that code.
 
-Let's replace all of that boilerplate code by the following line:
+Let's replace all of that boilerplate code with the following line:
 
 **Program.cs**
 
@@ -144,7 +149,7 @@ dotnet run
 ```
 
 Afterward, you should see `Hello .NET Ninja!` written in the console.
-At anytime while reading this article, you can `dotnet run` the program and see the output.
+While reading this article, you can `dotnet run` the program and see the output.
 Next, let's explore that code.
 
 # Exploring the building blocks
@@ -152,21 +157,21 @@ Next, let's explore that code.
 There are several building blocks in that one line of code.
 Don't worry if you don't remember or grasp every detail or term just yet.
 Coding is like playing with LEGO<sup>&reg;</sup>.
-You just need to understand how to connect the blocks and you are good to go.
-Of course there is a lot of learning to do, but that's part of the fun.
+You just need to understand how to connect the blocks, and you are good to go.
+Of course, there is a lot of learning to do, but that's part of the fun.
 
 The first thing that I'd like to point out is the last character, the `;`.
 That character represents the end of a **statement** (the end of a line of code if you wish).
 A statement is an instruction that tells the program to do something, an action, a command.
 That's the type of code that we write the most.
-In C# it is mandatory to add the `;` after a statement or the code will not compile.
+In C#, it is mandatory to add the `;` after a statement, or the code will not compile.
 
-> **More info:** in C# we write text (code) that gets compiled into an intermediate language (IL).
+> **More info:** in C#, we write text (code) that gets compiled into an intermediate language (IL).
 > That IL code is then executed by the .NET runtime.
-> The compilation is the transformation of the text (our code) to that IL language, getting closer to what computers understand.
-> This is mandatory step but it will be done almost seamlessly by the SDK as we are about to explore.
+> The compilation is transforming the text (our code) to that IL language, getting closer to what computers understand.
+> This is a mandatory step, but it will be done almost seamlessly by the SDK as we are about to explore.
 
-Let's now dissect more of that line of code, starting by the identifiers.
+Let's now dissect more of that line of code, starting with the identifiers.
 
 ## Identifiers
 
@@ -175,9 +180,9 @@ You can see a namespace as a sort of directory.
 
 `Console` is a **static class** that exposes a few **methods**.
 A **class** is a sort of plan defining how to create an object.
-A **static class** exposes its content globally without the need to create an instance of it (an object).
+A **static class** exposes its content globally without creating an instance of it (an object).
 
-A method is a **function** that can be used to do something (reusable code).
+A method is a **function** that we can use to do something (reusable code).
 In this case, we used the `WriteLine` method, which writes a line into the console.
 
 The line that is written to the console is a **string**.
@@ -196,7 +201,7 @@ Then we used the `.` operator again to access the `WriteLine`method of the `Cons
 As we already saw, we can chain `.` operators, leading to code like this: `System.Console.WriteLine`.
 
 The last bit is the parenthesis.
-In C# we use the `(` and `)` characters to invoke a method.
+In C#, we use the `(` and `)` characters to invoke a method.
 Between them, we can pass **arguments**.
 An argument is an input value that will most likely change the result of the execution.
 In our case, we passed the string `"Hello .NET Ninja!"` to the `WriteLine` method, writing that text to the console.
@@ -206,15 +211,15 @@ If we wanted to write something else, we could have passed that instead, like th
 System.Console.WriteLine("Something else!");
 ```
 
-Most of these subjects deserve to be explored more in-depth, but for this article, we will keep it at this overview.
+Most of these subjects deserve to be explored more in-depth but are out of this article's scope.
 Next, we explore how to access namespaces with fewer keystrokes.
 
 # Accessing namespaces
 
 The last subject that I want us to explore in this article is how to simplify access to members.
-Let's say that we need to write many lines to the console, we could want to get rid of the `System` namespace to write less code.
+Let's say that we need to write many lines to the console. We could want to get rid of the `System` namespace to write less code.
 Fortunately for us, C# offers the `using` directive.
-The `using` directive exposes all members of a namespace without the need of prefixing them with it.
+The `using` directive exposes all members of a namespace and removes the need to prefix them with it.
 We can write as many `using` directives as we need.
 Those directives usually appear at the top of the file.
 
@@ -247,7 +252,7 @@ I also find that using directives make the code clearer, removing some noise.
 
 # Conclusion
 
-That's it, we wrote our first C#/.NET 5 program.
+That's it; we wrote our first C#/.NET 5 program.
 If you are not already familiar with object-oriented programming, don't worry about all of those names just yet.
 Classes, namespaces, and methods are tools to organize our code that you will learn along the way.
 
