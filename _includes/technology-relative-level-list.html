@@ -1,0 +1,18 @@
+{% if include.technology-relative-level %}
+<aside class="technology-relative-level">
+    <strong>Expected knowledge level:</strong>
+    <ul>
+        {%- for techLevel in include.technology-relative-level -%}
+        <li>
+            {{ techLevel.name }}:&nbsp; {%- assign levelInfo = site.data.technology-relative-levels[techLevel.level] -%} {%- assign
+            levelInfoDescription = levelInfo.description -%} {%- assign levelInfoShortDescription = levelInfo.short-description -%} {%- if
+            techLevel.description -%}{%- assign levelInfoDescription = techLevel.description -%}{%- endif -%} {%- if
+            techLevel.short-description -%}{%- assign levelInfoShortDescription = techLevel.short-description -%}{%- endif -%}
+            <a href="javascript:;" title="{{ levelInfoDescription }}">{{ levelInfo.name }}</a>
+            <small>({{ levelInfoShortDescription }})</small>
+        </li>
+        {%- endfor -%}
+    </ul>
+    <hr />
+</aside>
+{% endif %}

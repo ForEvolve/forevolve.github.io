@@ -59,38 +59,7 @@ hide-page-header: true
 
             {% if post.post-img %}
             <p><img src="{{ site.baseurl }}/{{ post.post-img }}" alt="{{ post.title }}" /></p>
-            {% endif %} {% if post.technology-relative-level %}
-            <aside class="technology-relative-level">
-                <strong>Expected knowlegde level:</strong>
-                <ul>
-                    {%- for techLevel in post.technology-relative-level -%}
-                    <li>
-                        {{ techLevel.name }}: {% assign levelInfo = site.data.technology-relative-levels[techLevel.level] %}
-                        <a href="javascript:;" title="{{ levelInfo.description }}">{{ levelInfo.name }}</a>
-                        <small>({{ levelInfo.short-description }})</small>
-                    </li>
-                    {%- endfor -%}
-                </ul>
-                <hr />
-            </aside>
-            {% endif %} {% comment %}{% if post.proficiency-level %}
-            <aside>
-                <strong>Target proficiency level:</strong>
-
-                {% assign level = site.data.proficiency-levels[post.proficiency-level] %}
-                <a href="/levels/#proficiency-level-{{ post.proficiency-level | slugify }}" title="{{ level.description }}"
-                    >{{ level.name }}</a
-                >
-                <small>({{ level.short-description }})</small>
-            </aside>
-            {% endif %} {% if post.tags %}
-            <aside>
-                <i class="glyphicon glyphicon-tags"></i>
-                &nbsp; {% for tag in post.tags %}
-                <a href="/tags/#{{ tag | slugify }}" title='View posts tagged with "{{ tag }}"'><u>{{ tag }}</u></a
-                >{% if forloop.last != true %}, {% endif %} {% endfor %}
-            </aside>
-            {% endif %}{% endcomment %}
+            {% endif %} {%- include technology-relative-level-list.html technology-relative-level=post.technology-relative-level -%}
 
             <p>{{ post.excerpt }}</p>
             <div class="post-readmore">

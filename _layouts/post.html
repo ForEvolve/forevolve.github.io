@@ -53,21 +53,8 @@ pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page
                         >
                         <small>({{ level.short-description }})</small>
                     </aside>
-                    {% endif %} {% if page.technology-relative-level %}
-                    <aside class="technology-relative-level">
-                        <strong>Expected knowlegde level:</strong>
-                        <ul>
-                            {%- for techLevel in page.technology-relative-level -%}
-                            <li>
-                                {{ techLevel.name }}: {% assign levelInfo = site.data.technology-relative-levels[techLevel.level] %}
-                                <a href="javascript:;" title="{{ levelInfo.description }}">{{ levelInfo.name }}</a>
-                                <small>({{ levelInfo.short-description }})</small>
-                            </li>
-                            {%- endfor -%}
-                        </ul>
-                        <hr />
-                    </aside>
-                    {% endif %} {% if page.tags[0] %}
+                    {% endif %} {%- include technology-relative-level-list.html technology-relative-level=page.technology-relative-level -%}
+                    {% if page.tags[0] %}
                     <aside class="tags">
                         <i class="glyphicon glyphicon-tags"></i>
                         &nbsp; {% for tag in page.tags %}
