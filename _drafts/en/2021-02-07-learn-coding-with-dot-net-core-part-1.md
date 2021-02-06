@@ -1,12 +1,12 @@
 ---
 title: 'Creating your first .NET/C# program'
-subtitle: 'Learning to program with .NET 5+ and C#'
+subtitle: 'A beginner guide to programming with .NET 5 and C#'
 excerpt: |
     In this article, we are creating a small console application using the .NET CLI to get started with .NET 5+ and C#.
     The article is the first of a <em>learning to code</em> series that does not expect any prior knowledge of programming.
     If you don't know how to program and want to learn .NET, this is the right place.
 date: 2021-02-07 00:00:00 -0500
-post-img: 'img/2021-02-06-learn-coding-with-dot-net-core.png' # //cdn.forevolve.com/blog/images/articles-header
+post-img: 'img/2021-02-06-learn-coding-with-dot-net-core.png' # //cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png
 unsplash-credit: Photo by Jefferson Santos on Unsplash
 lang: en
 categories: en/articles
@@ -260,3 +260,9 @@ Please play with the code a little to get familiar with what we just covered.
 I know it is not much, but one must walk before one can run.
 
 In the next article, we will explore how to create variables.
+
+## Table of content
+
+{%- include learn-coding-with-dot-net-core/toc.md currentIndex=1 -%}
+
+{%- include learn-coding-with-dot-net-core/next.md nextIndex=2 -%}
