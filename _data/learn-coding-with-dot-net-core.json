@@ -1,0 +1,62 @@
+[
+    {
+        "index": 1,
+        "enabled": true,
+        "title": "Creating your first .NET/C# program",
+        "description": "In this article, we are creating a small console application using the .NET CLI to get started with .NET 5+ and C#.",
+        "url": "/en/articles/2021/02/07/learn-coding-with-dot-net-core-part-1/"
+    },
+    {
+        "index": 2,
+        "enabled": false,
+        "title": "Introduction to variables",
+        "description": "In this article, we explore variables. What they are, how to create them, and how to use them. Variables are essential elements of a program, making it dynamic.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-2/"
+    },
+    {
+        "index": 3,
+        "enabled": false,
+        "title": "Introduction to C# comments",
+        "description": "In this article, we explore comments.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-3/"
+    },
+    {
+        "index": 4,
+        "enabled": false,
+        "hidden": true,
+        "title": "Introduction to user inputs",
+        "description": "In this article, we explore how to retrieve user inputs in a console application.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-4/"
+    },
+    {
+        "index": 5,
+        "enabled": false,
+        "hidden": true,
+        "title": "Introduction to types",
+        "description": "In this article, we explore types.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-5/"
+    },
+    {
+        "index": 6,
+        "enabled": false,
+        "hidden": true,
+        "title": "Introduction to arithmetic operators",
+        "description": "In this article, we explore arithmetic operators.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-6/"
+    },
+    {
+        "index": 7,
+        "enabled": false,
+        "hidden": true,
+        "title": "Introduction to concatenation and interpolation",
+        "description": "In this article, we explore arithmetic operators.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-7/"
+    },
+    {
+        "index": 8,
+        "enabled": false,
+        "title": "More to come",
+        "description": "",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-8/"
+    }
+]

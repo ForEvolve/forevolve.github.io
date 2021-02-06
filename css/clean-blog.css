@@ -745,6 +745,18 @@ section.multi-section section:nth-child(n + 2) header {
   border-bottom: 1px solid #007f00;
   background-color: #efefef;
 }
+.follow-me-list-horizontal.article-next-social {
+  border-left: 1px solid #007f00;
+  border-right: 1px solid #007f00;
+}
+.follow-me-list-horizontal.article-next-social a {
+  color: #404040;
+  text-decoration: none;
+}
+.follow-me-list-horizontal.article-next-social a:hover {
+  color: #007f00;
+  text-decoration: underline;
+}
 .follow-me {
   align-self: center;
   font-weight: bold;
