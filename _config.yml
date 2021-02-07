@@ -28,12 +28,12 @@ social_icons:
     icon: fa-youtube
     url: https://www.youtube.com/channel/UCbRroQU-PWfTthu41qOf3OQ
     hide: true
-  - name: RSS Feed
-    icon: fa-rss
-    url: /feed.xml
   - name: Medium
     icon: fa-medium
     url: https://carlhugom.medium.com/
+  - name: RSS Feed
+    icon: fa-rss
+    url: /feed.xml
   - name: Email
     icon: fa-envelope
     url: mailto:blog@forevolve.com
