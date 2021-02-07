@@ -8,55 +8,62 @@
     },
     {
         "index": 2,
-        "enabled": false,
-        "title": "Introduction to variables",
+        "enabled": true,
+        "title": "Introduction to C# variables",
         "description": "In this article, we explore variables. What they are, how to create them, and how to use them. Variables are essential elements of a program, making it dynamic.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-2/"
+        "url": "/en/articles/2021/02/21/learn-coding-with-dot-net-core-part-2/"
     },
     {
         "index": 3,
         "enabled": false,
-        "title": "Introduction to C# comments",
-        "description": "In this article, we explore comments.",
+        "title": "Introduction to C# constants",
+        "description": "In this article, we explore constants. A constant is a special type of variables.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-3/"
     },
     {
         "index": 4,
         "enabled": false,
-        "hidden": true,
-        "title": "Introduction to user inputs",
-        "description": "In this article, we explore how to retrieve user inputs in a console application.",
+        "title": "Introduction to C# comments",
+        "description": "In this article, we explore comments.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-4/"
     },
     {
-        "index": 5,
+        "index": 0,
+        "enabled": false,
+        "hidden": true,
+        "title": "Introduction to user inputs",
+        "description": "In this article, we explore how to retrieve user inputs in a console application.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
+    },
+    {
+        "index": 0,
         "enabled": false,
         "hidden": true,
         "title": "Introduction to types",
         "description": "In this article, we explore types.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-5/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     },
     {
-        "index": 6,
+        "index": 0,
         "enabled": false,
         "hidden": true,
         "title": "Introduction to arithmetic operators",
         "description": "In this article, we explore arithmetic operators.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-6/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     },
     {
-        "index": 7,
+        "index": 0,
         "enabled": false,
         "hidden": true,
         "title": "Introduction to concatenation and interpolation",
         "description": "In this article, we explore arithmetic operators.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-7/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     },
     {
-        "index": 8,
+        "index": 0,
         "enabled": false,
         "title": "More to come",
         "description": "",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-8/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     }
 ]
