@@ -1,4 +1,4 @@
-{% assign nextIndex = include.nextIndex %}
+{% assign nextIndex = include.nextIndex | minus: 1 %}
 {% assign nextArticle = site.data.learn-coding-with-dot-net-core[nextIndex] %}
 
 {% if include.hideHeading %}{% else %}## Next step{% endif %}
