@@ -36,7 +36,7 @@ I believe this is a good choice of technology to start with.
 
 Beforehand, let's look at the prerequisites.<!--more-->
 
-## Prerequisites
+### Prerequisites
 
 If you have not already installed the .NET **Software Development Kit (SDK)**, you can download it from [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
 Make sure you install the **.NET 5 (or later)** SDK.
@@ -54,7 +54,7 @@ To get started, I suggest a simple, free, yet powerful code editor named [Visual
 
 Next, let's get started with our console.
 
-# Getting started with the .NET CLI
+## Getting started with the .NET CLI
 
 With .NET, the easiest way of creating a new cross-platform project is through the .NET **Command-line interface (CLI)**.
 The CLI is part of the .NET SDK.
@@ -130,7 +130,7 @@ namespace IntroToDotNet
 }
 ```
 
-# Writing our first line of code
+## Writing our first line of code
 
 As mentioned before, the file that interests us the most is the `Program.cs` file.
 However, it is already filled with boilerplate code that we don't really need (for now).
@@ -157,7 +157,7 @@ Afterward, you should see `Hello .NET Ninja!` written in the console.
 While reading this article, you can `dotnet run` the program and see the output.
 Next, let's explore that code.
 
-# Exploring the building blocks
+## Exploring the building blocks
 
 There are several building blocks in that one line of code.
 Don't worry if you don't remember or grasp every detail or term just yet.
@@ -178,7 +178,7 @@ In C#, it is mandatory to add the `;` after a statement, or the code will not co
 
 Let's now dissect more of that line of code, starting with the identifiers.
 
-## Identifiers
+### Identifiers
 
 `System` is a **namespace**. A namespace allows us to organize elements of our programs hierarchically.
 You can see a namespace as a sort of directory.
@@ -200,7 +200,7 @@ Ok, there are more to strings, but not for now.
 
 The next building blocks are the **member access operators**.
 
-## Member access operators
+### Member access operators
 
 The first one that we encountered is the `.` character.
 The dot allows us to access the exposed members of a class, namespace, etc.
@@ -223,7 +223,7 @@ System.Console.WriteLine("Something else!");
 Most of these subjects deserve to be explored more in-depth but are out of this article's scope.
 Next, we explore how to access namespaces with fewer keystrokes.
 
-# Accessing namespaces
+## Accessing namespaces
 
 The last subject that I want us to explore in this article is how to **simplify access to members**.
 Let's say that we need to write many lines to the console. We could want to get rid of the `System` namespace to write less code.
@@ -260,7 +260,7 @@ Console.WriteLine("|_| |_|\___|_|_|\___/      \_/\_/ \___/|_|  |_|\__,_(_)");
 
 I also find that `using` directives make the code clearer, removing some noise.
 
-# Conclusion
+## Conclusion
 
 That's it; we wrote our first C#/.NET 5 program.
 We also wrote some text to the console, learned to use top-level statements, and learn to simplify the usage of namespaces' members.
@@ -278,7 +278,7 @@ Coding is the best way to learn, so get your hands dirty and experiment.
 
 In the next article of the series, we will explore how to create variables.
 
-## Table of content
+### Table of content
 
 {%- include learn-coding-with-dot-net-core/toc.md currentIndex=1 -%}
 
