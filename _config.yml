@@ -31,6 +31,9 @@ social_icons:
   - name: RSS Feed
     icon: fa-rss
     url: /feed.xml
+  - name: Medium
+    icon: fa-medium
+    url: https://carlhugom.medium.com/
   - name: Email
     icon: fa-envelope
     url: mailto:blog@forevolve.com
