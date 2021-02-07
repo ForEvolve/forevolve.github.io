@@ -28,12 +28,12 @@
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-4/"
     },
     {
-        "index": 0,
+        "index": 5,
         "enabled": false,
         "hidden": true,
         "title": "Introduction to user inputs",
         "description": "In this article, we explore how to retrieve user inputs in a console application.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-5/"
     },
     {
         "index": 0,
