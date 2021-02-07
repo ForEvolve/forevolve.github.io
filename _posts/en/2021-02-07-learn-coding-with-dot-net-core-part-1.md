@@ -1,10 +1,6 @@
 ---
 title: 'Creating your first .NET/C# program'
 subtitle: 'A beginner guide to programming with .NET 5 and C#'
-xexcerpt: |
-    In this article, we are creating a small console application using the .NET CLI to get started with .NET 5+ and C#.
-    The article is the first of a <em>learning to code</em> series that does not expect any prior knowledge of programming.
-    If you don't know how to program and want to learn .NET, this is the right place.
 date: 2021-02-07 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png'
 unsplash-credit: Photo by Jefferson Santos on Unsplash
