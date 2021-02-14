@@ -32,7 +32,11 @@
                 {% else %}
                     <strong>
                         {{ article.title }}
+                        {% if article.expectedReleaseDate %}
+                        <span class="toc-expected-date badge">Expected on {{ article.expectedReleaseDate }}</span>
+                        {% else %}
                         <span class="toc-coming-soon badge">Coming soon</span>
+                        {% endif %}
                     </strong>
                 {% endif %}
                 <div class="small"><small>{{ article.description }}</small></div>

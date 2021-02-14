@@ -11,28 +11,30 @@
         "enabled": true,
         "title": "Introduction to C# variables",
         "description": "In this article, we explore variables. What they are, how to create them, and how to use them. Variables are essential elements of a program, making it dynamic.",
-        "url": "/en/articles/2021/02/21/learn-coding-with-dot-net-core-part-2/"
+        "url": "/en/articles/2021/02/21/learn-coding-with-dot-net-core-part-2/",
+        "expectedReleaseDate": "2021/02/21"
     },
     {
         "index": 3,
         "enabled": false,
         "title": "Introduction to C# constants",
         "description": "In this article, we explore constants. A constant is a special kind of variable.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-3/"
+        "url": "/en/articles/2021/02/28/learn-coding-with-dot-net-core-part-3/",
+        "expectedReleaseDate": "2021/02/28"
     },
     {
         "index": 4,
         "enabled": false,
         "title": "Introduction to C# comments",
         "description": "In this article, we explore comments.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-4/"
+        "url": "/en/articles/2021/03/07/learn-coding-with-dot-net-core-part-4/",
+        "expectedReleaseDate": "2021/03/07"
     },
     {
         "index": 5,
         "enabled": false,
-        "hidden": true,
         "title": "Introduction to user inputs",
-        "description": "In this article, we explore how to retrieve user inputs in a console application.",
+        "description": "In this article, we explore how to retrieve simple user inputs from the console.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-5/"
     },
     {
