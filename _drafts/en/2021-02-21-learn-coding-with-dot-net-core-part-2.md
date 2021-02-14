@@ -175,16 +175,16 @@ Console.WriteLine(greetings);
 ```
 
 > **Hint:** One crucial detail in the preceding code is that we don't write `"` when passing the variable as an argument to the `WriteLine` method. We write it directly, like this: `Console.WriteLine(hello);`.
->
-> In C#, the `"` character is the **string delimiter** character. We do not want to pass the string `"hello"` to the method, but the value of the `hello` variable.
+> In C#, `"` is the **string delimiter** character. Since we do not want to pass the string `"hello"` to the method, but the value of the `hello` variable.
 
 After executing the code above, we can see that we get the same result as before but using a variable instead of inputting text directly into the `Console.WriteLine` method.
 
 That may seem useless for now, but keep in mind that a variable can be changed, set by the user, computed, and more.
+We are only beginning and are going to explore variables in more details in future articles about arithmetic, concatenation, interpolation, user input, and more.
 
-Before getting further, let's try to code something.
+## Exercise 2.1
 
-Create a program that recreates the following output:
+Before moving on, to practice the use of C#, I'd like you to create a program that write the following output to the console.
 
 ```text
 ------------------
@@ -192,15 +192,39 @@ What is your name?
 ------------------
 ```
 
-## TODO
+{%- capture hintContent -%}<p>Use a variable to handle the duplicate text.</p>{%- capture innerHintContent -%}```csharp
+var spacer = "------------------";
+```{%- endcapture -%}
+{%- assign innerHintContent = innerHintContent | markdownify -%}
+{%- include spoiler.html title="Code Hint" content=innerHintContent -%}
+{%- endcapture -%}
+{%- include spoiler.html title="Hint" content=hintContent -%}
 
-Continue/revise/finish article
+Once you are done, you can compare with the following solution.
+
+{%- capture solutionContent -%}**Program.cs**
+
+```csharp
+using System;
+
+var spacer = "------------------";
+Console.WriteLine(spacer);
+Console.WriteLine("What is your name?");
+Console.WriteLine(spacer);
+```
+
+Don't worry if your solution is different than mine.
+As long as you did it, it means you understood the lesson.
+{%- endcapture -%}
+{%- assign solutionContent = solutionContent | markdownify -%}
+{%- include spoiler.html title="My Solution" content=solutionContent -%}
 
 ## Conclusion
 
-...
-
-In the next article of the series, we will explore how to write comments.
+In this article, we learned how to declare a variable.
+We also learned about variable's syntax.
+The variable that we created did not vary, yet, but the concept is essential.
+A variable allows us to store reusable data which is accessible through the identifier (name) that we assigned that data to.
 
 ### Table of content
 
