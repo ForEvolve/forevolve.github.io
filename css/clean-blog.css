@@ -403,6 +403,20 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #007f00;
 }
+@font-face {
+  font-family: 'icomoon';
+  src: url('/fonts/icomoon.eot?z7jsbn');
+  src: url('/fonts/icomoon.eot?z7jsbn#iefix') format('embedded-opentype'), url('/fonts/icomoon.ttf?z7jsbn') format('truetype'), url('/fonts/icomoon.woff?z7jsbn') format('woff'), url('/fonts/icomoon.svg?z7jsbn#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+.icomoon {
+  font-family: 'icomoon' !important;
+}
+.icon-dev-dot-to:before {
+  content: '\e900';
+}
 .intro-header .site-heading {
   padding: 50px 0 283px;
 }

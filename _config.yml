@@ -31,6 +31,9 @@ social_icons:
   - name: Medium
     icon: fa-medium
     url: https://carlhugom.medium.com/
+  - name: Dev.to
+    icon: icomoon icon-dev-dot-to
+    url: https://dev.to/carlhugom
   - name: RSS Feed
     icon: fa-rss
     url: /feed.xml
