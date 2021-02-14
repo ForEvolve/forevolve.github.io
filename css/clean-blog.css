@@ -862,7 +862,7 @@ aside.book a {
   outline: none;
   cursor: pointer;
 }
-.spoiler[open] summary {
+.spoiler[open] > summary {
   border-bottom: 1px solid #404040;
   padding-bottom: 15px;
 }
