@@ -26,6 +26,7 @@ technology-relative-level:
 In this article we explore variables.
 What they are, how to create them, and how to use them.
 Variables are one of the most important elements of a program, making it dynamic.
+Of course there are more to variables than what we can cover in a single article; this is only the beginning.
 
 This article is the second of a **learn programming** series where you need **no prior knowledge of programming**.
 If you want to **learn how to program** and want to learn it **using .NET/C#**, this is the right place.
@@ -40,8 +41,8 @@ Before beginning, it is important to know what we are aiming at.
 Let's break that down, an **identifier** is a name, a way to identify your variable.
 We then can use that identifier to read or write data into memory.
 That memory is the **random-access memory (RAM)** of the computer executing the code.
-But you don't even have to worry about that because .NET manages that for you.
-To begin with, all you need to know is how to declare a variable and how to use them.
+But you don't even have to worry about that because .NET manages most of it for you.
+To begin, all you need to know is how to declare a variable and how to use it.
 
 There are many different types of variables and ways to optimize memory usage, but the concept always remains similar to what we are covering now.
 
@@ -55,11 +56,12 @@ The syntax is as follow:
 var identifier = initial_value;
 ```
 
-Next, we dissect this line of code.
+Next, let's dissect this line of code.
 
 ### The `var` keyword
 
-`var` is a keyword to create a variable and implicitly represent the **type** of that variable.
+`var` is a keyword to create a variable.
+It implicitly represent the **type** of that variable.
 That type is inferred from the value of `initial_value`, the right-end part of the declaration statement.
 
 C# is a **strongly-typed** language, so it requires each variable to be of a certain type.
@@ -109,17 +111,18 @@ A variable's name must describe what that variable is holding, so anyone reading
 An identifier must start with either a letter or an `_`.
 It can then be composed of different Unicode characters.
 I strongly suggest using only letters and numbers to keep names simple and universal.
-Not everyone can easily make a special character like an accent (say `è` or `ï`) using his/her keyboard's layout.
+Not everyone can easily make a special character like `è` or `ï` using their keyboard's layout.
 
 I will explain casing styles and code convention in one or more other articles.
-For now, your goal is to write working code, not know every details of every subjects or you will never begin.
+For now, your goal is to write working code.
+Not knowing every details of every subjects is ok, otherwise you will never begin.
 
 Next, we explore another operator.
 As a refresher, in the first article of the series we learned about the _member access operators_.
 
 ### Assignment operator
 
-Now that we named our variable, it is time to assign it a value.
+Now that we named our variable, it is time to assign it a value (inferred as its type too).
 The `=` character represents the assignment operator.
 
 The assignment operator **assigns the value of the right-hand operand to the left** side.
@@ -152,6 +155,9 @@ var now = DateTime.Now;  // type: DateTime
 
 If you don't know what `string`, `int`, `float`, and `DateTime` means, its ok.
 They are types available in C# or .NET, and as mentioned before, we are going to cover types in subsequent installments of this series.
+For now, the important part is to understand the syntax.
+
+TODO: IMAGE
 
 Enough syntax and theory, let's try this out next.
 
@@ -164,8 +170,11 @@ using System;
 Console.WriteLine("Hello .NET Ninja!");
 ```
 
-To prepare our program for more advanced use-cases, we want to extract the text `Hello .NET Ninja!` in a variable.
-To do so, based on what we just explored, we could write the following:
+> **Practice:** You can also create a new program, which will make you practice the use of the .NET CLI, introduced in the
+> {% include learn-coding-with-dot-net-core/ref.md index=0 %} article.
+
+To prepare the program for more advanced use-cases, we want to extract the text `Hello .NET Ninja!` in a variable.
+To do so, based on what we just explored, we can write the following:
 
 ```csharp
 using System;
@@ -174,15 +183,30 @@ var greetings = "Hello .NET Ninja!";
 Console.WriteLine(greetings);
 ```
 
-> **Hint:** One crucial detail in the preceding code is that we don't write `"` when passing the variable as an argument to the `WriteLine` method. We write it directly, like this: `Console.WriteLine(hello);`.
-> In C#, `"` is the **string delimiter** character. Since we do not want to pass the string `"hello"` to the method, but the value of the `hello` variable.
+> **Hint:** One crucial detail in the preceding code is that we don't wrap the `greetings` identifier with `"` when passing it as an argument of the `WriteLine` method.
+> We write it directly, like this: `Console.WriteLine(greetings);`, since we don't want to pass the string `"greetings"` to the method, but the value referenced by the `greetings` variable.
+> In C#, `"` is the **string delimiter** character.
+> We will cover strings in more details in a subsequent article.
 
 After executing the code above, we can see that we get the same result as before but using a variable instead of inputting text directly into the `Console.WriteLine` method.
 
-That may seem useless for now, but keep in mind that a variable can be changed, set by the user, computed, and more.
-We are only beginning and are going to explore variables in more details in future articles about arithmetic, concatenation, interpolation, user input, and more.
+What happened is the following:
 
-## Exercise 2.1
+1. We assigned the value `"Hello .NET Ninja!"` to the `greetings` variable.
+    - The type of the `greetings` implicitly became `string`.
+1. We wrote the value of the `greetings` variable to the console.
+    - The value was substituted, which dynamically became `Console.WriteLine("Hello .NET Ninja!");`.
+    - If we change the value of the `greetings` variable, the message written in the console would change.
+
+TODO: IMAGE
+
+That may seems useless for now, but keep in mind that the value of a variable can be modified, assigned from user inputs, computed, and more.
+We are only beginning and are going to explore variables in more details in future articles about arithmetic, concatenation, interpolation, user input, and more.
+Variables are foundational to programming languages, including C#.
+
+Next, it is your turn to try it out.
+
+## Exercise
 
 Before moving on, to practice the use of C#, I'd like you to create a program that write the following output to the console.
 
@@ -211,10 +235,11 @@ var spacer = "------------------";
 Console.WriteLine(spacer);
 Console.WriteLine("What is your name?");
 Console.WriteLine(spacer);
-```
+````
 
 Don't worry if your solution is different than mine.
-As long as you did it, it means you understood the lesson.
+As long as you completed it, it means you understood the lesson or at least practiced.
+Practicing is the key to success!
 {%- endcapture -%}
 {%- assign solutionContent = solutionContent | markdownify -%}
 {%- include spoiler.html title="My Solution" content=solutionContent -%}
@@ -226,8 +251,9 @@ We also learned about variable's syntax.
 The variable that we created did not vary, yet, but the concept is essential.
 A variable allows us to store reusable data which is accessible through the identifier (name) that we assigned that data to.
 
+{%- include learn-coding-with-dot-net-core/next.md nextIndex=3 -%}
+
 ### Table of content
 
 {%- include learn-coding-with-dot-net-core/toc.md currentIndex=2 -%}
 
-{%- include learn-coding-with-dot-net-core/next.md nextIndex=3 -%}

@@ -278,8 +278,9 @@ Coding is the best way to learn, so get your hands dirty and experiment.
 
 In the next article of the series, we will explore how to create variables.
 
+{%- include learn-coding-with-dot-net-core/next.md nextIndex=2 -%}
+
 ### Table of content
 
 {%- include learn-coding-with-dot-net-core/toc.md currentIndex=1 -%}
 
-{%- include learn-coding-with-dot-net-core/next.md nextIndex=2 -%}
