@@ -548,6 +548,23 @@ aside.book {
     cursor: help;
 }
 
+.spoiler {
+    border: 1px solid #404040;
+    padding: 15px;
+
+    summary {
+        display: list-item;
+        outline: none;
+        cursor: pointer;
+    }
+    &[open] {
+        summary {
+            border-bottom: 1px solid #404040;
+            padding-bottom: 15px;
+        }
+    }
+}
+
 @import 'prism-vs-theme.less';
 
 .highlight pre code .token.string {

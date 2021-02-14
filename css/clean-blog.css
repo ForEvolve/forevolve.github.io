@@ -853,6 +853,19 @@ aside.book a {
 .amazon-associate {
   cursor: help;
 }
+.spoiler {
+  border: 1px solid #404040;
+  padding: 15px;
+}
+.spoiler summary {
+  display: list-item;
+  outline: none;
+  cursor: pointer;
+}
+.spoiler[open] summary {
+  border-bottom: 1px solid #404040;
+  padding-bottom: 15px;
+}
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)
  * Inspired by Visual Studio syntax coloring
