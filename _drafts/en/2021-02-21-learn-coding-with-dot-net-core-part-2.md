@@ -157,7 +157,18 @@ If you don't know what `string`, `int`, `float`, and `DateTime` means, it's ok.
 They are types available in C# or .NET. As mentioned before, we are going to cover types in subsequent installments of this series.
 For now, the important part is to understand the syntax.
 
-TODO: IMAGE
+By looking at the following image, we can see all the building blocks (below):
+
+![Variable synthax](//cdn.forevolve.com/blog/images/2021/2021-02-00-learn-to-code-variable.png)
+
+1. The `var` keyword inferring the variable type from its value (4).
+1. The `identifier` of the variable (its name).
+1. The assignment operator, assigning the value (4) to the variable (2).
+1. The variable's initial value, defining its type when `var` (1) is used.
+1. The end of the statement.
+
+> **Side note:** Coding is very similar to playing LEGO<sup>&reg;</sup>.
+> Like LEGO<sup>&reg;</sup>, we assemble blocks&mdash;of text&mdash;together to build a computer program.
 
 Enough syntax and theory, let's try this out next.
 
@@ -192,13 +203,13 @@ After executing the code above, we can see that we get the same result as before
 
 What happened is the following:
 
+![Variable synthax](//cdn.forevolve.com/blog/images/2021/2021-02-00-learn-to-code-variable-2.png)
+
 1. We assigned the value `"Hello .NET Ninja!"` to the `greetings` variable.
     - The type of the `greetings` implicitly became `string`.
 1. We wrote the value of the `greetings` variable to the console.
-    - The value was substituted, which dynamically became `Console.WriteLine("Hello .NET Ninja!");`.
     - If we change the value of the `greetings` variable, the message written in the console would change.
-
-TODO: IMAGE
+1. This step represents the variable's identifier substituted by its value, which dynamically became `Console.WriteLine("Hello .NET Ninja!");`. This is the equivalent of what is happening in the background implicitly.
 
 That may seem useless for now, but keep in mind that a variable's value can be modified, assigned from user inputs, computed, and more.
 We are only beginning and will explore variables in more detail in future articles, most likely in everyone.
