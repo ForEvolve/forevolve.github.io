@@ -8,7 +8,7 @@
     },
     {
         "index": 2,
-        "enabled": true,
+        "enabled": false,
         "title": "Introduction to C# variables",
         "description": "In this article, we explore variables. What they are, how to create them, and how to use them. Variables are essential elements of a program, making it dynamic.",
         "url": "/en/articles/2021/02/21/learn-coding-with-dot-net-core-part-2/",
