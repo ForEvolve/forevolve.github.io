@@ -110,6 +110,7 @@ A variable's name must describe what that variable is holding, so anyone reading
 
 An identifier must start with either a letter or an `_`.
 It can then be composed of different Unicode characters.
+The identifier is case sensitive, meaning that `thisidentifier` is different from `thisIdentifier` (capital `i`).
 I strongly suggest using only letters and numbers to keep names simple and universal.
 Not everyone can easily make unusual characters like `è` or `ï` using their keyboard's layout.
 
@@ -159,7 +160,7 @@ For now, the important part is to understand the syntax.
 
 By looking at the following image, we can see all the building blocks (below):
 
-![Variable synthax](//cdn.forevolve.com/blog/images/2021/2021-02-00-learn-to-code-variable.png)
+![Variable syntax](//cdn.forevolve.com/blog/images/2021/2021-02-00-learn-to-code-variable.png)
 
 1. The `var` keyword inferring the variable type from its value (4).
 1. The `identifier` of the variable (its name).
@@ -203,17 +204,53 @@ After executing the code above, we can see that we get the same result as before
 
 What happened is the following:
 
-![Variable synthax](//cdn.forevolve.com/blog/images/2021/2021-02-00-learn-to-code-variable-2.png)
+![Variable syntax](//cdn.forevolve.com/blog/images/2021/2021-02-00-learn-to-code-variable-2.png)
 
 1. We assigned the value `"Hello .NET Ninja!"` to the `greetings` variable.
     - The type of the `greetings` implicitly became `string`.
 1. We wrote the value of the `greetings` variable to the console.
     - If we change the value of the `greetings` variable, the message written in the console would change.
-1. This step represents the variable's identifier substituted by its value, which dynamically became `Console.WriteLine("Hello .NET Ninja!");`. This is the equivalent of what is happening in the background implicitly.
+1. This step represents the variable's identifier substituted by its value, which dynamically became `Console.WriteLine("Hello .NET Ninja!");`.
+   This is the equivalent (a representation) of what is happening in the background at runtime.
 
 That may seem useless for now, but keep in mind that a variable's value can be modified, assigned from user inputs, computed, and more.
 We are only beginning and will explore variables in more detail in future articles, most likely in everyone.
 Variables are foundational to programming.
+
+Next, we look at how to make that variable's value vary.
+
+## Updating a variable's value
+
+Now that we covered how to declare a variable and dissected the building blocks, let's look at how to change the variable's value.
+We will reuse the assignment operator (`=`) to assign a new value to the same variable.
+In the following micro-program, we assign the value `17` to the variable `age`, then we update its value to `18`:
+
+```csharp
+var age = 17;
+Console.Write("Age: ");
+Console.WriteLine(age);
+age = 18;
+Console.Write("Congratz, you are now ");
+Console.Write(age);
+Console.WriteLine("!");
+```
+
+As you can see, we only removed the `var` keyword from the equation because it is used to **declare a new variable**.
+Afterward, we can reuse that variable, using the `identifier = new_value;` syntax.
+
+> **Note:** declaring a variable with the same identifier will cause an error. The name of a variable must be unique.
+> But don't worry, there are ways to organize our code to limit naming conflicts, but that's for another day.
+
+Executing the program will write the following in the console:
+
+```text
+Age: 17
+Congratz, you are now 18!
+```
+
+> **More info:** the `Console.Write` method does the same thing as `Console.WriteLine`, without the "enter" at the end.
+
+That's it; to change the value of a variable, you only have to **assign** it a new value using the **assignment operator** (`=`).
 
 Next, it is your turn to try it out.
 
@@ -255,12 +292,16 @@ Practicing is the key to success!
 {%- assign solutionContent = solutionContent | markdownify -%}
 {%- include spoiler.html title="My Solution" content=solutionContent -%}
 
+
 ## Conclusion
 
-In this article, we learned how to declare a variable.
-We also learned about variables' syntax.
-The variable that we created did not vary yet, but the concept is essential.
-A variable allows us to store reusable data, accessible through its identifier (name).
+In this article, we learned how to declare a variable and set its value.
+We also dived into more syntax, explored the `var` keyword and the assignment operator.
+
+The concept of variable is essential.
+Most importantly, you learned that a variable stores reusable data, accessible through its identifier (name).
+
+This is a lot of theory and small details to take in, but the more you advance and the more you practice, the easier it will become.
 
 {%- include learn-coding-with-dot-net-core/next.md nextIndex=3 -%}
 
