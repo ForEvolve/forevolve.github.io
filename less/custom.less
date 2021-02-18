@@ -569,8 +569,31 @@ aside.book {
     }
 }
 
-@import 'prism-vs-theme.less';
+// Blog dark mode
+@import 'darkmode.less';
 
+// Code blocks light/dark themes
+@import 'prism-vs-theme.less';
+@import 'syntax.less';
+@media (prefers-color-scheme: light) {
+    body {
+        @import 'prism-coy.less';
+    }
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        @import 'prism-vsc-theme.less';
+        @import 'prism-tomorrow.less';
+    }
+}
+
+// @media only screen and (prefers-color-scheme: dark) {
+//     .navbar-custom.is-fixed {
+//         background-color: rgba(24, 26, 27, 0.9);
+//         border-bottom-color: rgb(52, 56, 58);
+//     }
+// }
+// Fix
 .highlight pre code .token.string {
     white-space: pre;
 }

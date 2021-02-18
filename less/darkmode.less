@@ -1,0 +1,96 @@
+@media (prefers-color-scheme: dark) {
+    body {
+        .darkmode();
+    }
+}
+
+.darkmode() {
+    background-color: rgb(24, 26, 27);
+    color: rgb(192, 186, 178);
+
+    .post-content .intro-header {
+        background-color: transparent;
+    }
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #efefef;
+    }
+
+    a {
+        color: rgb(192, 186, 178);
+    }
+
+    blockquote {
+        border-left-color: rgb(53, 57, 59);
+        color: rgb(152, 143, 129);
+    }
+
+    :not(.highlight) > code {
+        color: rgb(221, 73, 110);
+        background-color: rgb(43, 20, 26);
+    }
+
+    .post-content .intro-header .post-heading {
+        color: #aaa;
+    }
+
+    .follow-me-list-horizontal,
+    .article-next-social {
+        background-color: rgb(33, 36, 37);
+    }
+
+    .follow-me-list-horizontal.article-next-social a {
+        color: rgb(192, 186, 178);
+    }
+
+    .fa-inverse {
+        color: rgb(33, 36, 37);
+    }
+
+    .pager li > a,
+    .pager li > span {
+        background-color: #000;
+        border-color: #333;
+    }
+
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > tfoot > tr > td,
+    .table > tfoot > tr > th,
+    .table > thead > tr > td,
+    .table > thead > tr > th {
+        border-top-color: rgb(58, 62, 65);
+    }
+
+    .table-striped > tbody > tr:nth-of-type(2n + 1) {
+        background-color: rgb(27, 30, 31);
+    }
+
+    .table-hover > tbody > tr:hover {
+        background-color: rgb(30, 32, 33);
+    }
+
+    .table > thead > tr > th {
+        border-bottom-color: rgb(58, 62, 65);
+    }
+
+    .text-muted {
+        color: rgb(157, 148, 136);
+    }
+
+    // .navbar-default .navbar-collapse,
+    // .navbar-default .navbar-form {
+    //     border-color: rgb(55, 59, 62);
+    // }
+}
