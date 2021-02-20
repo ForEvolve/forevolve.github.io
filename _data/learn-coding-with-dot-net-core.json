@@ -8,11 +8,10 @@
     },
     {
         "index": 2,
-        "enabled": false,
+        "enabled": true,
         "title": "Introduction to C# variables",
         "description": "In this article, we explore variables. What they are, how to create them, and how to use them. Variables are essential elements of a program, making it dynamic.",
-        "url": "/en/articles/2021/02/21/learn-coding-with-dot-net-core-part-2/",
-        "expectedReleaseDate": "2021/02/21"
+        "url": "/en/articles/2021/02/21/learn-coding-with-dot-net-core-part-2/"
     },
     {
         "index": 3,
@@ -34,31 +33,31 @@
         "index": 5,
         "enabled": false,
         "title": "Introduction to user inputs",
-        "description": "In this article, we explore how to retrieve simple user inputs from the console.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-5/"
+        "description": "In this article, we explore how to retrieve simple user inputs from the console. This will help use make our programs more dynamic by interacting with the user.",
+        "url": "/en/articles/2021/03/14/learn-coding-with-dot-net-core-part-5/",
+        "expectedReleaseDate": "2021/03/14"
+    },
+    {
+        "index": 0,
+        "enabled": false,
+        "title": "Introduction to string concatenation and interpolation",
+        "description": "In this article, we explore the string concatenation and interpolation concepts.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
+    },
+    {
+        "index": 0,
+        "enabled": false,
+        "hidden": true,
+        "title": "Introduction to numbers and arithmetic operators",
+        "description": "In this article, we explore numbers and arithmetic operators.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     },
     {
         "index": 0,
         "enabled": false,
         "hidden": true,
         "title": "Introduction to types",
-        "description": "In this article, we explore types.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "Introduction to arithmetic operators",
-        "description": "In this article, we explore arithmetic operators.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "Introduction to concatenation and interpolation",
-        "description": "In this article, we explore arithmetic operators.",
+        "description": "In this article, we explore types...",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     },
     {
