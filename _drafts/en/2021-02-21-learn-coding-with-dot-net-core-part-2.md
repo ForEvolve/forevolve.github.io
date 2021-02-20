@@ -69,11 +69,12 @@ The **type of a variable cannot change after being declared**, but its value can
 We will explore types more in-depth in future articles, but for now, think of the type as the _type of data_ that we want to use, for example, a string (text) or a number.
 
 An alternative way to declare a variable is to use C# 1.0 syntax and use the type of the variable directly instead of `var`.
-For example, we could declare a variable of type `string` like this:
+Here are a few examples:
 
 ```csharp
-string identifier = "Hello C# Ninja!";
-string identifier; // We can do this because C# don't have to infer the type; it is specified.
+var identifier = "Hello C# Ninja!"; // This is the way we are exploring
+string identifier = "Hello C# Ninja!"; // This is the equivalent of the previous line
+string identifier; // We can do this because C# don't have to infer the type; it is specified explicitly.
 var identifier; // We cannot do this because C# don't know what type to use.
 ```
 
@@ -123,9 +124,10 @@ As a refresher, we learned about the _member access operators_ in the first arti
 
 ### Assignment operator
 
-Now that we named our variable, it is time to assign it a value (also inferred as its type).
-The `=` character represents the assignment operator.
+Now that we named our variable, it is time to assign it a value.
+That value also defines the type of the variable when using the `var` keyword.
 
+The `=` character is the assignment operator.
 The assignment operator **assigns the value of the right-hand operand to the left** side.
 For example, to assign the string value `"How are you?"` to a variable named `howAreYou` we could write the following code:
 
@@ -214,7 +216,7 @@ What happened is the following:
    This is the equivalent (a representation) of what is happening in the background at runtime.
 
 That may seem useless for now, but keep in mind that a variable's value can be modified, assigned from user inputs, computed, and more.
-We are only beginning and will explore variables in more detail in future articles, most likely in everyone.
+We are only beginning and will explore and use variables in future articles, most likely in every single one of them.
 Variables are foundational to programming.
 
 Next, we look at how to make that variable's value vary.
@@ -235,8 +237,11 @@ Console.Write(age);
 Console.WriteLine("!");
 ```
 
-As you can see, we only removed the `var` keyword from the equation because it is used to **declare a new variable**.
-Afterward, we can reuse that variable, using the `identifier = new_value;` syntax.
+In the `age = 18;` statement of the preceding code, we only removed the `var` keyword if we compare it with the initial one (`var age = 17;`).
+That's because the `var` keyword's objective is only to **declare a new variable**.
+
+Quick recap.
+To update the value of a variable, we must assemble the following building blocks (syntax): `identifier = new_value;`.
 
 > **Note:** declaring a variable with the same identifier will cause an error. The name of a variable must be unique.
 > But don't worry, there are ways to organize our code to limit naming conflicts, but that's for another day.
@@ -251,6 +256,7 @@ Congratz, you are now 18!
 > **More info:** the `Console.Write` method does the same thing as `Console.WriteLine`, without the "enter" at the end.
 
 That's it; to change the value of a variable, you only have to **assign** it a new value using the **assignment operator** (`=`).
+However, the type of that new value must be the same.
 
 Next, it is your turn to try it out.
 
@@ -298,7 +304,7 @@ Practicing is the key to success!
 In this article, we learned how to declare a variable and set its value.
 We also dived into more syntax, explored the `var` keyword and the assignment operator.
 
-The concept of variable is essential.
+The variable concept is essential.
 Most importantly, you learned that a variable stores reusable data, accessible through its identifier (name).
 
 This is a lot of theory and small details to take in, but the more you advance and the more you practice, the easier it will become.
