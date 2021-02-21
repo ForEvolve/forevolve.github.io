@@ -1829,6 +1829,9 @@ pre,
   body .token.inserted {
     color: green;
   }
+  body :not(pre) > code[class*='language-'] {
+    border-color: #000;
+  }
 }
 @media (prefers-color-scheme: dark) and print {
   body pre[class*='language-'],

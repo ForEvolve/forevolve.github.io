@@ -584,6 +584,10 @@ aside.book {
     body {
         @import 'prism-vsc-theme.less';
         @import 'prism-tomorrow.less';
+
+        :not(pre) > code[class*='language-'] {
+            border-color: #000;
+        }
     }
 }
 
