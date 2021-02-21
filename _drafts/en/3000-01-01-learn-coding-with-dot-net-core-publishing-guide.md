@@ -1,5 +1,6 @@
 ---
 title: 'Publish guide: A beginner guide to programming with .NET 5 and C#'
+excerpt: Nothing here, really...
 date: 3000-01-01 00:00:00 -0500
 lang: en
 categories: en/articles
@@ -77,3 +78,13 @@ The next installment—{{ nextTitle }}—is planned for {{ nextDate }}; stay tun
 #csharp #dotnet #dotnetcore #dotnet5
 
 {{ blogLink }}
+
+# Platform changes
+
+## Dev
+
+TODO
+
+## Medium
+
+TODO
