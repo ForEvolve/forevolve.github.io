@@ -52,10 +52,8 @@ Continue/revise/finish article
 
 ...
 
-In the next article of the series, we will explore how to write comments.
+{%- include learn-coding-with-dot-net-core/next.md nextIndex=6 -%}
 
 ### Table of content
 
-{%- include learn-coding-with-dot-net-core/toc.md currentIndex=2 -%}
-
-{%- include learn-coding-with-dot-net-core/next.md nextIndex=3 -%}
+{%- include learn-coding-with-dot-net-core/toc.md currentIndex=5 -%}
