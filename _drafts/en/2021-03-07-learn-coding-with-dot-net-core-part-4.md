@@ -52,9 +52,11 @@ The more you progress, the clearer your code will become and the less needed the
 > This is the kind of situation that can lead a third developer in the wrong direction.
 > Both the code and the comment can contradict themselves.
 >
-> On the other hand, as a beginner, comments can be good to lay out your ideas and algorithms.
+> On the other hand, comments can be good to lay out your ideas and algorithms, especially as a beginner.
 > They can also be a very good tool to reorganize logic into cohesive units.
 > Enough of that, I'll most likely talk about that in future articles, in a more exciting context.
+
+Next, let's have a look at the first style that are covering in this article.
 
 ### Single line comments
 
@@ -84,13 +86,15 @@ If we run the code, we get the following output:
 
 As you can see, the comments are not executed or outputted, they are there only to inform the programmer about the code.
 
+Next, let's look at multiline comments.
+
 ### Multiline comments
 
 Multiline comments are like their name implies: they can cover multiple lines.
 Unlike the single line comments, multiline comments has an opening and a closing sequence of characters.
 We can open a multiline comment with `/*` and close it with `*/` (same characters in the inverted order).
 
-> **Hint:** The numpad of a _standard keyboard_ makes it very easy to open and close a multiline comment.
+> **Hint:** The numpad of a _standard keyboard_ makes it very easy to open and close a multiline comment in a smooth sequence of keystrokes: `/` -> `*` -> `*` -> `/` -> move your arrow between the two `*`.
 
 Here are a few examples:
 
@@ -127,17 +131,19 @@ If we run the code, we get the following output:
 
 Once again, the comments are not executed or outputted, they are there only to inform the programmer about the code.
 
+And voilà! You have made another step toward learning to program.
+
 ## Conclusion
 
-Comments are a tool to leave notes inside the code.
+Comments are a tool to annotate and leave notes inside the code.
 We can write single line comments beginning by `//` and we can write multiline comments between `/*` and `*/`.
 
 One very important thing about comments is to describe the functionally, not the code itself.
 For example, explaining to a C# programmer using a comment that `var text = "whatever";` creates a variable named `text` is not helpful.
 But explaining that the following block of code is an implementation of the XYZ algorithm could be.
-As I mentioned, at some point you want to aim at writing clear enough code that you don't need to explain it anymore.
+As I mentioned, at some point you want to aim at writing clear enough code that you don't need to explain it.
 That said, as a beginner, please do leverage comments to help you out.
-You can describe your own code if that help you remember.
+You can describe your own code if that help you remember or understand.
 Everyone learn differently, there is not wrong in how to learn, so if your way is to use comments, please do abuse of them!
 
 {%- include learn-coding-with-dot-net-core/next.md nextIndex=5 -%}
