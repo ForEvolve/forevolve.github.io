@@ -28,9 +28,7 @@ What they are, how to create them, and how to use them.
 Variables are one of the most important elements of a program, making it dynamic.
 Of course, there is more to variables than what we can cover in a single article; this is only the beginning.
 
-This article is the second of a **learn programming** series where you need **no prior knowledge of programming**.
-If you want to **learn how to program** and want to learn it **using .NET/C#**, this is the right place.
-I suggest reading the whole series in order, but that's not mandatory.<!--more-->
+{% include learn-coding-with-dot-net-core/intro-series.md %}<!--more-->
 
 ## Definition of a variable
 

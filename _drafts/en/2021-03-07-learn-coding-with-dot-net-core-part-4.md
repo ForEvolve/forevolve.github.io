@@ -25,11 +25,9 @@ technology-relative-level:
 
 In this article we explore how to write comments.
 A comment is some human-readable text; it is a note that we can leave in the code.
-I left a few in preceding installements.
+I left a few in preceding installments.
 
-This article is the fourth of a **learn programming** series where you need **no prior knowledge of programming**.
-If you want to **learn how to program** and want to learn it **using .NET/C#**, this is the right place.
-I suggest reading the whole series in order, but that's not mandatory.<!--more-->
+{% include learn-coding-with-dot-net-core/intro-series.md %}<!--more-->
 
 ## Comments
 
