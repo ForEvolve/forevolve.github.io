@@ -108,6 +108,8 @@ You can look at [my blog contact page](https://www.forevolve.com/contact/) for m
 
 # Social Media
 
+Log to Buffer and plan some posts...
+
 ## Twitter
 
 ### Blog
