@@ -951,6 +951,12 @@ aside.book a {
   body .text-muted {
     color: #9d9488;
   }
+  body .bg-success {
+    background-color: #293c17;
+  }
+  body .text-success {
+    color: #ccc;
+  }
 }
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)
