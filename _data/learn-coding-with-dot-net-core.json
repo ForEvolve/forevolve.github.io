@@ -15,7 +15,7 @@
     },
     {
         "index": 3,
-        "enabled": false,
+        "enabled": true,
         "title": "Introduction to C# constants",
         "description": "In this article, we explore constants. A constant is a special kind of variable.",
         "url": "/en/articles/2021/02/28/learn-coding-with-dot-net-core-part-3/",
