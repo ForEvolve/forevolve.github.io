@@ -23,9 +23,9 @@
     },
     {
         "index": 4,
-        "enabled": false,
+        "enabled": true,
         "title": "Introduction to C# comments",
-        "description": "In this article, we explore comments.",
+        "description": "In this article, we explore single-line and multiline comments.",
         "url": "/en/articles/2021/03/07/learn-coding-with-dot-net-core-part-4/",
         "expectedReleaseDate": "2021/03/07"
     },

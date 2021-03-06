@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to C# comments'
 subtitle: 'A beginner guide to programming with .NET 5 and C#'
-date: 2021-04-01 00:00:00 -0500
+date: 2021-03-07 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png'
 unsplash-credit: Photo by Jefferson Santos on Unsplash
 lang: en
