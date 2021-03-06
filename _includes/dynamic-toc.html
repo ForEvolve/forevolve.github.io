@@ -1,5 +1,5 @@
 
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover table-toc">
     <thead class="thead-inverse">
         <tr>
             <th>Articles in this series</th>
@@ -16,6 +16,9 @@
         {% endif %}
     {% else %}
         {% assign tdClass = "text-muted" %}
+    {% endif %}
+    {% if article.group %}
+        {% assign tdClass = tdClass | append: " toc-grp " | append: article.group.name %}
     {% endif %}
         {% unless article.hidden %}
         <tr>

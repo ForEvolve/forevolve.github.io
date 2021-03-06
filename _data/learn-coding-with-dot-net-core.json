@@ -55,23 +55,34 @@
         "index": 0,
         "enabled": false,
         "hidden": true,
-        "title": "Introduction to booleans and logical operators",
-        "description": "",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
+        "title": "Introduction to boolean algebra",
+        "description": "This article introduce the mathematical branch of algebra that evaluates the value of a condition to true or false.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "group": { "name": "toc-grp-one" }
     },
     {
         "index": 0,
         "enabled": false,
         "hidden": true,
-        "title": "Exploring C# primitive types",
-        "description": "",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
+        "title": "Introduction to boolean and logical operators",
+        "description": "In this article, we explore boolean and logical operators",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "group": { "name": "toc-grp-one" }
     },
     {
         "index": 0,
         "enabled": false,
         "hidden": true,
         "title": "Writing conditional code blocks with if-else selection statements",
+        "description": "",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "group": { "name": "toc-grp-one" }
+    },
+    {
+        "index": 0,
+        "enabled": false,
+        "hidden": true,
+        "title": "Recap of C# primitive types",
         "description": "",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     },

@@ -880,6 +880,19 @@ aside.book a {
   border-bottom: 1px solid #404040;
   padding-bottom: 15px;
 }
+.table-toc td.toc-grp {
+  border-left: 10px solid transparent;
+}
+@media (prefers-color-scheme: light) {
+  .table-toc td.toc-grp-one {
+    border-left-color: #c00;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .table-toc td.toc-grp-one {
+    border-left-color: #500;
+  }
+}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #181a1b;

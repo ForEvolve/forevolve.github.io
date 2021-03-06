@@ -569,6 +569,21 @@ aside.book {
     }
 }
 
+.table-toc td.toc-grp {
+    border-left: 10px solid transparent;
+}
+
+@media (prefers-color-scheme: light) {
+    .table-toc td.toc-grp-one {
+        border-left-color: #a00;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .table-toc td.toc-grp-one {
+        border-left-color: #500;
+    }
+}
+
 // Blog dark mode
 @import 'darkmode.less';
 
