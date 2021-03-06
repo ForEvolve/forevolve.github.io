@@ -24,8 +24,9 @@ technology-relative-level:
 ---
 
 In this article, we explore how to write comments.
-A comment is some human-readable text; it is a note that we can leave in the code.
-I left a few in preceding installments.
+Comments are simply human-readable pieces of text that are not compiled nor interpreted.
+A comment is usually a note that we can leave in the code for the next programmer to get into that code or for us.
+I left a few comments in preceding installments; did you noticed them?
 
 {% include learn-coding-with-dot-net-core/intro-series.md %}<!--more-->
 
@@ -42,7 +43,7 @@ We can use the third style to document our code, but we don't know how to create
 
 We can use comments to leave notes in the source code.
 As a beginner, comments can be handy.
-The more you progress, the clearer your code will become and the less needed the comments will be.
+The more you progress, the clearer your code will become and the less needed the comments are gonna be.
 
 > **More info:** I usually recommend to intermediate developers to write as close to zero comments as possible in their code.
 > Comments too often become outdated and forgotten.
@@ -54,6 +55,7 @@ The more you progress, the clearer your code will become and the less needed the
 >
 > On the other hand, comments can be useful to lay out ideas and algorithms, especially as a beginner.
 > They can also be an excellent tool to reorganize logic into cohesive units.
+> We can also use comments to diagnose and debug a feature.
 > Enough of that; I'll most likely talk about that in future articles, in a more exciting context.
 
 Next, let's have a look at the first style that we are covering in this article.
@@ -92,9 +94,10 @@ Next, let's look at multiline comments.
 
 Multiline comments are like their name implies: they can cover multiple lines.
 Unlike single-line comments, multiline comments have an opening and a closing sequence of characters.
+Everything in between those two tokens is a comment.
 We can open a multiline comment with `/*` and close it with `*/` (same characters in the inverted order).
 
-> **Hint:** The numpad of a _standard keyboard_ makes it very easy to open and close a multiline comment in a smooth sequence of keystrokes: `/` -> `*` -> `*` -> `/` -> move your arrow between the two `*`.
+> **Hint:** The numpad of a _standard keyboard_ makes it very easy to open and close a multiline comment in a smooth sequence of keystrokes: `/` -> `*` -> `*` -> `/` -> move your arrow between the two `*`, hit `enter` or write your comment.
 
 Here are a few examples:
 
@@ -130,6 +133,8 @@ If we run the code, we get the following output:
 ```
 
 Once again, the comments are not executed or outputted. They are there only to inform the programmer about the code.
+Moreover, as you may have noticed, multiline comments don't have to cover multiple lines.
+Unlike the single-line comments that start from `//`, commenting the text until the end of that line, we can use multiline comments to comment out only a part of a line.
 
 And voilà! You have made another step toward learning to program.
 
@@ -143,10 +148,10 @@ For example, explaining to a C# programmer using a comment that `var text = "wha
 But explaining that the following block of code is an implementation of the XYZ algorithm could be.
 As I mentioned, at some point, you want to aim at writing clear enough code that you don't need to explain it.
 That said, as a beginner, please leverage comments to help you out.
-You can describe your code if that helps you remember or understand.
+You can describe your code if that helps you remember or understand for example.
 Everyone learns differently.
 There is no wrong with how to learn, so if using comments helps you, please do!
-If you don't know, experiment with techniques and keep what works best for you.
+If you don't know, experiment with techniques and keep what works best for you, only you can find this part out.
 
 {%- include learn-coding-with-dot-net-core/next.md nextIndex=5 -%}
 
