@@ -42,41 +42,49 @@
         "enabled": false,
         "title": "Introduction to string concatenation and interpolation",
         "description": "In this article, we explore the string concatenation and interpolation concepts.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-6/"
+        "url": "/en/articles/2021/03/21/learn-coding-with-dot-net-core-part-6/",
+        "expectedReleaseDate": "2021/03/21"
     },
     {
-        "index": 7,
+        "index": 0,
+        "enabled": false,
+        "title": "Introduction to boolean algebra",
+        "description": "This article introduces the mathematical branch of algebra that evaluates the value of a condition to true or false.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "group": { "name": "toc-grp-one" }
+    },
+    {
+        "index": 0,
+        "enabled": false,
+        "title": "Writing conditional code blocks with if-else selection statements",
+        "description": "In this article, we explore how to write conditional code using boolean algebra.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "group": { "name": "toc-grp-one" }
+    },
+    {
+        "index": 0,
+        "enabled": false,
+        "title": "Introduction to logical operators",
+        "description": "In this article, we explore how to leverage logical operators to write complex boolean condition.",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "group": { "name": "toc-grp-one" }
+    },
+    {
+        "index": 0,
         "enabled": false,
         "title": "Introduction to numbers and arithmetic operators",
         "description": "In this article, we explore numbers and arithmetic operators.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-7/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "xgroup": { "name": "toc-grp-two" }
     },
     {
         "index": 0,
         "enabled": false,
         "hidden": true,
-        "title": "Introduction to boolean algebra",
-        "description": "This article introduce the mathematical branch of algebra that evaluates the value of a condition to true or false.",
+        "title": "Converting (parsing) strings to numbers.",
+        "description": "In this article, we explore numbers and arithmetic operators.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
-        "group": { "name": "toc-grp-one" }
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "Introduction to boolean and logical operators",
-        "description": "In this article, we explore boolean and logical operators",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
-        "group": { "name": "toc-grp-one" }
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "Writing conditional code blocks with if-else selection statements",
-        "description": "",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
-        "group": { "name": "toc-grp-one" }
+        "group": { "name": "toc-grp-two" }
     },
     {
         "index": 0,

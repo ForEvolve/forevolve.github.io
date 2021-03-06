@@ -885,12 +885,24 @@ aside.book a {
 }
 @media (prefers-color-scheme: light) {
   .table-toc td.toc-grp-one {
-    border-left-color: #c00;
+    border-left-color: #a00;
+  }
+  .table-toc td.toc-grp-two {
+    border-left-color: #0a0;
+  }
+  .table-toc td.toc-grp-three {
+    border-left-color: #00f;
   }
 }
 @media (prefers-color-scheme: dark) {
   .table-toc td.toc-grp-one {
     border-left-color: #500;
+  }
+  .table-toc td.toc-grp-two {
+    border-left-color: #050;
+  }
+  .table-toc td.toc-grp-three {
+    border-left-color: #006;
   }
 }
 @media (prefers-color-scheme: dark) {
