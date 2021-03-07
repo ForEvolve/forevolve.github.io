@@ -35,7 +35,7 @@ We now have a fully unit tested Ninja sub-system but, we still need to integrate
 
 ---
 
-> We could compare this to lego blocks.
+> We could compare this to LEGO<sup>&reg;</sup> blocks.
 > We first created the blocks, but we still have no castle built.
 
 ---
@@ -85,7 +85,7 @@ By doing this, it will also be easier to assess success and failure.
 That said, integration testing does not imply testing the whole system; for example, you could verify the integration of only two components together if you'd feel the need to.
 It is all about combining the units and testing their interaction; making sure the system is working as intended.
 
-> If you remember my Lego block example, it is now time to take those blocks and build a castle with them.
+> If you remember my LEGO<sup>&reg;</sup> block example, it is now time to take those blocks and build a castle with them.
 
 Integration testing is an essential part of testing your software and should not be overlooked.
 I find integration testing (especially end-to-end testing) to be more concrete than unit testing since it allows you to make sure the system behaves as expected, from a user point of view (ex.: make sure that a call to the API does what it should).
