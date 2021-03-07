@@ -14,24 +14,26 @@ categories: en/articles
     - Make sure the page is enabled in the ToC (`learn-coding-with-dot-net-core.json`)
 1. Set the `rawBlogLink` variable
 1. Minify the URL (Firebase) by following the [instructions below](#minify-link)
-1. Set the `blogLink` variable
+    - Set the `blogLink` variable
 1. Deploy to **dev.to** by following the [instructions below](#dev)
+    - Set the `devLink` variable
 1. Deploy to **Medium** by following the [instructions below](#medium)
+    - Set the `mediumLink` variable
 1. Plan **Social Media** posts by following the [instructions below](#social-media)
 
 # Variables
 
 <!-- TODO: SET THESE -->
 
-{% assign index = 2 %}
+{% assign index = 3 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
 
-{% assign installment = "third" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/02/28/learn-coding-with-dot-net-core-part-3/" %}
-{% assign blogLink = "https://link.forevolve.com/GMQ7" %}
-{% assign devLink = "https://dev.to/carlhugom/introduction-to-c-constants-4gid" %}
-{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-c-constants-c14498ce0fd5" %}
+{% assign installment = "fourth" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/07/learn-coding-with-dot-net-core-part-4/" %}
+{% assign blogLink = "https://link.forevolve.com/fJc4" %}
+{% assign devLink = "https://dev.to/carlhugom/introduction-to-c-comments-3pkd" %}
+{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-c-comments-91c6cab2be06" %}
 
 <!-- END SET THESE -->
 
