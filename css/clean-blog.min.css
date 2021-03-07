@@ -982,6 +982,22 @@ aside.book a {
   body .text-success {
     color: #ccc;
   }
+  body .navbar-custom.is-fixed {
+    background-color: rgba(24, 26, 27, 0.9);
+    border-bottom-color: #34383a;
+  }
+  body .navbar-custom.is-fixed .nav li a {
+    color: #c0bab2;
+  }
+  body .navbar-custom.is-fixed .navbar-brand {
+    color: #c0bab2;
+  }
+  body .navbar-custom.is-fixed .navbar-brand span:first-child {
+    color: #e8e6e3;
+  }
+  body .navbar-custom.is-fixed .navbar-brand .navbar-brand span:last-child {
+    color: #73ff73;
+  }
 }
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)
