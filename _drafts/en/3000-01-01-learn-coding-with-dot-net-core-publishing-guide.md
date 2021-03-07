@@ -25,15 +25,15 @@ categories: en/articles
 
 <!-- TODO: SET THESE -->
 
-{% assign index = 3 %}
+{% assign index = 4 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
 
-{% assign installment = "fourth" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/07/learn-coding-with-dot-net-core-part-4/" %}
-{% assign blogLink = "https://link.forevolve.com/fJc4" %}
-{% assign devLink = "https://dev.to/carlhugom/introduction-to-c-comments-3pkd" %}
-{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-c-comments-91c6cab2be06" %}
+{% assign installment = "fifth" %}
+{% assign rawBlogLink = "TODO" %}
+{% assign blogLink = "TODO" %}
+{% assign devLink = "TODO" %}
+{% assign mediumLink = "TODO" %}
 
 <!-- END SET THESE -->
 
