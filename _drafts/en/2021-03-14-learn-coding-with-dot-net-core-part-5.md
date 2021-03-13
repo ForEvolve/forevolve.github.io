@@ -25,6 +25,7 @@ technology-relative-level:
 
 In this article, we explore how to read user inputs from the console.
 This article is the foundation of more dynamic notions enabling our programs to change based on user interactions and react to them.
+We also learn how to change the title of the console and how to delete its content.
 
 {% include learn-coding-with-dot-net-core/intro-series.md %}<!--more-->
 
@@ -62,7 +63,7 @@ var hello = Console.ReadLine();
 Console.WriteLine(hello);
 ```
 
-In the preceding code, we write a message to the user, then wait for the user to enter some message.
+In the preceding code, we write a message to the user, then wait for an input.
 The program will block its execution there until the user hits the `<ENTER>` key.
 At this point, it will resume and continue, then write the read line back to the console.
 
@@ -225,7 +226,7 @@ And that's it for this article.
 
 In this article, we explored how to read user inputs from the console.
 We used the `ReadLine` method to acquire the value a user wrote before hitting the `<ENTER>` key.
-Interacting with the user is the foundation of the next many articles where we will use this to acquire data from the user and treat that data and do something with it!
+Interacting with the user is the foundation of the next many articles where we will use this to acquire and manipulate data typed by the user.
 
 We also looked at how to change the title of the terminal Window because why not, right?
 Finally, we explored how to clear the text to reset the console to an empty state.
