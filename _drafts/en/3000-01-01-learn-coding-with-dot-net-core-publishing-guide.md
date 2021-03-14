@@ -25,15 +25,15 @@ categories: en/articles
 
 <!-- TODO: SET THESE -->
 
-{% assign index = 4 %}
+{% assign index = 5 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
 
-{% assign installment = "fifth" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/14/learn-coding-with-dot-net-core-part-5/" %}
-{% assign blogLink = "https://link.forevolve.com/DwNd" %}
-{% assign devLink = "https://dev.to/carlhugom/how-to-read-user-inputs-from-a-console-5fce" %}
-{% assign mediumLink = "https://carlhugom.medium.com/how-to-read-user-inputs-from-a-console-a495c62513f7" %}
+{% assign installment = "sixth" %}
+{% assign rawBlogLink = "TODO" %}
+{% assign blogLink = "TODO" %}
+{% assign devLink = "TODO" %}
+{% assign mediumLink = "TODO" %}
 
 <!-- END SET THESE -->
 
