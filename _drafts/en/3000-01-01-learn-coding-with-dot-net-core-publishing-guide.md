@@ -30,10 +30,10 @@ categories: en/articles
 {% assign installmentNumber = index | plus: 1 %}
 
 {% assign installment = "fifth" %}
-{% assign rawBlogLink = "TODO" %}
-{% assign blogLink = "TODO" %}
-{% assign devLink = "TODO" %}
-{% assign mediumLink = "TODO" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/14/learn-coding-with-dot-net-core-part-5/" %}
+{% assign blogLink = "https://link.forevolve.com/DwNd" %}
+{% assign devLink = "https://dev.to/carlhugom/how-to-read-user-inputs-from-a-console-5fce" %}
+{% assign mediumLink = "https://carlhugom.medium.com/how-to-read-user-inputs-from-a-console-a495c62513f7" %}
 
 <!-- END SET THESE -->
 
@@ -43,14 +43,17 @@ categories: en/articles
 {% assign currentTitle = current.title %}
 {% assign nextTitle = next.title %}
 {% assign nextDate = next.expectedReleaseDate %}
+{% assign twitterProfileUri = "https://twitter.com/CarlHugoM" %}
 
--   **Original link (link.forevolve.com):** {{blogLink}}
+-   **Original link:** {{rawBlogLink}}
+-   **Minified link:** {{blogLink}}
 -   **Dev.to:** {{devLink}}
 -   **Medium:** {{mediumLink}}
 -   **Current title:** {{ currentTitle }}
 -   **Next title:** {{ nextTitle }}
 -   **Next date:** {{ nextDate }}
 -   **Installment:** {{ installment }}
+-   **Twitter profile Uri:** {{ twitterProfileUri }}
 
 # Minify link
 
@@ -87,26 +90,24 @@ Unfortunately, I was not able to recreate the exercise on this platform, so plea
 ```markdown
 ## Next step
 
-It is now time to move to the next article: **{{ nextTitle }}** which is coming soon. Stay tuned by following me on dev.to, Twitter, or other places you can find me.
+It is now time to move to the next article: **{{ nextTitle }}** which is coming soon. Stay tuned by following me on dev.to, [Twitter]({{ twitterProfileUri }}), or other places you can find me.
 You can look at [my blog contact page](https://www.forevolve.com/contact/) for more info.
 ```
 
 ## Medium
 
-**Tags:** dotnet, csharp, beginner, programming
+-   **Import URL:** {{rawBlogLink}}
+-   **Subtitle:** A beginner guide to programming with .NET 5 and C#
+-   **Tags:** dotnet, csharp, beginner, programming
 
 ### Exercise text
 
-```markdown
 Unfortunately, I was not able to recreate the exercise on this platform, so please look at the exercise on the original post [on my blog]({{ rawBlogLink }}#exercise). I'm sorry for the inconvenience.
-```
 
 ### Replace `Next step` content
 
-```markdown
-It is now time to move to the next article: **{{ nextTitle }}** which is coming soon. Stay tuned by following me on Medium, Twitter, or other places you can find me.
+It is now time to move to the next article: **{{ nextTitle }}** which is coming soon. Stay tuned by following me on Medium, [Twitter]({{ twitterProfileUri }}), or other places you can find me.
 You can look at [my blog contact page](https://www.forevolve.com/contact/) for more info.
-```
 
 # Social Media
 
@@ -150,7 +151,7 @@ Did you know that the {{ installment }} article of my #LearnProgramming series�
 
 You want to learn to program? You want to learn C#? You are already an expert but know someone that wants to learn it?
 
-The {{ installment }} article of my #LearnProgramming series—{{ currentTitle }}—is now out on my blog. No prior knowledge of programming is required. It will also be published on both Dev and Medium if you prefer those platforms.
+The {{ installment }} article of my #LearnProgramming series—{{ currentTitle }}—is now out on my blog. No prior knowledge of programming is required. It is also be published on both Dev and Medium if you prefer those platforms.
 
 The next installment—{{ nextTitle }}—is planned for {{ nextDate }}; stay tuned!
 
