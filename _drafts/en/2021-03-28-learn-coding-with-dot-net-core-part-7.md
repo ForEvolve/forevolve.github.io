@@ -25,7 +25,9 @@ technology-relative-level:
 
 In this article, ...
 
-{% include learn-coding-with-dot-net-core/intro-series.md %}<!--more-->
+{% include learn-coding-with-dot-net-core/intro-series.md %}
+
+{% include learn-coding-with-dot-net-core/sub-series.md firstPart=6 %}<!--more-->
 
 ## Interpolation
 

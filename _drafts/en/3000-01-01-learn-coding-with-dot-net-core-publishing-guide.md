@@ -28,6 +28,13 @@ categories: en/articles
 {% assign index = 5 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
+{%- comment -%} {% assign subSeriesFirstPart = 6 %} {%- endcomment -%}
+
+**TODO:**
+
+- complete the setup of sub-series
+- Allow overriding the link for sub-series.md and intro-series.md so this page can point to a full URL
+- ...
 
 {% assign installment = "sixth" %}
 {% assign rawBlogLink = "TODO" %}
@@ -54,6 +61,7 @@ categories: en/articles
 -   **Next date:** {{ nextDate }}
 -   **Installment:** {{ installment }}
 -   **Twitter profile Uri:** {{ twitterProfileUri }}
+-   **SubSeries FirstPart:** {{ subSeriesFirstPart }}{% unless subSeriesFirstPart %}Not part of a series.{% endunless %}
 
 # Minify link
 
@@ -78,6 +86,14 @@ This article is part of a **learn programming** series where you need **no prior
 If you want to **learn how to program** and want to learn it **using .NET/C#**, this is the right place.
 I suggest reading the whole series in order, starting with [Creating your first .NET/C# program](https://dev.to/carlhugom/creating-your-first-net-c-program-1poj), but that's not mandatory.
 ```
+
+{% if subSeriesFirstPart %}
+### sub-series.md
+
+```markdown
+{% include learn-coding-with-dot-net-core/sub-series.md firstPart=subSeriesFirstPart %}
+```
+{% endif %}
 
 ### Exercise text
 
