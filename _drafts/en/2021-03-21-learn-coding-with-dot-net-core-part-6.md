@@ -35,17 +35,19 @@ We will cover interpolation in the next installment.
 In C#, a string is a sequence of characters delimited by quotes (`"`).
 We used strings in previous articles to write text to the console.
 
-Here is an example of a string:
+As a reminder, here is how to create a string variable:
 
 ```csharp
 var name = "Superman";
 ```
 
-Next, we explore multiline strings.
+We already used strings, so no need to linger too long here.
+Next, we explore some new content: multiline strings.
 
 ### Multiline strings
 
-We can also create multiline strings by prefixing the string with the `@` character.
+In C#, we can create multiline strings by prefixing the string with the `@` character.
+As the name implies, the only difference is the possibility to set the content of the string over multiple lines.
 
 Here is an example of a multiline string:
 
@@ -76,12 +78,12 @@ Multiline strings are handy in different scenarios where you don't want to use c
 As an introduction to strings, I will not get into too many more details.
 However, there are many methods to manipulate strings, compare them, or optimize their usage.
 
-Next, we look into concatenation.
+Next, we look into the main subject: concatenation.
 
 ## Concatenation
 
-Concatenation is the action of pieces multiple strings together to make a new one; combine strings if you wish.
-The concatenation operator is the `+` symbol.
+Concatenation is the action of piecing multiple strings together to make a new one; combining strings if you wish.
+In C#, the concatenation operator is the `+` symbol.
 The `+` operator combines both string operands (the values on the left and right sides) into a new string.
 Let's look into an example to make learning easier:
 
@@ -106,10 +108,10 @@ Console.WriteLine(concatenatedString);
 The preceding code does the same as `"Greetings " + "from .NET!"`, but in two steps (bullets 1 and 2):
 
 1. The value `"Greetings "` is assigned to the `concatenatedString` variable.
-1. The value `"from .NET!"` is added at the end of the `concatenatedString` variable.
+1. The value `"from .NET!"` is added at the end of the `concatenatedString` variable, then reassigned to it.
 1. The program writes `"Greetings from .NET!"` to the console.
 
-Let's look more into the line `concatenatedString = concatenatedString + "from .NET!";` as it may be harder to understand.
+Let's look more into the line `concatenatedString = concatenatedString + "from .NET!";` as it may be harder to understand at first.
 
 > **Reminder:** the assignation operator (`=`) has the lowest priority, so the code on the right (the right-hand operand) is processed first.
 
@@ -119,15 +121,15 @@ Here is an image to help analyze the code:
 
 1. The program ready the literal string `"Greetings "` for step 2.
 1. The program assigns the value of the right-hand operand (`"Greetings "`) to the `concatenatedString` variable.
-1. The program ready the current value of the `concatenatedString` variable for step 5.
+1. The program ready the current value of the `concatenatedString` variable for step 5 (`"Greetings "`).
 1. The program ready the literal string `"from .NET!"` for step 5.
-1. The program concatenates (combine) the two strings into a new one.
+1. The program concatenates (combines) the two strings into a new one.
 1. The program assigns the value of the right-hand operand (`"Greetings from .NET!"`) to the `concatenatedString` variable, replacing its value.
 
 > **Note:** You can see steps 3 to 5 as evaluated first, like one big step, then the program continues at step 6.
 
-Now that we covered that, there is a shortcut to this process, using the `+=` operator.
-You can see the `+=` operator as a combination of both the `+` and the `=`.
+Now that we covered that, there is a shortcut to this process: the `+=` operator.
+You can see the `+=` operator as a combination of both concatenation (`+`) and assignation (`=`).
 The previous example, using the `+=` operator, would look like this:
 
 ```csharp
@@ -136,16 +138,16 @@ concatenatedString += "from .NET!";
 Console.WriteLine(concatenatedString);
 ```
 
-The second line of the preceding code is simplified.
+The second line of code is simplified compared to the previous bloc.
 It does the same, without the need to specify that `concatenatedString = concatenatedString + [something else]`.
-This new syntax removes unneeded pieces, reducing the length of the line of code, possibly even making it easier to read.
+This new syntax removes unneeded pieces, reducing the length of the line of code, most likely even making it easier to read.
 
-Enough of this; next, it's your turn to try it out.
+Enough theory; next, it's your turn to try it out.
 
 ## Exercise
 
-To practice concatenation, we will code the exercise of the previous article with a twist.
-You must ask for the user's first and last name, and then you must use concatenation to output the result using a single `Console.WriteLine` call.
+To practice concatenation, we will update the code from the previous article's exercise, but with a twist.
+You must ask for the user's first and last name again, and then **you must use concatenation to output the result using a single `Console.WriteLine` call**.
 
 Here is the previous solution, including the `Title` and `Clear` additions:
 
@@ -170,7 +172,11 @@ Console.Write(lastName);
 Console.WriteLine("!");
 ```
 
-Here is an optional hint if you feel stuck:
+Here are a few optional hints in case you feel stuck:
+
+{%- capture hintContent -%}You can create a variable to hold that concatenated string before writing it to the console.{%- endcapture -%}
+{%- assign hintContent = hintContent | markdownify -%}
+{%- include spoiler.html title="Hint 1" content=hintContent -%}
 
 {%- capture hintContent -%}You can concatenate multiple values back to back, like this:
 
@@ -180,7 +186,7 @@ var greetings = "Greetings " + "Carl-Hugo" + " " + "Marcotte" + "!";
 
 {%- endcapture -%}
 {%- assign hintContent = hintContent | markdownify -%}
-{%- include spoiler.html title="Hint" content=hintContent -%}
+{%- include spoiler.html title="Hint 2" content=hintContent -%}
 
 Once you are done, you can compare with `My Solution` below.
 
@@ -232,7 +238,11 @@ Good job! You completed another small chapter of your programming journey.
 
 ## Conclusion
 
-In this article, ...
+In this article, we learned that we could write multiline strings if we need to.
+We also learned about concatenation, which combines multiple strings into a new one.
+The concatenation operator is the symbol `+`.
+We also look at the `+=` operator. `+=` allows us to combine both the concatenation and assignation operators. Using it can simplify our code and remove a step.
+In programs, concatenation is often used, which makes it an essential piece of knowledge to have.
 
 {%- include learn-coding-with-dot-net-core/next.md nextIndex=7 -%}
 
