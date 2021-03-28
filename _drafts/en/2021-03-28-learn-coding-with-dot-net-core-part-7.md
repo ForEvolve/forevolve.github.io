@@ -25,8 +25,8 @@ technology-relative-level:
 
 In this article, we continue to explore string manipulations by focusing on interpolation.
 Instead of concatenating many pieces together, interpolation allows us to insert special tokens inside a string.
-Those tokens are then replaced by a value.
-Interpolation and concatenation plays the same role, but often one end up being more elegant than the other, and makes the code easier to maintain.
+A value then replaces those tokens.
+Interpolation and concatenation play the same role, but often one ends up being more elegant than the other and makes the code easier to maintain.
 
 {% include learn-coding-with-dot-net-core/intro-series.md %}
 
@@ -52,9 +52,9 @@ I find `$"Hello {name}!"` to be more elegant than `"Hello " + name + "!"` and wa
 
 Next, we explore how to use interpolation in a multiline string.
 
-### Multiline interpolation
+### Multiline string interpolation
 
-If you were wondering why I talked about multiline strings in the previous article; I was planning for this.
+If you wondered why I talked about multiline strings in the previous article, I planned this section.
 We can use both `$` and `@` to mix interpolation and multiline string, like this:
 
 ```csharp
@@ -64,7 +64,7 @@ What's up?";
 Console.WriteLine(result);
 ```
 
-In the preceding code, by chaining both `$` and `@` (in this order), we were able to use interpolation in a multiline string.
+In the preceding code, we used interpolation in a multiline string by chaining both `$` and `@` (in this order).
 As easy as that!
 
 > **Note:** the order is important; `@$"..."` will not compile.
@@ -73,7 +73,7 @@ Next, it is your turn to try it out!
 
 ## Exercise
 
-To practice interpolation, we will replace concatenation by interpolation in the code from the previous article's exercise.
+To practice interpolation, we will replace concatenation with interpolation in the code from the previous article's exercise.
 
 Here is the previous solution as a reference:
 
@@ -140,7 +140,7 @@ var greetings = $"Greetings {firstName} {lastName}!";
 ```
 
 Don't you feel like interpolation is clearer than concatenation in this case?
-Well, if you don't, I do; which is fine either ways.
+Well, if you don't, I do, which is fine either way.
 
 {%- endcapture -%}
 {%- assign solutionContent = solutionContent | markdownify -%}
@@ -150,14 +150,14 @@ Good job! You completed another small chapter of your programming journey.
 
 ## Conclusion
 
-In this article, we explored interpolation as a way to replace concatenation in certain scenario.
+In this article, we explored interpolation as a way to replace concatenation in certain scenarios.
 At this point, using one or the other is only a matter of taste.
 
-To use interpolation we need to prefix a string with `$`.
+To use interpolation, we need to prefix a string with `$`.
 Inside that string, we can then wrap an expression, like a variable, with `{` and `}`.
-That token will be replaced at runtime with the expression's value.
+The program will replace that token at runtime with the expression's value.
 
-We also saw that we can use interpolation with multiline strings by prefixing the string with both special characters, like this: `$@"..."`.
+We also saw that we could use interpolation with multiline strings by prefixing the string with both special characters, like this: `$@"..."`.
 
 {%- include learn-coding-with-dot-net-core/next.md nextIndex=8 -%}
 
