@@ -1,8 +1,11 @@
 {%- assign index = include.index -%}
 {%- assign article = site.data.learn-coding-with-dot-net-core[index] -%}
+{%- if include.urlPrefix -%}
+    {%- assign urlPrefix = include.urlPrefix -%}
+{%- endif -%}
 
 {%- if article.enabled -%}
-[{{ article.title }}]({{ article.url }})
+[{{ article.title }}]({{ article.url | prepend: urlPrefix }})
 {%- else -%}
 {{ article.title }}
 {%- endif -%}

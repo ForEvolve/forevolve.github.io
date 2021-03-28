@@ -25,22 +25,16 @@ categories: en/articles
 
 <!-- TODO: SET THESE -->
 
-{% assign index = 5 %}
+{% assign index = 6 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
-{%- comment -%} {% assign subSeriesFirstPart = 6 %} {%- endcomment -%}
+{% assign subSeriesFirstPart = 6 %}
 
-**TODO:**
-
-- complete the setup of sub-series
-- Allow overriding the link for sub-series.md and intro-series.md so this page can point to a full URL
-- ...
-
-{% assign installment = "sixth" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/21/learn-coding-with-dot-net-core-part-6/" %}
-{% assign blogLink = "https://link.forevolve.com/r394" %}
-{% assign devLink = "https://dev.to/carlhugom/introduction-to-string-concatenation-2he1" %}
-{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-string-concatenation-f94fb7523646" %}
+{% assign installment = "seventh" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/28/learn-coding-with-dot-net-core-part-7/" %}
+{% assign blogLink = "https://link.forevolve.com/8a9f" %}
+{% assign devLink = "https://dev.to/carlhugom/introduction-to-string-interpolation-g4g" %}
+{% assign mediumLink = "TODO" %}
 
 <!-- END SET THESE -->
 
@@ -77,7 +71,9 @@ categories: en/articles
 
 ## Dev
 
-**Tags:** dotnet, csharp, beginners
+-   **Title:** {{currentTitle}}
+-   **Tags:** dotnet, csharp, beginners
+-   **Original post:** {{rawBlogLink}}
 
 ### intro-series.md
 
@@ -88,11 +84,13 @@ I suggest reading the whole series in order, starting with [Creating your first 
 ```
 
 {% if subSeriesFirstPart %}
+
 ### sub-series.md
 
 ```markdown
-{% include learn-coding-with-dot-net-core/sub-series.md firstPart=subSeriesFirstPart %}
+{% include learn-coding-with-dot-net-core/sub-series.md firstPart=subSeriesFirstPart urlPrefix=site.remoteUrl %}
 ```
+
 {% endif %}
 
 ### Exercise text
@@ -165,7 +163,6 @@ The {{ installment }} article of my #LearnProgramming series is out on @ThePract
 
 {{ devLink }}
 
-
 ### Medium
 
 **Schedule on:** Next week (Tuesday)
@@ -179,7 +176,6 @@ Did you know that the {{ installment }} article of my #LearnProgramming seriesâ€
 The {{ installment }} article of my #LearnProgramming series is out on @Medium; no prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
 
 {{ mediumLink }}
-
 
 ## Linked In
 
