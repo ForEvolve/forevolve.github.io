@@ -67,7 +67,7 @@ Console.WriteLine(result);
 In the preceding code, we used interpolation in a multiline string by chaining both `$` and `@` (in this order).
 As easy as that!
 
-> **Note:** the order is important; `@$"..."` will not compile.
+> **Note:** the order is important. If you inverse the symbols order (`@$"..."` instead of `$@"..."`), the code will not compile.
 
 Next, it is your turn to try it out!
 
@@ -90,7 +90,6 @@ Console.Write("What is your last name? ");
 var lastName = Console.ReadLine();
 Console.Clear();
 
-// Only the following code changed
 var greetings = "Greetings " + firstName + " " + lastName + "!";
 Console.WriteLine(greetings);
 ```
