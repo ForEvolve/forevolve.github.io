@@ -23,7 +23,10 @@ technology-relative-level:
       }
 ---
 
-In this article, ...
+In this article, we continue to explore string manipulations by focusing on interpolation.
+Instead of concatenating many pieces together, interpolation allows us to insert special tokens inside a string.
+Those tokens are then replaced by a value.
+Interpolation and concatenation plays the same role, but often one end up being more elegant than the other, and makes the code easier to maintain.
 
 {% include learn-coding-with-dot-net-core/intro-series.md %}
 
@@ -31,23 +34,130 @@ In this article, ...
 
 ## Interpolation
 
-...
+The definition of _interpolation_, from Oxford Languages ([Google search](https://www.google.com/search?q=interpolation&oq=interpolation)), is:
+
+> The insertion of something of a different nature into something else.
+
+In C#, we must prefix the string with the `$` character if we want to use interpolation.
+Then, we can insert the value of an expression in that string by wrapping it with `{` and `}`, like this:
+
+```csharp
+var name = "Joe";
+var result = $"Hello {name}!";
+Console.WriteLine(result);
+```
+
+Executing the preceding code should write `Hello Joe!` in the terminal.
+I find `$"Hello {name}!"` to be more elegant than `"Hello " + name + "!"` and way easier to read, especially for a neophyte.
+
+Next, we explore how to use interpolation in a multiline string.
 
 ### Multiline interpolation
 
-...
+If you were wondering why I talked about multiline strings in the previous article; I was planning for this.
+We can use both `$` and `@` to mix interpolation and multiline string, like this:
 
-## Custom format
+```csharp
+var name = "Joe";
+var result = $@"Hello {name}!
+What's up?";
+Console.WriteLine(result);
+```
 
-...
+In the preceding code, by chaining both `$` and `@` (in this order), we were able to use interpolation in a multiline string.
+As easy as that!
+
+> **Note:** the order is important; `@$"..."` will not compile.
+
+Next, it is your turn to try it out!
 
 ## Exercise
 
-...
+To practice interpolation, we will replace concatenation by interpolation in the code from the previous article's exercise.
+
+Here is the previous solution as a reference:
+
+```csharp
+using System;
+
+Console.Title = "IntroToDotNet";
+
+Console.Write("What is your first name? ");
+var firstName = Console.ReadLine();
+Console.Clear();
+
+Console.Write("What is your last name? ");
+var lastName = Console.ReadLine();
+Console.Clear();
+
+// Only the following code changed
+var greetings = "Greetings " + firstName + " " + lastName + "!";
+Console.WriteLine(greetings);
+```
+
+Here are a few optional hints in case you feel stuck:
+
+{%- capture hintContent -%}You only have one line to update.{%- endcapture -%}
+{%- assign hintContent = hintContent | markdownify -%}
+{%- include spoiler.html title="Hint 1" content=hintContent -%}
+
+{%- capture hintContent -%}You only need to replace the following part of the code: `"Greetings " + firstName + " " + lastName + "!"`.{%- endcapture -%}
+{%- assign hintContent = hintContent | markdownify -%}
+{%- include spoiler.html title="Hint 2" content=hintContent -%}
+
+Once you are done, you can compare with `My Solution` below.
+
+{%- capture solutionContent -%}**Program.cs**
+
+```csharp
+using System;
+
+Console.Title = "IntroToDotNet";
+
+Console.Write("What is your first name? ");
+var firstName = Console.ReadLine();
+Console.Clear();
+
+Console.Write("What is your last name? ");
+var lastName = Console.ReadLine();
+Console.Clear();
+
+// Only the following line changed
+var greetings = $"Greetings {firstName} {lastName}!";
+Console.WriteLine(greetings);
+```
+
+The only change is that I replaced the following line:
+
+```csharp
+var greetings = "Greetings " + firstName + " " + lastName + "!";
+```
+
+By the following line:
+
+```csharp
+var greetings = $"Greetings {firstName} {lastName}!";
+```
+
+Don't you feel like interpolation is clearer than concatenation in this case?
+Well, if you don't, I do; which is fine either ways.
+
+{%- endcapture -%}
+{%- assign solutionContent = solutionContent | markdownify -%}
+{%- include spoiler.html title="My Solution" content=solutionContent -%}
+
+Good job! You completed another small chapter of your programming journey.
 
 ## Conclusion
 
-In this article, ...
+In this article, we explored interpolation as a way to replace concatenation in certain scenario.
+At this point, using one or the other is only a matter of taste.
+
+To use interpolation we need to prefix a string with `$`.
+Inside that string, we can then wrap an expression, like a variable, with `{` and `}`.
+That token will be replaced at runtime with the expression's value.
+
+We also saw that we can use interpolation with multiline strings by prefixing the string with both special characters, like this: `$@"..."`.
 
 {%- include learn-coding-with-dot-net-core/next.md nextIndex=8 -%}
 

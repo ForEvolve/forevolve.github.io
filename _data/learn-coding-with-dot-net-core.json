@@ -61,7 +61,7 @@
         "title": "Escaping characters in C# strings",
         "description": "In this article, we explore how to escape characters like quotes and how to write special character like tabs and new lines.",
         "url": "/en/articles/2021/04/11/learn-coding-with-dot-net-core-part-7/",
-        "expectedReleaseDate": "2021/04/11",
+        "expectedReleaseDate": "2021/04",
         "group": { "name": "toc-grp-three" }
     },
     {

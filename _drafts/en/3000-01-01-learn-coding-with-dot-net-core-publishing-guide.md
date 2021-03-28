@@ -37,10 +37,10 @@ categories: en/articles
 - ...
 
 {% assign installment = "sixth" %}
-{% assign rawBlogLink = "TODO" %}
-{% assign blogLink = "TODO" %}
-{% assign devLink = "TODO" %}
-{% assign mediumLink = "TODO" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/21/learn-coding-with-dot-net-core-part-6/" %}
+{% assign blogLink = "https://link.forevolve.com/r394" %}
+{% assign devLink = "https://dev.to/carlhugom/introduction-to-string-concatenation-2he1" %}
+{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-string-concatenation-f94fb7523646" %}
 
 <!-- END SET THESE -->
 
@@ -139,6 +139,12 @@ You want to learn to program? You want to learn C#? You know someone that wants 
 
 {{ blogLink }}
 
+#### v2
+
+The {{ installment }} article of my #LearnProgramming series is out; no prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
+
+{{ blogLink }}
+
 ### Next article
 
 **Schedule on:** Wednesday
@@ -153,6 +159,13 @@ Did you know that the {{ installment }} article of my #LearnProgramming seriesâ€
 
 {{ devLink }}
 
+#### v2
+
+The {{ installment }} article of my #LearnProgramming series is out on @ThePracticalDev; no prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
+
+{{ devLink }}
+
+
 ### Medium
 
 **Schedule on:** Next week (Tuesday)
@@ -160,6 +173,13 @@ Did you know that the {{ installment }} article of my #LearnProgramming seriesâ€
 Did you know that the {{ installment }} article of my #LearnProgramming seriesâ€”{{ currentTitle }}â€”was also available on @Medium? No prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
 
 {{ mediumLink }}
+
+#### v2
+
+The {{ installment }} article of my #LearnProgramming series is out on @Medium; no prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
+
+{{ mediumLink }}
+
 
 ## Linked In
 
