@@ -34,7 +34,7 @@ categories: en/articles
 {% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/28/learn-coding-with-dot-net-core-part-7/" %}
 {% assign blogLink = "https://link.forevolve.com/8a9f" %}
 {% assign devLink = "https://dev.to/carlhugom/introduction-to-string-interpolation-g4g" %}
-{% assign mediumLink = "TODO" %}
+{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-string-interpolation-cf873f6627a0" %}
 
 <!-- END SET THESE -->
 
