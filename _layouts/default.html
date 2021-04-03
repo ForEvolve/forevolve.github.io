@@ -31,5 +31,45 @@
         {{ content }} {% include footer.html %} {% include ga.html %} {% if site.comments %} {% unless page.comments == false %}
         <script id="dsq-count-scr" src="https://{{ site.disqus_shortname }}.disqus.com/count.js" async></script>
         {% endunless %} {% endif %}
+
+        {%- if site.modalAd.enabled -%}
+        <div class="modal fade" id="pinned-content-modal" tabindex="-1" role="dialog" aria-labelledby="pinnedContentModal">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="pinned-content">
+                        <h2>Spring Sale!</h2>
+                        <p>
+                            You know what? Sprint is here, so is a 15% discount on my book: <a href="https://packt.live/3u0xil5">An Atypical ASP.NET Core 5 Design Patterns Guide</a>!
+                            Go grab a copy or tell your friends before the sale ends!
+                        </p>
+                        <small>Once closed, you should not see this modal for another {{ site.modalAd.cookieMaxAge | divided_by: 60 | divided_by: 60 }} hours.</small>
+                        <a href="https://packt.live/3u0xil5"><img src="//cdn.forevolve.com/blog/images/2021/2021-04-packt-sprint-sale.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            (function(){
+                const cookieName = "modalOpenedAtLeastOnce";
+                function autoOpen(){
+                    const cookieExists = document.cookie.split('; ').find(row => row.startsWith(cookieName));
+                    if (!cookieExists){
+                        openTheModal();
+                        set24hoursBreakOnThis();
+                    }
+                }
+                function set24hoursBreakOnThis(){
+                    {%- if site.modalAd.debug -%}
+                    return;
+                    {%- endif -%}
+                    document.cookie = `${cookieName}=1;max-age={{site.modalAd.cookieMaxAge}}`;
+                }
+                function openTheModal(){
+                    $('#pinned-content-modal').modal('show')
+                }
+                window.addEventListener('DOMContentLoaded', (event) => autoOpen());
+            }())
+        </script>
+        {%- endif -%}
     </body>
 </html>

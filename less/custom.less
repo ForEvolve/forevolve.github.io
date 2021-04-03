@@ -636,3 +636,36 @@ aside.book {
 .highlight pre code .token.comment {
     white-space: pre;
 }
+
+// Pinned "ad"
+.pinned-content {
+    // background-color: #015869;
+    h2 {
+        color: #fff;
+        padding: 25px;
+        margin: 0;
+        background-color: #5ebf2c;
+    }
+    p {
+        color: #333;
+        padding: 0 25px;
+
+        a {
+            color: #5ebf2c;
+            &:hover {
+                color: #ffc407;
+            }
+        }
+    }
+    small {
+        font-style: italic;
+        padding: 0 25px;
+        text-align: right;
+        display: block;
+        font-size: 75%;
+        color: #999;
+    }
+    img {
+        cursor: pointer !important;
+    }
+}

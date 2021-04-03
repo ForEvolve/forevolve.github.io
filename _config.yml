@@ -8,6 +8,10 @@ description: 'A piece of mind'
 baseurl: ''
 url: 'http://www.forevolve.com'
 remoteUrl: 'https://www.forevolve.com'
+modalAd:
+  enabled: true
+  cookieMaxAge: 86400 # Max cookie age in seconds
+  debug: false
 social_icons:
   - name: Twitter
     icon: fa-twitter
