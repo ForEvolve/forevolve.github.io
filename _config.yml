@@ -10,7 +10,7 @@ url: 'http://www.forevolve.com'
 remoteUrl: 'https://www.forevolve.com'
 modalAd:
   enabled: true
-  cookieMaxAge: 86400 # Max cookie age in seconds
+  cookieMaxAge: 43200 # Max cookie age in seconds (43200 = 12h | 86400 = 24h)
   debug: false
 social_icons:
   - name: Twitter
