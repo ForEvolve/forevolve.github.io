@@ -57,10 +57,10 @@
     },
     {
         "index": 8,
-        "enabled": false,
+        "enabled": true,
         "title": "Escaping characters in C# strings",
         "description": "In this article, we explore how to escape characters like quotes and how to write special character like tabs and new lines.",
-        "url": "/en/articles/2021/04/11/learn-coding-with-dot-net-core-part-8/",
+        "url": "/en/articles/2021/04/18/learn-coding-with-dot-net-core-part-8/",
         "expectedReleaseDate": "2021/04",
         "group": { "name": "toc-grp-three" }
     },
@@ -70,6 +70,7 @@
         "title": "Introduction to boolean algebra",
         "description": "This article introduces the mathematical branch of algebra that evaluates the value of a condition to true or false.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "expectedReleaseDate": "April or May 2021",
         "group": { "name": "toc-grp-one" }
     },
     {
