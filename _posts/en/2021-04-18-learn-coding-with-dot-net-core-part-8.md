@@ -27,7 +27,9 @@ In this article, we look at escaping characters in C# strings.
 But what is escaping, you may wonder?
 That's how we write special characters or characters that would otherwise be impossible to include in a string, like `"`.
 
-{% include learn-coding-with-dot-net-core/intro-series.md %}<!--more-->
+{% include learn-coding-with-dot-net-core/intro-series.md %}
+
+{% include learn-coding-with-dot-net-core/sub-series.md firstPart=6 %}<!--more-->
 
 ## Escaping characters
 

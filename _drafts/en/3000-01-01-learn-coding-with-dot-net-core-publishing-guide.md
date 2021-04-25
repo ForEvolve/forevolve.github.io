@@ -25,16 +25,16 @@ categories: en/articles
 
 <!-- TODO: SET THESE -->
 
-{% assign index = 6 %}
+{% assign index = 8 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
-{% assign subSeriesFirstPart = 6 %}
+{% assign subSeriesFirstPart = 9 %}
 
-{% assign installment = "seventh" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/03/28/learn-coding-with-dot-net-core-part-7/" %}
-{% assign blogLink = "https://link.forevolve.com/8a9f" %}
-{% assign devLink = "https://dev.to/carlhugom/introduction-to-string-interpolation-g4g" %}
-{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-string-interpolation-cf873f6627a0" %}
+{% assign installment = "eighth" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/04/18/learn-coding-with-dot-net-core-part-8/" %}
+{% assign blogLink = "https://link.forevolve.com/25ee" %}
+{% assign devLink = "https://dev.to/carlhugom/escaping-characters-in-c-strings-3p2d" %}
+{% assign mediumLink = "TODO" %}
 
 <!-- END SET THESE -->
 
@@ -87,8 +87,10 @@ I suggest reading the whole series in order, starting with [Creating your first 
 
 ### sub-series.md
 
+> Don't copy `{::options parse_block_html="true" /}{::options parse_block_html="false" /}`
+
 ```markdown
-{% include learn-coding-with-dot-net-core/sub-series.md firstPart=subSeriesFirstPart urlPrefix=site.remoteUrl %}
+{% include learn-coding-with-dot-net-core/sub-series.md firstPart=subSeriesFirstPart urlPrefix=site.remoteUrl pageTitle=currentTitle %}
 ```
 
 {% endif %}

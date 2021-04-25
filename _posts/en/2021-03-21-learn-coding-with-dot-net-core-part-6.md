@@ -28,7 +28,9 @@ We also explore how to concatenate (combine) strings.
 As a programmer, you will often need to manipulate strings, concatenation and interpolation being two recurring themes.
 We will cover interpolation in the next installment.
 
-{% include learn-coding-with-dot-net-core/intro-series.md %}<!--more-->
+{% include learn-coding-with-dot-net-core/intro-series.md %}
+
+{% include learn-coding-with-dot-net-core/sub-series.md firstPart=6 %}<!--more-->
 
 ## Strings
 
