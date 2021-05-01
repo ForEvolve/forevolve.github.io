@@ -23,31 +23,39 @@ technology-relative-level:
       }
 ---
 
-In this article I will introduce you to the mathematical branch of algebra that evaluates the value of a condition to true or false.
-**Boolean algebra** is different from _number-oriented **algebra**_ and has almost no direct relation to it.
-What we want is to evaluate if a condition is `true` or `false`.
+In this article, I introduce you to **boolean algebra**, which is a branch of algebra that evaluates the value of a condition to `true` or `false`.
 This is a **fundamental part of programming** that you can't escape and you will use this until the end of your programmer career and maybe even beyond that point.
-That said, there are more dreadful part to programming than this :wink:
+That said, it may sound harder than it actually is; there are more dreadful elements than this :wink:
 
 {% include learn-coding-with-dot-net-core/intro-series.md %}
 {% include learn-coding-with-dot-net-core/sub-series.md firstPart=9 %}<!--more-->
 
 ## Boolean type
 
-In C#, the `bool` is the type that represents a boolean value.
+In C#, `bool` is the type that represents a boolean value.
 A `bool` can have a value of `true` or `false`.
-A bool is the memory representation of a bit.
+A `bool` is the memory representation of a bit.
 A bit is a base 2 digit that is either `0` or `1`.
 The value `0` means `false` and the value `1` means `true`.
 
-Following are the two possibilities:
+> **Want to know more?** The mathematic that we learn at school is base-10; a.k.a., there are 10 numbers: 0 to 9.
+> On the other hands, computers use base-2, or a binary numeral system, that includes only two numbers: 0 and 1.
+> Chances are, this is not something that you need to know right away, but I recommend learning this concept one day.
+> Knowing base-2 (binary), base-8 (octal), and base-16 (hexadecimal) can only help you (yes there are more than just base-2 and base-10).
+
+The following code shows the two possibilities, written in C#:
 
 ```csharp
+// Using var
 var thisIsTrue = true;
 var thisIsFalse = false;
+
+// Using the type name
+bool thisIsAlsoTrue = true;
+bool thisIsAlsoFalse = false;
 ```
 
-Next, we look at the basic operations of boolean algebra.
+Now that we covered how to declare a variable of type `bool`, let's look at the basic operations of boolean algebra.
 
 ## Basic operations
 
@@ -69,19 +77,19 @@ Let's start by exploring the `NOT` logical operator.
 ### Logical operator NOT
 
 The `NOT` operator is a unary prefix operator and is different from `AND` and `OR` which are binary operators.
-It prefixes a boolean value and flips it to the opposite.
+It prefixes a boolean value and inverts it.
 In C# (and many other languages), the `NOT` symbol is `!`.
 
-> **More info:** since C# 8.0, the `!` as a suffix represent the null-forgiving operator which is a totally different thing.
+> **More info:** C# 8.0 introduced the `!` as a suffix operator, a.k.a. the null-forgiving operator, which is a totally different thing.
 
-Here are the possibilities with their outcome:
+The following table lists the two possible use of the negation operator and their outcome:
 
-| Expression | Result  |
-| ---------- | ------- |
-| `!true`    | `false` |
-| `!false`   | `true`  |
+| Expression (C#) | English     | Result  |
+| --------------- | ----------- | ------- |
+| `!true`         | NOT `true`  | `false` |
+| `!false`        | NOT `false` | `true`  |
 
-If we translate the preceding grid into a code sample, it would look like this:
+The following code use the preceding grid to explore the possibilities using C#, outputting the values in the console:
 
 ```csharp
 var value1 = true;
@@ -104,16 +112,16 @@ value4: True
 ```
 
 As we can observe here, the value of the `value3` and `value4` variables are the opposite of their negated source.
-This is the main takeaway here: `!variable` flip its value 180°.
+This is the main takeaway here: the NOT operator, in `!variable`, flips the original value of `variable` to 180°.
 
 > **One last bit**: as an analogy, you could see a boolean as a light-switch and the negation as the action of flipping the switch on/off.
-> For example, when you flip the light-switch from _off_ (`false`) to _on_ (`true`); _on_ becomes the equivalent of _not off_ (`!false`).
+> For example, when you flip the light-switch from _off_ (`false`) to _on_ (`true`); **on** is the equivalent of **not off** (`!false`).
 
 Next, let's jump into the AND logical operator.
 
 ### Conditional logical operator AND
 
-In C#, the Conditional logical `AND` operator is represented by `&&`.
+In C#, the conditional logical `AND` operator is represented by `&&`.
 
 > **Important:** It is important to double the symbol, otherwise `&` (single) is a binary operator (acting on bits) and it is different.
 
@@ -129,17 +137,16 @@ Console.WriteLine($"Result: {result}");
 ```
 
 The preceding code outputs `Result: True` to the console.
+Now that you may be wondering why `true && true` returns `true`, let's have a look at the logical table of the `AND` operator:
 
-Now, let's have a look at the logical table of the `AND` operator:
+| Left    | Right   | C#               | English             | Result  |
+| ------- | ------- | ---------------- | ------------------- | ------- |
+| `true`  | `true`  | `true && true`   | `true` AND `true`   | `true`  |
+| `true`  | `false` | `true && false`  | `true` AND `false`  | `false` |
+| `false` | `true`  | `false && true`  | `false` AND `true`  | `false` |
+| `false` | `false` | `false && false` | `false` AND `false` | `false` |
 
-| Left    | Right   | C#               | Result  |
-| ------- | ------- | ---------------- | ------- |
-| `true`  | `true`  | `true && true`   | `true`  |
-| `true`  | `false` | `true && false`  | `false` |
-| `false` | `true`  | `false && true`  | `false` |
-| `false` | `false` | `false && false` | `false` |
-
-As you may have notice from the preceding table, all combinations are `false` but if both operands are `true`; that's the AND operator.
+As you may have notice from the preceding table, all combinations are `false` but if both operands are `true`; that's how the AND operator works.
 Let's update the preceding code to cover the `true && false` scenario:
 
 ```csharp
@@ -151,7 +158,8 @@ Console.WriteLine($"Result: {result}");
 
 This updated code outputs `Result: False` to the console, exactly like the table predicted.
 
-Next, let's have a look at the `OR` operator.
+Ok; we are not done yet.
+Next, we have a look at the `OR` operator which has a similar syntax but a different logical outcome.
 
 ### Conditional logical operator OR
 
@@ -161,7 +169,7 @@ In C#, the Conditional logical `OR` operator is represented by `||`.
 
 The `||` operator, like the `&&` operator, is a binary operator that act on two operands, like `result = operand1 || operand2`.
 
-Here is an example of using the `||` operator:
+Here is a C# example of using the `||` operator:
 
 ```csharp
 var leftOperand = true;
@@ -171,47 +179,57 @@ Console.WriteLine($"Result: {result}");
 ```
 
 The preceding code outputs `Result: True` to the console.
-
-Now, let's have a look at the logical table of the `OR` operator:
+Like the AND operator, the OR operator also have a logical table that comes with it.
+Let's have a look:
 
 <!-- prettier-ignore-start -->
 
-| Left    | Right   | C#                       | Result  |
-| ------- | ------- | ------------------------ | ------- |
-| `true`  | `true`  | `true || true`           | `true`  |
-| `true`  | `false` | `true || false`          | `true`  |
-| `false` | `true`  | `false || true`          | `true`  |
-| `false` | `false` | `false || false`         | `false` |
+| Left    | Right   | C#                       | English            | Result  |
+| ------- | ------- | ------------------------ | ------------------ | ------ |
+| `true`  | `true`  | `true || true`           | `true` OR `true`   |`true`  |
+| `true`  | `false` | `true || false`          | `true` OR `false`  |`true`  |
+| `false` | `true`  | `false || true`          | `false` OR `true`  |`true`  |
+| `false` | `false` | `false || false`         | `false` OR `false` |`false` |
 
 <!-- prettier-ignore-end -->
 
 An interesting observation to have here is how the `||` operator returns `true` whenever there is at least one operand that is equal to `true`.
-In other words, the `||` operator returns `false` only when there is no `true` (a.k.a. two `false`).
+In other words, the `||` operator returns `false` only when there is no `true` (when both operands are `false`).
+In code, the only way to have a result of `false` would be the following code:
 
-Next, we look at the _logical exclusive `OR` operator_, that is closer to the spoken `OR` than the `OR` operator itself.
+```csharp
+var result = false || false;
+Console.WriteLine($"Result: {result}");
+```
 
-## Logical exclusive OR operator
+The preceding code outputs `Result: False` to the console.
 
-In spoken languages, we often use `OR` as an _exclusive OR_, meaning that we say « do you prefer blue or green? », we mean one of the two but not both.
+Now that we covered the basic operators, it is time to look at the _logical exclusive `OR` operator_, that is closer to the spoken `OR` than the logical `OR` that we just learned about.
+
+## Logical exclusive OR operator (XOR)
+
+In spoken languages, we usually use `OR` as an _exclusive OR_.
+For example, when we say « do you prefer blue or green? », we expect a response about one of the two but not both.
 That type of OR is called the exclusive `OR`, also known as `XOR`.
 In C#, the XOR operator is `^`.
 
-> **Advanced information:** the `XOR` operator is a compound operator, or shortcut if you which, known as syntactic sugar.
+> **Advanced information:** the `XOR` operator is a compound operator, or shortcut if you which.
 > We can compose the equivalent of the `XOR` operator using basic operators like `NOT`, `AND` and `OR`.
 > In C#, the `XOR` operator can be expressed as one of the following two expressions: `(left || right) && (!left && !right)` or `(left && !right) || (!left && right)`.
 
 Let's start by exploring the `XOR` logic table:
 
-| Left    | Right   | C#              | Result  |
-| ------- | ------- | --------------- | ------- |
-| `true`  | `true`  | `true ^ true`   | `false` |
-| `true`  | `false` | `true ^ false`  | `true`  |
-| `false` | `true`  | `false ^ true`  | `true`  |
-| `false` | `false` | `false ^ false` | `false` |
+| Left    | Right   | C#              | English            | Result  |
+| ------- | ------- | --------------- | ------------------ | ------- |
+| `true`  | `true`  | `true ^ true`   | `true` OR `true`   | `false` |
+| `true`  | `false` | `true ^ false`  | `true` OR `false`  | `true`  |
+| `false` | `true`  | `false ^ true`  | `false` OR `true`  | `true`  |
+| `false` | `false` | `false ^ false` | `false` OR `false` | `false` |
 
 As you may have noticed, the `XOR` logic table is the same as the `OR` table, but the result is `false` when both operands are `true` (first row).
+This is what differentiates OR and XOR.
 
-In code, it looks like this:
+In code, XOR looks like this:
 
 ```csharp
 var leftOperand = true;
@@ -222,14 +240,41 @@ Console.WriteLine($"Result: {result}");
 
 When executing the preceding code, we get `Result: True` as the console output because **one of the operands is true but not both**.
 
-Based on my personal experiences, this operator if not use very often.
-Nevertheless, it is very good to know it exists, for those few times.
+> **Note:** based on my personal experiences, this operator if not used very often.
+> Nevertheless, I think it is worth knowing of its existence, for those few times.
 
-Next, I'll have you practice what we just covered.
+Next, that's your turn to practice what we just covered.
 
 ## Exercise
 
-...
+The exercise will focus on the logic part and not on the code part.
+We will use this piece of knowledge in the next installment where we will learn to write conditional code, based on boolean logic.
+For now, try to answer to the following questions without consulting the logic tables.
+
+What is the result of:
+
+1. `true && true`
+1. `true || true`
+1. `!true && true`
+1. `true || !true`
+1. `true ^ true`
+
+Once you are done, compare your results with the following answers:
+
+<!-- prettier-ignore-start -->
+
+{%- capture solutionContent -%}1. `true`
+1. `true`
+1. `false`
+1. `true`
+1. `false`
+{%- endcapture -%}
+{%- assign solutionContent = solutionContent | markdownify -%}
+{%- include spoiler.html title="Answers" content=solutionContent -%}
+
+<!-- prettier-ignore-end -->
+
+Good job! You completed another small chapter of your programming journey.
 
 ## Conclusion
 
