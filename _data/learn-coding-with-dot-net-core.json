@@ -66,10 +66,10 @@
     },
     {
         "index": 9,
-        "enabled": false,
-        "title": "Introduction to boolean algebra and logical operators",
+        "enabled": true,
+        "title": "Introduction to Boolean algebra and logical operators",
         "description": "This article introduces the mathematical branch of algebra that evaluates the value of a condition to true or false.",
-        "url": "/en/articles/2021/05/02/learn-coding-with-dot-net-core-part-9/",
+        "url": "/en/articles/2021/05/09/learn-coding-with-dot-net-core-part-9/",
         "expectedReleaseDate": "May 2021",
         "group": { "name": "toc-grp-one" }
     },
@@ -77,14 +77,15 @@
         "index": 10,
         "enabled": false,
         "title": "Writing conditional code blocks with if-else selection statements",
-        "description": "In this article, we explore how to write conditional code using boolean algebra.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-10/",
+        "description": "In this article, we explore how to write conditional code using Boolean algebra.",
+        "url": "/en/articles/2021/06/00/learn-coding-with-dot-net-core-part-10/",
+        "expectedReleaseDate": "between end of May and beginning of June 2021",
         "group": { "name": "toc-grp-one" }
     },
     {
         "index": 11,
         "enabled": false,
-        "title": "Advanced logical operators and common boolean algebra laws",
+        "title": "Advanced logical operators and common Boolean algebra laws",
         "description": "In this article, we explore how to leverage logical operators to write complex boolean condition.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-11/",
         "group": { "name": "toc-grp-one" }

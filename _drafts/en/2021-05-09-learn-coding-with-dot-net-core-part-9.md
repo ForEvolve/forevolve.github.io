@@ -1,7 +1,7 @@
 ---
-title: 'Introduction to boolean algebra and logical operators'
+title: 'Introduction to Boolean algebra and logical operators'
 subtitle: 'A beginner guide to programming with .NET 5 and C#'
-date: 2021-05-02 00:00:00 -0500
+date: 2021-05-09 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png'
 unsplash-credit: Photo by Jefferson Santos on Unsplash
 lang: en
@@ -23,8 +23,11 @@ technology-relative-level:
       }
 ---
 
-In this article, I introduce you to **boolean algebra**, a branch of algebra that evaluates the value of a condition to `true` or `false`.
+In this article, I introduce you to **Boolean algebra**, a branch of algebra that evaluates the value of a condition to `true` or `false`.
 This is a **fundamental part of programming** that you can't escape, and you will use this until the end of your programmer career and maybe even beyond that point.
+
+The article is not focusing on mathematical applications and representations but on programming.
+The objective is to give you the knowledge you need for the next article of the series.
 
 {% include learn-coding-with-dot-net-core/intro-series.md %}
 {% include learn-coding-with-dot-net-core/sub-series.md firstPart=9 %}<!--more-->
