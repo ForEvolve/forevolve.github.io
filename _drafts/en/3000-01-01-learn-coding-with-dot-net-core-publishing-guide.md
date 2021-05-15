@@ -30,11 +30,11 @@ categories: en/articles
 {% assign installmentNumber = index | plus: 1 %}
 {% assign subSeriesFirstPart = 9 %}
 
-{% assign installment = "eighth" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/04/18/learn-coding-with-dot-net-core-part-8/" %}
-{% assign blogLink = "https://link.forevolve.com/25ee" %}
-{% assign devLink = "https://dev.to/carlhugom/escaping-characters-in-c-strings-3p2d" %}
-{% assign mediumLink = "TODO" %}
+{% assign installment = "9th" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/05/09/learn-coding-with-dot-net-core-part-9/" %}
+{% assign blogLink = "https://link.forevolve.com/Mctx" %}
+{% assign devLink = "https://dev.to/carlhugom/introduction-to-boolean-algebra-and-logical-operators-46am" %}
+{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-boolean-algebra-and-logical-operators-e81de97d12be" %}
 
 <!-- END SET THESE -->
 
@@ -107,7 +107,7 @@ Unfortunately, I was not able to recreate the exercise on this platform, so plea
 ## Next step
 
 It is now time to move to the next article: **{{ nextTitle }}** which is coming soon. Stay tuned by following me on dev.to, [Twitter]({{ twitterProfileUri }}), or other places you can find me.
-You can look at [my blog contact page](https://www.forevolve.com/contact/) for more info.
+You can look at [my blog](https://www.forevolve.com/) for more info.
 ```
 
 ## Medium
@@ -185,7 +185,7 @@ The {{ installment }} article of my #LearnProgramming series is out on @Medium; 
 
 You want to learn to program? You want to learn C#? You are already an expert but know someone that wants to learn it?
 
-The {{ installment }} article of my #LearnProgramming series—{{ currentTitle }}—is now out on my blog. No prior knowledge of programming is required. It is also be published on both Dev and Medium if you prefer those platforms.
+The {{ installment }} article of my #LearnProgramming series—{{ currentTitle }}—is now out on my blog. No prior knowledge of programming is required.
 
 The next installment—{{ nextTitle }}—is planned for {{ nextDate }}; stay tuned!
 
