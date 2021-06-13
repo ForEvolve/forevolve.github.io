@@ -1,5 +1,5 @@
 ---
-title: 'Writing conditional code blocks with if-else selection statements'
+title: 'Using if-else selection statements to write conditional code blocks'
 subtitle: 'A beginner guide to programming with .NET 5 and C#'
 date: 2021-06-13 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png'
@@ -24,7 +24,7 @@ technology-relative-level:
 ---
 
 In this article, we are exploring conditional execution flows. What is a code path? How will we do that? These are the subject that we cover here.
-As part of the beginner journey, we will focus on the _if-else selection statements_ LEGO&#174; block, laying down the foundation for more advanced use-cases.
+As part of the beginner journey, we focus on the _if-else selection statements_ LEGO&#174; block, laying down the foundation for more advanced use-cases.
 
 {% include learn-coding-with-dot-net-core/intro-series.md %}
 {% include learn-coding-with-dot-net-core/sub-series.md firstPart=9 %}<!--more-->
@@ -32,9 +32,11 @@ As part of the beginner journey, we will focus on the _if-else selection stateme
 ## Conditional execution flow
 
 In the article {% include learn-coding-with-dot-net-core/ref.md index=4 %}, we talked about the flow of a program, moving from the first instruction to the next.
-Here, we are exploring how to run only part of the code based on different values.
+Let's call that _linear execution flow_.
+Here, you will learn how to run only part of the code based on different values, leading to a more complex execution flow model.
 
-By writing conditional code blocks, we can create a program that actually has more complex logic than a linear flow than what we programmed so far.
+By writing conditional code blocks, we can create a program that actually has more complex logic than what we programmed so far.
+Our program will be able to do different things based on different runtime values, like user inputs.
 
 Let's now explore how to program that using C#.
 
@@ -48,7 +50,7 @@ Those works with all primitive types like `string` and `int`, for example.
 The equality operator `==` allows comparing if two values are equal.
 The syntax is `left_operands == right_operand` and returns a Boolean value.
 
-> You can read this as **left_operand is equal to right_operand**.
+> **Tip:** you can read this as **left_operand is equal to right_operand**.
 
 Here is an example:
 
@@ -69,7 +71,7 @@ We have one last operator to look into before exploring the if-else selection st
 The inequality operator `!=` is the opposite of the equality operator and allows comparing if two values are different (not equal).
 The syntax is `left_operands != right_operand` and returns a Boolean value.
 
-> You can read this as **left_operand is not equal to right_operand**.
+> **Tip:** you can read this as **left_operand is not equal to right_operand** or **left_operand is different than right_operand**.
 
 Here is an example:
 
@@ -85,7 +87,7 @@ In the preceding code, since A is not equal to B, the result of the `left != rig
 > **More info:** the inequality operator is syntactic sugar, equivalent to `!(left == right)`.
 > This simplifies writing C# code a lot.
 
-Other operators exist, but let's keep our scope narrow here and jump into the main subject: the _if-else selection statements_.
+Other comparison operators exist, but let's keep our scope narrow here and jump into the main subject instead.
 
 ## if-else selection statements
 
@@ -131,6 +133,7 @@ Console.WriteLine($"Outside block; b = {b}"); // Error: The name 'b' does not ex
 In the preceding code, the program can access the `a` variable from inside the statements block but cannot access the `b` variable from outside of it.
 Because of that, if we execute the code, .NET will report an error telling us `The name 'b' does not exist in the current context`.
 
+We use _statements blocks_ extensively throughout the article, so don't worry about it if you are unsure why you would write one.
 Let's explore why I indented the code inside the block before writing our first conditional code block using the `if` statement.
 
 #### Indentation
@@ -145,9 +148,8 @@ In C#, we usually use 4 spaces to indent the code.
 People may also use 2 spaces (not frequent in the .NET/C# world).
 Some people also prefer to use tabs instead of spaces.
 By default, Visual Studio and Visual Studio Code will translate a tab to _N_ spaces automatically (default: 4), so you don't have to type 4 spaces every time. One tab will do.
-That default can also be configured.
 
-> **"Fun" fact":** A tabs versus spaces war also exists where people prefer tabs over spaces or vice versa and argue that their way is the best over the other.
+> **"Fun" fact:** A tabs versus spaces war also exists where people prefer tabs over spaces or vice versa and argue that their way is the best over the other.
 > I personally use spaces, tried tabs, tried many techniques during the years, and realized that it does not matter much in the end.
 > If you are working in a team or an enterprise, there may well be existing guidelines around this.
 
@@ -198,14 +200,13 @@ Here is the visual representation of this program flow when the user enters `NOT
 > **Note:** in the preceding diagrams, the parts that are not executed are grayed out.
 
 But what happens if we want something different to happen if the input is not `GO` while keeping this logic?
-This is what the `else` statement is for.
 
 ### The `else` statement
 
 The `else` statement must follow an `if` statement block (or an `else if` block; see below).
 We can't write an `else` block alone.
+The `else` statements block is a **_fallback statements block_** that is executed when the `if` condition is evaluated to `false`.
 
-The `else` statements block is the fallback of an `if` block.
 The syntax goes like this:
 
 ```csharp
@@ -221,7 +222,7 @@ else
 
 In the following example, we put that to good use and display `Console.WriteLine("The user did not enter GO!");` when the input is different than `"GO"`.
 We could write this with two `if` statements or an `if` followed by an `else` statement.
-Let's start with the first:
+Let's start by the first option:
 
 ```csharp
 using System;
@@ -242,6 +243,7 @@ Console.WriteLine("End of the program.");
 In this case, the preceding code would do the trick.
 However, we can remove that second comparison `input != "GO"` by leveraging the `else` statement instead.
 This will a) remove that comparison (slightly improve performance) and b) make our program more maintainable by removing the duplicated logic.
+The alternative looks like the following:
 
 ```csharp
 using System;
@@ -277,13 +279,12 @@ Here is the visual representation of this program flow when the user enters `NOT
 > **Note:** in the preceding diagrams, the parts that are not executed are grayed out.
 
 Ok, but what happens when we want to write a different message if the user enters `SHOW ME`?
-That's what we are exploring next using the `else if` statement.
 
 ### The `else if` statement
 
 The `else if` statement is a follow-up `if` statement if you wish.
-As we saw in the preceding section, we can have two `if` statements back to back, and they are independent of each other.
-However, the `else if` statement allows to add another conditional block after the `if`, but the condition will only be evaluated if the previous block was `false`.
+As we saw in the preceding section, we can have two `if` statements back to back, but they are independent of each other.
+On the other hand, the `else if` statement allows to add another conditional block after the `if`, but the condition is only be evaluated when the previous condition was evaluated to `false`.
 We can chain as many `else if` statements as we need.
 An `else` statement can optionally go last; after all `else if` blocks.
 
@@ -379,7 +380,7 @@ Console.WriteLine("End of the program.");
 ```
 
 By looking at the preceding code, we can see that the more logic we add, the more complex the `else`-like block becomes (the `if` line marked by a `<--` comment).
-Here we have to conditions (`input == "GO"` and `input == "SHOW ME"`) so we must make sure that both are `false` before executing the default block (`input != "GO" && input != "SHOW ME"`).
+Here we have two conditions (`input == "GO"` and `input == "SHOW ME"`) so we must make sure that both are `false` before executing the default block (`input != "GO" && input != "SHOW ME"`).
 
 > **Tips:** I strongly advise against writing that type of code as it can get out of hand very quickly.
 > In this case, seeing it firsthand will allow you to identify such code.
@@ -438,7 +439,7 @@ if (input == "GO")
 Console.WriteLine("End of the program.");
 ```
 
-As we can see from the preceding code block, using `if`, `else if`, then `else` allowed us to get rid of the complex condition that negates the other two conditions.
+As the preceding code block highlights, using `if`, `else if`, then `else` allowed us to get rid of the complex condition that negates the other two conditions.
 This code is still simple, but if you think about adding more and more conditions, the last `if` would become very hard to maintain, error-prone, and hard to read.
 Moreover, all conditions would be duplicated. Once for its own `if` block and negated for that last `if`.
 
@@ -459,7 +460,10 @@ To make it easier to understand, let's compare the steps depicting the scenario 
 
 ![else if diff order execution flow when input equals GO](//cdn.forevolve.com/blog/images/2021/2021-else-if-diff-order-input-equals-go.png)
 
-Let's start by looking into the steps on the left:
+<div class="row">
+<div class="col-sm-6" markdown="1">
+
+The steps of the left listing goes like this:
 
 1. The first few lines are executed.
 2. The first `if` is evaluated to `true`.
@@ -468,14 +472,20 @@ Let's start by looking into the steps on the left:
 5. The third `if` is evaluated as `false`.
 6. The program writes a line to the console.
 
-Let's now compare this with the steps on the right:
+</div>
+<div class="col-sm-6" markdown="1">
+
+The steps of the right listing goes like this:
 
 1. The first few lines are executed.
 2. The first `if` is evaluated to `true`.
 3. The program writes a line to the console.
 4. The program writes a line to the console.
 
-In that second execution flow, only the first `if` is evaluated.
+</div>
+</div>
+
+In the right execution flow, only the first `if` is evaluated.
 The program skips the evaluation of the `else if` statement and _jumps over_ both the `else if` and `else` blocks.
 
 Here is the visual representation of this program flow when the user enters `GO`:
@@ -492,7 +502,8 @@ Here is the visual representation of this program flow when the user enters `NOT
 
 > **Note:** in the preceding diagrams, the parts that are not executed are grayed out.
 
-Now that we explored all of that, it is time for you to practice.
+As you may begin to realise, `if`, `else if`, and `else` blocks are different ways to control the flow of execution of your programs.
+Now that we explored that, it is time for you to practice.
 
 ## Exercise
 
@@ -587,7 +598,7 @@ if (!(firstName == MyFirstName && lastName == MyLastName))
 // ...
 ```
 
-If you are not sure how I was able to play with those conditions, we explore that in {% include learn-coding-with-dot-net-core/ref.md index=11 %}.
+If you are not sure how I was able to play with those conditions, we will explore that in a future article about common Boolean algebra laws.
 
 {%- endcapture -%}
 {%- assign solutionContent = solutionContent | markdownify -%}
@@ -602,7 +613,7 @@ We learnt about the **equality** (`==`) and **inequality** (`!=`) operators.
 Then we explored how to write `if`, `else if`, and `else` statements blocks to alter the linear flow of a program.
 We also briefly covered code indentation as a standard way to improve the readability of your code.
 
-Please leave your questions or comments in the comments.
+Please leave your questions or comments below or drop me a Tweet.
 
 {%- include learn-coding-with-dot-net-core/next.md nextIndex=11 -%}
 

@@ -76,7 +76,7 @@
     {
         "index": 10,
         "enabled": true,
-        "title": "Writing conditional code blocks with if-else selection statements",
+        "title": "Using if-else selection statements to write conditional code blocks",
         "description": "In this article, we explore how to write conditional code using Boolean algebra.",
         "url": "/en/articles/2021/06/13/learn-coding-with-dot-net-core-part-10/",
         "expectedReleaseDate": "between end of May and beginning of June 2021",
