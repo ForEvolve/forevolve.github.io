@@ -188,6 +188,15 @@ Here is a running example:
 ![if statement program execution](//cdn.forevolve.com/blog/images/2021/2021-06-05-if-statement-program-execution.gif)
 
 As we can see from that recording, if we enter something else than `GO`, the program skips the statements block.
+Here is the visual representation of this program flow when the user enters `GO`:
+
+![Visual representation of the program flow when the user enters GO](//cdn.forevolve.com/blog/images/2021/GO-condition-true.png)
+
+Here is the visual representation of this program flow when the user enters `NOT GO`:
+
+![Visual representation of the program flow when the user enters NOT GO](//cdn.forevolve.com/blog/images/2021/GO-condition-false.png)
+
+> **Note:** in the preceding diagrams, the part that are not executed are grayed out.
 
 But what happens if we want something different to happen if the input is not `GO` while keeping this logic?
 This is what the `else` statement is for.
@@ -257,6 +266,16 @@ Running any of those two programs results in the following execution flow:
 
 And there we go; we can now use the `if` and the `if-else` statements to control the execution flow of the program.
 With them, we can execute only certain statements blocks based on runtime values; like value entered by the user.
+
+Here is the visual representation of this program flow when the user enters `GO`:
+
+![Visual representation of the program flow when the user enters GO](//cdn.forevolve.com/blog/images/2021/GO-condition-true-if-else.png)
+
+Here is the visual representation of this program flow when the user enters `NOT GO`:
+
+![Visual representation of the program flow when the user enters NOT GO](//cdn.forevolve.com/blog/images/2021/GO-condition-false-if-else.png)
+
+> **Note:** in the preceding diagrams, the part that are not executed are grayed out.
 
 Ok, but what happens when we want to write a different message if the user enters `SHOW ME`?
 That's what we are exploring next using the `else if` statement.
@@ -419,9 +438,9 @@ Console.WriteLine("End of the program.");
 As we can see from the preceding code block, using `if`, `else if`, then `else`, allowed us to get rid of the complex condition that was negating the other two conditions.
 This code is still simple, but think about adding more and more conditions.
 By doing so, the last `if` would become hard to maintain, error-prone, and hard to read.
-Moreover, all conditions would be duplicated; once for its `if` block and negated for that last `if`.
+Moreover, all conditions would be duplicated; once for its own `if` block and negated for that last `if`.
 
-On the other hand, using an `else` statement makes our life easier, so why not, right?
+Using an `else` statement just makes our life easier, so why not, right?
 Anyway, running any of those two programs results in the following execution flow:
 
 ![else if statement program execution](//cdn.forevolve.com/blog/images/2021/2021-06-05-else-if-statement-program-execution.gif)
@@ -455,7 +474,21 @@ Let's now compare this with the steps on the right:
 4. The program writes a line to the console.
 
 In that second execution flow, only the first `if` is evaluated.
-The program skip the evaluation of the `else if` statement and _jumps over_ both the `else if` and `else` blocks.
+The program skips the evaluation of the `else if` statement and _jumps over_ both the `else if` and `else` blocks.
+
+Here is the visual representation of this program flow when the user enters `GO`:
+
+![Visual representation of the program flow when the user enters GO](//cdn.forevolve.com/blog/images/2021/GO-condition-if-elseif-else.png)
+
+Here is the visual representation of this program flow when the user enters `SHOW ME`:
+
+![Visual representation of the program flow when the user enters SHOW ME](//cdn.forevolve.com/blog/images/2021/SHOW-ME-condition-if-elseif-else.png)
+
+Here is the visual representation of this program flow when the user enters `NOT GO`:
+
+![Visual representation of the program flow when the user enters NOT GO](//cdn.forevolve.com/blog/images/2021/NOT-GO-condition-if-elseif-else.png)
+
+> **Note:** in the preceding diagrams, the part that are not executed are grayed out.
 
 Now that we explored all of that, it is time for you to practice.
 
@@ -552,7 +585,7 @@ if (!(firstName == MyFirstName && lastName == MyLastName))
 // ...
 ```
 
-If you are not sure how I was able to play with those conditions, read the next article of the series, where we explore a few Boolean algebra laws: {% include learn-coding-with-dot-net-core/ref.md index=10 %}.
+If you are not sure how I was able to play with those conditions, we explore that in {% include learn-coding-with-dot-net-core/ref.md index=11 %}.
 
 {%- endcapture -%}
 {%- assign solutionContent = solutionContent | markdownify -%}
@@ -562,7 +595,10 @@ Good job! You completed another small chapter of your programming journey.
 
 ## Conclusion
 
-In this article, we ...
+In this article, we learnt how to write code that gets executed only when certain conditions are met.
+We learnt about the **equality** (`==`) and **inequality** (`!=`) operators.
+Then we explored how to write, `if`, `else if`, and `else` statements blocks to alter the linear flow of a program.
+We also briefly covered code indentation as a good way to write clearer code.
 
 Please leave your questions or comments in the comments.
 
