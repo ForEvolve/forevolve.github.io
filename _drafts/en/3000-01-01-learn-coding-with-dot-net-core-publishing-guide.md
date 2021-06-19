@@ -25,16 +25,16 @@ categories: en/articles
 
 <!-- TODO: SET THESE -->
 
-{% assign index = 8 %}
+{% assign index = 9 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
 {% assign subSeriesFirstPart = 9 %}
 
-{% assign installment = "9th" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/05/09/learn-coding-with-dot-net-core-part-9/" %}
-{% assign blogLink = "https://link.forevolve.com/Mctx" %}
-{% assign devLink = "https://dev.to/carlhugom/introduction-to-boolean-algebra-and-logical-operators-46am" %}
-{% assign mediumLink = "https://carlhugom.medium.com/introduction-to-boolean-algebra-and-logical-operators-e81de97d12be" %}
+{% assign installment = "10th" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/06/13/learn-coding-with-dot-net-core-part-10/" %}
+{% assign blogLink = "https://link.forevolve.com/htwC" %}
+{% assign devLink = "https://dev.to/carlhugom/using-if-else-selection-statements-to-write-conditional-code-blocks-18l2" %}
+{% assign mediumLink = "" %}
 
 <!-- END SET THESE -->
 
@@ -101,6 +101,14 @@ I suggest reading the whole series in order, starting with [Creating your first 
 Unfortunately, I was not able to recreate the exercise on this platform, so please look at the exercise on the original post [on my blog]({{ rawBlogLink }}#exercise). I'm sorry for the inconvenience.
 ```
 
+### Details box
+
+```markdown
+{% raw %}{% details Answers %}{% endraw %}
+CONTENT HERE
+{% raw %}{% enddetails %}{% endraw %}
+```
+
 ### Replace next.md and ToC
 
 ```markdown
@@ -165,6 +173,12 @@ The {{ installment }} article of my #LearnProgramming series is out on @ThePract
 
 {{ devLink }}
 
+#### v3
+
+The {{ installment }} article of my #LearnProgramming series—{{ currentTitle }}—is out on @ThePracticalDev; no prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
+
+{{ devLink }}
+
 ### Medium
 
 **Schedule on:** Next week (Tuesday)
@@ -178,6 +192,12 @@ Did you know that the {{ installment }} article of my #LearnProgramming series�
 The {{ installment }} article of my #LearnProgramming series is out on @Medium; no prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
 
 {{ mediumLink }}
+
+#### Import failed
+
+Unfortunately, I could not import the {{ installment }} article of my #LearnProgramming series—{{ currentTitle }}—on @Medium. #csharp #dotnet #dotnetcore #dotnet5
+
+{{ blogLink }}
 
 ## Linked In
 
