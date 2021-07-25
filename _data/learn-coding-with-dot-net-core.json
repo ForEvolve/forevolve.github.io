@@ -84,7 +84,7 @@
     },
     {
         "index": 11,
-        "enabled": false,
+        "enabled": true,
         "title": "Using the switch selection statement to simplify conditional statements blocks",
         "description": "In this article, we explore how to simplify certain conditional blocks by introducing the switch statement.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-11/",
@@ -94,7 +94,7 @@
     {
         "index": 12,
         "enabled": false,
-        "hidden": true,
+        "hidden": false,
         "title": "Common Boolean algebra laws",
         "description": "In this article, we explore some Boolean algebra laws to simplify our conditions.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-12/",
@@ -118,6 +118,7 @@
         "title": "Introduction to numbers and arithmetic operators",
         "description": "In this article, we explore numbers and arithmetic operators.",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "expectedReleaseDate": "September 2021",
         "xgroup": { "name": "toc-grp-two" }
     },
     {

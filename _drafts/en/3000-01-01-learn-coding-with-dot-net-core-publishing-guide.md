@@ -31,9 +31,9 @@ categories: en/articles
 {% assign subSeriesFirstPart = 9 %}
 
 {% assign installment = "11th" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/06/13/learn-coding-with-dot-net-core-part-10/" %}
-{% assign blogLink = "https://link.forevolve.com/htwC" %}
-{% assign devLink = "https://dev.to/carlhugom/using-if-else-selection-statements-to-write-conditional-code-blocks-18l2" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/07/25/learn-coding-with-dot-net-core-part-11/" %}
+{% assign blogLink = "https://link.forevolve.com/nf9s" %}
+{% assign devLink = "https://dev.to/carlhugom/using-the-switch-selection-statement-to-simplify-conditional-statements-blocks-2lll" %}
 {% assign mediumLink = "" %}
 
 <!-- END SET THESE -->
