@@ -1,7 +1,7 @@
 ---
 title: 'Using the switch selection statement to simplify conditional statements blocks'
 subtitle: 'A beginner guide to programming with .NET 5 and C#'
-date: 2021-07-01 00:00:00 -0500
+date: 2021-07-25 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png'
 unsplash-credit: Photo by Jefferson Santos on Unsplash
 lang: en
@@ -23,7 +23,7 @@ technology-relative-level:
       }
 ---
 
-In this article, we explore how to simplify certain complex conditional blocks by introducing the `switch` statement.
+This article explores how to simplify certain complex conditional blocks by introducing the `switch` statement.
 The `switch` keyword is very standard in programming languages.
 We use it to compare a variable with many values.
 
@@ -35,7 +35,7 @@ _Please note that we are not covering switch expressions in this article._
 ## The Switch
 
 In the previous article, {% include learn-coding-with-dot-net-core/ref.md index=9 %}, we covered the basics behind contextual code.
-In this article, we explore the `switch` statement by converting a complex `if` block to a `switch`.
+This article explores the `switch` statement by converting a complex `if` block to a `switch`.
 We go through the syntax afterward.
 
 **Initial code (if):**
@@ -61,7 +61,7 @@ else if (input == "name?")
 }
 else
 {
-    Console.WriteLine("This was not a choice...");
+    Console.WriteLine("Invalid input");
 }
 Console.WriteLine("End of the program.");
 ```
@@ -89,13 +89,13 @@ switch (input)
         Console.WriteLine($"Your name is {name}");
         break;
     default:
-        Console.WriteLine("This was not a choice...");
+        Console.WriteLine("Invalid input");
         break;
 }
 Console.WriteLine("End of the program.");
 ```
 
-Let's now analyse the previous code, starting by the new keywords:
+Let's now analyze the previous code, starting with the new keywords:
 
 -   `switch`
 -   `case`
@@ -111,41 +111,104 @@ switch (variable)
 }
 ```
 
-The `case` keyword, followed by a _value_ and `:` is an equality comparison against the original `variable` passed to the `switch`.
+The `case` keyword, followed by a _value_ and `:`, is an equality comparison against the original `variable` passed to the `switch`.
 You can see `case "goodbye":` as the equivalent of `if (variable == "goodbye")`.
 A `case` block can be empty or end with a `break` or `return`.
 We will not cover the `return` keyword in this article because it is related to other concepts that we have not explored yet.
 When the `case` is empty, it continues to the next `case`.
 For example, `case "hello":` falls back to `case "world":` that falls back to `case "hello world":` that gets executed.
 
-> **Interesting fact:** C# does not support falling from one non-empty `case` to another as certain other languages do.
+> **Interesting fact:** C# does not support falling from one non-empty `case` to another as some other languages do.
 
-The `break` keyword is a _jump statement_ that allows controlling the flow of the program by exiting the current block; a.k.a. jumping out of the `switch` block.
+The `break` keyword is a _jump statement_ that allows controlling the flow of the program by exiting the current block, a.k.a. jumping out of the `switch` block.
 
-Finally, the `default` keyword, in a `switch` block, is the equivalent of the `else`; it is hit when no other `case` was hit.
+Finally, in a `switch` block, the `default` keyword is the equivalent of the `else`; it is hit when no other `case` was hit.
 
 Before the exercise, let's peek at the program flow created by a switch statement.
 
 ## Flow of the program
 
-In a nutshell, a `switch` statement allows comparing if a variable is equal to a value, from a list of cases.
+In a nutshell, a `switch` statement allows comparing if a variable is equal to a value from a list of cases.
 Here is a visual representation of the program flow created by a `switch` block:
 
-TODO: Diagram
+![switch program's flow](//cdn.forevolve.com/blog/images/2021/switch-flow.png)
 
 Next, it's your turn to try it out.
 
 ## Exercise
 
-...
+Convert the following code to use a `switch` statement.
+
+```csharp
+var input = Console.ReadLine();
+if(input == "A")
+{
+    Console.WriteLine("1");
+}
+else if (input == "B")
+{
+    Console.WriteLine("2");
+}
+else if (input == "C")
+{
+    Console.WriteLine("3");
+}
+else if (input == "D")
+{
+    Console.WriteLine("4");
+}
+else if (input == "E")
+{
+    Console.WriteLine("5");
+}
+else
+{
+    Console.WriteLine("Invalid input");
+}
+```
+
+Once you are done, you can compare with **My Solution** below.
+
+{%- capture solutionContent -%}**Program.cs**
+
+```csharp
+var input = Console.ReadLine();
+switch (input)
+{
+    case "A":
+        Console.WriteLine("1");
+        break;
+    case "B":
+        Console.WriteLine("2");
+        break;
+    case "C":
+        Console.WriteLine("3");
+        break;
+    case "D":
+        Console.WriteLine("4");
+        break;
+    case "E":
+        Console.WriteLine("5");
+        break;
+    default:
+        Console.WriteLine("Invalid input");
+        break;
+}
+```
+
+{%- endcapture -%}
+{%- assign solutionContent = solutionContent | markdownify -%}
+{%- include spoiler.html title="My Solution" content=solutionContent -%}
+
+Good job! You completed another small chapter of your programming journey.
 
 ## Conclusion
 
-In this article, we explored the `switch` statement, which allows comparing if a variable is equal to a value, from a list of cases.
-The `switch` statement is another way to create conditional code and to control the flow of our programs.
+This article explored the `switch` statement, which allows comparing if a variable is equal to a value from a list of cases.
+The `switch` statement is another way to create conditional code and control our programs' flow.
 
-The `switch` statement is very useful for variables with finite number of values like `enum`s.
-More recent version of C# also introduce switch expressions and pattern matching that open a lot of other possibilities. However, many of those possibilities require knowledge of object oriented programming that we are not exploring in this article series.
+The `switch` statement is handy for variables with a finite number of values like `enum`s.
+More recent versions of C# also introduce switch expressions and pattern matching that open many other possibilities. However, many of those possibilities require knowledge of object-oriented programming that we are not exploring in this article series.
 
 Please leave your questions or comments below or drop me a Tweet.
 

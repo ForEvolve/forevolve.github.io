@@ -25,12 +25,12 @@ categories: en/articles
 
 <!-- TODO: SET THESE -->
 
-{% assign index = 9 %}
+{% assign index = 10 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
 {% assign subSeriesFirstPart = 9 %}
 
-{% assign installment = "10th" %}
+{% assign installment = "11th" %}
 {% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/06/13/learn-coding-with-dot-net-core-part-10/" %}
 {% assign blogLink = "https://link.forevolve.com/htwC" %}
 {% assign devLink = "https://dev.to/carlhugom/using-if-else-selection-statements-to-write-conditional-code-blocks-18l2" %}
