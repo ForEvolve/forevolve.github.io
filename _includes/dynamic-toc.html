@@ -36,9 +36,17 @@
                     <strong>
                         {{ article.title }}
                         {% if article.expectedReleaseDate %}
-                        <span class="toc-expected-date badge">Expected on {{ article.expectedReleaseDate }}</span>
+                            {% assign expectedReleaseDatePrefix = "Expected on " %}
+                            {%- if article.expectedReleaseDatePrefixOverride -%}
+                                {% assign expectedReleaseDatePrefix = article.expectedReleaseDatePrefixOverride %}
+                            {%- endif -%}
+                            <span class="toc-expected-date badge">{{ expectedReleaseDatePrefix }}{{ article.expectedReleaseDate }}</span>
                         {% else %}
-                        <span class="toc-coming-soon badge">Coming soon</span>
+                            {% assign expectedReleaseDatePrefix = "Coming soon" %}
+                            {%- if article.expectedReleaseDatePrefixOverride -%}
+                                {% assign expectedReleaseDatePrefix = article.expectedReleaseDatePrefixOverride %}
+                            {%- endif -%}
+                            <span class="toc-coming-soon badge">{{ expectedReleaseDatePrefix }}</span>
                         {% endif %}
                     </strong>
                 {% endif %}

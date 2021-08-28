@@ -34,7 +34,7 @@ categories: en/articles
 {% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/07/25/learn-coding-with-dot-net-core-part-11/" %}
 {% assign blogLink = "https://link.forevolve.com/nf9s" %}
 {% assign devLink = "https://dev.to/carlhugom/using-the-switch-selection-statement-to-simplify-conditional-statements-blocks-2lll" %}
-{% assign mediumLink = "" %}
+{% assign mediumLink = "https://carlhugom.medium.com/using-the-switch-selection-statement-to-simplify-conditional-statements-blocks-94211f4b69e0" %}
 
 <!-- END SET THESE -->
 
