@@ -90,8 +90,8 @@ These two might be harder to grasp, so here's my take at a quick explanation:
 1. In the first two comparisons of `(A || B) && (!A || C) && (B || C)`, `A` and `!A` are almost cancelling themselves, leaving the outcome of the comparison to `B` and `C`. Based on that fact, no matter the values, the last comparison `&& (B || C)` becomes useless (already evaluated).
 2. The second one is similar. In the first two comparisons of `A && B || A && C || B && C`, we test `B` and `C`, making the last comparison void `|| B && C`.
 
-> **Word of advice:** it is not crucial to remember the consensus law, so feel free to skip this one if you think it's too complicated.
-> Chances are, you'll never need it anyway.
+> **Word of advice:** it is not mandatory to remember the consensus law, so feel free to skip this one if you think it's too complicated for today.
+> You can always come back to it later.
 
 ## De Morgan's laws
 
@@ -160,10 +160,12 @@ Applying the double negation law leads to `A && B`.
 That simplified version of the original condition looks way simpler, doesn't it?
 
 Learning the basics is helpful in the long run.
-If you have a good memory, feel free to memorize all of this.
-If you don't, use some of them or your own logic to simplify complex logical rules in your code until you reach a maintainable point.
-With a bit of experience, you will most likely know and apply many of them without thinking about it.
-Just start with the simple ones and learn the others later.
+If you have a good memory, feel free to memorize all of this as a starting point.
+If you don't, don't worry, learn them one by one.
+The idea is to simplify your code, so it reaches a more maintainable state.
+With a bit of time, you will most likely know and apply many (if not all) of them without thinking about it.
+Just start with the simplest ones, bookmark the article, and learn the others later.
+Understanding rules, laws, and concepts should get you further than just remembering them; but that takes more time.
 
 > Fun fact: I've run many interviews in 2021, and one of my favorite technical questions is based on complicated conditions that can be simplified using some of those laws.
 > And no, I'm not looking for candidates that know the name of the laws, just if they can resolve a complex if-statement and how.
