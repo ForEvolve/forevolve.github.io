@@ -56,11 +56,13 @@ The annulment law goes as follow:
 
 ## Associative Law
 
-The associative law goes as follow:
+The associative law says that no matter the order or priority of the OR comparisons, the result will always be the same.
+The following conditions yield the same result:
 
--   `A || (B || C)` is the same as `(A || B) || C` which is also the same as `(A || C) || B` that is the same as `A || B || C`
-
-So basically, this law says that no matter the order of the OR, the result will always be the same.
+-   `A || (B || C)`
+-   `(A || B) || C`
+-   `(A || C) || B`
+-   `A || B || C`
 
 ## Complement Law
 
