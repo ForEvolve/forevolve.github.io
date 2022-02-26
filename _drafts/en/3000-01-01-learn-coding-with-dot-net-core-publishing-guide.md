@@ -25,16 +25,16 @@ categories: en/articles
 
 <!-- TODO: SET THESE -->
 
-{% assign index = 10 %}
+{% assign index = 11 %}
 {% assign nextIndex = index | plus: 1 %}
 {% assign installmentNumber = index | plus: 1 %}
 {% assign subSeriesFirstPart = 9 %}
 
-{% assign installment = "11th" %}
-{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/07/25/learn-coding-with-dot-net-core-part-11/" %}
-{% assign blogLink = "https://link.forevolve.com/nf9s" %}
-{% assign devLink = "https://dev.to/carlhugom/using-the-switch-selection-statement-to-simplify-conditional-statements-blocks-2lll" %}
-{% assign mediumLink = "https://carlhugom.medium.com/using-the-switch-selection-statement-to-simplify-conditional-statements-blocks-94211f4b69e0" %}
+{% assign installment = "12th" %}
+{% assign rawBlogLink = "https://www.forevolve.com/en/articles/2021/08/29/learn-coding-with-dot-net-core-part-12/" %}
+{% assign blogLink = "https://link.forevolve.com/ec8d" %}
+{% assign devLink = "https://dev.to/carlhugom/boolean-algebra-laws-with-c-2hgb" %}
+{% assign mediumLink = "" %}
 
 <!-- END SET THESE -->
 
@@ -152,6 +152,13 @@ You want to learn to program? You want to learn C#? You know someone that wants 
 The {{ installment }} article of my #LearnProgramming series is out; no prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
 
 {{ blogLink }}
+
+#### v3
+
+Did you know that the {{ installment }} article of my #LearnProgramming series—{{ currentTitle }}—is out? No prior knowledge of programming is required. #csharp #dotnet #dotnetcore #dotnet5
+
+{{ blogLink }}
+
 
 ### Next article
 
