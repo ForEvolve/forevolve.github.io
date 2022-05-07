@@ -1,40 +1,23 @@
+{%- for book in site.data.buy-books -%}
 <aside class="book">
     <a
-        href="https://net5.link/buy"
+        href="{{ book.linkHref }}"
         rel="noopener"
         target="_blank"
-        title="Buy An Atypical ASP.NET Core 5 Design Patterns Guide: A SOLID adventure into architectural principles, design patterns, .NET 5, and C#"
+        title="Buy {{ book.bookTitle }}"
     >
         <h4>
             Buy My Book
             <small>
                 <i class="fa fa-amazon"></i>
-                Amazon.com {% include AmazonAssociateSpan.html %}
+                Amazon{{ book.amazonExt }} {% include AmazonAssociateSpan.html %}
             </small>
         </h4>
         <img
-            src="//cdn.forevolve.com/blog/images/net5-book-cover/book-cover-200.png"
-            alt="An Atypical ASP.NET Core 5 Design Patterns Guide: A SOLID adventure into architectural principles, design patterns, .NET 5, and C#"
+            src="{{ book.imageSrc }}"
+            alt="{{ book.bookTitle }}"
         />
     </a>
 </aside>
-<aside class="book">
-    <a
-        href="https://net5.link/buyca"
-        rel="noopener"
-        target="_blank"
-        title="Buy An Atypical ASP.NET Core 5 Design Patterns Guide: A SOLID adventure into architectural principles, design patterns, .NET 5, and C#"
-    >
-        <h4>
-            Buy My Book
-            <small>
-                <i class="fa fa-amazon"></i>
-                Amazon.ca {% include AmazonAssociateSpan.html %}
-            </small>
-        </h4>
-        <img
-            src="//cdn.forevolve.com/blog/images/net5-book-cover/book-cover-200.png"
-            alt="An Atypical ASP.NET Core 5 Design Patterns Guide: A SOLID adventure into architectural principles, design patterns, .NET 5, and C#"
-        />
-    </a>
-</aside>
+{%- endfor -%}
+

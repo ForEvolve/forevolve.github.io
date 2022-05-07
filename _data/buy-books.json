@@ -1,0 +1,26 @@
+[
+    {
+        "linkHref":"https://adpg.link/buycom6",
+        "bookTitle": "An Atypical ASP.NET Core 6 Design Patterns Guide: A SOLID adventure into architectural principles and design patterns using .NET 6 and C# 10, 2nd Edition",
+        "imageSrc":"//cdn.forevolve.com/blog/images/net6-book-cover/ADPG-NET6-book-cover-200.png",
+        "amazonExt": ".com"
+    },
+    {
+        "linkHref":"https://adpg.link/buyca6",
+        "bookTitle": "An Atypical ASP.NET Core 6 Design Patterns Guide: A SOLID adventure into architectural principles and design patterns using .NET 6 and C# 10, 2nd Edition",
+        "imageSrc":"//cdn.forevolve.com/blog/images/net6-book-cover/ADPG-NET6-book-cover-200.png",
+        "amazonExt": ".ca"
+    },
+    {
+        "linkHref":"https://net5.link/buy",
+        "bookTitle": "An Atypical ASP.NET Core 5 Design Patterns Guide: A SOLID adventure into architectural principles, design patterns, .NET 5, and C#",
+        "imageSrc":"//cdn.forevolve.com/blog/images/net5-book-cover/book-cover-200.png",
+        "amazonExt": ".com"
+    },
+    {
+        "linkHref":"https://net5.link/buyca",
+        "bookTitle": "An Atypical ASP.NET Core 5 Design Patterns Guide: A SOLID adventure into architectural principles, design patterns, .NET 5, and C#",
+        "imageSrc":"//cdn.forevolve.com/blog/images/net5-book-cover/book-cover-200.png",
+        "amazonExt": ".ca"
+    }
+]
