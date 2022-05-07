@@ -6,22 +6,7 @@ hide-page-header: true
 
 <div class="post-list-container">
     <section class="post-list">
-        {% for post in paginator.posts %} {%- if forloop.index == 3 or forloop.index == 9 -%}
-        <div class="post-ads">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins
-                class="adsbygoogle"
-                style="display: block"
-                data-ad-format="fluid"
-                data-ad-layout-key="-4m+ce-4m-in+1dw"
-                data-ad-client="ca-pub-4006645379906183"
-                data-ad-slot="5179085629"
-            ></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        {%- endif -%}
+        {% for post in paginator.posts %}
         <div class="post-preview">
             <a href="{{ post.url }}" class="post-title-a">
                 <h2 class="post-title">{{ post.title }}</h2>
