@@ -6,5 +6,17 @@
         "*.html": "jekyll",
         "Gemfile.*": "ruby"
     },
-    "gitdoc.enabled": false
+    "gitdoc.enabled": false,
+    "grammarly.selectors": [
+        {
+            "language": "jekyll",
+            "scheme": "file",
+            "pattern": "_drafts/en/2022-05-28-an-atypical-asp-net-core-6-design-patterns-guide-second-edition.md"
+        },
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "_drafts/en/2022-05-28-an-atypical-asp-net-core-6-design-patterns-guide-second-edition.md"
+        }
+    ]
 }
