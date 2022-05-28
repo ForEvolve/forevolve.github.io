@@ -2,7 +2,7 @@
 title: 'Book: An Atypical ASP.NET Core 6 Design Patterns Guide'
 subtitle: "What's new in the second edition?"
 date: 2022-05-28 00:00:00 -0500
-post-img: 'img/2021-01-00-Book-UML.png' # //cdn.forevolve.com/blog/images/articles-header
+post-img: '//cdn.forevolve.com/blog/images/articles-header/2022-05-Book2-release.png'
 lang: en
 categories: en/articles
 tags:
