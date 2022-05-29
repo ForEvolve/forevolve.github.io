@@ -18,6 +18,11 @@ bundle exec jekyll s -I
 bundle exec jekyll s -I --drafts
 ```
 
+## Convert Word to Markdown
+
+-   To render the markdown inline with a preview: https://word2md.com/
+-   Download the markdown file: https://products.aspose.app/words/conversion/word-to-md
+
 # Clean Blog by Start Bootstrap - Jekyll Version
 
 The official Jekyll version of the Clean Blog theme by [Start Bootstrap](http://startbootstrap.com/).
