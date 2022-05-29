@@ -1,4 +1,5 @@
 {%- for book in site.data.buy-books -%}
+{%- if book.enabled -%}
 <aside class="book">
     <a
         href="{{ book.linkHref }}"
@@ -19,5 +20,6 @@
         />
     </a>
 </aside>
+{%- endif -%}
 {%- endfor -%}
 
