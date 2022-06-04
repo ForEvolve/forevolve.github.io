@@ -1,5 +1,5 @@
 ---
-title: 'Implementing Microservices Architectures with ASP.NET Core 6'
+title: 'Implementing Microservices Architectures'
 subtitle: 'An Atypical ASP.NET Core 6 Design Patterns Guide'
 date: 2022-05-29 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2022-05-Microservices-Orange.png'
