@@ -26,7 +26,7 @@ The following topics will be covered:
 -   What are microservices?
 -   An introduction to event-driven architecture
 
-_This article is excerpted from [An Atypical ASP.NET Core 6 Design Patterns Guide {% include AmazonAssociateLogoSpan.html %}](https://adpg.link/buycom6), by Carl-Hugo Marcotte._<!--more-->
+_This article is an excerpt from my book, [An Atypical ASP.NET Core 6 Design Patterns Guide {% include AmazonAssociateLogoSpan.html %}](https://adpg.link/buycom6)._<!--more-->
 
 ## What are microservices?
 
