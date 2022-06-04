@@ -12,6 +12,9 @@ modalAd:
   enabled: false
   cookieMaxAge: 43200 # Max cookie age in seconds (43200 = 12h | 86400 = 24h)
   debug: false
+twitter_name: CarlHugoM
+facebook_author: carl.hugo.marcotte
+facebook_publisher: carl.hugo.marcotte
 social_icons:
   - name: Twitter
     icon: fa-twitter

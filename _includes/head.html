@@ -16,18 +16,35 @@
     <meta name="twitter:site" content="@{{ site.twitter_username }}" />
     <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endif %}" />
 
-    <meta property="og:image" content="http:{% if page.post-img %}{{ page.post-img }}{% else %}{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}{% endif %}" />
-    <meta name="twitter:image" content="http:{% if page.post-img %}{{ page.post-img }}{% else %}{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}{% endif %}" />
+    {%- assign og_image = site.header-img -%}
+    {%- if page.og-img -%}
+        {%- assign og_image = page.og-img -%}
+    {%- elsif page.post-img -%}
+        {%- assign og_image = page.post-img -%}
+    {%- elsif page.header-img -%}
+        {%- assign og_image = page.header-img -%}
+    {%- endif -%}
+    <meta property="og:image" content="https:{{ og_image }}" />
+
+    {%- assign twitter_image = site.header-img -%}
+    {%- if page.twitter-img -%}
+        {%- assign twitter_image = page.twitter-img -%}
+    {%- elsif page.post-img -%}
+        {%- assign twitter_image = page.post-img -%}
+    {%- elsif page.header-img -%}
+        {%- assign twitter_image = page.header-img -%}
+    {%- endif -%}
+    <meta name="twitter:image" content="https:{{ twitter_image }}" />
 
     {% if page.layout == "post" %}
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content="{{ page.date }}" />
         {% comment %}<!-- Here my author and publisher tags are the same (yay self-publishing) -->{% endcomment %}
-        <meta property="article:author" content="http://facebook.com/{{ site.facebook_username }}" />
+        <meta property="article:author" content="https://www.facebook.com/{{ site.facebook_author }}" />
         {% comment %}<!-- But if your site has its own page, this is where to put it. -->{% endcomment %}
-        <meta property="article:publisher" content="https://www.facebook.com/{{ site.facebook_username }}" />
+        <meta property="article:publisher" content="https://www.facebook.com/{{ site.facebook_publisher }}" />
         {% comment %}<!-- Article section isn't a required property, but it can be good to have -->{% endcomment %}
-        <meta property="article:section" content="{{page.vertical}}" />   
+        <meta property="article:section" content="{{page.vertical}}" />
 
         <!-- I use the page.categories property for OG tags. -->
         {% for tag in page.categories %}
@@ -37,7 +54,7 @@
         <!-- I prefer the summary_large_image Twitter card for posts. -->
         <meta name="twitter:card" content="summary_large_image" />
         <!-- You, you're the creator. -->
-        <meta name="twitter:creator" content="@twitter_username" />
+        <meta name="twitter:creator" content="@{{ site.twitter_name }}" />
         <!-- This property is for the article title, not site title. -->
         <meta name="twitter:title" content="{{ page.title }}" />
     {% else %}
