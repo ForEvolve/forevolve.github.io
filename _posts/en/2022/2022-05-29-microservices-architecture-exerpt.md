@@ -15,10 +15,11 @@ tags:
     - C#
     - Microservices
     - Design Patterns
+    - Event-driven Architecture
 proficiency-level: Intermediate
 ---
 
-This article aims to give you an overview of the concepts surrounding microservices, which should help you make informed decisions about whether you should go for a microservices architecture or not.
+This article aims to give you an overview of the concepts surrounding microservices and event-driven architecture, which should help you make informed decisions about whether you should go for a microservices architecture or not.
 
 The following topics will be covered:
 
