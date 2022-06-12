@@ -3,6 +3,8 @@ title: 'Book: An Atypical ASP.NET Core 6 Design Patterns Guide'
 subtitle: "What's new in the second edition?"
 date: 2022-05-28 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2022-05-Book2-release.png'
+og-img: '//cdn.forevolve.com/blog/images/articles-header/2022-05-Book2-release-LinkedIn.png'
+twitter-img: '//cdn.forevolve.com/blog/images/articles-header/2022-05-Book2-release-LinkedIn.png'
 lang: en
 categories: en/articles
 tags:
@@ -10,10 +12,10 @@ tags:
     - Book
 proficiency-level: Intermediate
 ---
-    
+
 _An Atypical ASP.NET Core 6 Design Patterns Guide — Second Edition_ was released a few months ago and now includes many changes and improvements, including new C# 10 and .NET 6 features.
-The second edition is still a journey where we explore architectural techniques together where we cover many subjects to learn to think patterns and design.
-We are not just learning about patterns but also about architectural principles with a strong focus on the SOLID principles, taming the perceived complexity of such tenets throughout the book.
+The second edition is still a journey where we explore architectural techniques together, covering many subjects to learn to think patterns and design.
+We are learning not just about patterns but also architectural principles with a strong focus on the SOLID principles, taming the perceived complexity of such tenets throughout the book.
 
 We also cover automated testing and use tests as consumers of our code in multiple code samples.
 Automated testing is key to modern development approaches like continuous integration and DevOps.
