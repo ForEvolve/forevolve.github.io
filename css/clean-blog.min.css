@@ -1913,3 +1913,18 @@ pre,
 .pinned-content img {
   cursor: pointer !important;
 }
+aside.new-article-version {
+  border: 1px solid #007f00;
+  margin: 20px 0 70px;
+  padding: 20px;
+  border-radius: 50px;
+}
+aside.new-article-version > header {
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  border-bottom: 1px dashed #007f00;
+  color: #007f00;
+  padding-bottom: 20px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

@@ -1,0 +1,56 @@
+{%- assign currentPost = include.post -%}
+{%- assign buttonText = "Continue reading..." -%}
+{%- if include.buttonText -%}
+    {%- assign buttonText = include.buttonText -%}
+{%- endif -%}
+<div class="post-preview">
+    <a href="{{ currentPost.url }}" class="post-title-a">
+        <h2 class="post-title">{{ currentPost.title }}</h2>
+        {% if currentPost.subtitle %}
+        <h3 class="post-subtitle">{{ currentPost.subtitle }}</h3>
+        {% endif %}
+    </a>
+    <div class="post-meta">
+        Posted by {% if currentPost.author %}{{ currentPost.author }}{% else %}{{ site.title }}{% endif %} on {{ currentPost.date | date: "%B %-d, %Y" }}
+        {% comment %}<a href="{{ site.baseurl }}/{{ currentPost.url }}" data-disqus-identifier="{{ currentPost.url }}"></a>{% endcomment %} {% for
+        lang in site.data.languages %} {% assign language = lang[1] %} {% if language.shortName == currentPost.lang %}
+        <aside class="languages">
+            <strong>Language: </strong>
+            <a href="/languages/#{{ language.categoryName | slugify }}">{{ language.displayName }}</a>
+        </aside>
+        {% endif %} {% endfor %} {% if currentPost.proficiency-level %}
+        <aside class="proficiency-level">
+            <strong>Target proficiency level:</strong>
+
+            {% assign level = site.data.proficiency-levels[currentPost.proficiency-level] %}
+            <a href="/levels/#proficiency-level-{{ currentPost.proficiency-level | slugify }}" title="{{ level.description }}"
+                >{{ level.name }}</a
+            >
+            <small>({{ level.short-description }})</small>
+        </aside>
+        {% endif %} {% if currentPost.tags[0] %}
+        <aside class="tags">
+            <i class="glyphicon glyphicon-tags"></i>
+            &nbsp; {% for tag in currentPost.tags %}
+            <a href="/tags/#{{ tag | slugify }}" title='View posts tagged with "{{ tag }}"'><u>{{ tag }}</u></a
+            >{% if forloop.last != true %}, {% endif %} {% endfor %}
+        </aside>
+        {% endif %}
+    </div>
+
+    {% if currentPost.post-img %}
+    <p><img src="{{ site.baseurl }}/{{ currentPost.post-img }}" alt="{{ currentPost.title }}" /></p>
+    {% endif %} {%- include technology-relative-level-list.html technology-relative-level=currentPost.technology-relative-level -%}
+
+    <p>{{ currentPost.excerpt }}</p>
+    <div class="post-readmore">
+        <a
+            href="{{ currentPost.url }}"
+            title=""
+            data-toggle="tooltip"
+            data-placement="top"
+            data-original-title="{{ currentPost.title }}{% if currentPost.subtitle %} | {{currentPost.subtitle}}{% endif %}"
+            >{{ buttonText }}</a
+        >
+    </div>
+</div>

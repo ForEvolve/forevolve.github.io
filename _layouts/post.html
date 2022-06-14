@@ -12,8 +12,20 @@ pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page
         <div class="row">
             <main class="col-sm-12 post-content">
                 <!-- Post Header -->
+                {%- if page.newer-version-url -%}
+                    {%- assign newerPostVersion = site.posts | where: "url", page.newer-version-url | first -%}
+                    {%- if newerPostVersion -%}
+                        <aside class="new-article-version">
+                            <header>A newer version of this article is available</header>
+                            {%- comment -%} <a href="{{ page.newer-version-url }}">{{ newerPostVersion.title }} {{ newerPostVersion.subtitle }}</a>
+                            <p>{{ newerPostVersion.excerpt }}</p> {%- endcomment -%}
+                            {%- include post-preview.html post=newerPostVersion buttonText="Read the newer version..." -%}
+                        </aside>
+                    {%- endif -%}
+                {%- endif -%}
                 <header class="intro-header">
                     <div class="hidden-xs intro-header-buy-net5-book">{%- include buy-net5-book.html -%}</div>
+
 
                     <div class="post-heading">
                         <h1>{{ page.title }}</h1>
