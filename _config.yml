@@ -42,6 +42,9 @@ social_icons:
   - name: Dev.to
     icon: icomoon icon-dev-dot-to
     url: https://dev.to/carlhugom
+  - name: DZone
+    icon: fa-cube
+    url: https://dzone.com/users/4734071/carlhugom.html
   - name: RSS Feed
     icon: fa-rss
     url: /feed.xml
