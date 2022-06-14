@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to C# variables'
 subtitle: 'A beginner guide to programming with .NET 6 and C#'
-date: 2022-06-14 00:00:00 -0500
+date: 2022-06-14 00:00:00 -0400
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png'
 unsplash-credit: Photo by Jefferson Santos on Unsplash
 lang: en
@@ -178,7 +178,6 @@ Enough syntax and theory, let's try this out next.
 Let's reuse the program we built in the first article of the series, which looked like this:
 
 ```csharp
-using System;
 Console.WriteLine("Hello .NET Ninja!");
 ```
 
@@ -189,8 +188,6 @@ To prepare the program for more advanced use-cases, we want to extract the text 
 To do so, based on what we just explored, we can write the following:
 
 ```csharp
-using System;
-
 var greetings = "Hello .NET Ninja!";
 Console.WriteLine(greetings);
 ```
@@ -282,8 +279,6 @@ Once you are done, you can compare with the following solution.
 {%- capture solutionContent -%}**Program.cs**
 
 ```csharp
-using System;
-
 var spacer = "------------------";
 Console.WriteLine(spacer);
 Console.WriteLine("What is your name?");

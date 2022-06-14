@@ -3,13 +3,13 @@
         "index": 1,
         "enabled": true,
         "title": "Creating your first .NET/C# program",
-        "description": "In this article, we are creating a small console application using the .NET CLI to get started with .NET 5+ and C#.",
+        "description": "In this article, we are creating a small console application using the .NET CLI to get started with .NET 6+ and C#.",
         "previous-url": "/en/articles/2021/02/07/learn-coding-with-dot-net-core-part-1/",
         "url": "/en/articles/2022/06/13/learn-coding-with-dot-net-6-part-1/"
     },
     {
         "index": 2,
-        "enabled": false,
+        "enabled": true,
         "title": "Introduction to C# variables",
         "description": "In this article, we explore variables. What they are, how to create them, and how to use them. Variables are essential elements of a program, making it dynamic.",
         "previous-url": "/en/articles/2021/02/21/learn-coding-with-dot-net-core-part-2/",
