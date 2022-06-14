@@ -115,7 +115,7 @@
         "enabled": false,
         "hidden": true,
         "title": "Converting (parsing) strings to numbers.",
-        "description": "In this article, we explore numbers and arithmetic operators.",
+        "description": "In this article, we explore ...",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
         "xgroup": { "name": "toc-grp-two" }
     },
@@ -124,7 +124,7 @@
         "enabled": false,
         "hidden": true,
         "title": "Recap of C# primitive types",
-        "description": "",
+        "description": "In this article, we explore ...",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     },
     {
@@ -132,7 +132,7 @@
         "enabled": false,
         "hidden": true,
         "title": "...",
-        "description": "",
+        "description": "In this article, we explore ...",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
     },
     {
