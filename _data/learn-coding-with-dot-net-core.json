@@ -103,60 +103,9 @@
     {
         "index": 0,
         "enabled": false,
-        "hidden": true,
-        "title": "Introduction to numbers and arithmetic operators",
-        "description": "In this article, we explore numbers and arithmetic operators.",
+        "title": "This is the end of this series",
+        "description": "This article series was migrated to a newest version of .NET. <a href='/en/articles/2022/06/30/learn-coding-with-dot-net-core-part-1/'>Have a look at the .NET 6 series for more!</a>",
         "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
-        "expectedReleaseDate": "September 2021",
-        "xgroup": { "name": "toc-grp-two" }
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "Converting (parsing) strings to numbers.",
-        "description": "In this article, we explore ...",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
-        "xgroup": { "name": "toc-grp-two" }
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "Recap of C# primitive types",
-        "description": "In this article, we explore ...",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "...",
-        "description": "In this article, we explore ...",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "Introduction to types",
-        "description": "In this article, we explore types...",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "hidden": true,
-        "title": "More to come",
-        "description": "",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
-    },
-    {
-        "index": 0,
-        "enabled": false,
-        "title": "More to come",
-        "description": "",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
-        "expectedReleaseDatePrefixOverride": "Somewhere in 2022"
+        "expectedReleaseDatePrefixOverride": ""
     }
 ]
