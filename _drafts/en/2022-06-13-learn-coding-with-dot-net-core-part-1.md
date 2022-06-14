@@ -1,7 +1,7 @@
 ---
 title: 'Creating your first .NET/C# program'
 subtitle: 'A beginner guide to programming with .NET 6 and C#'
-date: 2022-06-30 00:00:00 -0500
+date: 2022-06-13 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png'
 unsplash-credit: Photo by Jefferson Santos on Unsplash
 lang: en
