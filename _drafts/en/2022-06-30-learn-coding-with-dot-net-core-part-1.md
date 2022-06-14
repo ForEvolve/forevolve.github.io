@@ -28,7 +28,7 @@ If you want to **learn how to program** and want to learn it **using .NET/C#**, 
 
 The first step of coding is to **create a program**.
 The program could be a simple console or a more complex application (web, mobile, game, etc.).
-To get started, we will create a console application, which is the simplest type of program that we can make.
+To get started, we create a console application, which is the simplest type of program that we can make.
 The good news is that most of the topics covered in this series are reusable across all types of programs.
 
 Furthermore, .NET and C# allow you to create a wide variety of programs and target most markets, from web to mobile to smart TVs.
@@ -39,7 +39,7 @@ Beforehand, let's look at the prerequisites.<!--more-->
 ### Prerequisites
 
 If you have not already installed the .NET **Software Development Kit (SDK)**, you can download it from [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
-Make sure you install the **.NET 5 (or later)** SDK.
+Make sure you install the **.NET 6 (or later)** SDK.
 
 > **Hint:** Make sure you install the .NET SDK, not the runtime.
 > The runtime is used and optimized to run .NET apps.
@@ -100,7 +100,9 @@ We won't get into more details but know that you need one `csproj` file per proj
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 </Project>
@@ -116,35 +118,29 @@ We won't get into more details but know that you need one `csproj` file per proj
 This is where we write code.
 
 ```csharp
-using System;
-
-namespace IntroToDotNet
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
+// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
 ```
+
+_We are exploring the meaning of that code later._
 
 ## Writing our first line of code
 
 As mentioned before, the file that interests us the most is the `Program.cs` file.
-However, it is already filled with boilerplate code that we don't really need (for now).
 To keep our focus on the task at hand&mdash;learning C#&mdash;we will leverage **top-level statements** to discard that code.
 
-Let's replace all of that boilerplate code with the following line:
+The .NET 6 templates leverage **top-level statements**, allowing us to write code directly without boilerplate code.
+The `<ImplicitUsings>enable</ImplicitUsings>` directive of the `csproj` file allows us to skip even more boilerplate code.
+
+Let's replace the content of the `Project.cs` file with the following line:
 
 **Program.cs**
 
 ```csharp
-System.Console.WriteLine("Hello .NET Ninja!");
+Console.WriteLine("Hello .NET Ninja!");
 ```
 
-> **More info:** the **top-level statements** feature was introduced in C# 9 (.NET 5).
+> **More info:** the **top-level statements** feature was introduced in C# 9 (.NET 5) and `ImplicitUsings` was introduced with .NET 6.
 
 Now that we wrote some code, it is time to tell your computer to execute it.
 To do so, from the directory that contains the `IntroToDotNet.csproj` file, type the following:
@@ -154,7 +150,7 @@ dotnet run
 ```
 
 Afterward, you should see `Hello .NET Ninja!` written in the console.
-While reading this article, you can `dotnet run` the program and see the output.
+While reading this article, you can `dotnet run` the program at anytime to see the output.
 Next, let's explore that code.
 
 ## Exploring the building blocks
@@ -180,9 +176,6 @@ Let's now dissect more of that line of code, starting with the identifiers.
 
 ### Identifiers
 
-`System` is a **namespace**. A namespace allows us to organize elements of our programs hierarchically.
-You can see a namespace as a sort of directory.
-
 `Console` is a **static class** that exposes a few **methods**.
 A **class** is a sort of plan defining how to create an **object**.
 An **object** can be pretty much anything that we need and is a mandatory concept in an **object-oriented programming (OOP)** language like C#.
@@ -191,11 +184,11 @@ A **static class** exposes its content globally without creating an instance of 
 
 A **method** is a **function** that we can use to do something (reusable code).
 In this case, we used the `WriteLine` method, which writes a line into the console.
-For example, every time we need to write a line to the console, we can leverage the `WriteLine` method; we can reuse it.
+For example, every time we need to write a line to the console, we can leverage the `WriteLine` method.
 
 The line that is written to the console is a **string**.
-A string is _simply_ a bunch of characters put together to form some text.
-In C#, A string is contained between two quotes, like this: `"Hello .NET Ninja!"`.
+A string is a bunch of characters put together to form some text.
+In C#, a string is delimited by quotes, like this: `"Hello .NET Ninja!"`.
 Ok, there are more to strings, but not for now.
 
 The next building blocks are the **member access operators**.
@@ -203,10 +196,8 @@ The next building blocks are the **member access operators**.
 ### Member access operators
 
 The first one that we encountered is the `.` character.
-The dot allows us to access the exposed members of a class, namespace, etc.
-In our case, we used the `.` operator to access the `Console` class from the `System` namespace, like this: `System.Console`.
-Then we used the `.` operator again to access the `WriteLine`method of the `Console` class, like this: `Console.WriteLine`.
-As we already saw, we can chain `.` operators, leading to code like this: `System.Console.WriteLine`.
+The dot allows us to access the exposed members of a class (amongst other thing; but that's fine for today).
+In our case, we used the `.` operator to access the `WriteLine` method of the `Console` class, like this: `Console.WriteLine`.
 
 The last bit is the parenthesis.
 In C#, we use the `(` and `)` characters to **invoke a method**.
@@ -217,53 +208,15 @@ In our case, we passed the string `"Hello .NET Ninja!"` to the `WriteLine` metho
 If we wanted to write something else, we could have passed that instead, like this:
 
 ```csharp
-System.Console.WriteLine("Something else!");
+Console.WriteLine("Something else!");
 ```
 
 Most of these subjects deserve to be explored more in-depth but are out of this article's scope.
-Next, we explore how to access namespaces with fewer keystrokes.
-
-## Accessing namespaces
-
-The last subject that I want us to explore in this article is how to **simplify access to members**.
-Let's say that we need to write many lines to the console. We could want to get rid of the `System` namespace to write less code.
-Fortunately for us, C# offers the `using` **directive**.
-A directive tells the compiler how to interpret our code.
-The `using` directive exposes all members of a namespace and removes the need to prefix them with it.
-We can write as many `using` directives as we need.
-Those directives usually appear at the top of the file.
-
-> **More info:** in the case of top-level statements, we have no choice but to write `using` directives on top of the file so I won't get into the other possibilities just yet.
-
-To get rid of the `System` prefix, we can write `using System;` at the top of the file.
-Then we can simplify the WriteLine, as follow:
-
-```csharp
-using System;
-Console.WriteLine("Hello World!");
-```
-
-The `using` directives are useful for longer namespaces or for repeating usage of a namespace's members.
-For example, if writing many `Console.WriteLine(...)` statements, like this:
-
-```csharp
-using System;
-
-Console.WriteLine(" _   _      _ _         __        __         _     _ _ ");
-Console.WriteLine("| | | | ___| | | ___    \ \      / /__  _ __| | __| | |");
-Console.WriteLine("| |_| |/ _ \ | |/ _ \    \ \ /\ / / _ \| '__| |/ _` | |");
-Console.WriteLine("|  _  |  __/ | | (_) |    \ V  V / (_) | |  | | (_| |_|");
-Console.WriteLine("|_| |_|\___|_|_|\___/      \_/\_/ \___/|_|  |_|\__,_(_)");
-```
-
-> **Note:** The ASCII text was originally generated by [figgle](https://github.com/drewnoakes/figgle) and has been modified a little.
-
-I also find that `using` directives make the code clearer, removing some noise.
 
 ## Conclusion
 
-That's it; we wrote our first C#/.NET 5 program.
-We also wrote some text to the console, learned to use top-level statements, and learn to simplify the usage of namespaces' members.
+That's it; we wrote our first C#/.NET 6 program.
+We also wrote some text to the console, and learn how to access static class members.
 
 We explored the "hidden" details behind one line of code and got a glimpse of many new names, like directives and statements.
 If you are not already familiar with object-oriented programming, don't worry about all of those names just yet.
@@ -283,4 +236,3 @@ In the next article of the series, we will explore how to create variables.
 ### Table of content
 
 {%- include learn-coding-with-dot-net-core-6/toc.md currentIndex=1 -%}
-
