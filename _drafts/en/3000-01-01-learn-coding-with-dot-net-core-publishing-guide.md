@@ -90,7 +90,7 @@ I suggest reading the whole series in order, starting with [Creating your first 
 > Don't copy `{::options parse_block_html="true" /}{::options parse_block_html="false" /}`
 
 ```markdown
-{% include learn-coding-with-dot-net-core/sub-series.md firstPart=subSeriesFirstPart urlPrefix=site.remoteUrl pageTitle=currentTitle %}
+{% include learn-coding-with-dot-net-core-6/sub-series.md firstPart=subSeriesFirstPart urlPrefix=site.remoteUrl pageTitle=currentTitle %}
 ```
 
 {% endif %}
