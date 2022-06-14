@@ -21,6 +21,8 @@ technology-relative-level:
           short-description: You are familiar with computers,
           description: 'You know your way around a computer and is able to install a software, configure your OS, open a terminal, and perform other similar simple tasks.',
       }
+updates:
+    - { date: 2022-06-13, description: 'Migrate to .NET 6', previous-url: '/en/articles/2021/02/07/learn-coding-with-dot-net-core-part-1/' }
 ---
 
 This article is the first of a **learn programming** series where you need **no prior knowledge of programming**.

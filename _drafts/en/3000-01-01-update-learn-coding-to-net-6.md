@@ -10,9 +10,15 @@ categories: en/articles
 
 ## Front matter
 
-1. `subtitle`: Update `.NET 5` ti `.NET 6`.
-1. `tags`: Update `.NET 5` ti `.NET 6`.
+1. `subtitle`: Update `.NET 5` to `.NET 6`.
+1. `tags`: Update `.NET 5` to `.NET 6`.
 1. `date`: update the date (also change the file name).
+1. Add the following YAML block and replace the DATE by the current article's date and the URL by the old article's URL.
+
+```yaml
+updates:
+    - { date: 2022-06-13, description: 'Migrate to .NET 6', previous-url: '/en/articles/2021/02/07/learn-coding-with-dot-net-core-part-1/' }
+```
 
 # Old Article
 

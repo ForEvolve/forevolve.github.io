@@ -3,7 +3,12 @@
     <h2 id="updates">Updates</h2>
     <ul>
     {% for update in page.updates %}
-        <li>{{ update.date }}: {{ update.description }}</li>
+        <li>
+            {{ update.date }}: {{ update.description }}
+            {% if update.previous-url %}
+                (<a href="{{ update.previous-url }}">previous version</a>)
+            {% endif %}
+        </li>
     {% endfor %}
     </ul>
 </aside>
