@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to C# variables'
 subtitle: 'A beginner guide to programming with .NET 6 and C#'
-date: 2022-06-30 00:00:00 -0500
+date: 2022-06-14 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2021-learn-coding-with-dot-net-core.png'
 unsplash-credit: Photo by Jefferson Santos on Unsplash
 lang: en
@@ -270,7 +270,8 @@ What is your name?
 
 {%- capture hintContent -%}<p>Use a variable to handle the duplicate text.</p>{%- capture innerHintContent -%}```csharp
 var spacer = "------------------";
-```{%- endcapture -%}
+
+````{%- endcapture -%}
 {%- assign innerHintContent = innerHintContent | markdownify -%}
 {%- include spoiler.html title="Code Hint" content=innerHintContent -%}
 {%- endcapture -%}
@@ -296,7 +297,6 @@ Practicing is the key to success!
 {%- assign solutionContent = solutionContent | markdownify -%}
 {%- include spoiler.html title="My Solution" content=solutionContent -%}
 
-
 ## Conclusion
 
 In this article, we learned how to declare a variable and set its value.
@@ -312,4 +312,3 @@ This is a lot of theory and small details to take in, but the more you advance a
 ### Table of content
 
 {%- include learn-coding-with-dot-net-core-6/toc.md currentIndex=2 -%}
-

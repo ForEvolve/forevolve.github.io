@@ -5,7 +5,7 @@
         "title": "Creating your first .NET/C# program",
         "description": "In this article, we are creating a small console application using the .NET CLI to get started with .NET 5+ and C#.",
         "previous-url": "/en/articles/2021/02/07/learn-coding-with-dot-net-core-part-1/",
-        "url": "/en/articles/2022/06/14/learn-coding-with-dot-net-core-part-1/"
+        "url": "/en/articles/2022/06/13/learn-coding-with-dot-net-6-part-1/"
     },
     {
         "index": 2,
@@ -13,7 +13,7 @@
         "title": "Introduction to C# variables",
         "description": "In this article, we explore variables. What they are, how to create them, and how to use them. Variables are essential elements of a program, making it dynamic.",
         "previous-url": "/en/articles/2021/02/21/learn-coding-with-dot-net-core-part-2/",
-        "url": "/en/articles/2022/06/14/learn-coding-with-dot-net-core-part-2/"
+        "url": "/en/articles/2022/06/14/learn-coding-with-dot-net-6-part-2/"
     },
     {
         "index": 3,
@@ -21,7 +21,7 @@
         "title": "Introduction to C# constants",
         "description": "In this article, we explore constants. A constant is a special kind of variable.",
         "previous-url": "/en/articles/2021/02/28/learn-coding-with-dot-net-core-part-3/",
-        "url": "/en/articles/2021/02/28/learn-coding-with-dot-net-core-part-3/",
+        "url": "/en/articles/2021/02/28/learn-coding-with-dot-net-6-part-3/",
         "expectedReleaseDate": "Summer 2022"
     },
     {
@@ -30,7 +30,7 @@
         "title": "Introduction to C# comments",
         "description": "In this article, we explore single-line and multiline comments.",
         "previous-url": "/en/articles/2021/03/07/learn-coding-with-dot-net-core-part-4/",
-        "url": "/en/articles/2021/03/07/learn-coding-with-dot-net-core-part-4/",
+        "url": "/en/articles/2021/03/07/learn-coding-with-dot-net-6-part-4/",
         "expectedReleaseDate": "Summer 2022"
     },
     {
@@ -39,7 +39,7 @@
         "title": "How to read user inputs from a console",
         "description": "In this article, we explore how to retrieve simple user inputs from the console. This will help us make our programs more dynamic by interacting with the user.",
         "previous-url": "/en/articles/2021/03/14/learn-coding-with-dot-net-core-part-5/",
-        "url": "/en/articles/2021/03/14/learn-coding-with-dot-net-core-part-5/",
+        "url": "/en/articles/2021/03/14/learn-coding-with-dot-net-6-part-5/",
         "expectedReleaseDate": "Summer 2022"
     },
     {
@@ -48,7 +48,7 @@
         "title": "Introduction to string concatenation",
         "description": "In this article, we dig deeper into strings and explore string concatenation.",
         "previous-url": "/en/articles/2021/03/21/learn-coding-with-dot-net-core-part-6/",
-        "url": "/en/articles/2021/03/21/learn-coding-with-dot-net-core-part-6/",
+        "url": "/en/articles/2021/03/21/learn-coding-with-dot-net-6-part-6/",
         "expectedReleaseDate": "Summer 2022",
         "group": { "name": "toc-grp-three" }
     },
@@ -58,7 +58,7 @@
         "title": "Introduction to string interpolation",
         "description": "In this article, we explore string interpolation as another way to compose a string.",
         "previous-url": "/en/articles/2021/03/28/learn-coding-with-dot-net-core-part-7/",
-        "url": "/en/articles/2021/03/28/learn-coding-with-dot-net-core-part-7/",
+        "url": "/en/articles/2021/03/28/learn-coding-with-dot-net-6-part-7/",
         "expectedReleaseDate": "Summer 2022",
         "group": { "name": "toc-grp-three" }
     },
@@ -68,7 +68,7 @@
         "title": "Escaping characters in C# strings",
         "description": "In this article, we explore how to escape characters like quotes and how to write special character like tabs and new lines.",
         "previous-url": "/en/articles/2021/04/18/learn-coding-with-dot-net-core-part-8/",
-        "url": "/en/articles/2021/04/18/learn-coding-with-dot-net-core-part-8/",
+        "url": "/en/articles/2021/04/18/learn-coding-with-dot-net-6-part-8/",
         "expectedReleaseDate": "Summer 2022",
         "group": { "name": "toc-grp-three" }
     },
@@ -78,7 +78,7 @@
         "title": "Introduction to Boolean algebra and logical operators",
         "description": "This article introduces the mathematical branch of algebra that evaluates the value of a condition to true or false.",
         "previous-url": "/en/articles/2021/05/09/learn-coding-with-dot-net-core-part-9/",
-        "url": "/en/articles/2021/05/09/learn-coding-with-dot-net-core-part-9/",
+        "url": "/en/articles/2021/05/09/learn-coding-with-dot-net-6-part-9/",
         "expectedReleaseDate": "Summer 2022",
         "group": { "name": "toc-grp-one" }
     },
@@ -88,7 +88,7 @@
         "title": "Using if-else selection statements to write conditional code blocks",
         "description": "In this article, we explore how to write conditional code using Boolean algebra.",
         "previous-url": "/en/articles/2021/06/13/learn-coding-with-dot-net-core-part-10/",
-        "url": "/en/articles/2021/06/13/learn-coding-with-dot-net-core-part-10/",
+        "url": "/en/articles/2021/06/13/learn-coding-with-dot-net-6-part-10/",
         "expectedReleaseDate": "Summer 2022",
         "group": { "name": "toc-grp-one" }
     },
@@ -98,7 +98,7 @@
         "title": "Using the switch selection statement to simplify conditional statements blocks",
         "description": "In this article, we explore how to simplify certain conditional blocks by introducing the switch statement.",
         "previous-url": "/en/articles/2021/07/25/learn-coding-with-dot-net-core-part-11/",
-        "url": "/en/articles/2021/07/25/learn-coding-with-dot-net-core-part-11/",
+        "url": "/en/articles/2021/07/25/learn-coding-with-dot-net-6-part-11/",
         "expectedReleaseDate": "Summer 2022",
         "group": { "name": "toc-grp-one" }
     },
@@ -108,7 +108,7 @@
         "title": "Boolean algebra laws",
         "description": "This article explores multiple Boolean algebra laws in a programmer-oriented way, leaving the mathematic notation aside.",
         "previous-url": "/en/articles/2021/08/29/learn-coding-with-dot-net-core-part-12/",
-        "url": "/en/articles/2021/08/29/learn-coding-with-dot-net-core-part-12/",
+        "url": "/en/articles/2021/08/29/learn-coding-with-dot-net-6-part-12/",
         "expectedReleaseDate": "Summer 2022",
         "group": { "name": "toc-grp-one" }
     },
@@ -118,7 +118,7 @@
         "hidden": true,
         "title": "Introduction to numbers and arithmetic operators",
         "description": "In this article, we explore numbers and arithmetic operators.",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-6-part-0/",
         "expectedReleaseDate": "September 2021",
         "xgroup": { "name": "toc-grp-two" }
     },
@@ -128,7 +128,7 @@
         "hidden": true,
         "title": "Converting (parsing) strings to numbers.",
         "description": "In this article, we explore ...",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-6-part-0/",
         "xgroup": { "name": "toc-grp-two" }
     },
     {
@@ -137,7 +137,7 @@
         "hidden": true,
         "title": "Recap of C# primitive types",
         "description": "In this article, we explore ...",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-6-part-0/"
     },
     {
         "index": 0,
@@ -145,7 +145,7 @@
         "hidden": true,
         "title": "...",
         "description": "In this article, we explore ...",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-6-part-0/"
     },
     {
         "index": 0,
@@ -153,7 +153,7 @@
         "hidden": true,
         "title": "Introduction to types",
         "description": "In this article, we explore types...",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/"
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-6-part-0/"
     },
     {
         "index": 0,
@@ -168,7 +168,7 @@
         "enabled": false,
         "title": "More to come",
         "description": "",
-        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-core-part-0/",
+        "url": "/en/articles/2021/00/00/learn-coding-with-dot-net-6-part-0/",
         "expectedReleaseDatePrefixOverride": "Somewhere in 2022"
     }
 ]

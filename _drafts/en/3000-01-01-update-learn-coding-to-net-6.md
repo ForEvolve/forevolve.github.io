@@ -12,13 +12,13 @@ categories: en/articles
 
 1. `subtitle`: Update `.NET 5` ti `.NET 6`.
 1. `tags`: Update `.NET 5` ti `.NET 6`.
+1. `date`: update the date (also change the file name).
 
 # Old Article
 
 ## Front matter:
 
-1. Add `newer-version-url: "..."`.
-1. Set `...` to the link of the new article.
+1. Add `newer-version-url: "/en/articles/YYYY/MM/DD/learn-coding-with-dot-net-6-part-PART/"` and update the `YYYY`, `MM`, `DD`, and `PART` placeholders.
 
 # Data
 

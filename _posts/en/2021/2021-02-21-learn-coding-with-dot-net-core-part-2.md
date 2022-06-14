@@ -21,6 +21,7 @@ technology-relative-level:
           short-description: You are familiar with computers,
           description: 'You know your way around a computer and is able to install a software, configure your OS, open a terminal, and perform other similar simple tasks.',
       }
+newer-version-url: "/en/articles/2022/06/14/learn-coding-with-dot-net-6-part-2/"
 ---
 
 In this article, we explore variables.
