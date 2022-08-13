@@ -56,7 +56,7 @@ They also respect the _nullable reference types_ features introduced in C# 8.0 a
 -   Based on readers' surveys that pointed to Layering as an aspect you are most interested in, I invested a lot of effort in improving _Chapter 12: Understanding Layering_. I removed some content, reordered sections, improved the writting, and more.
 -   The code sample used to demo Layering, Clean Architecture, and that is reused in _Chapter 14: Mediator and CQRS Design Patterns_ were updated to use a rich model, amongst other changes.
 -   Microservices Architecture was also a major interest of surveyed people, so I invested a lot of effort in improving _Chapter 16_: Introduction to Microservices Architecture\_, like reordering the subjects, updating and adding content, and adding more details about event-driven architecture.
--   I also added the _Exploring the Microservice Adapter pattern_ section to _Chapter 16: Introduction to Microservices Architecture_, which is a very versatile pattern.
+-   I also added the _Exploring the Microservice Adapter pattern_ section to _Chapter 16: Introduction to Microservices Architecture,_ which is a very versatile pattern.
 
 ## Conclusion
 
