@@ -21,7 +21,7 @@ We also cover automated testing and use tests as consumers of our code in multip
 Automated testing is key to modern development approaches like continuous integration and DevOps.
 The strong focus on dependency injection is also still there, making sure readers learn techniques that will help them build ASP.NET Core 6+ applications.
 
-Last but not least, the book still covers numerous design patterns, from multiple of the famous Gand of Four (GoF) patterns to application-level patterns like layering, microservices, and vertical slice architecture.<!--more-->
+Last but not least, the book still covers numerous design patterns, from multiple of the famous Gang of Four (GoF) patterns to application-level patterns like layering, microservices, and vertical slice architecture.<!--more-->
 
 You can find the content of the first edition in the [Book: An Atypical ASP.NET Core 5 Design Patterns Guide: What's inside?](/en/articles/2021/01/05/book-an-atypical-asp-net-core-5-design-patterns-guide-content/) article.
 
