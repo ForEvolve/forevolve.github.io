@@ -1,3 +1,9 @@
+/*!
+ * Clean Blog v1.0.0 (http://startbootstrap.com)
+ * Copyright 2022 Start Bootstrap
+ * Licensed under MIT (https://spdx.org/licenses/MIT)
+ */
+
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -1927,4 +1933,12 @@ aside.new-article-version > header {
   color: #007f00;
   padding-bottom: 20px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+figure.fit-centered {
+  width: fit-content;
+  margin: auto;
+  border: 0;
+}
+figure.fit-centered figcaption {
+  margin-top: 1em;
 }

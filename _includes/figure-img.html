@@ -1,0 +1,8 @@
+{% comment %}
+Usage example:
+{%- include figure-img.html src="some-url.png" caption="Some caption text" -%}
+{% endcomment %}
+<figure class="fit-centered">
+    <img src="{{ include.src }}" title="{{ include.caption }}" />
+    <figcaption>{{ include.caption }}</figcaption>
+</figure>
