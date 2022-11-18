@@ -20,6 +20,7 @@ header-img: '//cdn.forevolve.com/blog/images/pages-header/contact-header-book.jp
 <style>
 .amazon-product-container{
     display:flex;
+    flex-wrap: wrap;
 }
 .amazon-product-container a{
     margin: 7px;
