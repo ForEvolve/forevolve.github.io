@@ -26,4 +26,9 @@ header-img: '//cdn.forevolve.com/blog/images/pages-header/contact-header-book.jp
 .amazon-product-container a{
     margin: 7px;
 }
+
+.amazon-product-container a img:hover,
+.amazon-product-container a img:focus {
+  cursor: cursor;
+}
 </style>
