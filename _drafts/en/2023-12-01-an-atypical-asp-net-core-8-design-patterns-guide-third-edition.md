@@ -47,9 +47,24 @@ proficiency-level: Intermediate
 -   Chapter 6: Merged the two MVC chapters into one (2nd ed. Chapter 4 and 5) with a focus on REST APIs.
 -   The same new, real-world oriented code example is used with both Minimal APIs (Chapter 5) and MVC (Chapter 6), allowing readers to compare the two implementations.
 
-# Chapter 7
+## Chapter 7
 
--   ...
+-   Minor changes improving the explanations, descriptions, and the flow.
+
+**Strategy:**
+
+-   Replaced the Strategy console app by a minimal API app.
+
+**AbstractFactory:**
+
+-   Rename HighGrade and LowGrade by HighEnd and LowEnd for more proper English. Also renamed MiddleGrade & MiddleEnd to MidRange.
+-   Simplify tests to make them easier to read. Converted the `Theory` to `Fact`.
+-   Simplified the projects and solutions structure (kept only one solution).
+-   Grouped the classes by familly instread of by "layers". The folders went from (root, models) to (root{abstractions}, HighEnd, LowEnd, MidRange).
+
+**Singleton:**
+
+-   Use the null-coalescing assignment operator `??=` instead of a `if` block.
 
 # New Outline
 
