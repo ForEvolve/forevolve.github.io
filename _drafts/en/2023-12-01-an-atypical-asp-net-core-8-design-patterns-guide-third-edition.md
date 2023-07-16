@@ -22,10 +22,11 @@ proficiency-level: Intermediate
 -   Renamed and reworked the sections
 -   Removed Section 5 and all (or most?) UI code and moved the focus of the book purely on REST APIs instead.
 -   Consolidated on using the term `REST APIs` instead of `web APIs`, since `web APIs` can be confused with Browsers web APIs (like local storage).
--   Refactored pararaphs into lists into tables to improve clarity.
+-   Refactored pararaphs into lists into **tables** to improve clarity.
 -   Refactored many section heading to improve navigation to a specific subject.
--   Reviewed the questions and answers of many chapters.
+-   Reviewed the questions and answers of many chapters; lot's of improvements.
 -   Reviewed the introduction, section conclusions, and chapter summary of multiple chapters.
+-   Lots of code formatting improvements.
 
 ## Chapter 2
 
@@ -65,6 +66,34 @@ proficiency-level: Intermediate
 **Singleton:**
 
 -   Use the null-coalescing assignment operator `??=` instead of a `if` block.
+
+## Chapter 8
+
+-   Reordered and reworked the Dependency Injection theory section.
+-   Rewrote and improved the code sample and most of the Strategy section, including Constructor/Property/Method injection, and Guard clauses.
+-   Extracted Guard clauses into its own top-level section
+-   Updated the project Application state.
+-   Talk quickly about the new .NET 8 `TimeProvider` (wishlist project).
+-   Rewrote the factory section and updated the code to reflect the new Strategy code. (the old code could be a good blog post).
+-   Rewrote the summary to reflect the new content and added a list of Key takeaways.
+
+## Chapter 9
+
+-   Split the chapter in two.
+-   Rewrote most of the options chapter, including code samples. Made them clearer, shorter, more consise, and more "building-block-oriented".
+-   Add a code sample about the IOptionsMonitor.OnChange method.
+-   Add a code sample about centralizing the configuration and validation into the options class.
+-   Add a section about .NET 8 configuration-binding source generator
+-   Add a section about .NET 8 options validation source generator
+-   Add a section about ValidateOptionsResultBuilder
+
+## Chapter 10
+
+-   No significant changes
+
+## Chapter 11
+
+-   ...
 
 # New Outline
 
