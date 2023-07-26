@@ -93,7 +93,28 @@ proficiency-level: Intermediate
 
 ## Chapter 11
 
--   ...
+-   Rewrote the Book Store UI into an API (Composite Pattern)
+-   Removed the ultra-large bookstore diagram and simplified it
+-   Updated the bookstore data structure to reflect the API focus
+-   Renamed the corporation and bookstores, added managers, and improved locations
+
+## Chapter 12
+
+**Template method**
+
+-   Added two test cases in a new test project
+-   Corrected a bug in the code
+-   Refactor the LinearSearchMachine algo
+
+**Chain of Responsibilities**
+
+-   Improved the text by adding a few more steps to the example.
+-   Extracted "Mixing the Template Method and Chain of Responsibility patterns" to its own section.
+
+**Mixing the Template Method and Chain of Responsibility patterns**
+
+-   New section
+-   Improved flow and reworked some explanations.
 
 # New Outline
 
