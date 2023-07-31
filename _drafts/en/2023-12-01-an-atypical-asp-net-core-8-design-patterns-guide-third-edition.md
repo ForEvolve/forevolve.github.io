@@ -116,6 +116,19 @@ proficiency-level: Intermediate
 -   New section
 -   Improved flow and reworked some explanations.
 
+## Chapter 13
+
+-   Minor tweaks
+-   Added a few questions
+
+## Chapter 14
+
+-   Minor text tweaks
+
+## Chapter 15
+
+-   .
+
 # New Outline
 
 ```
