@@ -127,7 +127,8 @@ proficiency-level: Intermediate
 
 ## Chapter 15
 
--   .
+-   Improved the headings
+-   Add an example using Mapperly
 
 # New Outline
 
