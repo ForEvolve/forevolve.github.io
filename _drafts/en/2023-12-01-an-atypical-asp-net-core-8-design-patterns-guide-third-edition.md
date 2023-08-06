@@ -130,6 +130,13 @@ proficiency-level: Intermediate
 -   Improved the headings
 -   Add an example using Mapperly
 
+# Chapter 16
+
+-   Few code tweaks, including the use of record classes instead of regular classes in the Mediator examples.
+-   Renamed the pattern CQS from CQRS; even if it was true before, it's more precise now since CQS is a subset of CQRS.
+-   Promoted the Code Smell – Marker Interfaces section to Heading 1.
+-   Updated MediatR to version 12 (from v9).
+
 # New Outline
 
 ```
