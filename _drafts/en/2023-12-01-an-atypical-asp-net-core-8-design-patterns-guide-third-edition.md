@@ -137,6 +137,13 @@ proficiency-level: Intermediate
 -   Promoted the Code Smell – Marker Interfaces section to Heading 1.
 -   Updated MediatR to version 12 (from v9).
 
+# Chapter 17
+
+-   Update dependencies of the project to the latest versions (including a few breaking changes).
+-   Refactor the headings, promoting `Anti-pattern – Big Ball of Mud` and `Continuing your journey` as level 1 sections.
+-   Updated all diagrams (improved contrasts to some of them, making them more accessible).
+-   Removed the custom FluentValidation & MediatR code to make validation work as it now works out of the box. Deleted the `FluentValidationExceptionFilter` (`IExceptionFilter`) class and the `ThrowFluentValidationExceptionBehavior<TRequest, TResponse>` (`IPipelineBehavior<TRequest, TResponse>`) class. Removed the need to register the validators as `ServiceLifetime.Singleton`.
+
 # New Outline
 
 ```
