@@ -144,6 +144,13 @@ proficiency-level: Intermediate
 -   Updated all diagrams (improved contrasts to some of them, making them more accessible).
 -   Removed the custom FluentValidation & MediatR code to make validation work as it now works out of the box. Deleted the `FluentValidationExceptionFilter` (`IExceptionFilter`) class and the `ThrowFluentValidationExceptionBehavior<TRequest, TResponse>` (`IPipelineBehavior<TRequest, TResponse>`) class. Removed the need to register the validators as `ServiceLifetime.Singleton`.
 
+# Chapter 18
+
+-   A brand new chapter about Request-EndPoint-Response (REPR) & Minimal API.
+-   Defines the pattern.
+-   Organize the code in different ways using only Minimal APIs.
+-   Explore a larger project that includes exception handling, object mapping, and grey-box testing.
+
 # New Outline
 
 ```
