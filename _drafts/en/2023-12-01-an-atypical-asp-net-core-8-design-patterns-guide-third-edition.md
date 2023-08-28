@@ -151,6 +151,13 @@ proficiency-level: Intermediate
 -   Organize the code in different ways using only Minimal APIs.
 -   Explore a larger project that includes exception handling, object mapping, and grey-box testing.
 
+# Chapter 19
+
+-   Minor updates throughout the chapter.
+-   Add a BFF example that fronts the Chapter 18 REPR example and showcases API layering (low-level operation in Chapter 18 and higher-level logic/operation in Chapter 19). 30 pages
+-   Remake the Adapter section images.
+-   Add an _Advantages and potential risks_ section under CQRS.
+
 # New Outline
 
 ```
