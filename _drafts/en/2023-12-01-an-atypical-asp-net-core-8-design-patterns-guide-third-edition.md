@@ -158,6 +158,13 @@ proficiency-level: Intermediate
 -   Remake the Adapter section images.
 -   Add an _Advantages and potential risks_ section under CQRS.
 
+# Chapter 20
+
+-   New chapter about Modular Monolith.
+-   Takes the nano-e-commerce app from Chapter 18 and 19 and makes it a modular monolith.
+-   Adapt the code of the BFF to front the Monolith.
+-   Add in-process EDA to synchronize the two domains (cart and catalog) using MassTransit.
+
 # New Outline
 
 ```
