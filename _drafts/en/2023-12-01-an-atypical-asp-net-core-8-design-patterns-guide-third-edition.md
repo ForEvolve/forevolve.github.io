@@ -130,35 +130,35 @@ proficiency-level: Intermediate
 -   Improved the headings
 -   Add an example using Mapperly
 
-# Chapter 16
+## Chapter 16
 
 -   Few code tweaks, including the use of record classes instead of regular classes in the Mediator examples.
 -   Renamed the pattern CQS from CQRS; even if it was true before, it's more precise now since CQS is a subset of CQRS.
 -   Promoted the Code Smell – Marker Interfaces section to Heading 1.
 -   Updated MediatR to version 12 (from v9).
 
-# Chapter 17
+## Chapter 17
 
 -   Update dependencies of the project to the latest versions (including a few breaking changes).
 -   Refactor the headings, promoting `Anti-pattern – Big Ball of Mud` and `Continuing your journey` as level 1 sections.
 -   Updated all diagrams (improved contrasts to some of them, making them more accessible).
 -   Removed the custom FluentValidation & MediatR code to make validation work as it now works out of the box. Deleted the `FluentValidationExceptionFilter` (`IExceptionFilter`) class and the `ThrowFluentValidationExceptionBehavior<TRequest, TResponse>` (`IPipelineBehavior<TRequest, TResponse>`) class. Removed the need to register the validators as `ServiceLifetime.Singleton`.
 
-# Chapter 18
+## Chapter 18
 
 -   A brand new chapter about Request-EndPoint-Response (REPR) & Minimal API.
 -   Defines the pattern.
 -   Organize the code in different ways using only Minimal APIs.
 -   Explore a larger project that includes exception handling, object mapping, and grey-box testing.
 
-# Chapter 19
+## Chapter 19
 
 -   Minor updates throughout the chapter.
 -   Add a BFF example that fronts the Chapter 18 REPR example and showcases API layering (low-level operation in Chapter 18 and higher-level logic/operation in Chapter 19). 30 pages
 -   Remake the Adapter section images.
 -   Add an _Advantages and potential risks_ section under CQRS.
 
-# Chapter 20
+## Chapter 20
 
 -   New chapter about Modular Monolith.
 -   Takes the nano-e-commerce app from Chapter 18 and 19 and makes it a modular monolith.
@@ -175,22 +175,22 @@ Section 1: Principles and Methodologies
 4. REST APIs
 
 Section 2: Designing with ASP.NET Core
-5. Minimal APIs
-6. MVC
-7. Strategy, Abstract Factory, and Singleton
+5. Minimal API
+6. Model-View-Controller
+7. Strategy, Abstract Factory, and Singleton Design Patterns
 8. Dependency Injection
-9. Options, Settings, and Configuration
-10. Logging
+9. Application Configuration and the Options Pattern
+10. Logging patterns
 
 Section 3: Components patterns
 11. Structural Patterns
 12. Behavioral Patterns
-13. Operation Result
+13. Operation Result Pattern
 
 Section 4: Applications patterns
 14. Layering and Clean Architecture
 15. Object Mappers, Aggregate Services, and Façade
-16. Mediator and CQRS
+16. Mediator and CQRS Patterns
 17. Vertical Slice Architecture
 18. Request-EndPoint-Response (REPR)
 19. Introduction to Microservices Architecture
