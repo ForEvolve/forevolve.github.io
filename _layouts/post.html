@@ -24,7 +24,7 @@ pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page
                     {%- endif -%}
                 {%- endif -%}
                 <header class="intro-header">
-                    <div class="hidden-xs intro-header-buy-net5-book">{%- include buy-net5-book.html -%}</div>
+                    <div class="hidden-xs intro-header-buy-net5-book">{%- include buy-net5-book.html limit=1 -%}</div>
 
 
                     <div class="post-heading">

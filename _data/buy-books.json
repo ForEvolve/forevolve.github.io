@@ -1,5 +1,12 @@
 [
     {
+        "linkHref": "https://adpg.link/buy8",
+        "bookTitle": "Architecting ASP.NET Core Applications: An Atypical Design Patterns Guide for .NET 8, C# 12, and Beyond, 3rd Edition",
+        "imageSrc": "//cdn.forevolve.com/blog/images/net8-book-cover/ADPG-NET8-book-cover-200.png",
+        "amazonExt": "",
+        "enabled": true
+    },
+    {
         "linkHref": "https://adpg.link/buycom6",
         "bookTitle": "An Atypical ASP.NET Core 6 Design Patterns Guide: A SOLID adventure into architectural principles and design patterns using .NET 6 and C# 10, 2nd Edition",
         "imageSrc": "//cdn.forevolve.com/blog/images/net6-book-cover/ADPG-NET6-book-cover-200.png",

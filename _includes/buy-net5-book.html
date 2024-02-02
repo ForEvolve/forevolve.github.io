@@ -1,4 +1,8 @@
-{%- for book in site.data.buy-books -%}
+{%- assign limit = 10 -%}
+{%- if include.limit -%}
+    {%- assign limit = include.limit -%}
+{%- endif -%}
+{%- for book in site.data.buy-books limit: limit -%}
 {%- if book.enabled -%}
 <aside class="book">
     <a
