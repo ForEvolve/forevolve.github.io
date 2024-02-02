@@ -27,6 +27,7 @@ proficiency-level: Intermediate
 -   Reviewed the questions and answers of many chapters; lot's of improvements.
 -   Reviewed the introduction, section conclusions, and chapter summary of multiple chapters.
 -   Lots of code formatting improvements.
+-   Removed grid background in diagrams
 
 ## Chapter 2
 
@@ -40,6 +41,7 @@ proficiency-level: Intermediate
 -   Reorder subjects, starting with separation of concerns, DRY, and KISS instead of SOLID. Moved SOLID after.
 -   Rewrite SOLID code samples. They are now simpler and more enterprise focused than game focused.
 -   Rewrite the covariant and contravariant explanation and sample using generics.
+-   PLANNED: Add "you aren’t gonna need it (YAGNI) principle"
 
 ## Chapter 4-6
 
@@ -120,6 +122,7 @@ proficiency-level: Intermediate
 
 -   Minor tweaks
 -   Added a few questions
+-   Added a life-like code sample to wrap the chapter
 
 ## Chapter 14
 
@@ -204,3 +207,8 @@ Section 4: Applications patterns
 **TODO:**
 #2: add an info box about minimal hosting and the new Chapter 4 to explain readers that don't know about that, that we will talk about it there.
 ```
+
+# Wave 2
+
+-   Replaced code sample in Chapter 10 (logging)
+-   Replaced code sample in Chapter 11 (facade)
