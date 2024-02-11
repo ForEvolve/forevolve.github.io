@@ -22,6 +22,10 @@
             "language": "markdown",
             "scheme": "file",
             "pattern": "_drafts/en/2023-12-01-an-atypical-asp-net-core-8-design-patterns-guide-third-edition.md"
+        },
+        {
+            "language": "jekyll",
+            "scheme": "file"
         }
     ],
     "[markdown]": {
