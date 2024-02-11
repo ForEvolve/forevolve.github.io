@@ -2,9 +2,9 @@
 title: 'Architecting ASP.NET Core Applications'
 subtitle: "Unveiling the Third Edition"
 date: 2024-02-01 00:00:00 -0500
-post-img: 'img/2024-02-Book3-release.png'
-# og-img: '//cdn.forevolve.com/blog/images/articles-header/2022-05-Book2-release-LinkedIn.png'
-# twitter-img: '//cdn.forevolve.com/blog/images/articles-header/2022-05-Book2-release-LinkedIn.png'
+post-img: '//cdn.forevolve.com/blog/images/articles-header/2024-02-Book3-release.png'
+og-img: '//cdn.forevolve.com/blog/images/articles-header/2024-02-Book3-release-LinkedIn.png'
+twitter-img: '//cdn.forevolve.com/blog/images/articles-header/2024-02-Book3-release-LinkedIn.png'
 lang: en
 categories: en/articles
 tags:
@@ -44,7 +44,7 @@ Section 3: Components Patterns
 12. Behavioral Patterns
 13. Operation Result Pattern
 
-Section 4: Applications Patterns
+Section 4: Application Patterns
 14. Layering and Clean Architecture
 15. Object Mappers, Aggregate Services, and Façade
 16. Mediator and CQS Patterns
@@ -71,7 +71,7 @@ Chapter 2 has been overhauled to cover testing approaches like black-box, white-
 
 I improved and increased the number of real-world-like examples where numerous code projects have been updated or rewritten completely. The Dependency Injection chapter benefited from significant updates as well. I split the options and logging chapter in two, and improved the content. 
 
-Many other changes were applied, like improving the heading of chapters for easier navigation, and all chapters benefitted from content tweaks, image updates, code sample revamps, and more. On top of that, I added new content around tools like Mapperly and MassTransit.
+Many other changes were applied, like improving the heading of chapters for easier navigation, and all chapters benefitted from content tweaks, image updates, code sample revamps, and more. On top of that, I added new content around tools like Mapperly, MassTransit, and Refit.
 
 On top of that, Chapter 18 is a new chapter dedicated to the Request-EndPoint-Response (REPR) pattern using Minimal APIs. Chapter 19, Microservices, extends the REPR code sample to microservices architecture and API layering with a Backend For Frontend (BFF) example. Then, Chapter 20 discusses modular monolith architecture and builds on top of Chapters 18 and 19's new e-commerce examples. That last project, rebuilt in three flavors, is a larger implementation that combines more building blocks like a real app would.
 

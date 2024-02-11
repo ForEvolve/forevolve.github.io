@@ -13,7 +13,7 @@ tags:
 proficiency-level: Intermediate
 ---
 
-...
+...<!--more-->
 
 # What's new and what's changed?
 
