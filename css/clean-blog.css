@@ -439,9 +439,16 @@ body {
 }
 .technology-relative-level,
 .proficiency-level,
+.ai-assisted,
 .tags,
 .languages {
   margin-top: 0.5em;
+}
+.ai-assisted {
+  font-size: 0.8em;
+}
+.ai-assisted small {
+  font-style: italic;
 }
 .post-content img.emoji,
 .post-preview img.emoji {
@@ -792,7 +799,7 @@ section.multi-section section:nth-child(n + 2) header {
 }
 .intro-header-buy-net5-book {
   float: right;
-  width: 250px;
+  width: 125px;
   padding: 0 0 25px;
   margin: 0 0 0 25px;
 }
@@ -821,7 +828,6 @@ aside.book a {
   text-decoration: none;
 }
 .post-content .intro-header aside.book {
-  width: 48%;
   display: inline-block;
 }
 .post-content .intro-header aside.book small {

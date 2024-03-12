@@ -8,7 +8,9 @@ The blog content is Copyright (c) 2017 Carl-Hugo Marcotte under Creative Commons
 
 ```
 jekyll serve --watch
-grunt watch
+npx grunt
+npx grunt watch
+~~grunt watch~~
 jekyll serve --watch --drafts
 bundle exec jekyll serve --watch --drafts
 bundle exec jekyll serve --watch --drafts --incremental --future
