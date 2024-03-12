@@ -65,7 +65,7 @@ pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page
                         >
                         <small>({{ level.short-description }})</small>
                     </aside>
-                    {% endif %} {%- include technology-relative-level-list.html technology-relative-level=page.technology-relative-level -%}
+                    {% endif %} {%- include technology-relative-level-list.html technology-relative-level=page.technology-relative-level -%}                    
                     {% if page.tags[0] %}
                     <aside class="tags">
                         <i class="glyphicon glyphicon-tags"></i>
@@ -80,6 +80,13 @@ pages=site.pages | where:"ref", page.ref | where_exp: "item", "item.lang != page
                         <figcaption>{{ page.unsplash-credit }}</figcaption>
                         {%- endif -%}
                     </figure>
+                    {% endif %}
+                    {% if page.ai-assisted %}
+                    <aside class="ai-assisted">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <strong>AI-assisted content:</strong>
+                        <small>An AI assisted a human in developing portions of this article. A human refined and edited the content for accuracy and clarity.</small>
+                    </aside>
                     {% endif %}
                 </header>
 
