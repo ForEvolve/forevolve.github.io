@@ -1,7 +1,7 @@
 ---
 title: 'Architecting ASP.NET Core Applications'
 subtitle: 'Unveiling the Third Edition'
-date: 2024-02-01 00:00:00 -0500
+date: 2024-03-12 00:00:00 -0500
 post-img: '//cdn.forevolve.com/blog/images/articles-header/2024-02-Book3-release.png'
 og-img: '//cdn.forevolve.com/blog/images/articles-header/2024-02-Book3-release-LinkedIn.png'
 twitter-img: '//cdn.forevolve.com/blog/images/articles-header/2024-02-Book3-release-LinkedIn.png'
