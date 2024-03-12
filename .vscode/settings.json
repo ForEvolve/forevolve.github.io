@@ -10,22 +10,12 @@
     "grammarly.selectors": [
         {
             "language": "jekyll",
-            "scheme": "file",
-            "pattern": "_drafts/en/2022-05-28-an-atypical-asp-net-core-6-design-patterns-guide-second-edition.md"
-        },
-        {
-            "language": "markdown",
-            "scheme": "file",
-            "pattern": "_drafts/en/2022-05-28-an-atypical-asp-net-core-6-design-patterns-guide-second-edition.md"
-        },
-        {
-            "language": "markdown",
-            "scheme": "file",
-            "pattern": "_drafts/en/2023-12-01-an-atypical-asp-net-core-8-design-patterns-guide-third-edition.md"
-        },
-        {
-            "language": "jekyll",
             "scheme": "file"
+        },
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "_drafts/en/2024-02-01-an-atypical-asp-net-core-8-design-patterns-guide-third-edition-unveiling.md"
         }
     ],
     "[markdown]": {
