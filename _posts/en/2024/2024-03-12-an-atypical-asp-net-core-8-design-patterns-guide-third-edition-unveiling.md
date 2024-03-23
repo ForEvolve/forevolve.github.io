@@ -60,7 +60,7 @@ Have you noticed? We removed the UI chapters and replaced them with more REST AP
 Yes! This third edition is a testament to our commitment to relevancy and depth, which is now exclusively focused on developers striving for robust REST API and backend design knowledge.
 
 <aside>
-    <header>Definition of some terms and acronyms</header>
+    <header>Definition of terms and acronyms</header>
     <p markdown="1">
         If there are terms, acronyms, or concepts you are unsure about, I left a list at the end of the article under [Definition of some terms and acronyms](#definition-of-some-terms-and-acronyms).
     </p>
@@ -126,7 +126,7 @@ For the best experience, I recommend you read the book cover to cover first to e
 
 Join me on an exceptional learning path that will revolutionize your ASP.NET Core application architecture perspective. The third edition awaits you, promising a transformative encounter with REST API and backend design unlike anything you’ve experienced before.
 
-## Definition of some terms and acronyms
+## Definition of terms and acronyms
 
 Here is a reference to certain terms and acronyms from the article.
 Hopefully, these definitions will help you out.
