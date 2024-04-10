@@ -1934,3 +1934,17 @@ aside.new-article-version > header {
   padding-bottom: 20px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+a.social-button-inline {
+  border: 1px solid #EFEFEF;
+  margin: 0 0 25px;
+  padding: 15px;
+  border-radius: 15px;
+  text-decoration: none;
+  padding: 0.25em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  border-color: #007f00;
+}
+a.social-button-inline > .fa-stack.fa-lg {
+  font-size: 0.5em;
+}
